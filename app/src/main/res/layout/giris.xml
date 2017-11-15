@@ -21,20 +21,22 @@
             android:layout_weight="0.00">
 
             <TextView
+                android:id="@+id/giristitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Giriş Yap"
                 android:layout_marginLeft="50dp"
-                android:layout_marginTop="10dp"
-                android:layout_toRightOf="@+id/girisgeri"
-                android:id="@+id/giristitle"
+                android:layout_marginTop="20dp"
+                android:layout_toRightOf="@+id/geribtn"
+                android:text="Giriş Yap"
+                android:textSize="24sp"
+                android:textColor="@android:color/white"
                 />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
-                android:id="@+id/girisgeri"
+                android:id="@+id/geribtn"
                 android:background="@drawable/turnback"
                 android:backgroundTint="@android:color/white"
                 />
@@ -53,27 +55,31 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Tekrar Hoşgeldiniz!"
                 android:layout_alignParentTop="true"
-                />
+                android:text="Tekrar Hoşgeldiniz!"
+                android:textColor="@android:color/white"
+                android:textSize="18sp" />
 
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:text="Seni tekrar görmek harika. " />
+                android:text="Seni tekrar görmek harika. "
+                android:textColor="@android:color/white"
+                android:textSize="18sp" />
 
         </RelativeLayout>
 
 
 
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.12"
             android:layout_marginTop="50dp"
+            android:orientation="vertical"
             >
 
             <TextView
@@ -82,12 +88,12 @@
                 android:text="E-Posta Adresi"
 
 
-                />
+                android:textSize="18sp" />
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="5dp"
 android:id="@+id/giriseposta"
                 />
 
@@ -98,19 +104,19 @@ android:id="@+id/giriseposta"
                 android:layout_below="@+id/giriseposta"
                 android:text="Şifre"
 
-                />
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/girissifre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
+android:layout_marginTop="5dp"
                 android:layout_below="@+id/sifre" />
 
 
 
 
-        </RelativeLayout>
+        </LinearLayout>
 
 
         <RelativeLayout

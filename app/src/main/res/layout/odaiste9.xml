@@ -12,7 +12,6 @@
 
 
         <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar14"
             android:layout_width="match_parent"
             android:layout_height="65dp"
             android:layout_weight="0.06"
@@ -22,7 +21,6 @@
 
 
             <Button
-                android:id="@+id/button26"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
@@ -30,7 +28,6 @@
                 android:backgroundTint="@android:color/white" />
 
             <TextView
-                android:id="@+id/textView20"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"

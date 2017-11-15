@@ -23,19 +23,19 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Sıfırla"
-
-                android:layout_toRightOf="@+id/girisgeri"
                 android:layout_marginLeft="50dp"
+
                 android:layout_marginTop="10dp"
-                android:id="@+id/giristitle"
-                />
+                android:layout_toRightOf="@+id/geribtn"
+                android:text="Sıfırla"
+                android:textColor="@android:color/white"
+                android:textSize="24sp" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
-                android:id="@+id/girisgeri"
+                android:id="@+id/geribtn"
                 android:background="@drawable/turnback"
                 android:backgroundTint="@android:color/white"
                 />

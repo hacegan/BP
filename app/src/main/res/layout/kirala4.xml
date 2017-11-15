@@ -9,17 +9,14 @@
         android:orientation="horizontal">
 
 
-
         <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar17"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/colorPrimary"
             android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme" >
+            android:theme="?attr/actionBarTheme">
 
             <Button
-                android:id="@+id/button37"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/turnback"
@@ -27,7 +24,6 @@
 
 
             <TextView
-                android:id="@+id/textView23"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -47,17 +43,14 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/editText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="200dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Posta Kodu 34100 gibi"
-            android:layout_marginTop="200dp"
-            />
+            android:text="Posta Kodu 34100 gibi" />
 
         <Button
-            android:id="@+id/button36"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/holo_blue_bright"

@@ -64,7 +64,6 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/button2"
             android:layout_width="187dp"
             android:layout_height="match_parent"
             android:background="@android:color/holo_blue_bright"
@@ -72,7 +71,6 @@
             android:textColor="@android:color/white" />
 
         <Button
-            android:id="@+id/button3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="5dp"

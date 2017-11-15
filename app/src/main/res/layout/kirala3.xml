@@ -10,32 +10,28 @@
         android:layout_height="80dp"
         android:orientation="horizontal">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar16"
-        android:layout_width="match_parent"
-        android:layout_height="77dp"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme" >
-
-
-        <Button
-            android:id="@+id/button33"
-            android:layout_width="95dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:background="@drawable/turnback"
-            android:backgroundTint="@android:color/white" />
-
-        <TextView
-            android:id="@+id/textView22"
+        <android.support.v7.widget.Toolbar
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:text="Şimdi mülkte misin?"
-            android:textColor="@android:color/white"
-            android:textSize="24sp" />
+            android:layout_height="77dp"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme">
 
+
+            <Button
+                android:layout_width="95dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:background="@drawable/turnback"
+                android:backgroundTint="@android:color/white" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="Şimdi mülkte misin?"
+                android:textColor="@android:color/white"
+                android:textSize="24sp" />
 
 
         </android.support.v7.widget.Toolbar>
@@ -49,11 +45,9 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/imageView8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/location"
-            />
+            app:srcCompat="@drawable/location" />
 
     </LinearLayout>
 
@@ -63,14 +57,12 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/button34"
             android:layout_width="179dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="EVET" />
 
         <Button
-            android:id="@+id/button35"
             android:layout_width="179dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"

@@ -4,34 +4,12 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/button25"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Button" />
-
     <TextView
-        android:id="@+id/textView19"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
-
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar13"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme" />
-
-    <TextView
-        android:id="@+id/textView24"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView" />
 
     <EditText
-        android:id="@+id/editText3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -39,13 +17,11 @@
         android:text="Name" />
 
     <TextView
-        android:id="@+id/textView25"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView" />
 
     <EditText
-        android:id="@+id/editText4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -53,7 +29,6 @@
         android:text="Name" />
 
     <Button
-        android:id="@+id/button41"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Button" />

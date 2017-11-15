@@ -44,7 +44,6 @@
 
 
     <ImageView
-        android:id="@+id/imageView9"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
@@ -57,13 +56,11 @@
         android:text="Haftanın 7 Günü" />
 
     <Button
-        android:id="@+id/button39"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Hafta İçi" />
 
     <Button
-        android:id="@+id/button40"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Hafta Sonu" />

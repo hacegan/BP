@@ -53,42 +53,36 @@
             android:orientation="vertical" >
 
             <CheckBox
-                android:id="@+id/checkBox8"
                 android:layout_width="match_parent"
                 android:layout_height="69dp"
                 android:drawableLeft="@drawable/moustache"
                 android:text="Erkekler ile" />
 
             <CheckBox
-                android:id="@+id/checkBox7"
                 android:layout_width="match_parent"
                 android:layout_height="72dp"
                 android:drawableLeft="@drawable/lip"
                 android:text="KIzlar ile" />
 
             <CheckBox
-                android:id="@+id/checkBox6"
                 android:layout_width="match_parent"
                 android:layout_height="98dp"
                 android:drawableLeft="@drawable/smoke"
                 android:text="Sigara içenler ile" />
 
             <CheckBox
-                android:id="@+id/checkBox4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/bag_big"
                 android:text="Çalışanlar ile" />
 
             <CheckBox
-                android:id="@+id/checkBox5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/book_big"
                 android:text="Öğrenciler ile" />
 
             <CheckBox
-                android:id="@+id/checkBox3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/pet"
@@ -98,12 +92,11 @@
 
 
     <Button
-        android:id="@+id/button17"
         android:layout_width="match_parent"
         android:layout_height="34dp"
+        android:layout_weight="0.29"
         android:background="@android:color/holo_blue_bright"
         android:text="Onayla ve Devam Et"
-        android:textColor="@android:color/white"
-        android:layout_weight="0.29" />
+        android:textColor="@android:color/white" />
 
 </LinearLayout>

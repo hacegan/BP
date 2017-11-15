@@ -17,9 +17,10 @@
             android:weightSum="1">
 
             <Button
+                android:id="@+id/geribtn"
                 android:layout_width="146dp"
-                android:layout_height="57dp"
 
+                android:layout_height="57dp"
                 android:layout_alignParentLeft="true"
                 android:layout_weight="0.78"
                 android:background="@drawable/turnback"

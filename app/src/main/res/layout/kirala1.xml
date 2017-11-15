@@ -58,14 +58,14 @@
             android:layout_height="wrap_content"
             android:layout_gravity="top"
             android:layout_marginTop="200dp"
-            app:srcCompat="@drawable/Flat" />
+            app:srcCompat="@drawable/flat" />
 
         <ImageButton
             android:id="@+id/imageButton9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            app:srcCompat="@drawable/House"
+            app:srcCompat="@drawable/house"
 
             />
 

@@ -63,7 +63,7 @@
                 android:id="@+id/checkBox7"
                 android:layout_width="match_parent"
                 android:layout_height="72dp"
-                android:drawableLeft="@drawable/Lip"
+                android:drawableLeft="@drawable/lip"
                 android:text="KIzlar ile" />
 
             <CheckBox
@@ -77,14 +77,14 @@
                 android:id="@+id/checkBox4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/Bag_Big"
+                android:drawableLeft="@drawable/bag_big"
                 android:text="Çalışanlar ile" />
 
             <CheckBox
                 android:id="@+id/checkBox5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/Book_Big"
+                android:drawableLeft="@drawable/book_big"
                 android:text="Öğrenciler ile" />
 
             <CheckBox

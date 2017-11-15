@@ -48,7 +48,7 @@
         android:layout_width="match_parent"
         android:layout_height="185dp"
         android:layout_marginTop="100dp"
-        app:srcCompat="@drawable/MyAd"
+        app:srcCompat="@drawable/myad"
         android:layout_weight="0.03" />
 
     <Button

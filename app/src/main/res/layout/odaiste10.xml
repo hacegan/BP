@@ -55,7 +55,7 @@
             android:layout_height="141dp"
             android:layout_marginTop="100dp"
             android:background="@android:color/holo_blue_bright"
-            app:srcCompat="@drawable/Community" />
+            app:srcCompat="@drawable/community" />
 
         <TextView
             android:id="@+id/textView6"

@@ -10,14 +10,12 @@
         android:orientation="horizontal">
 
 
-
         <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar17"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/colorPrimary"
             android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme" >
+            android:theme="?attr/actionBarTheme">
 
             <Button
                 android:id="@+id/geribtn"
@@ -47,31 +45,26 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView34"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView" />
 
         <EditText
-            android:id="@+id/editText7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="number" />
 
         <SeekBar
-            android:id="@+id/seekBar4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <TextView
-            android:id="@+id/textView35"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView" />
 
         <Button
-            android:id="@+id/button55"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Button" />

@@ -43,13 +43,11 @@
         android:layout_weight="0.20">
 
         <TextView
-            android:id="@+id/textView36"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView" />
 
         <SeekBar
-            android:id="@+id/seekBar5"
             style="@style/Widget.AppCompat.SeekBar.Discrete"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -57,13 +55,11 @@
             android:progress="3" />
 
         <TextView
-            android:id="@+id/textView37"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView" />
 
         <Button
-            android:id="@+id/button58"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Button" />

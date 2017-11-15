@@ -26,6 +26,8 @@
                 android:text="Sıfırla"
 
                 android:layout_toRightOf="@+id/girisgeri"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="10dp"
                 android:id="@+id/giristitle"
                 />
 
@@ -34,7 +36,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:id="@+id/girisgeri"
-
+                android:background="@drawable/turnback"
+                android:backgroundTint="@android:color/white"
                 />
 
 

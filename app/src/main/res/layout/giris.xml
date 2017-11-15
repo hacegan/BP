@@ -24,7 +24,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Giriş Yap"
-
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="10dp"
                 android:layout_toRightOf="@+id/girisgeri"
                 android:id="@+id/giristitle"
                 />
@@ -34,7 +35,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:id="@+id/girisgeri"
-
+                android:background="@drawable/turnback"
+                android:backgroundTint="@android:color/white"
                 />
 
 
@@ -59,9 +61,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Seni tekrar görmek harika. Umarız aramanız iyi gidiyodur."
                 android:layout_alignParentBottom="true"
-                />
+                android:text="Seni tekrar görmek harika. " />
 
         </RelativeLayout>
 

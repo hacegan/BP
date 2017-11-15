@@ -21,14 +21,17 @@
                 android:id="@+id/geribtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Button" />
+                android:background="@drawable/turnback"
+                android:backgroundTint="@android:color/white" />
 
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Posta Kodunuzu Girin" />
+                android:text="Posta Kodunuzu Girin"
+                android:textColor="@android:color/white"
+                android:textSize="24sp" />
 
         </android.support.v7.widget.Toolbar>
     </LinearLayout>
@@ -38,7 +41,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="452dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <ScrollView

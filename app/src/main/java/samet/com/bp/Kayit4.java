@@ -87,54 +87,12 @@ TextView tv;
                     editor.commit();
                 }
 
-/*
-                StringRequest stringRequest=new StringRequest(Request.Method.POST,server_url,
-                        new Response.Listener<String>(){
-                            @Override
-                            public void onResponse(String response) {
-                                try {
-                                    JSONArray jsonArray=new JSONArray(response);
-                                    JSONObject jsonObject=jsonArray.getJSONObject(0);
-                                 code   =jsonObject.getString("code");
-                                    //String message=jsonObject.getString("message");
-
-
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
-                                }
+ new SignInUpActivity(getApplicationContext(),1).execute(email,isim,sifre);
 
 
 
-                            }
-                        }
-,new Response.ErrorListener(){
-
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        error.printStackTrace();
-                    }
-                }){
-                    @Override
-                    protected Map<String, String> getParams() throws AuthFailureError {
-                        Map<String,String> params=new HashMap<String, String>();
-                        params.put("email",email);
-                        params.put("name",isim);
-                        params.put("password",sifre);
-
-
-                        return params;
-                    }
-                };
-
-
-                MySingleton.getmInstance(Kayit4.this).addTorequestque(stringRequest);
-
-             /*   if(code=="Register_success"){
-                    Intent intent=new Intent(Kayit4.this,UserMainActivity.class);
-                    startActivity(intent);
-                }*/
-                Intent intent=new Intent(Kayit4.this,UserMainActivity.class);
-                startActivity(intent);
+              //  Intent intent=new Intent(Kayit4.this,UserMainActivity.class);
+              //  startActivity(intent);
 
 
 

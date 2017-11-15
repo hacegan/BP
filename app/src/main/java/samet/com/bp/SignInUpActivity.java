@@ -27,7 +27,7 @@ public class SignInUpActivity   extends AsyncTask{
     private int byGetOrPost = 0;
 
     public SignInUpActivity(Context context, int byGetOrPost) {
-        this.context = context.getApplicationContext();
+        this.context = context;
         this.byGetOrPost = byGetOrPost;
     }
 

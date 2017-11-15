@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -27,6 +28,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -38,9 +43,10 @@ public class Kayit4 extends Activity {
     CheckBox kayitchkbir,kayitchkiki;
 String isim,sifre,email;
 TextView tv;
-    String server_url="http://samet822.heliohost.org/kayitetme.php";
+    String server_url="http://192.168.1.33/kayit.php";
     AlertDialog.Builder builder;
     static String code;
+    String sonuc;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -87,12 +93,7 @@ TextView tv;
                     editor.commit();
                 }
 
- new SignInUpActivity(getApplicationContext(),1).execute(email,isim,sifre);
 
-
-
-              //  Intent intent=new Intent(Kayit4.this,UserMainActivity.class);
-              //  startActivity(intent);
 
 
 
@@ -101,4 +102,75 @@ TextView tv;
 
 
     }
+
+
+
+    public class RegisterTask extends AsyncTask{
+
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected void onPostExecute(Object o) {
+           // super.onPostExecute(o);
+
+            if(sonuc.equals("Bu kullanici zaten kayitli lütfen giris yapin ! ")){
+                // Toast.makeText("")
+            }
+            else if(sonuc.equals("")){
+                Toast.makeText(getApplicationContext(),"Kullanici Eklenemedi . ",Toast.LENGTH_LONG).show();
+            }
+
+
+            else  {
+                Toast.makeText(getApplicationContext(),"Email kayitli değil . Lütfen kayit olun !  ",Toast.LENGTH_LONG).show();
+            }
+
+
+        }
+
+        @Override
+        protected Object doInBackground(Object[] params) {
+
+            try{
+                URL url=new URL(server_url);
+                HttpURLConnection con= (HttpURLConnection) url.openConnection();
+                con.setRequestMethod("GET");
+                con.connect();
+
+                BufferedReader bf=new BufferedReader(new InputStreamReader(con.getInputStream()));
+                sonuc=bf.readLine();
+                System.out.println(sonuc);
+
+               /* StringBuilder sb = new StringBuilder();
+                String line = null;
+
+                // Read Server Response
+                while((line = bf.readLine()) != null) {
+                    sb.append(line);
+                    break;
+                }
+
+
+                System.out.println(sb);*/
+
+            }
+            catch (Exception e){
+                System.out.println(e);
+            }
+
+            return null;
+        }
+    }
+
+
+
+
+
 }
+
+
+

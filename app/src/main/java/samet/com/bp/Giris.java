@@ -2,6 +2,7 @@ package samet.com.bp;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
@@ -19,6 +20,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -28,12 +33,12 @@ import java.util.Map;
 
 public class Giris extends Activity{
 
-    String server_url="http://samet822.heliohost.org/girisyapma.php";
+     String server_url="http://192.168.1.33/giris.php";
 
     Button btngiris,btnreset;
     EditText giriseposta,girissifre;
     String email,sifre;
-
+String sonuc;
 
 
     @Override
@@ -51,72 +56,10 @@ btngiris=(Button) findViewById(R.id.girisyapbuton);
 
              email =giriseposta.getText().toString();
                  sifre=girissifre.getText().toString();
-                Intent intent =new Intent(Giris.this,LoginSuccess.class);
-                startActivity(intent);
+                server_url+="?Email="+email+"&Password="+sifre;
+new LoginTask().execute();
 
-/*
-                StringRequest stringRequest=new StringRequest(Request.Method.POST,server_url,
-                        new Response.Listener<String>(){
-                            @Override
-                            public void onResponse(String response) {
-                                try {
-                                    JSONArray jsonArray=new JSONArray(response);
-                                    JSONObject jsonObject=jsonArray.getJSONObject(0);
-                                    String code   =jsonObject.getString("code");
-                                  //  String message=jsonObject.getString("message");
-
-                                    if(code=="login_success"){
-                                        Intent intent =new Intent(Giris.this,LoginSuccess.class);
-                                        Bundle bundle=new Bundle();
-                                    //    bundle.putString("email",jsonObject.getString("email"));
-            //bundle.putString("password",jsonObject.getString("password"));
-                                     bundle.putString("name",jsonObject.getString("name"));
-
-                                        intent.putExtras(bundle);
-                                        startActivity(intent);
-
-                                    }
-
-                                    Intent intent =new Intent(Giris.this,LoginSuccess.class);
-                                    Bundle bundle=new Bundle();
-                                    //    bundle.putString("email",jsonObject.getString("email"));
-                                    //bundle.putString("password",jsonObject.getString("password"));
-                                    bundle.putString("name",jsonObject.getString("name"));
-
-                                    intent.putExtras(bundle);
-                                    startActivity(intent);
-
-
-
-
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
-                                }
-
-
-
-                            }
-                        }
-                        ,new Response.ErrorListener(){
-
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(Giris.this,"Hata...",Toast.LENGTH_SHORT);
-                        error.printStackTrace();
-                    }
-                }){
-                    @Override
-                    protected Map<String, String> getParams() throws AuthFailureError {
-                        Map<String,String> params=new HashMap<String, String>();
-                        params.put("email",email);
-                        params.put("password",sifre);
-
-                        return params;
-                    }
-                };
-
-MySingleton.getmInstance(Giris.this).addTorequestque(stringRequest);*/
-
+               // new SignInUpActivity(getApplicationContext(),0).execute(email,sifre);
 
 
 
@@ -138,4 +81,66 @@ btnreset.setOnClickListener(new View.OnClickListener() {
 
 
     }
+
+
+    public class LoginTask extends AsyncTask {
+
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected void onPostExecute(Object o) {
+           // super.onPostExecute(o);
+            if(sonuc.equals("Bu Email kayitli Başariyla giriş yapiyorsunuz . ")){
+               // Toast.makeText("")
+            }
+            else{
+                Toast.makeText(getApplicationContext(),"Email kayitli değil . Lütfen kayit olun !  ",Toast.LENGTH_LONG).show();
+            }
+
+
+        }
+
+        @Override
+        protected Object doInBackground(Object[] params) {
+
+            try{
+                URL url=new URL(server_url);
+                HttpURLConnection con= (HttpURLConnection) url.openConnection();
+                con.setRequestMethod("GET");
+                con.connect();
+
+                BufferedReader bf=new BufferedReader(new InputStreamReader(con.getInputStream()));
+   sonuc=bf.readLine();
+                System.out.println(sonuc);
+
+               /* StringBuilder sb = new StringBuilder();
+                String line = null;
+
+                // Read Server Response
+                while((line = bf.readLine()) != null) {
+                    sb.append(line);
+                    break;
+                }
+
+
+                System.out.println(sb);*/
+
+            }
+            catch (Exception e){
+                System.out.println(e);
+            }
+
+            return null;
+        }
+    }
+
+
+
+
+
+
 }

@@ -46,9 +46,9 @@ String sonuc;
         super.onCreate(savedInstanceState);
 setContentView(R.layout.giris);
 
-      giriseposta= (EditText) findViewById(R.id.giriseposta);
-        girissifre=(EditText)findViewById(R.id.girissifre);
-btngiris=(Button) findViewById(R.id.girisyapbuton);
+      giriseposta= findViewById(R.id.giriseposta);
+        girissifre= findViewById(R.id.girissifre);
+btngiris= findViewById(R.id.girisyapbuton);
 
         btngiris.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,6 +57,7 @@ btngiris=(Button) findViewById(R.id.girisyapbuton);
              email =giriseposta.getText().toString();
                  sifre=girissifre.getText().toString();
                 server_url+="?Email="+email+"&Password="+sifre;
+                System.out.println(server_url);
 new LoginTask().execute();
 
                // new SignInUpActivity(getApplicationContext(),0).execute(email,sifre);
@@ -95,7 +96,8 @@ btnreset.setOnClickListener(new View.OnClickListener() {
         protected void onPostExecute(Object o) {
            // super.onPostExecute(o);
             if(sonuc.equals("Bu Email kayitli Başariyla giriş yapiyorsunuz . ")){
-               // Toast.makeText("")
+                Toast.makeText(getApplicationContext(),"Bu Email kayitli Başariyla giriş yapiyorsunuz . ",Toast.LENGTH_SHORT).show();
+                getApplicationContext().startActivity(new Intent(getApplicationContext(),UserMainActivity.class));
             }
             else{
                 Toast.makeText(getApplicationContext(),"Email kayitli değil . Lütfen kayit olun !  ",Toast.LENGTH_LONG).show();
@@ -117,6 +119,8 @@ btnreset.setOnClickListener(new View.OnClickListener() {
    sonuc=bf.readLine();
                 System.out.println(sonuc);
 
+
+
                /* StringBuilder sb = new StringBuilder();
                 String line = null;
 
@@ -132,6 +136,7 @@ btnreset.setOnClickListener(new View.OnClickListener() {
             }
             catch (Exception e){
                 System.out.println(e);
+
             }
 
             return null;

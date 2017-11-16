@@ -70,7 +70,7 @@ TextView tv;
         kayitchkbir=findViewById(R.id.kayitchkbir);
         kayitchkiki=findViewById(R.id.kayitchkiki);
 
-        builder=new AlertDialog.Builder(Kayit4.this);
+
 
 
         btn.setOnClickListener(new View.OnClickListener() {
@@ -93,8 +93,9 @@ TextView tv;
                     editor.commit();
                 }
 
-
-
+server_url+="?Email="+email+"&Name="+isim+"&Password="sifre;
+                System.out.println(server_url);
+new RegisterTask().execute();
 
 
             }
@@ -118,15 +119,17 @@ TextView tv;
            // super.onPostExecute(o);
 
             if(sonuc.equals("Bu kullanici zaten kayitli lütfen giris yapin ! ")){
-                // Toast.makeText("")
+                Toast.makeText(getApplicationContext(),"Bu kullanici zaten kayitli lütfen giris yapin ! ",Toast.LENGTH_LONG).show();
             }
-            else if(sonuc.equals("")){
+            else if(sonuc.equals("Kullanici Eklenemedi . ")){
                 Toast.makeText(getApplicationContext(),"Kullanici Eklenemedi . ",Toast.LENGTH_LONG).show();
             }
 
 
             else  {
-                Toast.makeText(getApplicationContext(),"Email kayitli değil . Lütfen kayit olun !  ",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"Kullanici Basariyla eklendi . ",Toast.LENGTH_SHORT).show();
+                getApplicationContext().startActivity(new Intent(getApplicationContext(),UserMainActivity.class));
+
             }
 
 

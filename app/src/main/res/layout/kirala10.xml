@@ -29,7 +29,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Posta Kodunuzu Girin"
+                android:text="Ve senin yaşın..."
                 android:textColor="@android:color/white"
                 android:textSize="24sp" />
 
@@ -57,12 +57,12 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="Drag Slider" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:text="Onayla ve Devam et" />
 
     </LinearLayout>
 </LinearLayout>

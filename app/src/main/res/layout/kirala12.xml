@@ -29,7 +29,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Posta Kodunuzu Girin"
+                android:text="Are there any pets in the property ?"
                 android:textColor="@android:color/white"
                 android:textSize="24sp" />
 
@@ -47,15 +47,29 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_menu_camera" />
+            android:background="@android:color/holo_blue_bright"
+            app:srcCompat="@drawable/pet" />
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
 
-        <Button
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="25dp"
+            >
+
+            <Button
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:text="eVET" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hayir" />
+        </LinearLayout>
+
+
     </LinearLayout>
 
 </LinearLayout>

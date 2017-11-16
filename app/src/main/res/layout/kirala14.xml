@@ -29,7 +29,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Posta Kodunuzu Girin"
+                android:text="I'm happy to live with..."
                 android:textColor="@android:color/white"
                 android:textSize="24sp" />
 
@@ -56,8 +56,7 @@
 
         <ToggleButton
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="ToggleButton" />
+            android:layout_height="wrap_content" />
 
         <ToggleButton
             android:layout_width="match_parent"
@@ -104,7 +103,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Button" />
+            android:background="@android:color/holo_blue_bright"
+            android:text="Onayla ve DEvam et"
+            android:textColor="@android:color/white" />
     </LinearLayout>
 
 </LinearLayout>

@@ -29,7 +29,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Posta Kodunuzu Girin"
+                android:text="Tell us about the no. of existing flatmates"
                 android:textColor="@android:color/white"
                 android:textSize="24sp" />
 
@@ -48,12 +48,12 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="No. of guys" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="No. of girls" />
 
         <EditText
             android:layout_width="match_parent"
@@ -84,13 +84,15 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="Please include yourself as a flatmate" />
 
         <Button
             android:id="@+id/button54"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:background="@android:color/holo_blue_bright"
+            android:text="Onayla ve Devam et"
+            android:textColor="@android:color/white" />
 
     </LinearLayout>
 </LinearLayout>

@@ -30,7 +30,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Posta Kodunuzu Girin"
+                android:text="Are you happy to live with any age?"
                 android:textColor="@android:color/white"
                 android:textSize="24sp" />
 
@@ -61,12 +61,14 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="Drag Slider" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:background="@android:color/holo_blue_bright"
+            android:text="Onayla ve DEvam et"
+            android:textColor="@android:color/white" />
     </LinearLayout>
 
 </LinearLayout>

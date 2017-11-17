@@ -2,6 +2,7 @@ package samet.com.bp;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -53,6 +54,13 @@ btngiris= findViewById(R.id.girisyapbuton);
         btngiris.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SharedPreferences sharedPref = getApplicationContext().getSharedPreferences("MyPref",0);
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.putString("email",giriseposta.getText().toString());
+                editor.commit();
+
+
+                server_url="http://192.168.1.33/giris.php";
 
              email =giriseposta.getText().toString();
                  sifre=girissifre.getText().toString();
@@ -97,7 +105,16 @@ btnreset.setOnClickListener(new View.OnClickListener() {
            // super.onPostExecute(o);
             if(sonuc.equals("Bu Email kayitli Başariyla giriş yapiyorsunuz . ")){
                 Toast.makeText(getApplicationContext(),"Bu Email kayitli Başariyla giriş yapiyorsunuz . ",Toast.LENGTH_SHORT).show();
+
+               /* Intent intent = new Intent(getApplicationContext(),UserMainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);*/
+
                 getApplicationContext().startActivity(new Intent(getApplicationContext(),UserMainActivity.class));
+
+
+
             }
             else{
                 Toast.makeText(getApplicationContext(),"Email kayitli değil . Lütfen kayit olun !  ",Toast.LENGTH_LONG).show();
@@ -120,18 +137,6 @@ btnreset.setOnClickListener(new View.OnClickListener() {
                 System.out.println(sonuc);
 
 
-
-               /* StringBuilder sb = new StringBuilder();
-                String line = null;
-
-                // Read Server Response
-                while((line = bf.readLine()) != null) {
-                    sb.append(line);
-                    break;
-                }
-
-
-                System.out.println(sb);*/
 
             }
             catch (Exception e){

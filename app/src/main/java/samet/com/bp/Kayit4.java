@@ -93,7 +93,11 @@ TextView tv;
                     editor.commit();
                 }
 
-server_url+="?Email="+email+"&Name="+isim+"&Password="sifre;
+
+                server_url="http://192.168.1.33/kayit.php";
+
+
+server_url+="?Email="+email+"&Name="+isim+"&Password="+sifre;
                 System.out.println(server_url);
 new RegisterTask().execute();
 
@@ -128,6 +132,13 @@ new RegisterTask().execute();
 
             else  {
                 Toast.makeText(getApplicationContext(),"Kullanici Basariyla eklendi . ",Toast.LENGTH_SHORT).show();
+
+              /*  Intent intent = new Intent(getApplicationContext(),UserMainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);*/
+
+
                 getApplicationContext().startActivity(new Intent(getApplicationContext(),UserMainActivity.class));
 
             }

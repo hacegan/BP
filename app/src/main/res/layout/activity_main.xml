@@ -32,32 +32,10 @@
             <RelativeLayout
                 android:id="@+id/ilkparca"
                 android:layout_width="match_parent"
-                android:layout_height="137dp">
+                android:layout_height="161dp">
 
 
 
-
-
-                <Button
-                    android:id="@+id/girisbuton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
-                    android:background="@android:color/white"
-                    android:text="Giriş Yap"
-                    android:textColor="@android:color/holo_orange_dark" />
-
-                <Button
-                    android:id="@+id/kayitbuton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/white"
-                    android:text="Kayıt Ol"
-                    android:textColor="@android:color/holo_orange_dark"
-                    android:layout_alignParentBottom="true"
-                    android:layout_toEndOf="@+id/girisbuton"
-                    android:layout_marginStart="193dp" />
 
                 <TextView
                     android:id="@+id/txt"
@@ -75,14 +53,35 @@ android:layout_marginTop="55dp"
                     android:layout_below="@id/txt" />
 
 
+                <Button
+                    android:id="@+id/girisbuton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:background="@null"
+                    android:text="Giriş Yap"
+                    android:textColor="@android:color/holo_orange_dark" />
+
+                <Button
+                    android:id="@+id/kayitbuton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="193dp"
+                    android:layout_toEndOf="@+id/girisbuton"
+                    android:background="@null"
+                    android:text="Kayıt Ol"
+                    android:textColor="@android:color/holo_orange_dark" />
+
             </RelativeLayout>
 
 
             //2.Parça
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="366dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="364dp">
 
                 <Button
                     android:layout_width="match_parent"
@@ -141,12 +140,19 @@ android:layout_marginTop="55dp"
             </LinearLayout>
 
 
-        </RelativeLayout>
+</RelativeLayout>
 
 
         </LinearLayout>
 
 
-
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/nav_header_sol_menu"
+        app:menu="@menu/activity_sol_menu_drawer" />
 
 </android.support.v4.widget.DrawerLayout>

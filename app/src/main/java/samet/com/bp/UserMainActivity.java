@@ -22,6 +22,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+
+
 public class UserMainActivity extends AppCompatActivity   implements NavigationView.OnNavigationItemSelectedListener {
 TextView tv;
     String isim;
@@ -132,7 +134,7 @@ TextView tv;
 
 
 
-    public class GetNameTask extends AsyncTask{
+     class GetNameTask extends AsyncTask{
 
         @Override
         protected void onPreExecute() {
@@ -212,7 +214,14 @@ TextView tv;
 
         } else if (id == R.id.nav_slideshow) {
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_manage) {//İlan Yerleştir Oluştur etc.
+
+
+            Intent intent = new Intent(UserMainActivity.this,Ilanver1.class);
+            startActivity(intent);
+
+
+
 
         } else if (id == R.id.nav_share) {
 

@@ -36,6 +36,8 @@
         <activity android:name=".UserMainActivity"/>
         <activity android:name=".Giris" />
         <activity android:name=".LoginSuccess"/>
+        <activity android:name=".Ilanver1" android:parentActivityName=".UserMainActivity"/>
+
     </application>
 
 </manifest>

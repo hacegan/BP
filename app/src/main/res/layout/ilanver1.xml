@@ -9,6 +9,26 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/supappbar"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:background="@android:color/white"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            android:weightSum="1">
+
+
+        </android.support.v7.widget.Toolbar>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:background="@android:color/white"
         >
@@ -19,7 +39,9 @@
             android:background="?attr/actionModeSplitBackground"
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme"
-            android:weightSum="1">
+            android:weightSum="1"
+
+            >
 
             <Button
                 android:id="@+id/geribtn"
@@ -37,8 +59,9 @@
 
 
         </android.support.v7.widget.Toolbar>
-
 </LinearLayout>
+
+
 
     <ImageView
         android:layout_width="match_parent"
@@ -48,7 +71,7 @@
         app:srcCompat="@drawable/myad" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/ilan1baslabtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"

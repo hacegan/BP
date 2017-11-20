@@ -4,37 +4,28 @@
     android:layout_height="match_parent" android:background="@drawable/resim2_640x400">
 
 
-
-
-
-
-
-
-
-
     <TextView
+        android:id="@+id/img"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="2"
-        android:textColor="@android:color/white"
-        android:textSize="60sp"
-        android:textStyle="bold"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="150dp"
-        android:id="@+id/img"
-        />
+        android:text="1,000,000 kullanıcı"
+        android:textColor="@android:color/white"
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
-        android:text="2"
-        android:textColor="@android:color/white"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:gravity="center_horizontal"
         android:layout_below="@+id/img"
+        android:layout_marginTop="13dp"
+        android:gravity="center_horizontal"
+        android:text="Daha fazla insan daha fazla seçenek - ve daha fazla şans tıkladığınız oda arkadaşlarını bulabilmeniz için "
+        android:textColor="?android:attr/searchWidgetCorpusItemBackground"
+        android:textSize="18sp"
+        android:textStyle="bold"
 
         />
 

@@ -16,4 +16,8 @@ public class Kirala1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.kirala1);
     }
+
+
+
+
 }

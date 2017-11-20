@@ -1,8 +1,10 @@
 package samet.com.bp;
 
+import android.support.v7.app.AppCompatActivity;
+
 /**
  * Created by root on 20.11.2017.
  */
 
-public class OdaAra3 {
+public class OdaAra3 extends AppCompatActivity {
 }

@@ -11,9 +11,11 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -53,23 +55,32 @@ btn= (Button) findViewById(R.id.ilan1baslabtn);
 
 if(email==null){//Kullanıcı Kayıtlı Değilse İsim Email Alma Alertini Goster
 
-    AlertDialog.Builder mBuilder=new AlertDialog.Builder(Ilanver1.this);
-    View mView =getLayoutInflater();
+    AlertDialog.Builder alert=new AlertDialog.Builder(Ilanver1.this);
+    LayoutInflater inflater = getLayoutInflater();
+    View alertLayout = inflater.inflate(R.layout.ilanvernonreg, null);
 
-    mBuilder.setView(inflater.inflate(R.layout.ilanvernonreg, null))
+    alert.setView(alertLayout);
+    alert.setCancelable(false);
 
-            .setPositiveButton("Tamam", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int id) {
-                    Intent intent = new Intent(Ilanver1.this,Ilanver2.class);
-                    startActivity(intent);
-                }
-            })
-            .setNegativeButton("İptal Et", new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int id) {
-                    getDialog().cancel();
-                }
-            });
+    alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+
+        @Override
+        public void onClick(DialogInterface dialog, int which) {
+            Intent intent = new Intent(Ilanver1.this,Ilanver2.class);
+            startActivity(intent);
+        }
+    });
+
+    alert.setPositiveButton("Done", new DialogInterface.OnClickListener() {
+
+        @Override
+        public void onClick(DialogInterface dialog, int which) {
+
+        }
+    });
+    AlertDialog dialog = alert.create();
+    dialog.show();
+
 
 }
 else{//Kayitliysa da alert adimini atlayip diger adıma geç

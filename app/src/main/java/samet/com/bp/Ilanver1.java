@@ -1,6 +1,9 @@
 package samet.com.bp;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -50,8 +53,31 @@ btn= (Button) findViewById(R.id.ilan1baslabtn);
 
 if(email==null){//Kullanıcı Kayıtlı Değilse İsim Email Alma Alertini Goster
 
+    AlertDialog.Builder mBuilder=new AlertDialog.Builder(Ilanver1.this);
+    View mView =getLayoutInflater();
+
+    mBuilder.setView(inflater.inflate(R.layout.ilanvernonreg, null))
+
+            .setPositiveButton("Tamam", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int id) {
+                    Intent intent = new Intent(Ilanver1.this,Ilanver2.class);
+                    startActivity(intent);
+                }
+            })
+            .setNegativeButton("İptal Et", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    getDialog().cancel();
+                }
+            });
+
 }
 else{//Kayitliysa da alert adimini atlayip diger adıma geç
+
+
+    Intent intent = new Intent(Ilanver1.this,Ilanver2.class);
+    startActivity(intent);
+
 
 }
 
@@ -68,8 +94,6 @@ else{//Kayitliysa da alert adimini atlayip diger adıma geç
         Intent intent = new Intent(Ilanver1.this,UserMainActivity.class);
         startActivity(intent);
     }
-
-
 
 
 }

@@ -68,6 +68,7 @@
 
 
         <ImageButton
+            android:id="@+id/kiralagitbtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="200dp"
@@ -75,6 +76,7 @@
             app:srcCompat="@drawable/roomstorent" />
 
         <ImageButton
+            android:id="@+id/aragitbtn"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginTop="200dp"

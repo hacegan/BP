@@ -45,7 +45,7 @@ btn.setOnClickListener(new View.OnClickListener() {//Bir önceki adıma dönmek 
 btnara.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-        Intent intent = new Intent(Ilanver2.this,Ilanver1.class);
+        Intent intent = new Intent(Ilanver2.this,OdaAra1.class);
         startActivity(intent);
     }
 });
@@ -54,7 +54,7 @@ btnara.setOnClickListener(new View.OnClickListener() {
 btnkirala.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-        Intent intent = new Intent(Ilanver2.this,Ilanver1.class);
+        Intent intent = new Intent(Ilanver2.this,Kirala1.class);
         startActivity(intent);
     }
 });

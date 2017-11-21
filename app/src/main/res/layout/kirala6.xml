@@ -75,12 +75,15 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             >
+
             <Button
+                android:id="@+id/fotocekbtn"
                 android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:text="Fotoğraf Çek" />
 
             <Button
+                android:id="@+id/fotosecbtn"
                 android:layout_width="183dp"
                 android:layout_height="wrap_content"
                 android:text="Mevcut olandan Seç" />
@@ -90,8 +93,8 @@
         </LinearLayout>
 
 
-
         <Button
+            android:id="@+id/btndvm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Hayır,Teşekkürler" />

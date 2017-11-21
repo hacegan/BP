@@ -12,12 +12,18 @@ import android.widget.Button;
  */
 
 public class Kirala6 extends AppCompatActivity {
-    Button btn;
+    Button btn,fotocekbtn,fotosecbtn,btndvm;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.kirala6);
+
+        fotocekbtn= (Button) findViewById(R.id.fotocekbtn);
+        fotosecbtn= (Button) findViewById(R.id.fotosecbtn);
+        btndvm= (Button) findViewById(R.id.btndvm);
+
+
         btn= (Button) findViewById(R.id.geribtn);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -26,6 +32,16 @@ public class Kirala6 extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+        btndvm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Kirala6.this,Kirala7.class);
+                startActivity(intent);
+            }
+        });
+
 
 
     }

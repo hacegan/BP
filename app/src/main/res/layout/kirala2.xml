@@ -65,30 +65,40 @@
         android:orientation="vertical">
 
         <Button
+            android:id="@+id/btnadvertiser1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="130dp"
-            android:text="Live in Landlord" />
+            android:text="Live in Landlord"
+            android:textColor="@android:color/darker_gray" />
 
         <Button
+            android:id="@+id/btnadvertiser2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Live out Lanlord" />
+            android:text="Live out Lanlord"
+            android:textColor="@android:color/darker_gray" />
 
         <Button
+            android:id="@+id/btnadvertiser3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Current Flatmate" />
+            android:text="Current Flatmate"
+            android:textColor="@android:color/darker_gray" />
 
         <Button
+            android:id="@+id/btnadvertiser4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Agent" />
+            android:text="Agent"
+            android:textColor="@android:color/darker_gray" />
 
         <Button
+            android:id="@+id/btnadvertiser5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Formet Flatmate" />
+            android:text="Formet Flatmate"
+            android:textColor="@android:color/darker_gray" />
     </LinearLayout>
 
 </LinearLayout>

@@ -66,22 +66,25 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        >
 
-        <ImageButton
+        <Button
+            android:id="@+id/dairebtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="top"
-            android:layout_marginTop="200dp"
-            app:srcCompat="@drawable/flat" />
+            android:layout_marginTop="100dp"
+            android:drawableStart="@drawable/ic_flat"
+            android:padding="10dp"
+            android:text="Daire" />
 
-        <ImageButton
+        <Button
+            android:id="@+id/evbtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            app:srcCompat="@drawable/house"
-
-            />
+            android:drawableLeft="@drawable/ic_house"
+            android:padding="10dp"
+            android:text="EV" />
 
     </LinearLayout>
 

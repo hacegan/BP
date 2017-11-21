@@ -66,8 +66,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="200dp"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Posta Kodu 34100 gibi" />
+            android:hint="Posta Kodu 34100 gibi"
+            android:inputType="textPersonName" />
 
         <Button
             android:id="@+id/btndvm"

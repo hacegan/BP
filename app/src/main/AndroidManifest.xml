@@ -46,7 +46,13 @@
         <activity android:name=".Giris" />
         <activity android:name=".LoginSuccess"/>
         <activity android:name=".Ilanver1" android:parentActivityName=".UserMainActivity"/>
-
+        <activity android:name=".Ilanver2" />
+        <activity android:name=".Kirala1" />
+        <activity android:name=".Kirala2" />
+        <activity android:name=".Kirala3" />
+        <activity android:name=".Kirala4" />
+        <activity android:name=".Kirala5" />
+        <activity android:name=".Kirala6" />
     </application>
 
 </manifest>

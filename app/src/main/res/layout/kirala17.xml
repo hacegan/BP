@@ -48,7 +48,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Bir Başlık ve description girin"
+                android:text="Bir Başlık ve açıklama girin"
                 android:textColor="@android:color/white"
                 android:textSize="24sp" />
 
@@ -65,20 +65,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name" />
+        android:inputType="textPersonName" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Description" />
+        android:text="Açıklama" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name" />
+        android:inputType="textPersonName" />
 
     <Button
         android:layout_width="match_parent"

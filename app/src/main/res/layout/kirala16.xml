@@ -47,7 +47,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Do you want to include a phone no. on your advert?"
+                android:text="İlanınıza bir telefon numarası eklemek ister misiniz?"
                 android:textColor="@android:color/white"
                 android:textSize="24sp" />
 

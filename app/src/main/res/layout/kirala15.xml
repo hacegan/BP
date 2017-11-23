@@ -48,9 +48,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Are you happy to live with any age?"
+                android:text="Herhangi bir yaştaki kişiyle yaşamaktan mutlu olur musun?"
+                android:textAlignment="center"
                 android:textColor="@android:color/white"
-                android:textSize="24sp" />
+                android:textSize="18sp" />
 
         </android.support.v7.widget.Toolbar>
     </LinearLayout>
@@ -79,7 +80,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Drag Slider" />
+            android:text="Sliderı kaydırın" />
 
         <Button
             android:layout_width="match_parent"

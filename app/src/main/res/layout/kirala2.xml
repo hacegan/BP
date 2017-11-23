@@ -69,35 +69,35 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="130dp"
-            android:text="Live in Landlord"
+            android:text="EV SAHİBİ"
             android:textColor="@android:color/darker_gray" />
 
         <Button
             android:id="@+id/btnadvertiser2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Live out Lanlord"
+            android:text="KİRACI"
             android:textColor="@android:color/darker_gray" />
 
         <Button
             android:id="@+id/btnadvertiser3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Current Flatmate"
+            android:text="Şimdiki Ev Arkadaşı"
             android:textColor="@android:color/darker_gray" />
 
         <Button
             android:id="@+id/btnadvertiser4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Agent"
+            android:text="Acenta"
             android:textColor="@android:color/darker_gray" />
 
         <Button
             android:id="@+id/btnadvertiser5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Formet Flatmate"
+            android:text="Eski Ev Arkadaşı"
             android:textColor="@android:color/darker_gray" />
     </LinearLayout>
 

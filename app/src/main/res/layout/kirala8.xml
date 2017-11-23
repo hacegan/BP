@@ -47,7 +47,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Availability,period and bills"
+                android:text="Hazır Bulunma,Dönem ve Faturalar"
                 android:textColor="@android:color/white"
                 android:textSize="24sp" />
 
@@ -90,7 +90,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Bills included with rent?" />
+            android:text="Kiraya faturalar dahil mi ?" />
 
         <Button
             android:layout_width="match_parent"

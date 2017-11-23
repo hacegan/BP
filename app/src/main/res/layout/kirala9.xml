@@ -47,7 +47,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Tell us about the no. of existing flatmates"
+                android:text="Mevcut ev arkadaşlarınızın sayısından bahsedin"
+                android:textAlignment="center"
                 android:textColor="@android:color/white"
                 android:textSize="24sp" />
 

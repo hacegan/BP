@@ -47,7 +47,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Total no. of bedrooms in property"
+                android:text="Mülkiyetteki toplam yatak odası sayısı"
                 android:textColor="@android:color/white"
                 android:textSize="24sp" />
 
@@ -65,7 +65,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="This includes both occupied and available rooms" />
+            android:text="Buna hem dolu hem de boş odalar dahildir" />
 
         <EditText
             android:layout_width="match_parent"
@@ -80,7 +80,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Drag Slider" />
+            android:text="Kaydiriciyi Sürükleyin" />
 
         <Button
             android:layout_width="match_parent"

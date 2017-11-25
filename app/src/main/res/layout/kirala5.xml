@@ -61,8 +61,9 @@
         android:layout_height="452dp"
         android:orientation="vertical">
 
-        <ListView
+        <TextView
+            android:id="@+id/locadresid"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content" />
     </LinearLayout>
 </LinearLayout>

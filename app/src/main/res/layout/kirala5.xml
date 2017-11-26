@@ -23,7 +23,7 @@
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
 
 
@@ -58,12 +58,19 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="452dp"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/locadresid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/btndvm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Onayla ve Devam Et" />
+
     </LinearLayout>
 </LinearLayout>

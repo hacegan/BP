@@ -14,17 +14,22 @@ import android.widget.TextView;
  */
 
 public class Kirala5 extends AppCompatActivity {
-    Button btn;
+    Button btn,btndvm;
 TextView tv;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.kirala5);
         btn= (Button) findViewById(R.id.geribtn);
         tv= (TextView) findViewById(R.id.locadresid);
+        btndvm= (Button) findViewById(R.id.btndvm);
+
+
 
         SharedPreferences sharedPref = getApplicationContext().getSharedPreferences("MyPref", 0);
         SharedPreferences.Editor editor = sharedPref.edit();
+
         tv.setText(sharedPref.getString("locations",null));
 
 
@@ -32,6 +37,15 @@ TextView tv;
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Kirala5.this,Kirala4.class);
+                startActivity(intent);
+            }
+        });
+
+
+        btndvm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Kirala5.this,Kirala6.class);
                 startActivity(intent);
             }
         });

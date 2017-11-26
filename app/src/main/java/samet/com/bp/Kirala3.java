@@ -3,6 +3,7 @@ package samet.com.bp;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -56,7 +57,8 @@ public class Kirala3 extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.kirala3);
-
+        SharedPreferences sharedPref = getApplicationContext().getSharedPreferences("MyPref",0);
+        final SharedPreferences.Editor editor = sharedPref.edit();
 
 
 
@@ -85,6 +87,9 @@ public class Kirala3 extends AppCompatActivity {
                         }
                         strAdd = strReturnedAddress.toString();
                         Log.w("My Current address", strReturnedAddress.toString());
+
+                        editor.putString("locations",strReturnedAddress.toString());
+                        editor.commit();
                     } else {
                         Log.w("My Current address", "No Address returned!");
                     }
@@ -92,6 +97,7 @@ public class Kirala3 extends AppCompatActivity {
                     e.printStackTrace();
                     Log.w("My Current address", "Canont get Address!");
                 }
+
 
 
 
@@ -113,13 +119,7 @@ public class Kirala3 extends AppCompatActivity {
             }
         };
 
-        if(ContextCompat.checkSelfPermission(this,Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED){
-            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION},1);
-        }
 
-        else{
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
-        }
 
 
         btn= (Button) findViewById(R.id.geribtn);
@@ -136,7 +136,13 @@ public class Kirala3 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                if(ContextCompat.checkSelfPermission(Kirala3.this,Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED){
+                    ActivityCompat.requestPermissions(Kirala3.this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION},1);
+                }
 
+                else{
+                    locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,5000,50, locationListener);
+                }
 
                 Intent intent = new Intent(Kirala3.this,Kirala5.class);
                 startActivity(intent);

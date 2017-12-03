@@ -66,7 +66,7 @@ ImageView iv;
         fotosecbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openGallery(10);
+
             }
         });
 
@@ -74,8 +74,7 @@ ImageView iv;
         fotocekbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(cameraIntent, 100);
+
             }
             });
 
@@ -90,63 +89,5 @@ ImageView iv;
         Intent intent = new Intent(Kirala6.this,Kirala5.class);
         startActivity(intent);
     }
-    public void openGallery(int req_code){
 
-        Intent intent = new Intent();
-
-        intent.setType("image/*");
-
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-
-        startActivityForResult(Intent.createChooser(intent,"Select file to upload "), req_code);
-
-    }
-
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-
-
-
-        if (resultCode == RESULT_OK) {
-            if(data.getData() != null){
-                selectedImageUri = data.getData();
-            }else{
-                Log.d("selectedPath1 : ","Came here its null !");
-                Toast.makeText(getApplicationContext(), "failed to get Image!", 500).show();
-            }
-
-            if (requestCode == 100 && resultCode == RESULT_OK) {
-                Bitmap photo = (Bitmap) data.getExtras().get("data");
-                selectedPath = getPath(selectedImageUri);
-                iv.setImageURI(selectedImageUri);
-                Log.d("selectedPath1 : " ,selectedPath);
-
-            }
-
-            if (requestCode == 10)
-
-            {
-
-                selectedPath = getPath(selectedImageUri);
-                iv.setImageURI(selectedImageUri);
-                Log.d("selectedPath1 : " ,selectedPath);
-
-            }
-
-        }
-
-    }
-
-    public String getPath(Uri uri) {
-
-        String[] projection = { MediaStore.Images.Media.DATA };
-
-        Cursor cursor = managedQuery(uri, projection, null, null, null);
-
-        int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-
-        cursor.moveToFirst();
-
-        return cursor.getString(column_index);
-
-    }
 }

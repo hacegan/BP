@@ -23,8 +23,10 @@ import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -34,7 +36,9 @@ import java.util.Map;
 
 public class Giris extends Activity{
 
-     String server_url="http://192.168.1.33/giris.php";
+    // String server_url="http://192.168.1.33/giris.php";
+
+    String server_url="http://192.168.1.33/giris.php";
 
     Button btngiris,btnreset;
     EditText giriseposta,girissifre;
@@ -64,7 +68,9 @@ btngiris= findViewById(R.id.girisyapbuton);
 
              email =giriseposta.getText().toString();
                  sifre=girissifre.getText().toString();
-                server_url+="?Email="+email+"&Password="+sifre;
+
+                    server_url+= "?Email="+email+"&Password="+sifre;
+
                 System.out.println(server_url);
 new LoginTask().execute();
 

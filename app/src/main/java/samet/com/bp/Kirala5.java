@@ -16,7 +16,7 @@ import android.widget.TextView;
 public class Kirala5 extends AppCompatActivity {
     Button btn,btndvm;
 TextView tv;
-
+String oldxml;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,8 +36,19 @@ TextView tv;
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Kirala5.this,Kirala4.class);
-                startActivity(intent);
+                SharedPreferences sharedPref = getApplicationContext().getSharedPreferences("MyPref", 0);
+                SharedPreferences.Editor editor = sharedPref.edit();
+        oldxml=        sharedPref.getString("oldxml",null);
+
+                if(oldxml=="Kirala3.class") {
+                    Intent intent = new Intent(Kirala5.this, Kirala3.class);
+                    startActivity(intent);
+                }
+              else  if(oldxml=="Kirala4.class") {
+                    Intent intent = new Intent(Kirala5.this, Kirala4.class);
+                    startActivity(intent);
+                }
+
             }
         });
 
@@ -55,7 +66,18 @@ TextView tv;
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(Kirala5.this,Kirala4.class);
-        startActivity(intent);
+        SharedPreferences sharedPref = getApplicationContext().getSharedPreferences("MyPref", 0);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        oldxml=        sharedPref.getString("oldxml",null);
+
+        if(oldxml=="Kirala3.class") {
+            Intent intent = new Intent(Kirala5.this, Kirala3.class);
+            startActivity(intent);
+        }
+        else if(oldxml=="Kirala4.class") {
+            Intent intent = new Intent(Kirala5.this, Kirala4.class);
+            startActivity(intent);
+        }
+
     }
 }

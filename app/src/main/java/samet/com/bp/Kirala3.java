@@ -144,6 +144,11 @@ public class Kirala3 extends AppCompatActivity {
                     locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,5000,50, locationListener);
                 }
 
+                SharedPreferences sharedPref = getApplicationContext().getSharedPreferences("MyPref",0);
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.putString("oldxml","Kirala3.class");
+                editor.commit();
+
                 Intent intent = new Intent(Kirala3.this,Kirala5.class);
                 startActivity(intent);
             }
@@ -153,6 +158,12 @@ public class Kirala3 extends AppCompatActivity {
         btnhayir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                SharedPreferences sharedPref = getApplicationContext().getSharedPreferences("MyPref",0);
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.putString("oldxml","Kirala4.class");
+                editor.commit();
+
                 Intent intent = new Intent(Kirala3.this,Kirala4.class);
                 startActivity(intent);
             }
@@ -161,9 +172,11 @@ public class Kirala3 extends AppCompatActivity {
 
     }
 
-
-
-
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(Kirala3.this,Kirala2.class);
+        startActivity(intent);
+    }
 
 
 

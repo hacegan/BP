@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="150dp"
-        android:text="10 yıldır"
+        android:text="1 yıldır"
         android:textColor="@android:color/white"
         android:textSize="30sp"
         android:textStyle="bold" />

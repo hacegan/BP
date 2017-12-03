@@ -34,24 +34,7 @@ public class Kirala3 extends AppCompatActivity {
     LocationListener locationListener;
     double latitude,longitude;
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                // TODO: Consider calling
-                //    ActivityCompat#requestPermissions
-                // here to request the missing permissions, and then overriding
-                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                //                                          int[] grantResults)
-                // to handle the case where the user grants the permission. See the documentation
-                // for ActivityCompat#requestPermissions for more details.
-                return;
-            }
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
-        }
 
-    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -66,6 +49,9 @@ public class Kirala3 extends AppCompatActivity {
         btnhayir= (Button) findViewById(R.id.btnhayir);
 
          locationManager= (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+
+
+
 
 
          locationListener=new LocationListener() {
@@ -120,7 +106,13 @@ public class Kirala3 extends AppCompatActivity {
         };
 
 
+        if(ContextCompat.checkSelfPermission(Kirala3.this,Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(Kirala3.this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION},1);
+        }
 
+        else{
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,5000,50, locationListener);
+        }
 
         btn= (Button) findViewById(R.id.geribtn);
         btn.setOnClickListener(new View.OnClickListener() {
@@ -136,13 +128,7 @@ public class Kirala3 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(ContextCompat.checkSelfPermission(Kirala3.this,Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED){
-                    ActivityCompat.requestPermissions(Kirala3.this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION},1);
-                }
 
-                else{
-                    locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,5000,50, locationListener);
-                }
 
                 SharedPreferences sharedPref = getApplicationContext().getSharedPreferences("MyPref",0);
                 SharedPreferences.Editor editor = sharedPref.edit();
@@ -171,6 +157,27 @@ public class Kirala3 extends AppCompatActivity {
 
 
     }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                // TODO: Consider calling
+                //    ActivityCompat#requestPermissions
+                // here to request the missing permissions, and then overriding
+                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                //                                          int[] grantResults)
+                // to handle the case where the user grants the permission. See the documentation
+                // for ActivityCompat#requestPermissions for more details.
+                return;
+            }
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
+        }
+
+    }
+
+
 
     @Override
     public void onBackPressed() {

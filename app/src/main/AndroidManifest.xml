@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="samet.com.bp">
 
     <!-- To auto-complete the email text field in the login form with the user's emails -->
@@ -27,6 +28,10 @@
     <uses-feature
         android:name="android.hardware.camera.flash"
         android:required="false" />
+
+
+
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -89,6 +94,19 @@
         <activity android:name=".OdaAra14" />
         <activity android:name=".OdaAra15" />
         <activity android:name=".OdaAra16" />
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.com.vansuita.pickimage.provider"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            tools:replace="android:authorities">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/picker_provider_paths" />
+        </provider>
+
+
     </application>
 
 </manifest>

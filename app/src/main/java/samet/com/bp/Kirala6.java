@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -16,6 +17,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.vansuita.pickimage.bean.PickResult;
+import com.vansuita.pickimage.listeners.IPickResult;
+
 import java.util.ArrayList;
 
 import static android.media.MediaRecorder.VideoSource.CAMERA;
@@ -25,12 +29,11 @@ import static android.media.MediaRecorder.VideoSource.CAMERA;
  * Created by root on 20.11.2017.
  */
 
-public class Kirala6 extends AppCompatActivity {
+public class Kirala6 extends AppCompatActivity  {
     Button btn,fotocekbtn,fotosecbtn,btndvm;
 ImageView iv;
 
-    Uri selectedImageUri;
-    String  selectedPath;
+ private static int LOAD_IMAGE_RESULTS=1;
 
 
     @Override
@@ -66,7 +69,8 @@ ImageView iv;
         fotosecbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+Intent i =new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(i,LOAD_IMAGE_RESULTS);
             }
         });
 
@@ -74,7 +78,8 @@ ImageView iv;
         fotocekbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent i =new Intent( MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(i,2);
             }
             });
 
@@ -85,9 +90,36 @@ ImageView iv;
     }
 
     @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+
+        if(requestCode==2 && resultCode==RESULT_OK ){
+         Bundle extras=data.getExtras();
+            Bitmap photo= (Bitmap) extras.get("data");
+iv.setImageBitmap(photo);
+
+
+        }
+
+
+
+
+        if(requestCode==LOAD_IMAGE_RESULTS && resultCode==RESULT_OK ){
+            Uri pickedImage = data.getData();
+iv.setImageURI(pickedImage);
+
+        }
+
+
+
+    }
+
+    @Override
     public void onBackPressed() {
         Intent intent = new Intent(Kirala6.this,Kirala5.class);
         startActivity(intent);
     }
+
 
 }

@@ -16,6 +16,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -34,7 +35,7 @@ public class Kirala3 extends AppCompatActivity {
     LocationListener locationListener;
     double latitude,longitude;
 
-
+    Toolbar tb;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -43,7 +44,9 @@ public class Kirala3 extends AppCompatActivity {
         SharedPreferences sharedPref = getApplicationContext().getSharedPreferences("MyPref",0);
         final SharedPreferences.Editor editor = sharedPref.edit();
 
-
+        tb= (Toolbar) findViewById(R.id.supappbar);
+        setSupportActionBar(tb);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         btnevet= (Button) findViewById(R.id.btnevet);
         btnhayir= (Button) findViewById(R.id.btnhayir);

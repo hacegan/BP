@@ -12,18 +12,31 @@ import android.widget.Button;
  */
 
 public class Kirala7 extends AppCompatActivity {
-    Button btn;
+    Button btn,odaeklebtn;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.kirala7);
         btn= (Button) findViewById(R.id.geribtn);
+        odaeklebtn= (Button) findViewById(R.id.odaeklebtn);
+
+
+
+
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Kirala7.this,Kirala6.class);
                 startActivity(intent);
+            }
+        });
+
+
+        odaeklebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
             }
         });
 

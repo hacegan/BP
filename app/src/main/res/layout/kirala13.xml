@@ -24,7 +24,7 @@
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
 
 
@@ -47,7 +47,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Mülkte sigara içen var mı?"
+                android:text="'Le Beraber yaşamaktan mutlu olurum"
                 android:textColor="@android:color/white"
                 android:textSize="24sp" />
 
@@ -55,43 +55,69 @@
     </LinearLayout>
 
 
-
-
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="452dp"
-        android:orientation="vertical">
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/holo_blue_bright"
-            app:srcCompat="@drawable/smoke" />
+        android:layout_height="434dp"
+        android:layout_weight="0.56">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="20dp"
-            >
+            android:orientation="vertical" >
 
-            <Button
-                android:layout_width="181dp"
-                android:layout_height="wrap_content"
-                android:text="Evet"
-                />
+            <CheckBox
+                android:layout_width="match_parent"
+                android:layout_height="69dp"
+                android:drawableLeft="@drawable/moustache"
+                android:text="Erkekler ile" />
 
-            <Button
+            <CheckBox
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                android:drawableLeft="@drawable/lip"
+                android:text="KIzlar ile" />
+
+            <CheckBox
+                android:layout_width="match_parent"
+                android:layout_height="98dp"
+                android:drawableLeft="@drawable/smoke"
+                android:text="Sigara içenler ile" />
+
+            <CheckBox
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Hayir"
-                />
+                android:drawableLeft="@drawable/bag_big"
+                android:text="Çalışanlar ile" />
 
+            <CheckBox
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/book_big"
+                android:text="Öğrenciler ile" />
 
+            <CheckBox
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/pet"
+                android:text="Evcil hayvanı olanlar ile" />
         </LinearLayout>
+    </ScrollView>
 
 
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btndvm"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/holo_blue_bright"
+            android:text="Onayla ve Devam Et"
+            android:textColor="@android:color/white" />
     </LinearLayout>
 
 </LinearLayout>

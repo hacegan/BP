@@ -17,7 +17,7 @@ public class Kirala14 extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.kirala14);
+        setContentView(R.layout.kirala13);
         btn= (Button) findViewById(R.id.geribtn);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override

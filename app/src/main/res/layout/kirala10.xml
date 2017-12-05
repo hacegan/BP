@@ -24,7 +24,7 @@
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
 
 
@@ -47,7 +47,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Ve senin yaşın..."
+                android:text="Mülkiyetteki toplam yatak odası sayısı"
                 android:textColor="@android:color/white"
                 android:textSize="24sp" />
 
@@ -59,28 +59,58 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="452dp"
+        android:layout_height="match_parent"
         android:orientation="vertical">
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="number" />
-
-        <SeekBar
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Kaydırıcıyı Sürükleyin" />
+            android:text="Buna hem dolu hem de boş odalar dahildir"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="19sp"
+            android:layout_marginTop="100dp"
+            />
 
-        <Button
+        <TextView
+            android:id="@+id/yatakodasayi"
+            android:layout_width="240dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/border_textview"
+            android:text="1"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="32sp"
+            android:textStyle="bold" />
+
+        <SeekBar
+            android:id="@+id/sb"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Onayla ve Devam et" />
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:max="12"
+            android:min="1"
+            android:thumb="@drawable/seekbar" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Kaydiriciyi Sürükleyin"
+            android:textAlignment="center"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btndvm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:background="@android:color/holo_blue_bright"
+            android:text="Onayla ve devam et"
+            android:textColor="@android:color/white" />
     </LinearLayout>
+
 </LinearLayout>

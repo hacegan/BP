@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:weightSum="1">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -60,58 +61,114 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="452dp"
-        android:orientation="vertical">
+        android:layout_height="283dp"
+        android:orientation="horizontal"
+        android:layout_weight="0.74">
 
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="No. of guys" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="No. of girls" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="number" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Button" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Button" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Button" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Button" />
+        <LinearLayout
+            android:layout_width="145dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Please include yourself as a flatmate" />
+            android:text="Erkek Sayısı"
+            android:textSize="16sp"
+            android:layout_marginLeft="15dp"
+            />
 
-        <Button
-            android:id="@+id/button54"
+
+            <TextView
+                android:id="@+id/erkeksayitv"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/border_textview"
+                android:text="0"
+                android:textAlignment="center"
+                android:textSize="26sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/erkekazaltbtn"
+                android:layout_width="74dp"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/erkekartirbtn"
+                android:layout_width="74dp"
+                android:layout_height="wrap_content"
+                android:text="+"
+                android:textSize="25sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@android:color/holo_blue_bright"
-            android:text="Onayla ve Devam et"
-            android:textColor="@android:color/white" />
+            android:text="Kız Sayısı"
+            android:textSize="16sp"
+android:layout_marginLeft="50dp"
+            />
+
+
+            <TextView
+                android:id="@+id/kizsayitv"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/border_textview"
+                android:text="0"
+                android:textAlignment="center"
+                android:textSize="26sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/kizazaltbtn"
+                android:layout_width="79dp"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/kizartirbtn"
+                android:layout_width="81dp"
+                android:layout_height="wrap_content"
+                android:text="+"
+                android:textSize="25sp" />
+
+        </LinearLayout>
+
 
     </LinearLayout>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lütfen kendinizi de ev arkadaşı olarak dahil edin sayıya."
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/btndvm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_blue_bright"
+        android:text="Onayla ve Devam et"
+        android:textColor="@android:color/white" />
+
 </LinearLayout>

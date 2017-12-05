@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:weightSum="1">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -24,7 +25,7 @@
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="63dp"
         android:orientation="horizontal">
 
 
@@ -47,9 +48,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="'Le Beraber yaşamaktan mutlu olurum"
+                android:text="Herhangi bir yaştaki kişiyle yaşamaktan mutlu olur musun?"
+                android:textAlignment="center"
                 android:textColor="@android:color/white"
-                android:textSize="24sp" />
+                android:textSize="18sp" />
 
         </android.support.v7.widget.Toolbar>
     </LinearLayout>
@@ -59,71 +61,42 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="452dp"
+        android:orientation="vertical"
+        android:layout_weight="0.20">
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical" />
-        </ScrollView>
-
-        <ToggleButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <ToggleButton
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="ToggleButton" />
+            android:text="TextView"
+            android:layout_marginTop="140dp"
+            />
 
-        <ToggleButton
+        <SeekBar
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="ToggleButton" />
+            android:max="10"
+            android:progress="3" />
 
-        <ToggleButton
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="ToggleButton" />
-
-        <ToggleButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="ToggleButton" />
-
-        <ToggleButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="ToggleButton" />
-
-        <ToggleButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="ToggleButton" />
-
-        <ToggleButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="ToggleButton" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
+            android:text="Sliderı kaydırın"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="24sp"
+android:layout_marginTop="15dp"
+            android:textAlignment="center"
+            />
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:background="@android:color/holo_blue_bright"
-            android:text="Onayla ve DEvam et"
-            android:textColor="@android:color/white" />
+            android:text="Onayla ve Devam et"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="170dp"
+            />
     </LinearLayout>
 
 </LinearLayout>

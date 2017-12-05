@@ -28,7 +28,7 @@ public class UserMainActivity extends AppCompatActivity   implements NavigationV
 TextView tv;
     String isim;
     String email;
-    String server_url="http://192.168.1.33/getname.php";
+    String server_url="http://sametd.demo.datacenter.fi/myphp/getname.php";
 
 
     @Override
@@ -122,7 +122,7 @@ TextView tv;
         SharedPreferences.Editor editor = sharedPref.edit();
         email=sharedPref.getString("email",null);
 
-        server_url="http://192.168.1.33/getname.php";
+        server_url="http://sametd.demo.datacenter.fi/myphp/getname.php";
 
 
         server_url+="?Email="+email;

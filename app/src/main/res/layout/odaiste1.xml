@@ -54,7 +54,8 @@
                 android:layout_alignParentRight="true"
                 android:text="Ben/Biz"
                 android:textAlignment="center"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                android:textSize="21sp" />
 
 
         </android.support.v7.widget.Toolbar>
@@ -68,6 +69,7 @@
         android:orientation="vertical">
 
         <Button
+            android:id="@+id/btnbay"
             android:layout_width="333dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
@@ -77,6 +79,7 @@
 
 
         <Button
+            android:id="@+id/btnbayan"
             android:layout_width="333dp"
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/ic_woman"
@@ -85,27 +88,15 @@
 
 
         <Button
+            android:id="@+id/bayplusbayan"
             android:layout_width="332dp"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/ic_man"
 
+            android:drawableLeft="@drawable/ic_man"
             android:padding="20dp"
             android:text="Bayan+Bay" />
 
-        <Button
-            android:layout_width="333dp"
-            android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/ic_man"
-            android:padding="20dp"
-            android:text="2 Bay" />
 
-
-        <Button
-            android:layout_width="331dp"
-            android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/ic_woman"
-            android:padding="20dp"
-            android:text="2 Bayan" />
     </LinearLayout>
 
 

@@ -68,6 +68,7 @@
 
 
         <ImageView
+            android:id="@+id/camerapic"
             android:layout_width="match_parent"
             android:layout_height="141dp"
             android:layout_marginTop="100dp"
@@ -83,6 +84,7 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/fotosecbtn"
             android:layout_width="187dp"
             android:layout_height="match_parent"
             android:background="@android:color/holo_blue_bright"
@@ -90,6 +92,7 @@
             android:textColor="@android:color/white" />
 
         <Button
+            android:id="@+id/fotocekbtn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="5dp"
@@ -99,13 +102,15 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/btndvm"
         android:layout_width="match_parent"
         android:layout_height="29dp"
         android:layout_marginTop="20dp"
         android:layout_weight="0.23"
         android:background="@android:color/darker_gray"
         android:text="Hayır , Teşekkürler"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/white"
+        android:textStyle="bold" />
 
 
 </LinearLayout>

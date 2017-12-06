@@ -12,7 +12,7 @@ import android.widget.Button;
  */
 
 public class Kirala12 extends AppCompatActivity {
-    Button btn,evet,hayir;
+    Button btn,btndvm;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -27,17 +27,8 @@ public class Kirala12 extends AppCompatActivity {
             }
         });
 
-evet= (Button) findViewById(R.id.btnevet);
-        hayir= (Button) findViewById(R.id.btnhayir);
-        evet.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Kirala12.this,Kirala13.class);
-                startActivity(intent);
-            }
-        });
-
-        hayir.setOnClickListener(new View.OnClickListener() {
+        btndvm= (Button) findViewById(R.id.btndvm);
+        btndvm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Kirala12.this,Kirala13.class);

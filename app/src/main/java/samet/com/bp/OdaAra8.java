@@ -13,7 +13,7 @@ import android.widget.Button;
 
 public class OdaAra8 extends AppCompatActivity {
 
-    Button btn;
+    Button btn,btndvm;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +26,17 @@ public class OdaAra8 extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+        btndvm= (Button) findViewById(R.id.btndvm);
+        btndvm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(OdaAra8.this,OdaAra9.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     @Override

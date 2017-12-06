@@ -47,7 +47,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Mülkte herhangi bir evcil hayvan var mı?"
+                android:text="Mülkte sigara içen var mı?"
                 android:textColor="@android:color/white"
                 android:textSize="24sp" />
 
@@ -66,28 +66,30 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/holo_blue_bright"
-            app:srcCompat="@drawable/pet" />
-
+            app:srcCompat="@drawable/smoke" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="20dp"
             >
 
             <Button
                 android:id="@+id/btnevet"
-                android:layout_width="180dp"
+                android:layout_width="181dp"
                 android:layout_height="wrap_content"
-                android:text="eVET" />
+                android:text="Evet" />
 
             <Button
                 android:id="@+id/btnhayir"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Hayir" />
+
+
         </LinearLayout>
+
 
 
     </LinearLayout>

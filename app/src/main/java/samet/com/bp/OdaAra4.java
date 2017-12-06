@@ -13,7 +13,7 @@ import android.widget.Button;
 
 public class OdaAra4 extends AppCompatActivity {
 
-    Button btn;
+    Button btn,btnogr,btnclsn,btndgr;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +26,39 @@ public class OdaAra4 extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+        btnclsn= (Button) findViewById(R.id.btncalisan);
+        btndgr= (Button) findViewById(R.id.btndiger);
+        btnogr= (Button) findViewById(R.id.btnogrenci);
+
+        btnclsn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(OdaAra4.this,OdaAra5.class);
+                startActivity(intent);
+            }
+        });
+
+
+        btndgr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(OdaAra4.this,OdaAra5.class);
+                startActivity(intent);
+            }
+        });
+
+        btnogr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(OdaAra4.this,OdaAra5.class);
+                startActivity(intent);
+            }
+        });
+
+
+
     }
 
     @Override

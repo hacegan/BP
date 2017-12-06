@@ -66,10 +66,10 @@
             android:id="@+id/camerapic"
             android:layout_width="match_parent"
             android:layout_height="169dp"
-            android:background="@android:color/holo_blue_bright"
+            android:background="@android:color/white"
             app:srcCompat="@drawable/camera"
 
-           />
+            />
         <!--   android:background="@android:color/holo_blue_bright" -->
            <!-- app:srcCompat="@drawable/camera"-->
 

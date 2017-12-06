@@ -13,11 +13,11 @@ import android.widget.Button;
 
 public class OdaAra11  extends AppCompatActivity {
 
-    Button btn;
+    Button btn,btndvm;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.odaiste11);
+        setContentView(R.layout.odaiste9);
         btn= (Button) findViewById(R.id.geribtn);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -26,6 +26,16 @@ public class OdaAra11  extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        btndvm= (Button) findViewById(R.id.btndvm);
+        btndvm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(OdaAra11.this,OdaAra12.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     @Override

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
     <LinearLayout
@@ -51,10 +50,10 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:lineSpacingExtra="14sp"
-                android:text="Bütçeniz ne kadar ?"
+                android:text="Ne zamanları konaklamak istiyorsunuz"
                 android:textAlignment="center"
                 android:textColor="@android:color/white"
-                android:textSize="24sp"
+                android:textSize="18sp"
                 android:typeface="serif" />
 
 
@@ -63,41 +62,32 @@
     </LinearLayout>
 
 
-    <EditText
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="TL 0"
-        android:inputType="textPersonName"
-        android:layout_marginTop="150dp"
-        />
-
-
-<RadioGroup
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-android:orientation="horizontal"
-    >
+        android:layout_marginTop="100dp"
+        android:background="@android:color/holo_blue_bright"
+        app:srcCompat="@drawable/calendar" />
 
     <Button
-        android:layout_width="180dp"
-        android:layout_height="wrap_content"
-
-        android:text="Her hafta" />
-
-    <Button
-        android:layout_width="182dp"
-        android:layout_height="wrap_content"
-        android:text="HER AY" />
-
-
-
-</RadioGroup>
-
-    <Button
+        android:id="@+id/hergunbtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="195dp"
-        android:text="Onayla ve Devam Et" />
+        android:text="Haftanın 7 Günü"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/hicibtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hafta İçi"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/hsonubtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hafta Sonu"
+        android:textSize="18sp" />
 
 </LinearLayout>

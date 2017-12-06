@@ -6,38 +6,29 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.SeekBar;
-import android.widget.TextView;
 
 /**
  * Created by root on 20.11.2017.
  */
 
 public class Kirala10 extends AppCompatActivity {
-    Button btn,btndvm;
-SeekBar sb;
-    TextView tv;
+    Button btn,evet,hayir;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.kirala10);
         btn= (Button) findViewById(R.id.geribtn);
-
-        tv= (TextView) findViewById(R.id.yatakodasayi);
-
-
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Kirala10.this,Kirala9.class);
+                Intent intent = new Intent(Kirala10.this,Kirala10.class);
                 startActivity(intent);
             }
         });
-
-
-        btndvm= (Button) findViewById(R.id.btndvm);
-
-        btndvm.setOnClickListener(new View.OnClickListener() {
+        evet= (Button) findViewById(R.id.btnevet);
+        hayir= (Button) findViewById(R.id.btnhayir);
+        evet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Kirala10.this,Kirala11.class);
@@ -45,33 +36,19 @@ SeekBar sb;
             }
         });
 
-
-        sb= (SeekBar) findViewById(R.id.sb);
-
-        sb.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        hayir.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-//tv.setText();
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
+            public void onClick(View v) {
+                Intent intent = new Intent(Kirala10.this,Kirala11.class);
+                startActivity(intent);
             }
         });
-
-
 
     }
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(Kirala10.this,Kirala9.class);
+        Intent intent = new Intent(Kirala10.this,Kirala10.class);
         startActivity(intent);
     }
 }

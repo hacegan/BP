@@ -13,7 +13,7 @@ import android.widget.Button;
 
 public class OdaAra5 extends AppCompatActivity {
 
-    Button btn;
+    Button btn,btnevet,btnhayir;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +26,28 @@ public class OdaAra5 extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        btnevet= (Button) findViewById(R.id.btnevet);
+        btnhayir= (Button) findViewById(R.id.btnhayir);
+
+        btnevet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(OdaAra5.this,OdaAra6.class);
+                startActivity(intent);
+            }
+        });
+
+        btnhayir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(OdaAra5.this,OdaAra6.class);
+                startActivity(intent);
+            }
+        });
+
+
+
     }
 
     @Override

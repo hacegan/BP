@@ -26,9 +26,7 @@ public class Kirala2 extends AppCompatActivity {
 
         btnadvertiser1= (Button) findViewById(R.id.btnadvertiser1);
                 btnadvertiser2= (Button) findViewById(R.id.btnadvertiser2);
-        btnadvertiser3= (Button) findViewById(R.id.btnadvertiser3);
-                btnadvertiser4= (Button) findViewById(R.id.btnadvertiser4);
-        btnadvertiser5= (Button) findViewById(R.id.btnadvertiser5);
+
 
 
 
@@ -59,29 +57,8 @@ public class Kirala2 extends AppCompatActivity {
             }
         });
 
-        btnadvertiser3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Kirala2.this,Kirala3.class);
-                startActivity(intent);
-            }
-        });
 
-        btnadvertiser4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Kirala2.this,Kirala3.class);
-                startActivity(intent);
-            }
-        });
 
-        btnadvertiser5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Kirala2.this,Kirala3.class);
-                startActivity(intent);
-            }
-        });
 
 
 

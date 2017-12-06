@@ -51,7 +51,8 @@
                 android:layout_alignParentRight="true"
                 android:layout_weight="0.90"
                 android:text="Ne tür bir ilan verensiniz?"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
 
 
         </android.support.v7.widget.Toolbar>
@@ -69,36 +70,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="130dp"
+            android:background="@android:color/holo_green_light"
             android:text="EV SAHİBİ"
-            android:textColor="@android:color/darker_gray" />
+            android:textColor="@android:color/white" />
 
         <Button
             android:id="@+id/btnadvertiser2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="KİRACI"
-            android:textColor="@android:color/darker_gray" />
-
-        <Button
-            android:id="@+id/btnadvertiser3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Şimdiki Ev Arkadaşı"
-            android:textColor="@android:color/darker_gray" />
-
-        <Button
-            android:id="@+id/btnadvertiser4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:background="@android:color/holo_purple"
             android:text="Acenta"
-            android:textColor="@android:color/darker_gray" />
+            android:textColor="@android:color/white" />
 
-        <Button
-            android:id="@+id/btnadvertiser5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Eski Ev Arkadaşı"
-            android:textColor="@android:color/darker_gray" />
     </LinearLayout>
 
 </LinearLayout>

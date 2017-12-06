@@ -71,13 +71,13 @@
         <activity android:name=".Kirala8" />
         <activity android:name=".Kirala9" />
         <activity android:name=".Kirala10" />
+        <activity android:name=".Kirala10" />
         <activity android:name=".Kirala11" />
         <activity android:name=".Kirala12" />
         <activity android:name=".Kirala13" />
         <activity android:name=".Kirala14" />
         <activity android:name=".Kirala15" />
         <activity android:name=".Kirala16" />
-        <activity android:name=".Kirala17" />
         <activity android:name=".OdaAra1" />
         <activity android:name=".OdaAra2" />
         <activity android:name=".OdaAra3" />
@@ -92,8 +92,6 @@
         <activity android:name=".OdaAra12" />
         <activity android:name=".OdaAra13" />
         <activity android:name=".OdaAra14" />
-        <activity android:name=".OdaAra15" />
-        <activity android:name=".OdaAra16" />
         <activity android:name=".OdaEkle" />
         <activity android:name=".OdaDuzenle" />
         <provider

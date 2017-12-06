@@ -50,9 +50,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:text="Bir mülk türü seçin"
+                android:text="Bir meslek seçin"
                 android:textAlignment="center"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                android:textSize="22sp" />
 
 
         </android.support.v7.widget.Toolbar>
@@ -60,20 +61,22 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/btnogrenci"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/ic_student"
-        android:text="Öğrenci"
         android:layout_marginTop="100dp"
-        />
+        android:drawableLeft="@drawable/ic_student"
+        android:text="Öğrenci" />
 
     <Button
+        android:id="@+id/btncalisan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:drawableLeft="@drawable/ic_professional"
-        android:text="Profesyonel" />
+        android:text="Çalışan" />
 
     <Button
+        android:id="@+id/btndiger"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:drawableLeft="@drawable/ic_other"

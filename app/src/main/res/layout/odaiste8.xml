@@ -77,12 +77,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Kaydırıcıyı sürükleyin"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:textAlignment="center"
+        />
 
     <Button
+        android:id="@+id/btndvm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
-        android:text="Button" />
+        android:layout_marginTop="170dp"
+        android:background="@android:color/holo_blue_bright"
+        android:text="Onayla ve Devam Et"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
 </LinearLayout>

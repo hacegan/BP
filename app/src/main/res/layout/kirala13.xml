@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:weightSum="1">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -24,7 +25,7 @@
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="63dp"
         android:orientation="horizontal">
 
 
@@ -47,77 +48,55 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="'Le Beraber yaşamaktan mutlu olurum"
+                android:text="Herhangi bir yaştaki kişiyle yaşamaktan mutlu olur musun?"
+                android:textAlignment="center"
                 android:textColor="@android:color/white"
-                android:textSize="24sp" />
+                android:textSize="18sp" />
 
         </android.support.v7.widget.Toolbar>
     </LinearLayout>
 
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="434dp"
-        android:layout_weight="0.56">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" >
-
-            <CheckBox
-                android:layout_width="match_parent"
-                android:layout_height="69dp"
-                android:drawableLeft="@drawable/moustache"
-                android:text="Erkekler ile" />
-
-            <CheckBox
-                android:layout_width="match_parent"
-                android:layout_height="72dp"
-                android:drawableLeft="@drawable/lip"
-                android:text="KIzlar ile" />
-
-            <CheckBox
-                android:layout_width="match_parent"
-                android:layout_height="98dp"
-                android:drawableLeft="@drawable/smoke"
-                android:text="Sigara içenler ile" />
-
-            <CheckBox
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/bag_big"
-                android:text="Çalışanlar ile" />
-
-            <CheckBox
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/book_big"
-                android:text="Öğrenciler ile" />
-
-            <CheckBox
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/pet"
-                android:text="Evcil hayvanı olanlar ile" />
-        </LinearLayout>
-    </ScrollView>
-
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="452dp"
+        android:orientation="vertical"
+        android:layout_weight="0.20">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:layout_marginTop="140dp"
+            />
+
+        <SeekBar
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="10"
+            android:progress="3" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sliderı kaydırın"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="24sp"
+android:layout_marginTop="15dp"
+            android:textAlignment="center"
+            />
 
         <Button
-            android:id="@+id/btndvm"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:background="@android:color/holo_blue_bright"
-            android:text="Onayla ve Devam Et"
-            android:textColor="@android:color/white" />
+            android:text="Onayla ve Devam et"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="170dp"
+            />
     </LinearLayout>
 
 </LinearLayout>

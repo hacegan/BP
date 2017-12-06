@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:weightSum="1">
+    android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -50,10 +50,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:text="Başkalarıyla arkadaş olmayı ister misin?"
+                android:lineSpacingExtra="14sp"
+                android:text="Bütçeniz ne kadar ?"
                 android:textAlignment="center"
                 android:textColor="@android:color/white"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                android:typeface="serif" />
 
 
         </android.support.v7.widget.Toolbar>
@@ -61,52 +63,24 @@
     </LinearLayout>
 
 
-
-    <LinearLayout
+    <EditText
         android:layout_width="match_parent"
-        android:layout_height="279dp"
-        android:orientation="vertical"
-        android:layout_weight="0.50">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:ems="10"
+        android:hint="TL 0"
+        android:inputType="textPersonName"
+        android:textSize="24sp" />
 
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="141dp"
-            android:layout_marginTop="100dp"
-            android:background="@android:color/holo_blue_bright"
-            app:srcCompat="@drawable/community" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text=" yeni bir ev / daire paylaşımı yapmak için konaklamak isteyen diğer kişileri bulun."
-            android:textSize="24sp" />
-
-
-    </LinearLayout>
-
-    <LinearLayout
+    <Button
+        android:id="@+id/btndvm"
         android:layout_width="match_parent"
-        android:layout_height="66dp"
-        android:orientation="horizontal"
-        android:layout_marginTop="50dp"
-        >
-
-        <Button
-            android:layout_width="187dp"
-            android:layout_height="match_parent"
-            android:background="@android:color/holo_blue_bright"
-            android:text="Evet"
-            android:textColor="@android:color/white" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="5dp"
-            android:background="@android:color/holo_blue_bright"
-            android:text="HAYIR"
-            android:textColor="@android:color/white" />
-    </LinearLayout>
-
+        android:layout_height="wrap_content"
+        android:layout_marginTop="195dp"
+        android:background="@android:color/holo_blue_bright"
+        android:text="Onayla ve Devam Et"
+        android:textColor="@android:color/white"
+        android:textSize="24sp" />
 
 </LinearLayout>

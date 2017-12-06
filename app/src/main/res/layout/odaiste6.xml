@@ -83,6 +83,7 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/btnevet"
             android:layout_width="187dp"
             android:layout_height="match_parent"
             android:background="@android:color/holo_blue_bright"
@@ -90,6 +91,7 @@
             android:textColor="@android:color/white" />
 
         <Button
+            android:id="@+id/btnhayir"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="5dp"

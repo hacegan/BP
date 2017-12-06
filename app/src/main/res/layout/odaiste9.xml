@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -26,8 +25,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="72dp"
-        android:orientation="horizontal">
-
+        android:orientation="horizontal"
+        >
 
         <android.support.v7.widget.Toolbar
             android:layout_width="match_parent"
@@ -50,28 +49,49 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:text="Ne tür bir oda bakıyorsunuz?"
+                android:lineSpacingExtra="14sp"
+                android:text="Aradığınız bölgeler"
                 android:textAlignment="center"
                 android:textColor="@android:color/white"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                android:typeface="serif" />
 
 
         </android.support.v7.widget.Toolbar>
 
     </LinearLayout>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_marginTop="100dp"
-        android:drawableLeft="@drawable/ic_student"
-        android:text="Tek ve ya Çift Oda" />
 
-    <Button
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:drawableLeft="@drawable/ic_professional"
-        android:text="Çift Oda" />
+        android:layout_height="279dp"
+        android:orientation="vertical">
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="141dp"
+            android:layout_marginTop="100dp"
+            android:background="@android:color/holo_blue_bright"
+            app:srcCompat="@drawable/loc_area" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="66dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/holo_blue_bright"
+            android:text="Bölgeri Seçin"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
 
 
 </LinearLayout>

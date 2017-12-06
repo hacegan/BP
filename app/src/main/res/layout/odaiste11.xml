@@ -50,10 +50,10 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:lineSpacingExtra="14sp"
-                android:text="Aradığınız bölgeler"
+                android:text="Hazır Bulunma "
                 android:textAlignment="center"
                 android:textColor="@android:color/white"
-                android:textSize="24sp"
+                android:textSize="20sp"
                 android:typeface="serif" />
 
 
@@ -62,36 +62,25 @@
     </LinearLayout>
 
 
-
-    <LinearLayout
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="279dp"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:text="'den itibaren taşınmaya hazırım."
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="141dp"
-            android:layout_marginTop="100dp"
-            android:background="@android:color/holo_blue_bright"
-            app:srcCompat="@drawable/loc_area" />
-
-
-    </LinearLayout>
-
-    <LinearLayout
+    <CalendarView
         android:layout_width="match_parent"
-        android:layout_height="66dp"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content" />
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@android:color/holo_blue_bright"
-            android:text="Bölgeri Seçin"
-            android:textColor="@android:color/white" />
-
-    </LinearLayout>
-
+    <Button
+        android:id="@+id/btndvm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_blue_bright"
+        android:text="Onayla ve Devam Et"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="20dp"
+        />
 
 </LinearLayout>

@@ -13,11 +13,11 @@ import android.widget.Button;
 
 public class OdaAra12 extends AppCompatActivity {
 
-    Button btn;
+    Button btn,btnhergun,btnhici,btnhsonu;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.odaiste12);
+        setContentView(R.layout.odaiste10);
         btn= (Button) findViewById(R.id.geribtn);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -26,6 +26,39 @@ public class OdaAra12 extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        btnhergun= (Button) findViewById(R.id.hergunbtn);
+        btnhici= (Button) findViewById(R.id.hicibtn);
+        btnhsonu= (Button) findViewById(R.id.hsonubtn);
+
+
+        btnhergun.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(OdaAra12.this,OdaAra13.class);
+                startActivity(intent);
+            }
+        });
+
+
+        btnhici.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(OdaAra12.this,OdaAra13.class);
+                startActivity(intent);
+            }
+        });
+
+
+        btnhsonu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(OdaAra12.this,OdaAra13.class);
+                startActivity(intent);
+            }
+        });
+
+
     }
 
     @Override

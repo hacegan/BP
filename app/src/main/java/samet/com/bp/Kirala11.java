@@ -26,7 +26,8 @@ public class Kirala11 extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        evet= (Button) findViewById(R.id.btnevet);
+
+evet= (Button) findViewById(R.id.btnevet);
         hayir= (Button) findViewById(R.id.btnhayir);
         evet.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,6 +44,7 @@ public class Kirala11 extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
 
     }
 

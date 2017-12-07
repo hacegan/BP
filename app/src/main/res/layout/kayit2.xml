@@ -54,19 +54,20 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Email Adresin?"
                 android:layout_alignParentTop="true"
+                android:text="Email Adresin?"
                 android:textColor="@android:color/white"
-                android:textSize="20dp"
-                />
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Bunu , oturum açtığınızda ve şifrenizi sıfırlamanız gerekiyorsa kullanacaksınız."
                 android:layout_alignParentBottom="true"
-                />
+                android:text="Bunu , oturum açtığınızda ve şifrenizi sıfırlamanız gerekiyorsa kullanacaksınız."
+                android:textColor="@android:color/white"
+                android:textSize="18sp" />
 
         </RelativeLayout>
 
@@ -86,7 +87,9 @@
                 android:text="E-Posta Adresi"
 
 
-                />
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/kayitepostatxt"
@@ -110,7 +113,8 @@
                 android:background="@null"
                 android:text="DEVAM ET"
                 android:textColor="@android:color/white"
-                />
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
 
         </RelativeLayout>

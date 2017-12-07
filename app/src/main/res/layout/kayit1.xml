@@ -59,19 +59,21 @@ android:layout_toRightOf="@+id/geribtn"
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="İsmin Nedir?"
             android:layout_alignParentTop="true"
+            android:text="İsmin Nedir?"
             android:textColor="@android:color/white"
-            android:textSize="20dp"
-            />
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Birbirimizi biraz daha iyi tanımamıza yardımcı olmak için, adın neydi?"
             android:layout_alignParentBottom="true"
-            />
+            android:text="Birbirimizi biraz daha iyi tanımamıza yardımcı olmak için, adın neydi?"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
 
     </RelativeLayout>
 
@@ -91,7 +93,9 @@ android:layout_toRightOf="@+id/geribtn"
             android:text="Ad Soyad"
 
 
-            />
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/kayitadsoyadtxt"
@@ -100,7 +104,8 @@ android:layout_toRightOf="@+id/geribtn"
             android:layout_marginTop="20dp"
 
 
-            />
+            android:textColor="@android:color/white"
+            android:textStyle="bold" />
 
 
     </RelativeLayout>
@@ -118,7 +123,8 @@ android:layout_toRightOf="@+id/geribtn"
                 android:background="@null"
                 android:text="DEVAM ET"
                 android:textColor="@android:color/white"
-                />
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
 
         </RelativeLayout>

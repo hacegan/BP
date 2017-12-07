@@ -51,7 +51,8 @@
                 android:layout_weight="1"
                 android:text="Odalarını Ekle / Güncelle"
                 android:textColor="@android:color/white"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
         </android.support.v7.widget.Toolbar>
     </LinearLayout>
@@ -68,7 +69,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="12 tane'ye kadar oda ekle" />
+            android:lineSpacingExtra="8sp"
+            android:text="12 tane'ye kadar oda ekle"
+            android:textAllCaps="true"
+            android:textSize="15sp"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/odaeklebtn"

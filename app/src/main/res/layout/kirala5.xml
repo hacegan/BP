@@ -48,7 +48,7 @@
                 android:layout_weight="1"
                 android:text="Bölgenizi seçin"
                 android:textColor="@android:color/white"
-                android:textSize="18sp" />
+                android:textSize="20sp" />
 
         </android.support.v7.widget.Toolbar>
     </LinearLayout>

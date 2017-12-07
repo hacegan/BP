@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:weightSum="1">
 
 
     <LinearLayout
@@ -54,24 +55,57 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="70dp"
             android:text="Ne ilanı vermek istersiniz?"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
 
     </android.support.v7.widget.Toolbar>
         </LinearLayout>
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        >
+        android:layout_marginTop="100dp"
+        android:weightSum="1">
+
+        <TextView
+
+            android:layout_width="182dp"
+            android:layout_height="wrap_content"
+
+            android:layout_weight="0.27"
+            android:text="Ev Kirala"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Kiralık Ev Ara"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
 
         <ImageButton
             android:id="@+id/kiralagitbtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="200dp"
+            android:layout_marginTop="15dp"
             android:layout_weight="1"
             app:srcCompat="@drawable/roomstorent" />
 
@@ -79,9 +113,13 @@
             android:id="@+id/aragitbtn"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginTop="200dp"
-            android:layout_weight="1.00"
+            android:layout_marginTop="15dp"
+          android:layout_weight="1.00"
             app:srcCompat="@drawable/roomswanted" />
     </LinearLayout>
+
+
+
+
 
 </LinearLayout>

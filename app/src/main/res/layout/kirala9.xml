@@ -72,13 +72,12 @@
             android:orientation="vertical"
             >
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Erkek Sayısı"
-            android:textSize="16sp"
-            android:layout_marginLeft="15dp"
-            />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:text="Erkek Sayısı"
+                android:textSize="18sp" />
 
 
             <TextView
@@ -115,13 +114,12 @@
             android:orientation="vertical"
             >
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Kız Sayısı"
-            android:textSize="16sp"
-android:layout_marginLeft="50dp"
-            />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:text="Kız Sayısı"
+                android:textSize="18sp" />
 
 
             <TextView

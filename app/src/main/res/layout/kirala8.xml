@@ -65,10 +65,11 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Oda uygundur 'den"
             android:layout_marginTop="100dp"
+            android:text="Oda uygundur 'den"
             android:textAlignment="center"
-            />
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <!--  <TextView
             android:layout_width="match_parent"
@@ -91,16 +92,20 @@
             android:layout_height="wrap_content"
             android:text="Tarih Seçiniz"
             android:textAlignment="center"
+            android:textAllCaps="true"
             android:textColor="@android:color/holo_red_light"
-            />
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
             android:text="Kiraya faturalar dahil mi ?"
             android:textAlignment="center"
-            android:layout_marginTop="15dp"
-            />
+            android:textAllCaps="true"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <Button
             android:layout_width="match_parent"

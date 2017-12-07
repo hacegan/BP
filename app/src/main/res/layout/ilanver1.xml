@@ -55,7 +55,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="65dp"
                 android:text="Bir İlan Yerleştirin"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
 
 
         </android.support.v7.widget.Toolbar>
@@ -77,6 +79,7 @@
         android:layout_marginTop="25dp"
         android:background="@android:color/holo_orange_dark"
         android:text="Başla"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/white"
+        android:textSize="18sp" />
 
 </LinearLayout>

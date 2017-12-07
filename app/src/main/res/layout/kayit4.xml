@@ -64,9 +64,11 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Deneyiminizi iyileştirmemize yardımcı olmak için aramanızı en iyi tanımlayan seçeneği seçin.Eğer ikisi de size uygunsa, her ikisini birden seçin."
                 android:layout_alignParentBottom="true"
-                />
+                android:text="Deneyiminizi iyileştirmemize yardımcı olmak için aramanızı en iyi tanımlayan seçeneği seçin.Eğer ikisi de size uygunsa, her ikisini birden seçin."
+                android:textAllCaps="true"
+                android:textColor="@android:color/white"
+                android:textStyle="bold|italic" />
 
         </RelativeLayout>
 
@@ -101,9 +103,11 @@
                     android:id="@+id/textView3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Kiralamam gereken bir odam var."
                     android:layout_toEndOf="@+id/kayitpersonicon"
-                    />
+                    android:text="Kiralamam gereken bir odam var."
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
                 <ImageView
                     android:id="@+id/kayitpersonicon"
@@ -130,14 +134,16 @@
                     android:layout_alignParentRight="true" />
 
 
-
                 <TextView
                     android:id="@+id/textView4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Kiralamak için bir oda arıyorum."
                     android:layout_toEndOf="@+id/kayitbedicon"
-                    />
+                    android:text="Kiralamak için bir oda arıyorum."
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold|italic" />
 
 
 
@@ -168,7 +174,9 @@
                 android:layout_alignParentRight="true"
                 android:background="@null"
                 android:text="Başlayabiliriz"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
 
         </RelativeLayout>

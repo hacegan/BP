@@ -64,9 +64,11 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Hatırlaması kolay, ancak tahmin etmesi zor olan bir şifre belirleyin. İstediğimiz şey, en az 4 karakter uzunluğundadır."
                 android:layout_alignParentBottom="true"
-                />
+                android:text="Hatırlaması kolay, ancak tahmin etmesi zor olan bir şifre belirleyin. İstediğimiz şey, en az 4 karakter uzunluğundadır."
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:textStyle="bold" />
 
         </RelativeLayout>
 
@@ -86,7 +88,9 @@
                 android:text="Şifre"
 
 
-                />
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/kayitsifretxt"
@@ -110,7 +114,8 @@
                 android:background="@null"
                 android:text="DEVAM ET"
                 android:textColor="@android:color/white"
-                />
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
 
         </RelativeLayout>

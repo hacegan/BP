@@ -58,7 +58,7 @@
                 android:layout_alignParentTop="true"
                 android:text="Tekrar Hoşgeldiniz!"
                 android:textColor="@android:color/white"
-                android:textSize="18sp" />
+                android:textSize="24sp" />
 
 
             <TextView
@@ -67,7 +67,7 @@
                 android:layout_alignParentBottom="true"
                 android:text="Seni tekrar görmek harika. "
                 android:textColor="@android:color/white"
-                android:textSize="18sp" />
+                android:textSize="20sp" />
 
         </RelativeLayout>
 
@@ -77,7 +77,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.12"
+            android:layout_weight="0.01"
             android:layout_marginTop="50dp"
             android:orientation="vertical"
             >
@@ -88,14 +88,16 @@
                 android:text="E-Posta Adresi"
 
 
-                android:textSize="18sp" />
+                android:textColor="@android:color/white"
+                android:textSize="24sp" />
 
             <EditText
+                android:id="@+id/giriseposta"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-android:id="@+id/giriseposta"
-                />
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
 
 
             <TextView
@@ -104,44 +106,61 @@ android:id="@+id/giriseposta"
                 android:layout_below="@+id/giriseposta"
                 android:text="Şifre"
 
-                android:textSize="18sp" />
+                android:textColor="@android:color/white"
+                android:textSize="24sp" />
 
             <EditText
                 android:id="@+id/girissifre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-android:layout_marginTop="5dp"
-                android:layout_below="@+id/sifre" />
+                android:layout_below="@+id/sifre"
+                android:layout_marginTop="5dp"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
 
 
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginTop="50dp"
+    >
 
+    <Button
+        android:id="@+id/girisyapbuton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="90dp"
+        android:background="@null"
+        android:text="Giriş Yap"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/sifreunutbuton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:background="@null"
+        android:text="Şifremi Unuttum"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+</LinearLayout>
 
         </LinearLayout>
 
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <Button
-                android:id="@+id/girisyapbuton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:background="@null"
-                android:text="Giriş Yap" />
-
-            <Button
-                android:id="@+id/sifreunutbuton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:background="@null"
-                android:text="Şifremi Unuttum" />
 
 
 
-        </RelativeLayout>
+
+
+
+
 
 
 

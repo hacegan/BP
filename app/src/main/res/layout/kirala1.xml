@@ -55,7 +55,10 @@
                 android:layout_alignParentRight="true"
                 android:text="Bir mülk türü seçin"
                 android:textAlignment="center"
-                android:textColor="@android:color/white" />
+                android:textAllCaps="true"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
 
         </android.support.v7.widget.Toolbar>

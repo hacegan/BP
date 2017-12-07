@@ -52,7 +52,8 @@
                 android:layout_weight="0.90"
                 android:text="Ne tür bir ilan verensiniz?"
                 android:textColor="@android:color/white"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
 
         </android.support.v7.widget.Toolbar>

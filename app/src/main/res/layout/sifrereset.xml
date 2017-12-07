@@ -54,17 +54,19 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Şifrenizi mi unuttunuz?"
                 android:layout_alignParentTop="true"
-                />
+                android:text="Şifrenizi mi unuttunuz?"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
 
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Endişelenmeyin, hepimizin başına gelebilir.Sizin tekrar oturum açmanızı sağlayacağız."
                 android:layout_alignParentBottom="true"
-                />
+                android:text="Endişelenmeyin, hepimizin başına gelebilir.Sizin tekrar oturum açmanızı sağlayacağız."
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
 
         </RelativeLayout>
 
@@ -84,7 +86,8 @@
                 android:text="E-Posta Adresi"
 
 
-                />
+                android:textColor="@android:color/white"
+                android:textSize="18sp" />
 
             <EditText
                 android:layout_width="match_parent"
@@ -112,7 +115,10 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:background="@null"
-                android:text="Şifremi Sıfırla" />
+                android:text="Şifremi Sıfırla"
+                android:textColor="@android:color/white"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
 
 

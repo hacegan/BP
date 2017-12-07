@@ -11,6 +11,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="150dp"
         android:text="Merhaba !"
+        android:textAllCaps="true"
         android:textColor="@android:color/white"
         android:textSize="36sp"
         android:textStyle="bold" />
@@ -22,12 +23,13 @@
         android:layout_below="@+id/img"
         android:layout_marginTop="13dp"
         android:gravity="center_horizontal"
+        android:lineSpacingExtra="10sp"
         android:text="Türkiye'nin en popüler ev paylaşım servisi olarak,Biz Milyonlarca insanın mükemmel ev arkadaşı ya da daire  bulmalarına yardımcı olduk."
-        android:textColor="?android:attr/textColorSecondaryInverseNoDisable"
-        android:textSize="18sp"
-        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
 
-        />
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
 
     

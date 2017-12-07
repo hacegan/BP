@@ -11,6 +11,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="150dp"
         android:text="10,531 ilan"
+        android:textAllCaps="true"
         android:textColor="@android:color/white"
         android:textSize="30sp"
         android:textStyle="bold" />
@@ -22,10 +23,11 @@
         android:layout_below="@+id/img"
         android:layout_marginTop="13dp"
         android:gravity="center_horizontal"
+        android:lineSpacingExtra="8sp"
         android:text="Ülke çapında seçebileceğiniz tüm bu fırsatlar ile herkes için bir şey var."
-        android:textColor="?android:attr/textColorSecondaryNoDisable"
-        android:textSize="30sp"
+        android:textColor="@android:color/white"
 
+        android:textSize="30sp"
         android:textStyle="bold" />
 
 

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -15,11 +16,19 @@ import android.widget.TextView;
 public class Kirala9 extends AppCompatActivity {
     Button btn,btnkizartir,btnkizazalt,btnerkekartir,btnerkekazalt,btndvm;
 TextView erkektv,kiztv;
+    Toolbar tb;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.kirala9);
         btn= (Button) findViewById(R.id.geribtn);
+
+        tb= (Toolbar) findViewById(R.id.supappbar);
+        setSupportActionBar(tb);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -44,7 +44,8 @@ dependencies {
     compile 'com.android.support:design:25.3.1'
     compile 'com.google.android.gms:play-services-location:11.0.0'
     compile 'com.github.jrvansuita:PickImage:2.1.5'
-    compile 'com.github.ceryle:SegmentedButton:v2.0.2'
+    compile 'com.yahoo.mobile.client.android.util.rangeseekbar:rangeseekbar-library:0.1.0'
+
 
 }
 

@@ -90,13 +90,13 @@ android:layout_marginTop="15dp"
             />
 
         <Button
+            android:id="@+id/btndvm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="170dp"
             android:background="@android:color/holo_blue_bright"
             android:text="Onayla ve Devam et"
-            android:textColor="@android:color/white"
-            android:layout_marginTop="170dp"
-            />
+            android:textColor="@android:color/white" />
     </LinearLayout>
 
 </LinearLayout>

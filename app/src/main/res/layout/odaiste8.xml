@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:rsb="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
@@ -63,29 +65,41 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
-        android:text="TextView" />
+        android:layout_marginTop="130dp"
+        android:background="@drawable/border_textview"
+        android:fontFamily="sans-serif"
+        android:lineSpacingExtra="8sp"
+        android:text="18"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="32sp"
+        android:textStyle="bold" />
+
 
     <SeekBar
-        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:id="@+id/seekBar"
+        style="@android:style/Widget.Material.SeekBar.Discrete"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:max="10"
-        android:progress="3" />
+        android:layout_marginTop="15dp"
+        android:thumb="@drawable/seekbar" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Kaydırıcıyı sürükleyin"
-        android:textSize="24sp"
         android:textAlignment="center"
+        android:textColor="@android:color/holo_red_light"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
         />
 
     <Button
         android:id="@+id/btndvm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="170dp"
+        android:layout_marginTop="100dp"
         android:background="@android:color/holo_blue_bright"
         android:text="Onayla ve Devam Et"
         android:textColor="@android:color/white"

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -18,7 +19,7 @@ public class OdaAra2 extends AppCompatActivity {
 
     Button btn,fotocekbtn,fotosecbtn,btndvm;
     ImageView iv;
-
+    Toolbar tb;
     private static int LOAD_IMAGE_RESULTS=1;
 
     @Override
@@ -39,6 +40,10 @@ public class OdaAra2 extends AppCompatActivity {
         fotosecbtn= (Button) findViewById(R.id.fotosecbtn);
         btndvm= (Button) findViewById(R.id.btndvm);
 
+
+        tb= (Toolbar) findViewById(R.id.supappbar);
+        setSupportActionBar(tb);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         btndvm.setOnClickListener(new View.OnClickListener() {
             @Override

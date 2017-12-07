@@ -65,7 +65,7 @@
         android:id="@+id/kacyas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="170dp"
+        android:layout_marginTop="120dp"
         android:background="@drawable/border_textview"
         android:fontFamily="sans-serif"
         android:lineSpacingExtra="8sp"
@@ -76,18 +76,29 @@
         android:textStyle="bold" />
 
     <SeekBar
+        android:id="@+id/sb"
         style="@style/Widget.AppCompat.SeekBar.Discrete"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:thumb="@drawable/seekbar"
         android:layout_marginTop="25dp"
+        android:thumb="@drawable/seekbar" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Kaydırıcıyı Sürükleyin"
+        android:textColor="@android:color/holo_red_light"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:textAlignment="center"
         />
 
     <Button
         android:id="@+id/btndvm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="70dp"
         android:background="@android:color/holo_blue_bright"
         android:text="Onayla ve Devam Et"
         android:textColor="@android:color/white"

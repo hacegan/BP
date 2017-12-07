@@ -25,6 +25,7 @@ import android.os.HandlerThread;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.util.SparseIntArray;
 import android.view.Surface;
@@ -58,14 +59,10 @@ import static android.media.MediaRecorder.VideoSource.SURFACE;
 public class Kirala6 extends AppCompatActivity  {
     Button btn,fotocekbtn,fotosecbtn,btndvm;
 ImageView iv;
-
+    Toolbar tb;
 
 
  private static int LOAD_IMAGE_RESULTS=1;
-
-
-
-
 
 
 
@@ -81,7 +78,9 @@ ImageView iv;
         iv= (ImageView) findViewById(R.id.camerapic);
 
 
-
+        tb= (Toolbar) findViewById(R.id.supappbar);
+        setSupportActionBar(tb);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
         btn= (Button) findViewById(R.id.geribtn);

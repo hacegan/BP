@@ -46,13 +46,13 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="28dp"
+                android:layout_height="55dp"
 
                 android:layout_alignParentRight="true"
                 android:layout_weight="0.90"
                 android:text="Ne tür bir ilan verensiniz?"
                 android:textColor="@android:color/white"
-                android:textSize="16sp"
+                android:textSize="24sp"
                 android:textStyle="bold" />
 
 
@@ -73,7 +73,8 @@
             android:layout_marginTop="130dp"
             android:background="@android:color/holo_green_light"
             android:text="EV SAHİBİ"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:textSize="24sp" />
 
         <Button
             android:id="@+id/btnadvertiser2"
@@ -81,7 +82,8 @@
             android:layout_height="wrap_content"
             android:background="@android:color/holo_purple"
             android:text="Acenta"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:textSize="24sp" />
 
     </LinearLayout>
 

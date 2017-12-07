@@ -50,7 +50,8 @@
                 android:layout_alignParentRight="true"
                 android:text="Şimdi orada misin?"
                 android:textColor="@android:color/white"
-                android:textSize="24sp" />
+                android:textSize="26sp"
+                android:textStyle="bold" />
 
 
         </android.support.v7.widget.Toolbar>
@@ -80,14 +81,16 @@
             android:layout_width="179dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="EVET" />
+            android:text="EVET"
+            android:textSize="24sp" />
 
         <Button
             android:id="@+id/btnhayir"
             android:layout_width="179dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="HAYIR" />
+            android:text="HAYIR"
+            android:textSize="24sp" />
     </LinearLayout>
 
 </LinearLayout>

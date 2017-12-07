@@ -68,7 +68,7 @@
             android:layout_marginTop="100dp"
             android:text="Oda uygundur 'den"
             android:textAlignment="center"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <!--  <TextView
@@ -100,28 +100,36 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="25dp"
             android:text="Kiraya faturalar dahil mi ?"
             android:textAlignment="center"
             android:textAllCaps="true"
-            android:textSize="18sp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Evet"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginTop="15dp"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hayır"
+            android:textSize="24sp"
             android:textStyle="bold" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Evet" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Hayır" />
 
         <Button
             android:id="@+id/btndvm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="150dp"
+            android:layout_marginTop="120dp"
             android:backgroundTint="@android:color/holo_blue_bright"
             android:text="Onayla ve Devam et"
             android:textColor="@android:color/white" />

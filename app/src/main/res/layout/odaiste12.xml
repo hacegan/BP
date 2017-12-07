@@ -49,11 +49,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:lineSpacingExtra="14sp"
                 android:text="Ne zamanları konaklamak istiyorsunuz"
                 android:textAlignment="center"
+                android:textAllCaps="false"
                 android:textColor="@android:color/white"
-                android:textSize="18sp"
+                android:textSize="19sp"
+                android:textStyle="bold|italic"
                 android:typeface="serif" />
 
 
@@ -73,21 +74,30 @@
         android:id="@+id/hergunbtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@android:color/holo_green_dark"
         android:text="Haftanın 7 Günü"
+        android:textColor="@android:color/white"
         android:textSize="18sp" />
 
     <Button
         android:id="@+id/hicibtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@android:color/holo_purple"
         android:text="Hafta İçi"
+        android:textColor="@android:color/white"
         android:textSize="18sp" />
 
     <Button
         android:id="@+id/hsonubtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="?android:attr/colorControlActivated"
         android:text="Hafta Sonu"
+        android:textColor="@android:color/white"
         android:textSize="18sp" />
 
 </LinearLayout>

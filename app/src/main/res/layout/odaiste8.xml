@@ -49,12 +49,13 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
                 android:layout_alignParentRight="true"
                 android:text="Herhangi bir yaşla birlikte yaşamaktan mutlu olur  musun?"
                 android:textAlignment="center"
                 android:textColor="@android:color/white"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
 
         </android.support.v7.widget.Toolbar>

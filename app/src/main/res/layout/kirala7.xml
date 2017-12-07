@@ -49,9 +49,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:lineSpacingExtra="8sp"
                 android:text="Odalarını Ekle / Güncelle"
+                android:textAllCaps="true"
                 android:textColor="@android:color/white"
-                android:textSize="18sp"
+                android:textSize="24sp"
                 android:textStyle="bold" />
 
         </android.support.v7.widget.Toolbar>
@@ -81,7 +83,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@android:color/holo_blue_bright"
-            android:text="Bir oda ekle" />
+            android:text="Bir oda ekle"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
     </LinearLayout>
 
 
@@ -108,7 +113,9 @@
             android:layout_marginTop="10dp"
             android:layout_weight="1"
             android:background="@android:color/holo_blue_bright"
-            android:text="Onayla ve Devam Et" />
+            android:text="Onayla ve Devam Et"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
     </LinearLayout>
 
 

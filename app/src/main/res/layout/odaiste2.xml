@@ -48,12 +48,14 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="70dp"
                 android:layout_alignParentRight="true"
                 android:text="Bir fotoğraf eklemek ister misiniz?"
                 android:textAlignment="center"
+                android:textAllCaps="false"
                 android:textColor="@android:color/white"
-                android:textSize="18sp" />
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
 
         </android.support.v7.widget.Toolbar>
@@ -89,7 +91,9 @@
             android:layout_height="match_parent"
             android:background="@android:color/holo_blue_bright"
             android:text="Var olanı seç "
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/fotocekbtn"
@@ -98,7 +102,9 @@
             android:layout_marginLeft="5dp"
             android:background="@android:color/holo_blue_bright"
             android:text="Yeni bir fotoğraf çek "
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <Button
@@ -110,6 +116,7 @@
         android:background="@android:color/darker_gray"
         android:text="Hayır , Teşekkürler"
         android:textColor="@android:color/white"
+        android:textSize="24sp"
         android:textStyle="bold" />
 
 

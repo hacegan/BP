@@ -81,13 +81,16 @@
                 android:id="@+id/btnevet"
                 android:layout_width="180dp"
                 android:layout_height="wrap_content"
-                android:text="Evet" />
+                android:text="Evet"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/btnhayir"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Hayir" />
+                android:text="Hayir"
+                android:textSize="24sp" />
 
 
         </LinearLayout>

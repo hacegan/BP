@@ -48,7 +48,7 @@
                 android:layout_weight="1"
                 android:text="Posta Kodunuzu Girin"
                 android:textColor="@android:color/white"
-                android:textSize="20sp"
+                android:textSize="24sp"
                 android:textStyle="bold" />
 
         </android.support.v7.widget.Toolbar>
@@ -68,14 +68,22 @@
             android:layout_marginTop="200dp"
             android:ems="10"
             android:hint="Posta Kodu 34100 gibi"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/btndvm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/holo_blue_bright"
-            android:text="Onaylayın ve bölgenizi seçin." />
+            android:lineSpacingExtra="8sp"
+            android:text="Onaylayın ve bölgenizi seçin."
+            android:textColor="@android:color/white"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:layout_marginTop="15dp"
+            />
 
         </LinearLayout>
 </LinearLayout>

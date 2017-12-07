@@ -47,8 +47,11 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Bölgenizi seçin"
+                android:textAllCaps="true"
                 android:textColor="@android:color/white"
-                android:textSize="20sp" />
+                android:textSize="24sp"
+                android:textStyle="bold"
+                />
 
         </android.support.v7.widget.Toolbar>
     </LinearLayout>
@@ -64,13 +67,22 @@
         <TextView
             android:id="@+id/locadresid"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:lineSpacingExtra="8sp"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/btndvm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Onayla ve Devam Et" />
+            android:layout_marginTop="10dp"
+            android:background="@android:color/holo_blue_bright"
+            android:lineSpacingExtra="8sp"
+            android:text="Onayla ve Devam Et"
+            android:textColor="@android:color/white"
+            android:textSize="30sp" />
 
     </LinearLayout>
 </LinearLayout>

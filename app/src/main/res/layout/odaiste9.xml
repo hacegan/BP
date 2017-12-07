@@ -54,6 +54,7 @@
                 android:textAlignment="center"
                 android:textColor="@android:color/white"
                 android:textSize="24sp"
+                android:textStyle="bold"
                 android:typeface="serif" />
 
 
@@ -89,7 +90,9 @@
             android:layout_height="match_parent"
             android:background="@android:color/holo_blue_bright"
             android:text="Bölgeri Seçin"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:textSize="30sp"
+            android:textStyle="bold|italic" />
 
     </LinearLayout>
 

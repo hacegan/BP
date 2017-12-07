@@ -53,7 +53,8 @@
                 android:text="Hazır Bulunma "
                 android:textAlignment="center"
                 android:textColor="@android:color/white"
-                android:textSize="20sp"
+                android:textSize="24sp"
+                android:textStyle="bold"
                 android:typeface="serif" />
 
 
@@ -66,6 +67,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="'den itibaren taşınmaya hazırım."
+        android:textAllCaps="true"
+        android:textColor="@android:color/holo_green_light"
         android:textSize="18sp"
         android:textStyle="bold" />
 
@@ -77,10 +80,11 @@
         android:id="@+id/btndvm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:background="@android:color/holo_blue_bright"
         android:text="Onayla ve Devam Et"
         android:textColor="@android:color/white"
-        android:layout_marginTop="20dp"
-        />
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
 </LinearLayout>

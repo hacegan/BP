@@ -63,13 +63,14 @@
         android:orientation="vertical">
 
         <EditText
+            android:id="@+id/plakaet"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="200dp"
             android:ems="10"
-            android:hint="Posta Kodu 34100 gibi"
+            android:hint="Plaka Numarasını Girin 1,2,42 gibi"
             android:inputType="textPersonName"
-            android:textSize="24sp"
+            android:textSize="22sp"
             android:textStyle="bold" />
 
         <Button

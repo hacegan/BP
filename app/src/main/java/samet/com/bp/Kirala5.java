@@ -44,7 +44,7 @@ String oldxml;
                 SharedPreferences.Editor editor = sharedPref.edit();
         oldxml=        sharedPref.getString("oldxml",null);
 
-                if(oldxml=="Kirala3.class") {
+              /*  if(oldxml=="Kirala3.class") {
                     Intent intent = new Intent(Kirala5.this, Kirala3.class);
                     startActivity(intent);
                 }
@@ -52,6 +52,11 @@ String oldxml;
                     Intent intent = new Intent(Kirala5.this, Kirala4.class);
                     startActivity(intent);
                 }
+
+                */
+                Intent intent = new Intent(Kirala5.this, Kirala3.class);
+                startActivity(intent);
+
 
             }
         });

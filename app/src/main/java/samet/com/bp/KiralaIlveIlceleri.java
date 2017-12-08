@@ -2,8 +2,11 @@ package samet.com.bp;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -21,7 +24,8 @@ public class KiralaIlveIlceleri extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.kiralailveilceleri);
 
-        LinearLayout ll = new LinearLayout(this);
+        LinearLayout ll = (LinearLayout) findViewById(R.id.dyntvekle);
+        ll.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
 
 
         Bundle bundle = getIntent().getExtras();
@@ -30,8 +34,9 @@ for(int i=0;i<array.size();i++){
 
     TextView tv=new TextView(this);
 
-    if(i%2==0)  tv.setText(     array.get(i) );
-        if(i%2==1) tv.setText(     array.get(i) );
+    tv.setText(     array.get(i) );
+tv.setTextSize(10);
+
 
 ll.addView(tv);
 }

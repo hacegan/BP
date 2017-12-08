@@ -34,6 +34,7 @@ public class Kirala4 extends AppCompatActivity {
     String sonuc;
     static String gitdeger;
    static String server_url;
+    ArrayList<String> array = new ArrayList<String>();
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -114,10 +115,6 @@ new CityTask().execute();
 
                 }
 
-              //  getApplicationContext().startActivity(new Intent(getApplicationContext(),UserMainActivity.class));
-
-
-
 
                 Intent in=new Intent(Kirala4.this,KiralaIlveIlceleri.class);
 in.putExtra("ilcelist",array);
@@ -128,6 +125,9 @@ startActivity(in);
                 Toast.makeText(getApplicationContext(),"Plaka kayitli degil veya hata oldu ",Toast.LENGTH_LONG).show();
             }*/
 //            System.out.println("Sonuc ="+sonuc);
+            Intent in=new Intent(Kirala4.this,KiralaIlveIlceleri.class);
+            in.putExtra("ilcelist",array);
+            startActivity(in);
 
         }
 
@@ -153,7 +153,10 @@ int i=0;
                 Document doc = Jsoup.connect(server_url).get();
               Elements elements=doc.select("ul li");
                 for(Element element:elements){
-            if(i%2==1)        System.out.println(element.text());
+            if(i%2==1)   {
+                System.out.println(element.text());
+                array.add(element.text());
+            }
                     i++;
                 }
 

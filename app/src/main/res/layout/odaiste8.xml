@@ -64,6 +64,7 @@
 
 
     <TextView
+        android:id="@+id/kacyas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="130dp"
@@ -78,7 +79,7 @@
 
 
     <SeekBar
-        android:id="@+id/seekBar"
+        android:id="@+id/sb"
         style="@android:style/Widget.Material.SeekBar.Discrete"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -100,11 +101,13 @@
         android:id="@+id/btndvm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="90dp"
         android:background="@android:color/holo_blue_bright"
         android:text="Onayla ve Devam Et"
         android:textColor="@android:color/white"
-        android:textSize="24sp"
-        android:textStyle="bold" />
+        android:textSize="26sp"
+        android:textStyle="bold"
+
+        />
 
 </LinearLayout>

@@ -40,6 +40,8 @@ public class OdaAra2 extends AppCompatActivity {
         fotosecbtn= (Button) findViewById(R.id.fotosecbtn);
         btndvm= (Button) findViewById(R.id.btndvm);
 
+        iv= (ImageView) findViewById(R.id.camerapic);
+
 
         tb= (Toolbar) findViewById(R.id.supappbar);
         setSupportActionBar(tb);

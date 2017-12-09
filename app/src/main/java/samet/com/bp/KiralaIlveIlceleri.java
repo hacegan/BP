@@ -1,10 +1,12 @@
 package samet.com.bp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
@@ -13,11 +15,14 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+
+
+
 /**
  * Created by root on 08.12.2017.
  */
 
-public class KiralaIlveIlceleri extends AppCompatActivity{
+public class KiralaIlveIlceleri extends AppCompatActivity implements View.OnClickListener{
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -35,12 +40,23 @@ for(int i=0;i<array.size();i++){
     TextView tv=new TextView(this);
 
     tv.setText(     array.get(i) );
-tv.setTextSize(10);
+tv.setTextSize(35);
+tv.setPadding(80,80,80,80);
+    tv.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
 
+    tv.setBackgroundResource(R.drawable.border_textview);
+
+    tv.setOnClickListener(this);
 
 ll.addView(tv);
 }
 
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        Intent intent = new Intent(KiralaIlveIlceleri.this,Kirala5.class);
+        startActivity(intent);
     }
 }

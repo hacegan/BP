@@ -76,8 +76,8 @@ public class Kirala4 extends AppCompatActivity {
 
 new CityTask().execute();
 
-                Intent intent = new Intent(Kirala4.this,Kirala5.class);
-                startActivity(intent);
+              /*  Intent intent = new Intent(Kirala4.this,Kirala5.class);
+                startActivity(intent);*/
             }
         });
 

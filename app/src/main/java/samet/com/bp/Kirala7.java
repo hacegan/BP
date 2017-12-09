@@ -49,7 +49,8 @@ btndvm.setOnClickListener(new View.OnClickListener() {
         odaeklebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(Kirala7.this,OdaEkle.class);
+                startActivity(intent);
             }
         });
 

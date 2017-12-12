@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.appyvet.materialrangebar.RangeBar;
+
 /**
  * Created by root on 20.11.2017.
  */
@@ -18,7 +20,7 @@ public class OdaAra8 extends AppCompatActivity {
 
     Button btn,btndvm;
     Toolbar tb;
-    SeekBar sb;
+RangeBar rb;
     TextView tv;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -33,6 +35,14 @@ public class OdaAra8 extends AppCompatActivity {
 
         tv= (TextView) findViewById(R.id.kacyas);
 
+        rb= (RangeBar) findViewById(R.id.odaiste8rb);
+
+        rb.setOnRangeBarChangeListener(new RangeBar.OnRangeBarChangeListener() {
+            @Override
+            public void onRangeChangeListener(RangeBar rangeBar, int leftPinIndex, int rightPinIndex, String leftPinValue, String rightPinValue) {
+                tv.setText(leftPinValue+"-"+rightPinValue);
+            }
+        });
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,27 +66,7 @@ public class OdaAra8 extends AppCompatActivity {
         });
 
 
-        sb= (SeekBar) findViewById(R.id.sb);
 
-        sb.setMax(17);
-
-        sb.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-
-                tv.setText("" +(progress+18) );
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
-        });
 
     }
 

@@ -1,6 +1,7 @@
 package samet.com.bp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -35,6 +36,7 @@ public class Kirala4 extends AppCompatActivity {
     static String gitdeger;
    static String server_url;
     ArrayList<String> array = new ArrayList<String>();
+    static String hangisehir;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -102,31 +104,13 @@ new CityTask().execute();
 
         @Override
         protected void onPostExecute(Object o) {
-            // super.onPostExecute(o);
-     /*       if(!sonuc.equals("")){
-                Toast.makeText(getApplicationContext(), sonuc,Toast.LENGTH_SHORT).show();
-                Document document= Jsoup.parse(sonuc);
-                Elements elements=document.getElementsByTag("li");
-                ArrayList<String> array = new ArrayList<String>();
-
-                for(Element element:elements){
-                    System.out.println(element);
-                    array.add(element.toString());
-
-                }
 
 
-                Intent in=new Intent(Kirala4.this,KiralaIlveIlceleri.class);
-in.putExtra("ilcelist",array);
-startActivity(in);
 
-            }
-            else{
-                Toast.makeText(getApplicationContext(),"Plaka kayitli degil veya hata oldu ",Toast.LENGTH_LONG).show();
-            }*/
-//            System.out.println("Sonuc ="+sonuc);
+
             Intent in=new Intent(Kirala4.this,KiralaIlveIlceleri.class);
             in.putExtra("ilcelist",array);
+            in.putExtra("hangisehir",hangisehir);
             startActivity(in);
 
         }
@@ -134,20 +118,9 @@ startActivity(in);
         @Override
         protected Object doInBackground(Object[] params) {
 
-            StringBuilder stringBuilder=new StringBuilder();
+
             try{
-              /*  URL url=new URL(server_url);
-                HttpURLConnection con= (HttpURLConnection) url.openConnection();
-                con.setRequestMethod("GET");
-                con.connect();
 
-               BufferedReader bf=new BufferedReader(new InputStreamReader(con.getInputStream()));
-              for(String gelen;(gelen=bf.readLine()) !=null;   ){
-
-                  stringBuilder.append(gelen);
-              }
-              bf.close();
-                System.out.println(stringBuilder);*/
 
 int i=0;
                 Document doc = Jsoup.connect(server_url).get();
@@ -157,6 +130,12 @@ int i=0;
                 System.out.println(element.text());
                 array.add(element.text());
             }
+
+            if(i%2==0){
+                hangisehir=element.text();
+            }
+
+
                     i++;
                 }
 

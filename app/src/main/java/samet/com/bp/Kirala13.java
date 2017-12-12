@@ -7,6 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+
+import com.appyvet.materialrangebar.RangeBar;
 
 /**
  * Created by root on 20.11.2017.
@@ -15,6 +18,8 @@ import android.widget.Button;
 public class Kirala13 extends AppCompatActivity {
     Button btn,btndvm;
     Toolbar tb;
+    RangeBar rb;
+    TextView tv;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +30,10 @@ public class Kirala13 extends AppCompatActivity {
         setSupportActionBar(tb);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+
+        rb= (RangeBar) findViewById(R.id.kirala13rb);
+        tv= (TextView) findViewById(R.id.kirala13tv);
+
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -33,6 +42,13 @@ public class Kirala13 extends AppCompatActivity {
             }
         });
 
+
+        rb.setOnRangeBarChangeListener(new RangeBar.OnRangeBarChangeListener() {
+            @Override
+            public void onRangeChangeListener(RangeBar rangeBar, int leftPinIndex, int rightPinIndex, String leftPinValue, String rightPinValue) {
+tv.setText(leftPinValue+"-"+rightPinValue);
+            }
+        });
 
         btndvm= (Button) findViewById(R.id.btndvm);
         btndvm.setOnClickListener(new View.OnClickListener() {

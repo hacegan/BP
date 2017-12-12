@@ -14,7 +14,7 @@ import android.widget.Button;
 
 public class OdaAra9 extends AppCompatActivity {
 
-    Button btn;
+    Button btn,btndvm;
     Toolbar tb;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -33,6 +33,17 @@ public class OdaAra9 extends AppCompatActivity {
         tb= (Toolbar) findViewById(R.id.supappbar);
         setSupportActionBar(tb);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        btndvm= (Button) findViewById(R.id.btndvm);
+
+        btndvm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(OdaAra9.this,OdaAraIl.class);
+                startActivity(intent);
+            }
+        });
+
 
     }
 

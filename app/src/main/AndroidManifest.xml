@@ -62,6 +62,8 @@
         <activity android:name=".Giris" />
         <activity android:name=".LoginSuccess"/>
         <activity android:name=".KiralaIlveIlceleri"/>
+        <activity android:name=".OdaAraIl"/>
+        <activity android:name=".OdaAraIlce"/>
         <activity android:name=".Ilanver1" android:parentActivityName=".UserMainActivity"/>
         <activity android:name=".Ilanver2" android:parentActivityName=".UserMainActivity"/>
         <activity android:name=".Kirala1" android:parentActivityName=".UserMainActivity"/>

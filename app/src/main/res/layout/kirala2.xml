@@ -80,10 +80,21 @@
             android:id="@+id/btnadvertiser2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
             android:background="@android:color/holo_purple"
-            android:text="Acenta"
+            android:text="Emlakçı"
+            android:textColor="@android:color/white"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/btnadvertiser3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_orange_light"
+            android:text="Kiracı"
             android:textColor="@android:color/white"
             android:textSize="24sp"
+            android:textStyle="bold"
             android:layout_marginTop="15dp"
             />
 

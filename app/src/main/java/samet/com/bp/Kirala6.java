@@ -140,7 +140,7 @@ Intent i =new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTEN
         if(requestCode==LOAD_IMAGE_RESULTS && resultCode==RESULT_OK ){
             Uri pickedImage = data.getData();
 iv.setImageURI(pickedImage);
-
+btndvm.setText("ONAYLA VE DEVAM ET");
         }
 
 

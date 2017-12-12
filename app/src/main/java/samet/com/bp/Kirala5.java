@@ -34,7 +34,16 @@ String oldxml;
         SharedPreferences sharedPref = getApplicationContext().getSharedPreferences("MyPref", 0);
         SharedPreferences.Editor editor = sharedPref.edit();
 
-        tv.setText(sharedPref.getString("locations",null));
+        if(sharedPref.getString("locations",null)==null){
+            tv.setText(  sharedPref.getString("kiralasecilenil",null)    +   "--"   +    (sharedPref.getString("kiralasecilenilce",null) ) );
+        }
+        else{
+            tv.setText(sharedPref.getString("locations",null));
+        }
+
+
+
+
 
 
         btn.setOnClickListener(new View.OnClickListener() {

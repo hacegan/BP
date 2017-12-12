@@ -50,8 +50,9 @@ TextView erkektv,kiztv;
         btnerkekartir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Integer deger=Integer.valueOf(erkektv.getText().toString());
-erkektv.setText(deger+1);
+                Integer deger=Integer.valueOf(erkektv.getText().toString())+1;
+                String s=String.valueOf(deger);
+erkektv.setText(s);
             }
         });
 
@@ -59,24 +60,29 @@ erkektv.setText(deger+1);
         btnerkekazalt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Integer deger=Integer.valueOf(erkektv.getText().toString());
-                erkektv.setText(deger-1);
+                Integer deger=Integer.valueOf(erkektv.getText().toString())-1;
+                String s=String.valueOf(deger);
+                if(deger<0) return;
+               else erkektv.setText(s);
             }
         });
 
         btnkizazalt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Integer deger=Integer.valueOf(erkektv.getText().toString());
-                kiztv.setText(deger+1);
+                Integer deger=Integer.valueOf(kiztv.getText().toString())-1;
+                String s=String.valueOf(deger);
+                if(deger<0) return;
+                else  kiztv.setText(s);
             }
         });
 
         btnkizartir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Integer deger=Integer.valueOf(erkektv.getText().toString());
-                kiztv.setText(deger-1);
+                Integer deger=Integer.valueOf(kiztv.getText().toString())+1;
+                String s=String.valueOf(deger);
+                kiztv.setText(s);
             }
         });
 

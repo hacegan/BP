@@ -23,31 +23,23 @@ import java.util.ArrayList;
  */
 
 public class OdaAraIlce extends Activity implements  View.OnClickListener{
-    ArrayList<String> array = new ArrayList<String>();
+   static ArrayList<String> array = new ArrayList<String>();
+   static String sehir_isim;
+    static String server_url;
+    LinearLayout ll;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.odaarailce);
-        LinearLayout ll = findViewById(R.id.dyntvekle);
+         ll = findViewById(R.id.dyntvekle);
         ll.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
 
         Bundle bundle = getIntent().getExtras();
-        ArrayList<String> array = bundle.getStringArrayList("plakalist");
-        for(int i=0;i<array.size();i++){
+        sehir_isim=bundle.getString("odaarahangiil");
 
-            TextView tv=new TextView(this);
+        server_url="http://sametd.demo.datacenter.fi/myphp/Getarailce.php?City="+sehir_isim.toUpperCase();
 
-            tv.setText(     array.get(i) );
-            tv.setTextSize(35);
-            tv.setPadding(80,80,80,80);
-            tv.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
 
-            tv.setBackgroundResource(R.drawable.border_textview);
-
-            tv.setOnClickListener(this);
-
-            ll.addView(tv);
-        }
 
         new IlceTask().execute();
 
@@ -72,32 +64,39 @@ public class OdaAraIlce extends Activity implements  View.OnClickListener{
         @Override
         protected void onPostExecute(Object o) {
 
-            Intent in=new Intent(OdaAraIlce.this,KiralaIlveIlceleri.class);
-            in.putExtra("ilcelist",array);
-            startActivity(in);
+            for(int i=0;i<array.size();i++){
+
+                TextView tv=new TextView(OdaAraIlce.this);
+
+                tv.setText(     array.get(i) );
+                tv.setTextSize(35);
+                tv.setPadding(80,80,80,80);
+                tv.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+
+                tv.setBackgroundResource(R.drawable.border_textview);
+
+                tv.setOnClickListener(OdaAraIlce.this);
+
+                ll.addView(tv);
+            }
 
         }
 
         @Override
         protected Object doInBackground(Object[] params) {
 
-            StringBuilder stringBuilder=new StringBuilder();
+
             try{
 
 
-
-                int i=0;
-                Document doc = Jsoup.connect("http://sametd.demo.datacenter.fi/myphp/Getilce.php").get();
+                Document doc = Jsoup.connect(server_url).get();
                 Elements elements=doc.select("ul li");
                 for(Element element:elements){
-                    if(i%2==1)   {
+
                         System.out.println(element.text());
                         array.add(element.text());
-                    }
-                    i++;
+
                 }
-
-
 
 
             }

@@ -19,7 +19,7 @@ public class OdaAra11  extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.odaiste9);
+        setContentView(R.layout.odaiste11);
         btn= (Button) findViewById(R.id.geribtn);
 
         tb= (Toolbar) findViewById(R.id.supappbar);

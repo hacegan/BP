@@ -47,8 +47,10 @@ public class OdaAraIl extends Activity implements  View.OnClickListener{
 
     @Override
     public void onClick(View v) {
+        TextView t=(TextView) v;
         Intent intent = new Intent(OdaAraIl.this,OdaAraIlce.class);
-        intent.putExtra("plakalist",arrayil);
+       // intent.putExtra("plakalist",arrayil);
+        intent.putExtra("odaarahangiil",((TextView) v).getText().toString());
         startActivity(intent);
     }
 

@@ -19,20 +19,23 @@ public class OdaAra14 extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.odaiste12);
-        btn= (Button) findViewById(R.id.geribtn);
+        setContentView(R.layout.odaiste14);
+
 
         tb= (Toolbar) findViewById(R.id.supappbar);
         setSupportActionBar(tb);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        btn= (Button) findViewById(R.id.btnodaarayayinla);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(OdaAra14.this,OdaAra13.class);
-                startActivity(intent);
+
             }
         });
+
+
+
     }
 
     @Override

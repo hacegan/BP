@@ -19,7 +19,7 @@ public class OdaAra12 extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.odaiste10);
+        setContentView(R.layout.odaiste12);
         btn= (Button) findViewById(R.id.geribtn);
 
 

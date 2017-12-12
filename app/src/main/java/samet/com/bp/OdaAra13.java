@@ -19,9 +19,10 @@ public class OdaAra13 extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.odaiste11);
+        setContentView(R.layout.odaiste13);
         btn= (Button) findViewById(R.id.geribtn);
-
+        btnevet= (Button) findViewById(R.id.btnevet);
+        btnhayir= (Button) findViewById(R.id.btnhayir);
 
         tb= (Toolbar) findViewById(R.id.supappbar);
         setSupportActionBar(tb);
@@ -35,8 +36,7 @@ public class OdaAra13 extends AppCompatActivity {
             }
         });
 
-        btnevet= (Button) findViewById(R.id.btnevet);
-        btnhayir= (Button) findViewById(R.id.btnhayir);
+
         btnevet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

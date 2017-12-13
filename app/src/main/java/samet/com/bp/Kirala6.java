@@ -1,8 +1,10 @@
 package samet.com.bp;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -24,6 +26,8 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -32,12 +36,12 @@ import android.view.Surface;
 import android.view.TextureView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Gallery;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.common.images.Size;
-import com.vansuita.pickimage.bean.PickResult;
-import com.vansuita.pickimage.listeners.IPickResult;
+import com.mindorks.paracamera.Camera;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -47,6 +51,7 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import java.util.concurrent.ExecutionException;
 
 import static android.media.MediaRecorder.VideoSource.CAMERA;
 import static android.media.MediaRecorder.VideoSource.SURFACE;
@@ -60,9 +65,9 @@ public class Kirala6 extends AppCompatActivity  {
     Button btn,fotocekbtn,fotosecbtn,btndvm;
 ImageView iv;
     Toolbar tb;
+Camera camera;
 
-
- private static int LOAD_IMAGE_RESULTS=1;
+ private static int LOAD_IMAGE_RESULTS=2;
 
 
 
@@ -115,15 +120,30 @@ Intent i =new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTEN
             @Override
             public void onClick(View v) {
 
+                if (ContextCompat.checkSelfPermission(Kirala6.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+
+                    ActivityCompat.requestPermissions(Kirala6.this, new String[] { Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE }, 0);
+                }
 
 
+camera=new Camera.Builder().resetToCorrectOrientation(true)
+        .setTakePhotoRequestCode(1)
+        .setDirectory("pics")
+        .setName("samet_"+System.currentTimeMillis())
+        .setImageFormat(Camera.IMAGE_JPEG)
+.setCompression(75)
+        .setImageHeight(1000)
+        .build(Kirala6.this);
+
+                try{
+camera.takePicture();
+                }
+                catch(Exception e){
+e.printStackTrace();
+                }
 
             }
             });
-
-
-
-
 
     }
 
@@ -136,8 +156,19 @@ Intent i =new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTEN
         super.onActivityResult(requestCode, resultCode, data);
 
 
+        if(requestCode == Camera.REQUEST_TAKE_PHOTO){
+            Bitmap bitmap = camera.getCameraBitmap();
+            if(bitmap != null) {
+                iv.setImageBitmap(bitmap);
+            }else{
+                Toast.makeText(this.getApplicationContext(),"Picture not taken!",Toast.LENGTH_SHORT).show();
+            }
+        }
 
-        if(requestCode==LOAD_IMAGE_RESULTS && resultCode==RESULT_OK ){
+
+
+
+    else    if(requestCode== LOAD_IMAGE_RESULTS && resultCode==RESULT_OK ){
             Uri pickedImage = data.getData();
 iv.setImageURI(pickedImage);
 btndvm.setText("ONAYLA VE DEVAM ET");

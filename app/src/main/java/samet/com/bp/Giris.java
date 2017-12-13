@@ -53,6 +53,8 @@ String sonuc;
         super.onCreate(savedInstanceState);
 setContentView(R.layout.giris);
 
+
+
       giriseposta= findViewById(R.id.giriseposta);
         girissifre= findViewById(R.id.girissifre);
 btngiris= findViewById(R.id.girisyapbuton);

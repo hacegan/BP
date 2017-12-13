@@ -34,11 +34,11 @@ String oldxml;
         SharedPreferences sharedPref = getApplicationContext().getSharedPreferences("MyPref", 0);
         SharedPreferences.Editor editor = sharedPref.edit();
 
-        if(sharedPref.getString("locations",null)==null){
+        if(sharedPref.getString("adres",null)==null){
             tv.setText(  sharedPref.getString("kiralasecilenil",null)    +   "--"   +    (sharedPref.getString("kiralasecilenilce",null) ) );
         }
         else{
-            tv.setText(sharedPref.getString("locations",null));
+            tv.setText(sharedPref.getString("adres",null));
         }
 
 

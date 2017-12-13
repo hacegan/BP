@@ -20,6 +20,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.content.PermissionChecker;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -51,7 +52,7 @@ public class Kirala3 extends AppCompatActivity  implements SimpleLocationGetter.
 
     String cityName = "";
 
-    String address;
+    static String address,adres;
 
 
     private static final int PERMISSIONS_REQUEST_LOCATION = 1;
@@ -123,8 +124,9 @@ public class Kirala3 extends AppCompatActivity  implements SimpleLocationGetter.
                     alertDialog.show();
 
                 } else {
-                    int hasCoarseLocationPermission = ContextCompat.checkSelfPermission(Kirala3.this, Manifest.permission.ACCESS_COARSE_LOCATION);
-                    int hasFineLocationPermission = ContextCompat.checkSelfPermission(Kirala3.this, Manifest.permission.ACCESS_FINE_LOCATION);
+                    int hasCoarseLocationPermission = ActivityCompat.checkSelfPermission(Kirala3.this, Manifest.permission.ACCESS_COARSE_LOCATION);
+                    int hasFineLocationPermission = ActivityCompat.checkSelfPermission(Kirala3.this, Manifest.permission.ACCESS_FINE_LOCATION);
+
 
 
                     if (hasCoarseLocationPermission != PackageManager.PERMISSION_GRANTED && hasFineLocationPermission != PackageManager.PERMISSION_GRANTED)
@@ -134,6 +136,9 @@ public class Kirala3 extends AppCompatActivity  implements SimpleLocationGetter.
                         // requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION}, PERMISSIONS_REQUEST_LOCATION);
                         return;
                     }
+
+                    SimpleLocationGetter getter = new SimpleLocationGetter(Kirala3.this,Kirala3.this);
+                    getter.getLastLocation();
 
 
 
@@ -210,6 +215,16 @@ public class Kirala3 extends AppCompatActivity  implements SimpleLocationGetter.
              List<Address> addresses=   geocoder.getFromLocation(location.getLatitude(),location.getLongitude(),1);
                 Address address=  addresses.get(0);
                 Log.d("LOCATION",address.getAdminArea()+" İli "+address.getSubAdminArea()+" İlçesi"+address.getThoroughfare()+" "+ address.getCountryName()+" Posta Kodu = "+address.getPostalCode());
+                adres=address.getAdminArea()+" İli "+address.getSubAdminArea()+" İlçesi"+address.getThoroughfare()+" "+ address.getCountryName()+" Posta Kodu = "+address.getPostalCode();
+                System.out.println("ONLOCATIONREADYDE = "+adres);
+
+                SharedPreferences sharedPref = getApplicationContext().getSharedPreferences("MyPref",0);
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.putString("adres",adres);
+                editor.commit();
+                Intent intent = new Intent(Kirala3.this,Kirala5.class);
+                startActivity(intent);
+
 
             } catch (IOException e) {
                 e.printStackTrace();

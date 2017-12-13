@@ -32,6 +32,9 @@ private Button btnNext,btnSkip;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
+
+
         if(new PreferenceManager(this).checkPreference()){
             loadHome();
         }

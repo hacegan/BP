@@ -90,13 +90,12 @@
             android:id="@+id/btnadvertiser3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
             android:background="@android:color/holo_orange_light"
-            android:text="Kiracı"
+            android:text="KİRACI"
             android:textColor="@android:color/white"
             android:textSize="24sp"
-            android:textStyle="bold"
-            android:layout_marginTop="15dp"
-            />
+            android:textStyle="bold" />
 
     </LinearLayout>
 

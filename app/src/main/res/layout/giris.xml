@@ -115,6 +115,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/sifre"
                 android:layout_marginTop="5dp"
+                android:ems="10"
+                android:inputType="textPassword"
                 android:textColor="@android:color/white"
                 android:textStyle="bold" />
 

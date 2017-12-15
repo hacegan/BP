@@ -53,7 +53,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:text="Bir mülk türü seçin"
+                android:text="BİR MÜLK TÜRÜ SEÇİN"
                 android:textAlignment="center"
                 android:textAllCaps="true"
                 android:textColor="@android:color/white"

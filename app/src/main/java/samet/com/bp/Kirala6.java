@@ -160,8 +160,9 @@ e.printStackTrace();
             Bitmap bitmap = camera.getCameraBitmap();
             if(bitmap != null) {
                 iv.setImageBitmap(bitmap);
+                btndvm.setText("ONAYLA VE DEVAM ET");
             }else{
-                Toast.makeText(this.getApplicationContext(),"Picture not taken!",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this.getApplicationContext(),"Fotoğraf Çekilmedi!",Toast.LENGTH_SHORT).show();
             }
         }
 

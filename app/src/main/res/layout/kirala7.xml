@@ -79,6 +79,7 @@
                 android:textStyle="bold" />
 
             <EditText
+                android:id="@+id/kiralam2et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -94,6 +95,7 @@
                 android:textStyle="bold" />
 
             <EditText
+                android:id="@+id/kiralaodaet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -109,6 +111,7 @@
                 android:textStyle="bold" />
 
             <EditText
+                android:id="@+id/kiralabkatet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -126,6 +129,7 @@
                 android:textStyle="bold" />
 
             <EditText
+                android:id="@+id/kiralakatet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -141,6 +145,7 @@
                 android:textStyle="bold" />
 
             <EditText
+                android:id="@+id/kiralaesyaliet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -156,6 +161,7 @@
                 android:textStyle="bold" />
 
             <EditText
+                android:id="@+id/kiralaaidatet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -171,6 +177,7 @@
                 android:textStyle="bold" />
 
             <EditText
+                android:id="@+id/kiralakiraet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"

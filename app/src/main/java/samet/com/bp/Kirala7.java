@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 /**
  * Created by root on 20.11.2017.
@@ -15,6 +16,7 @@ import android.widget.Button;
 public class Kirala7 extends AppCompatActivity {
     Button btn,odaeklebtn,btndvm;
     Toolbar tb;
+    EditText m2,oda,kat,bkat,aidat,kira,esya;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +26,14 @@ public class Kirala7 extends AppCompatActivity {
 btndvm= (Button) findViewById(R.id.btndvm);
 
 
+
+        m2= (EditText) findViewById(R.id.kiralam2et);
+oda= (EditText) findViewById(R.id.kiralaodaet);
+        kat= (EditText) findViewById(R.id.kiralakatet);
+        bkat= (EditText) findViewById(R.id.kiralabkatet);
+        aidat= (EditText) findViewById(R.id.kiralaaidatet);
+        kira= (EditText) findViewById(R.id.kiralakiraet);
+        esya= (EditText) findViewById(R.id.kiralaesyaliet);
 
         tb= (Toolbar) findViewById(R.id.supappbar);
         setSupportActionBar(tb);

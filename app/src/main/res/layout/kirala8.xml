@@ -68,7 +68,7 @@
             android:layout_marginTop="100dp"
             android:text="Oda uygundur 'den"
             android:textAlignment="center"
-            android:textSize="20sp"
+            android:textSize="30sp"
             android:textStyle="bold" />
 
         <!--  <TextView
@@ -94,35 +94,6 @@
             android:textAlignment="center"
             android:textAllCaps="true"
             android:textColor="@android:color/holo_red_light"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:text="Kiraya faturalar dahil mi ?"
-            android:textAlignment="center"
-            android:textAllCaps="true"
-            android:textSize="20sp"
-            android:textStyle="bold"
-
-            />
-
-        <CheckBox
-            android:id="@+id/kirala8evetcb"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:text="Evet"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-
-        <CheckBox
-            android:id="@+id/kirala8hayircb"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Hayır"
             android:textSize="24sp"
             android:textStyle="bold" />
 

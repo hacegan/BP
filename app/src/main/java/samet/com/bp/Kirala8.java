@@ -9,6 +9,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.TextView;
 
@@ -22,6 +23,8 @@ import java.util.Date;
 public class Kirala8 extends AppCompatActivity {
     Button btn,btndvm;
 TextView tv;
+    CheckBox evet;
+    CheckBox hayir;
     private DatePickerDialog.OnDateSetListener onDateSetListener;
 
     @Override
@@ -31,6 +34,10 @@ TextView tv;
         btn= (Button) findViewById(R.id.geribtn);
 
         tv= (TextView) findViewById(R.id.DisplayDatetv);
+
+        evet= (CheckBox) findViewById(R.id.kirala8evetcb);
+        hayir= (CheckBox) findViewById(R.id.kirala8hayircb);
+
 btndvm= (Button) findViewById(R.id.btndvm);
 
         btndvm.setOnClickListener(new View.OnClickListener() {
@@ -78,6 +85,10 @@ tv.setText(dayOfMonth+"/"+month+"/"+year+"'itibaren");
                 startActivity(intent);
             }
         });
+
+
+
+
 
 
     }

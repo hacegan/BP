@@ -20,7 +20,7 @@ public class Kirala7 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.kirala7);
         btn= (Button) findViewById(R.id.geribtn);
-        odaeklebtn= (Button) findViewById(R.id.odaeklebtn);
+        //odaeklebtn= (Button) findViewById(R.id.odaeklebtn);
 btndvm= (Button) findViewById(R.id.btndvm);
 
 
@@ -46,13 +46,13 @@ btndvm.setOnClickListener(new View.OnClickListener() {
         });
 
 
-        odaeklebtn.setOnClickListener(new View.OnClickListener() {
+    /*    odaeklebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Kirala7.this,OdaEkle.class);
                 startActivity(intent);
             }
-        });
+        });*/
 
 
     }

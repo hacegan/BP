@@ -109,16 +109,17 @@
 
             />
 
-        <Button
+        <CheckBox
+            android:id="@+id/kirala8evetcb"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
             android:text="Evet"
             android:textSize="24sp"
-            android:textStyle="bold"
-            android:layout_marginTop="15dp"
-            />
+            android:textStyle="bold" />
 
-        <Button
+        <CheckBox
+            android:id="@+id/kirala8hayircb"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Hayır"

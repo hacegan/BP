@@ -14,13 +14,14 @@ import android.widget.Button;
 
 public class OdaAra12 extends AppCompatActivity {
 
-    Button btn,btnhergun,btnhici,btnhsonu;
+    Button btn,btnhergun,btnhici,btnhsonu,btndvm;
     Toolbar tb;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.odaiste12);
         btn= (Button) findViewById(R.id.geribtn);
+        btndvm= (Button) findViewById(R.id.btndvm);
 
 
         tb= (Toolbar) findViewById(R.id.supappbar);
@@ -35,12 +36,12 @@ public class OdaAra12 extends AppCompatActivity {
             }
         });
 
-        btnhergun= (Button) findViewById(R.id.hergunbtn);
+      /*  btnhergun= (Button) findViewById(R.id.hergunbtn);
         btnhici= (Button) findViewById(R.id.hicibtn);
         btnhsonu= (Button) findViewById(R.id.hsonubtn);
 
 
-        btnhergun.setOnClickListener(new View.OnClickListener() {
+       btnhergun.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(OdaAra12.this,OdaAra13.class);
@@ -64,7 +65,15 @@ public class OdaAra12 extends AppCompatActivity {
                 Intent intent = new Intent(OdaAra12.this,OdaAra13.class);
                 startActivity(intent);
             }
-        });
+        });*/
+
+btndvm.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        Intent intent = new Intent(OdaAra12.this,OdaAra13.class);
+        startActivity(intent);
+    }
+});
 
 
     }

@@ -49,7 +49,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:text="Ne zamanları konaklamak istiyorsunuz"
+                android:text="Ne kadar süre konaklamak istiyorsunuz"
                 android:textAlignment="center"
                 android:textAllCaps="false"
                 android:textColor="@android:color/white"
@@ -70,34 +70,31 @@
         android:background="@android:color/holo_blue_bright"
         app:srcCompat="@drawable/calendar" />
 
-    <Button
-        android:id="@+id/hergunbtn"
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:background="@android:color/holo_green_dark"
-        android:text="Haftanın 7 Günü"
-        android:textColor="@android:color/white"
-        android:textSize="18sp" />
+        android:text="Günlük,Aylık,Yıllık Olarak 1 Gün,2 Ay,3 Yıl vs gibi"
+        android:textAllCaps="true"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="5 gün,1 ay vs süre"
+        android:inputType="textPersonName" />
 
     <Button
-        android:id="@+id/hicibtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:background="@android:color/holo_purple"
-        android:text="Hafta İçi"
+        android:background="@android:color/holo_blue_bright"
+        android:text="ONAYLA VE DEVAM ET"
         android:textColor="@android:color/white"
-        android:textSize="18sp" />
-
-    <Button
-        android:id="@+id/hsonubtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:background="?android:attr/colorControlActivated"
-        android:text="Hafta Sonu"
-        android:textColor="@android:color/white"
-        android:textSize="18sp" />
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginTop="30dp"
+        />
 
 </LinearLayout>

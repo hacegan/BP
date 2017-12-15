@@ -35,8 +35,8 @@ TextView tv;
 
         tv= (TextView) findViewById(R.id.DisplayDatetv);
 
-        evet= (CheckBox) findViewById(R.id.kirala8evetcb);
-        hayir= (CheckBox) findViewById(R.id.kirala8hayircb);
+        //evet= (CheckBox) findViewById(R.id.kirala8evetcb);
+      //  hayir= (CheckBox) findViewById(R.id.kirala8hayircb);
 
 btndvm= (Button) findViewById(R.id.btndvm);
 

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="1">
@@ -61,9 +62,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="283dp"
-        android:orientation="horizontal"
-        android:layout_weight="0.74">
+        android:layout_height="229dp"
+        android:orientation="horizontal">
 
 
         <LinearLayout
@@ -174,12 +174,25 @@
         android:textColor="@android:color/holo_red_dark"
         android:textSize="18sp" />
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textAllCaps="false"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="18sp"
+        android:textStyle="bold|italic"
+        tools:text="Eğer ev sahibi ya da emlakçı iseniz bu adımı değerler 0 olacak şekilde atlayın" />
+
     <Button
         android:id="@+id/btndvm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/holo_blue_bright"
         android:text="Onayla ve Devam et"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/white"
+        android:layout_marginTop="30dp"
+        />
 
 </LinearLayout>

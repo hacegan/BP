@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 
 /**
  * Created by root on 20.11.2017.
@@ -16,6 +17,7 @@ public class OdaAra7 extends AppCompatActivity {
 
     Button btn,btndvm;
     Toolbar tb;
+    CheckBox erkek,kiz,ogrenci,calisan,sigara,hayvan;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +45,13 @@ public class OdaAra7 extends AppCompatActivity {
         });
 
 
+
+        erkek= (CheckBox) findViewById(R.id.odaara7erkekcb);
+        kiz= (CheckBox) findViewById(R.id.odaara7kizcb);
+        calisan= (CheckBox) findViewById(R.id.odaara7calisancb);
+        ogrenci= (CheckBox) findViewById(R.id.odaara7ogrencicb);
+        sigara= (CheckBox) findViewById(R.id.odaara7sigaracb);
+        hayvan= (CheckBox) findViewById(R.id.odaara7hayvancb);
 
     }
 

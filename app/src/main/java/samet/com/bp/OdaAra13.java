@@ -1,12 +1,16 @@
 package samet.com.bp;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 /**
  * Created by root on 20.11.2017.
@@ -40,8 +44,35 @@ public class OdaAra13 extends AppCompatActivity {
         btnevet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(OdaAra13.this,OdaAra14.class);
-                startActivity(intent);
+              /*  Intent intent = new Intent(OdaAra13.this,OdaAra14.class);
+                startActivity(intent);*/
+
+
+                AlertDialog.Builder builder=new AlertDialog.Builder(OdaAra13.this);
+                LayoutInflater inflater=getLayoutInflater();
+                View dialog_layout=inflater.inflate(R.layout.telefonnoekleme,null);
+                builder.setView(dialog_layout).setPositiveButton("ONAYLA", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                        EditText numaraet= (EditText) findViewById(R.id.telefonnoet);
+                        String numara=numaraet.getText().toString();
+
+                        Intent intent = new Intent(OdaAra13.this,OdaAra14.class);
+                        startActivity(intent);
+
+                    }
+                })
+                        .setNegativeButton("İPTAL ET", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                            }
+                        });
+
+
+
+
             }
         });
 

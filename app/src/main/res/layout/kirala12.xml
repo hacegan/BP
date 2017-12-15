@@ -66,36 +66,42 @@
             android:orientation="vertical" >
 
             <CheckBox
+                android:id="@+id/kirala12erkekcb"
                 android:layout_width="match_parent"
                 android:layout_height="69dp"
                 android:drawableLeft="@drawable/moustache"
                 android:text="Erkekler ile" />
 
             <CheckBox
+                android:id="@+id/kirala12kizcb"
                 android:layout_width="match_parent"
                 android:layout_height="72dp"
                 android:drawableLeft="@drawable/lip"
                 android:text="KIzlar ile" />
 
             <CheckBox
+                android:id="@+id/kirala12sigaracb"
                 android:layout_width="match_parent"
                 android:layout_height="98dp"
                 android:drawableLeft="@drawable/smoke"
                 android:text="Sigara içenler ile" />
 
             <CheckBox
+                android:id="@+id/kirala12calisancb"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/bag_big"
                 android:text="Çalışanlar ile" />
 
             <CheckBox
+                android:id="@+id/kirala12ogrencicb"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/book_big"
                 android:text="Öğrenciler ile" />
 
             <CheckBox
+                android:id="@+id/kirala12hayvancb"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/pet"

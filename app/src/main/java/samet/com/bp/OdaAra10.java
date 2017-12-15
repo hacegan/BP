@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 /**
  * Created by root on 20.11.2017.
@@ -16,6 +17,7 @@ public class OdaAra10 extends AppCompatActivity {
 
     Button btn,btndvm;
     Toolbar tb;
+    EditText butce;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +45,7 @@ btndvm.setOnClickListener(new View.OnClickListener() {
     }
 });
 
-
+butce= (EditText) findViewById(R.id.odaara10butce);
 
     }
 

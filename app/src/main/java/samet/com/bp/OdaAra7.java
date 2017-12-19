@@ -42,13 +42,7 @@ public class OdaAra7 extends AppCompatActivity {
         editor = sharedPref.edit();
 
         btndvm= (Button) findViewById(R.id.btndvm);
-        btndvm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(OdaAra7.this,OdaAra8.class);
-                startActivity(intent);
-            }
-        });
+
 
 
 
@@ -58,6 +52,51 @@ public class OdaAra7 extends AppCompatActivity {
         ogrenci= (CheckBox) findViewById(R.id.odaara7ogrencicb);
         sigara= (CheckBox) findViewById(R.id.odaara7sigaracb);
         hayvan= (CheckBox) findViewById(R.id.odaara7hayvancb);
+
+        btndvm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(erkek.isChecked()){
+                    editor.putString("odaara7erkek","evet");
+                    editor.commit();
+                }
+
+                if(kiz.isChecked()){
+                    editor.putString("odaara7kiz","evet");
+                    editor.commit();
+                }
+
+                if(ogrenci.isChecked()){
+                    editor.putString("odaara7ogr","evet");
+                    editor.commit();
+                }
+
+                if(calisan.isChecked()){
+                    editor.putString("odaara7clsn","evet");
+                    editor.commit();
+                }
+
+                if(sigara.isChecked()){
+                    editor.putString("odaara7sgr","evet");
+                    editor.commit();
+                }
+
+                if(hayvan.isChecked()){
+                    editor.putString("odaara7hyvn","evet");
+                    editor.commit();
+                }
+
+
+
+                Intent intent = new Intent(OdaAra7.this,OdaAra8.class);
+                startActivity(intent);
+            }
+        });
+
+
+
+
 
     }
 

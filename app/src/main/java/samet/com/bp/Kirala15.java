@@ -3,6 +3,7 @@ package samet.com.bp;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -64,4 +65,31 @@ public class Kirala15 extends AppCompatActivity {
         Intent intent = new Intent(Kirala15.this,Kirala14.class);
         startActivity(intent);
     }
+
+
+    public class KiralaTask extends AsyncTask{
+
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected void onPostExecute(Object o) {
+            super.onPostExecute(o);
+        }
+
+        @Override
+        protected Object doInBackground(Object[] params) {
+            return null;
+        }
+
+
+
+
+    }
+
+
+
 }

@@ -1,6 +1,7 @@
 package samet.com.bp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -18,6 +19,8 @@ public class OdaAra7 extends AppCompatActivity {
     Button btn,btndvm;
     Toolbar tb;
     CheckBox erkek,kiz,ogrenci,calisan,sigara,hayvan;
+    SharedPreferences sharedPref ;
+    SharedPreferences.Editor editor;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +37,9 @@ public class OdaAra7 extends AppCompatActivity {
         tb= (Toolbar) findViewById(R.id.supappbar);
         setSupportActionBar(tb);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        sharedPref = getApplicationContext().getSharedPreferences("MyPref",0);
+        editor = sharedPref.edit();
 
         btndvm= (Button) findViewById(R.id.btndvm);
         btndvm.setOnClickListener(new View.OnClickListener() {

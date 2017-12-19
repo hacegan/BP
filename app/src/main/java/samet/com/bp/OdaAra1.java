@@ -25,7 +25,7 @@ public class OdaAra1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.odaiste1);
 
-        sharedPref = getPreferences(Context.MODE_PRIVATE);
+        sharedPref = getApplicationContext().getSharedPreferences("MyPref",0);
         editor = sharedPref.edit();
 
 

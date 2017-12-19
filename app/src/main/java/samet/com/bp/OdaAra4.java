@@ -1,6 +1,7 @@
 package samet.com.bp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -16,6 +17,8 @@ public class OdaAra4 extends AppCompatActivity {
 
     Button btn,btnogr,btnclsn,btndgr;
     Toolbar tb;
+    SharedPreferences sharedPref ;
+    SharedPreferences.Editor editor;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +36,9 @@ public class OdaAra4 extends AppCompatActivity {
         setSupportActionBar(tb);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        sharedPref = getApplicationContext().getSharedPreferences("MyPref",0);
+        editor = sharedPref.edit();
+
         btnclsn= (Button) findViewById(R.id.btncalisan);
         btndgr= (Button) findViewById(R.id.btndiger);
         btnogr= (Button) findViewById(R.id.btnogrenci);
@@ -40,6 +46,8 @@ public class OdaAra4 extends AppCompatActivity {
         btnclsn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                editor.putString("odaara4calisan", "odaara4calisan");
+                editor.commit();
                 Intent intent = new Intent(OdaAra4.this,OdaAra5.class);
                 startActivity(intent);
             }
@@ -49,6 +57,8 @@ public class OdaAra4 extends AppCompatActivity {
         btndgr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                editor.putString("odaara4diger", "odaara4diger");
+                editor.commit();
                 Intent intent = new Intent(OdaAra4.this,OdaAra5.class);
                 startActivity(intent);
             }
@@ -57,6 +67,8 @@ public class OdaAra4 extends AppCompatActivity {
         btnogr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                editor.putString("odaara4ogrenci", "odaara4ogrenci");
+                editor.commit();
                 Intent intent = new Intent(OdaAra4.this,OdaAra5.class);
                 startActivity(intent);
             }

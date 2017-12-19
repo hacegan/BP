@@ -25,7 +25,7 @@ public class Kirala2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.kirala2);
 
-        sharedPref = getPreferences(Context.MODE_PRIVATE);
+        sharedPref = getApplicationContext().getSharedPreferences("MyPref",0);
         editor = sharedPref.edit();
 
         tb= (Toolbar) findViewById(R.id.supappbar);

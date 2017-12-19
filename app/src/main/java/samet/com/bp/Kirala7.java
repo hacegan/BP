@@ -27,7 +27,7 @@ public class Kirala7 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.kirala7);
 
-        sharedPref = getPreferences(Context.MODE_PRIVATE);
+        sharedPref = getApplicationContext().getSharedPreferences("MyPref",0);
         editor = sharedPref.edit();
 
         btn= (Button) findViewById(R.id.geribtn);

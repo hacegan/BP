@@ -43,6 +43,9 @@ TextView tv;
         //evet= (CheckBox) findViewById(R.id.kirala8evetcb);
       //  hayir= (CheckBox) findViewById(R.id.kirala8hayircb);
 
+        sharedPref = getApplicationContext().getSharedPreferences("MyPref",0);
+        editor=sharedPref.edit();
+
 
         tv.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -2,6 +2,7 @@ package samet.com.bp;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -27,6 +28,8 @@ public class OdaAraIl extends Activity implements  View.OnClickListener{
     ArrayList<String> arrayplaka = new ArrayList<String>();
     static String server_url;
     LinearLayout ll;
+    SharedPreferences sharedPref ;
+    SharedPreferences.Editor editor;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -13,12 +14,16 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.mindorks.paracamera.Camera;
+
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
 
 /**
  * Created by root on 20.11.2017.
@@ -34,6 +39,8 @@ public class OdaAra2 extends AppCompatActivity {
 
     SharedPreferences sharedPref ;
     SharedPreferences.Editor editor;
+
+    String encodedImage;
 
     private String uploadurl="http://samet.j.layershift.co.uk/kiralaimageupload.php";
 
@@ -121,12 +128,34 @@ public class OdaAra2 extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
+        sharedPref = getApplicationContext().getSharedPreferences("MyPref",0);
+        editor = sharedPref.edit();
+
 
         if(requestCode == Camera.REQUEST_TAKE_PHOTO){
             Bitmap bitmap = camera.getCameraBitmap();
             if(bitmap != null) {
                 iv.setImageBitmap(bitmap);
                 btndvm.setText("ONAYLA VE DEVAM ET");
+
+                try {
+                    //stream = getContentResolver().openInputStream(data.getData());
+                    // Encoding Image into Base64
+                    // Bitmap realImage = BitmapFactory.decodeStream(stream);
+                    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+                    byte[] b = baos.toByteArray();
+                    //Converting Base64 into String to Store in SharedPreferences
+                    encodedImage = Base64.encodeToString(b, Base64.DEFAULT);
+                    //NOw storing String to SharedPreferences
+
+
+                    editor.putString("odaara2resim", encodedImage);
+                    editor.commit();
+                    Toast.makeText(getApplicationContext(),"Image has been Stored!",Toast.LENGTH_LONG).show();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
 
                 String kullanici_ismi = sharedPref.getString("kullaniciismi",null);
 
@@ -140,9 +169,31 @@ public class OdaAra2 extends AppCompatActivity {
 
 
         else    if(requestCode== LOAD_IMAGE_RESULTS && resultCode==RESULT_OK ){
+            InputStream stream;
             Uri pickedImage = data.getData();
             iv.setImageURI(pickedImage);
             btndvm.setText("ONAYLA VE DEVAM ET");
+
+
+            try {
+                stream = getContentResolver().openInputStream(data.getData());
+                // Encoding Image into Base64
+                Bitmap realImage = BitmapFactory.decodeStream(stream);
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                realImage.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+                byte[] b = baos.toByteArray();
+                //Converting Base64 into String to Store in SharedPreferences
+                encodedImage = Base64.encodeToString(b, Base64.DEFAULT);
+                //NOw storing String to SharedPreferences
+
+
+                editor.putString("odaara2resim", encodedImage);
+                editor.commit();
+                Toast.makeText(getApplicationContext(),"Image has been Stored!",Toast.LENGTH_LONG).show();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
 
             String kullanici_ismi = sharedPref.getString("kullaniciismi",null);
 

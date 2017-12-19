@@ -3,6 +3,7 @@ package samet.com.bp;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -20,6 +21,8 @@ public class OdaAra13 extends AppCompatActivity {
 
     Button btn,btnevet,btnhayir;
     Toolbar tb;
+    SharedPreferences sharedPref ;
+    SharedPreferences.Editor editor;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +34,9 @@ public class OdaAra13 extends AppCompatActivity {
         tb= (Toolbar) findViewById(R.id.supappbar);
         setSupportActionBar(tb);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        sharedPref = getApplicationContext().getSharedPreferences("MyPref",0);
+        editor = sharedPref.edit();
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,6 +63,9 @@ public class OdaAra13 extends AppCompatActivity {
 
                         EditText numaraet= (EditText) findViewById(R.id.telefonnoet);
                         String numara=numaraet.getText().toString();
+
+                        editor.putString("odaara13numara", numara);
+                        editor.commit();
 
                         Intent intent = new Intent(OdaAra13.this,OdaAra14.class);
                         startActivity(intent);

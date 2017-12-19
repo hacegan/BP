@@ -1,6 +1,7 @@
 package samet.com.bp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -22,6 +23,8 @@ public class OdaAra8 extends AppCompatActivity {
     Toolbar tb;
 RangeBar rb;
     TextView tv;
+    SharedPreferences sharedPref ;
+    SharedPreferences.Editor editor;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +35,9 @@ RangeBar rb;
         tb= (Toolbar) findViewById(R.id.supappbar);
         setSupportActionBar(tb);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        sharedPref = getApplicationContext().getSharedPreferences("MyPref",0);
+        editor = sharedPref.edit();
 
         tv= (TextView) findViewById(R.id.kacyas);
 
@@ -60,6 +66,8 @@ RangeBar rb;
         btndvm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                editor.putString("odaara8tv", tv.getText().toString());
+                editor.commit();
                 Intent intent = new Intent(OdaAra8.this,OdaAra9.class);
                 startActivity(intent);
             }

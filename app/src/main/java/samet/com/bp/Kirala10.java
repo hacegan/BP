@@ -29,7 +29,7 @@ public class Kirala10 extends AppCompatActivity {
         setSupportActionBar(tb);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        sharedPref = getPreferences(Context.MODE_PRIVATE);
+        sharedPref = getApplicationContext().getSharedPreferences("MyPref",0);
         editor = sharedPref.edit();
 
 

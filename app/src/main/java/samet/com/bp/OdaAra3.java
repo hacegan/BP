@@ -1,6 +1,7 @@
 package samet.com.bp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -20,6 +21,8 @@ public class OdaAra3 extends AppCompatActivity {
     SeekBar sb;
     TextView tv;
     Toolbar tb;
+    SharedPreferences sharedPref ;
+    SharedPreferences.Editor editor;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +33,9 @@ public class OdaAra3 extends AppCompatActivity {
         tb= (Toolbar) findViewById(R.id.supappbar);
         setSupportActionBar(tb);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        sharedPref = getApplicationContext().getSharedPreferences("MyPref",0);
+        editor = sharedPref.edit();
 
 
         btn.setOnClickListener(new View.OnClickListener() {
@@ -47,6 +53,8 @@ public class OdaAra3 extends AppCompatActivity {
         btndvm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                editor.putString("odaara3yas",tv.getText().toString());
+                editor.commit();
                 Intent intent = new Intent(OdaAra3.this,OdaAra4.class);
                 startActivity(intent);
             }

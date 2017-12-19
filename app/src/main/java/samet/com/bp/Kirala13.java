@@ -35,7 +35,7 @@ public class Kirala13 extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-        sharedPref = getPreferences(Context.MODE_PRIVATE);
+        sharedPref = getApplicationContext().getSharedPreferences("MyPref",0);
         editor = sharedPref.edit();
 
         rb= (RangeBar) findViewById(R.id.kirala13rb);

@@ -1,6 +1,8 @@
 package samet.com.bp;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -17,6 +19,8 @@ public class Kirala9 extends AppCompatActivity {
     Button btn,btnkizartir,btnkizazalt,btnerkekartir,btnerkekazalt,btndvm;
 TextView erkektv,kiztv;
     Toolbar tb;
+    SharedPreferences sharedPref;
+    SharedPreferences.Editor editor;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +31,8 @@ TextView erkektv,kiztv;
         setSupportActionBar(tb);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
+        sharedPref = getPreferences(Context.MODE_PRIVATE);
+        editor = sharedPref.edit();
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,6 +95,9 @@ erkektv.setText(s);
 btndvm.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
+        editor.putString("kirala9kizsayi",kiztv.getText().toString());
+        editor.putString("kirala9erkeksayi",erkektv.getText().toString());
+        editor.commit();
         Intent intent = new Intent(Kirala9.this,Kirala10.class);
         startActivity(intent);
     }

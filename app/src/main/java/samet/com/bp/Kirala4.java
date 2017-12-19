@@ -68,7 +68,7 @@ public class Kirala4 extends AppCompatActivity {
             public void onClick(View v) {
                 et= (EditText) findViewById(R.id.plakaet);
                 gitdeger= et.getText().toString();
-                server_url="http://sametd.demo.datacenter.fi/myphp/Getilce.php";
+                server_url="http://samet.j.layershift.co.uk/Getilce.php";
 
                 server_url+="?Plaka="+gitdeger;
                 System.out.println(gitdeger);
@@ -109,8 +109,13 @@ new CityTask().execute();
 
 
             Intent in=new Intent(Kirala4.this,KiralaIlveIlceleri.class);
+
             in.putExtra("ilcelist",array);
             in.putExtra("hangisehir",hangisehir);
+
+            in.putExtra("kirala4sehir",hangisehir);
+            in.putExtra("kirala4ilcelist",array);
+
             startActivity(in);
 
         }

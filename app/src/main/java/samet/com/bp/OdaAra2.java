@@ -1,15 +1,24 @@
 package samet.com.bp;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
+
+import com.mindorks.paracamera.Camera;
 
 /**
  * Created by root on 20.11.2017.
@@ -20,12 +29,22 @@ public class OdaAra2 extends AppCompatActivity {
     Button btn,fotocekbtn,fotosecbtn,btndvm;
     ImageView iv;
     Toolbar tb;
-    private static int LOAD_IMAGE_RESULTS=1;
+    private static int LOAD_IMAGE_RESULTS=2;
+    Camera camera;
+
+    SharedPreferences sharedPref ;
+    SharedPreferences.Editor editor;
+
+    private String uploadurl="http://samet.j.layershift.co.uk/kiralaimageupload.php";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.odaiste2);
+
+        sharedPref = getApplicationContext().getSharedPreferences("MyPref",0);
+        editor = sharedPref.edit();
+
         btn= (Button) findViewById(R.id.geribtn);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,7 +86,27 @@ public class OdaAra2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                if (ContextCompat.checkSelfPermission(OdaAra2.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
 
+                    ActivityCompat.requestPermissions(OdaAra2.this, new String[] { Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE }, 0);
+                }
+
+
+                camera=new Camera.Builder().resetToCorrectOrientation(true)
+                        .setTakePhotoRequestCode(1)
+                        .setDirectory("pics")
+                        .setName("samet_"+System.currentTimeMillis())
+                        .setImageFormat(Camera.IMAGE_JPEG)
+                        .setCompression(75)
+                        .setImageHeight(1000)
+                        .build(OdaAra2.this);
+
+                try{
+                    camera.takePicture();
+                }
+                catch(Exception e){
+                    e.printStackTrace();
+                }
 
 
             }
@@ -83,10 +122,31 @@ public class OdaAra2 extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
 
+        if(requestCode == Camera.REQUEST_TAKE_PHOTO){
+            Bitmap bitmap = camera.getCameraBitmap();
+            if(bitmap != null) {
+                iv.setImageBitmap(bitmap);
+                btndvm.setText("ONAYLA VE DEVAM ET");
 
-        if(requestCode==LOAD_IMAGE_RESULTS && resultCode==RESULT_OK ){
+                String kullanici_ismi = sharedPref.getString("kullaniciismi",null);
+
+
+            }else{
+                Toast.makeText(this.getApplicationContext(),"Fotoğraf Çekilmedi!",Toast.LENGTH_SHORT).show();
+            }
+        }
+
+
+
+
+        else    if(requestCode== LOAD_IMAGE_RESULTS && resultCode==RESULT_OK ){
             Uri pickedImage = data.getData();
             iv.setImageURI(pickedImage);
+            btndvm.setText("ONAYLA VE DEVAM ET");
+
+            String kullanici_ismi = sharedPref.getString("kullaniciismi",null);
+
+
 
         }
 

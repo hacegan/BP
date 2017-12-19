@@ -1,6 +1,8 @@
 package samet.com.bp;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -17,10 +19,17 @@ public class Kirala7 extends AppCompatActivity {
     Button btn,odaeklebtn,btndvm;
     Toolbar tb;
     EditText m2,oda,kat,bkat,aidat,kira,esya;
+
+    SharedPreferences sharedPref;
+    SharedPreferences.Editor editor;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.kirala7);
+
+        sharedPref = getPreferences(Context.MODE_PRIVATE);
+        editor = sharedPref.edit();
+
         btn= (Button) findViewById(R.id.geribtn);
         //odaeklebtn= (Button) findViewById(R.id.odaeklebtn);
 btndvm= (Button) findViewById(R.id.btndvm);
@@ -42,6 +51,14 @@ oda= (EditText) findViewById(R.id.kiralaodaet);
 btndvm.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
+        editor.putString("kirala7m2",m2.getText().toString());
+        editor.putString("kirala7oda",oda.getText().toString());
+        editor.putString("kirala7kat",kat.getText().toString());
+        editor.putString("kirala7bkat",bkat.getText().toString());
+        editor.putString("kirala7aidat",aidat.getText().toString());
+        editor.putString("kirala7kira",kira.getText().toString());
+        editor.putString("kirala7esya",esya.getText().toString());
+        editor.commit();
         Intent intent = new Intent(Kirala7.this,Kirala8.class);
         startActivity(intent);
     }

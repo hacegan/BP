@@ -1,8 +1,10 @@
 package samet.com.bp;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -20,6 +22,9 @@ import android.widget.Toast;
 public class Kirala14 extends AppCompatActivity {
     Button btn,btnevet,btnhayir;
     Toolbar tb;
+    EditText numaraet;
+    SharedPreferences sharedPref;
+    SharedPreferences.Editor editor;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +34,11 @@ public class Kirala14 extends AppCompatActivity {
         tb= (Toolbar) findViewById(R.id.supappbar);
         setSupportActionBar(tb);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        sharedPref = getPreferences(Context.MODE_PRIVATE);
+        editor = sharedPref.edit();
+
+        numaraet = (EditText) findViewById(R.id.telefonnoet);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,8 +64,10 @@ builder.setView(dialog_layout).setPositiveButton("ONAYLA", new DialogInterface.O
     @Override
     public void onClick(DialogInterface dialogInterface, int i) {
 
-    EditText numaraet= (EditText) findViewById(R.id.telefonnoet);
+
 String numara=numaraet.getText().toString();
+        editor.putString("kirala14numara",numara);
+        editor.commit();
 
         Intent intent = new Intent(Kirala14.this,Kirala15.class);
         startActivity(intent);
@@ -68,6 +80,8 @@ String numara=numaraet.getText().toString();
                 dialogInterface.dismiss();
             }
         });
+
+                builder.show();
 
 
             }

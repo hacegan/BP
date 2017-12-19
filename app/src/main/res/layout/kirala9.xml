@@ -175,15 +175,13 @@
         android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:text="Eğer ev sahibi ya da emlakçı iseniz bu adımı değerler 0 olacak şekilde atlayın"
         android:textAllCaps="false"
         android:textColor="@android:color/holo_red_dark"
         android:textSize="18sp"
-        android:textStyle="bold|italic"
-        tools:text="Eğer ev sahibi ya da emlakçı iseniz bu adımı değerler 0 olacak şekilde atlayın" />
+        android:textStyle="bold|italic" />
 
     <Button
         android:id="@+id/btndvm"

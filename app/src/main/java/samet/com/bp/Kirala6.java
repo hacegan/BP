@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -19,6 +20,7 @@ import android.hardware.camera2.CaptureRequest;
 import android.media.Image;
 import android.media.ImageReader;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
@@ -30,6 +32,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Base64;
 import android.util.Log;
 import android.util.SparseIntArray;
 import android.view.Surface;
@@ -40,13 +43,23 @@ import android.widget.Gallery;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.toolbox.StringRequest;
 import com.google.android.gms.common.images.Size;
 import com.mindorks.paracamera.Camera;
 
+import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
@@ -55,6 +68,7 @@ import java.util.concurrent.ExecutionException;
 
 import static android.media.MediaRecorder.VideoSource.CAMERA;
 import static android.media.MediaRecorder.VideoSource.SURFACE;
+import static com.android.volley.Request.Method.POST;
 
 
 /**
@@ -66,15 +80,24 @@ public class Kirala6 extends AppCompatActivity  {
 ImageView iv;
     Toolbar tb;
 Camera camera;
+    String encodedImage;
 
  private static int LOAD_IMAGE_RESULTS=2;
 
+Bitmap bitmap;
 
+   SharedPreferences sharedPref =null;
+    SharedPreferences.Editor editor ;
 
+private String uploadurl="http://samet.j.layershift.co.uk/kiralaimageupload.php";
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.kirala6);
+
+        sharedPref = getApplicationContext().getSharedPreferences("MyPref",0);
+        editor = sharedPref.edit();
+
 
         fotocekbtn= (Button) findViewById(R.id.fotocekbtn);
         fotosecbtn= (Button) findViewById(R.id.fotosecbtn);
@@ -153,14 +176,46 @@ e.printStackTrace();
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
         super.onActivityResult(requestCode, resultCode, data);
 
+        sharedPref = getApplicationContext().getSharedPreferences("MyPref",0);
+        editor = sharedPref.edit();
 
         if(requestCode == Camera.REQUEST_TAKE_PHOTO){
+            InputStream stream;
             Bitmap bitmap = camera.getCameraBitmap();
             if(bitmap != null) {
                 iv.setImageBitmap(bitmap);
                 btndvm.setText("ONAYLA VE DEVAM ET");
+
+
+                try {
+                    //stream = getContentResolver().openInputStream(data.getData());
+                    // Encoding Image into Base64
+                   // Bitmap realImage = BitmapFactory.decodeStream(stream);
+                    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+                    byte[] b = baos.toByteArray();
+                    //Converting Base64 into String to Store in SharedPreferences
+                    encodedImage = Base64.encodeToString(b, Base64.DEFAULT);
+                    //NOw storing String to SharedPreferences
+
+
+                    editor.putString("kirala6resim", encodedImage);
+                    editor.commit();
+                    Toast.makeText(getApplicationContext(),"Image has been Stored!",Toast.LENGTH_LONG).show();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+
+
+                String kullanici_ismi = sharedPref.getString("kullaniciismi",null);
+                String user_id=sharedPref.getString("user_id",null);
+
+                new resim_ekle().execute();
+
             }else{
                 Toast.makeText(this.getApplicationContext(),"Fotoğraf Çekilmedi!",Toast.LENGTH_SHORT).show();
             }
@@ -170,9 +225,40 @@ e.printStackTrace();
 
 
     else    if(requestCode== LOAD_IMAGE_RESULTS && resultCode==RESULT_OK ){
+            InputStream stream;
+
             Uri pickedImage = data.getData();
-iv.setImageURI(pickedImage);
-btndvm.setText("ONAYLA VE DEVAM ET");
+            iv.setImageURI(pickedImage);
+            btndvm.setText("ONAYLA VE DEVAM ET");
+
+            try {
+                stream = getContentResolver().openInputStream(data.getData());
+                // Encoding Image into Base64
+                Bitmap realImage = BitmapFactory.decodeStream(stream);
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                realImage.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+                byte[] b = baos.toByteArray();
+                //Converting Base64 into String to Store in SharedPreferences
+                encodedImage = Base64.encodeToString(b, Base64.DEFAULT);
+                //NOw storing String to SharedPreferences
+
+
+                editor.putString("kirala6resim", encodedImage);
+                editor.commit();
+                Toast.makeText(getApplicationContext(),"Image has been Stored!",Toast.LENGTH_LONG).show();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+
+
+
+
+String kullanici_ismi = sharedPref.getString("kullaniciismi",null);
+String user_id=sharedPref.getString("user_id",null);
+
+new resim_ekle().execute();
+
         }
 
 
@@ -184,6 +270,41 @@ btndvm.setText("ONAYLA VE DEVAM ET");
         Intent intent = new Intent(Kirala6.this,Kirala5.class);
         startActivity(intent);
     }
+
+
+public class resim_ekle extends AsyncTask{
+
+
+    @Override
+    protected Object doInBackground(Object[] params) {
+
+        try{
+            URL url=new URL(uploadurl);
+            HttpURLConnection con= (HttpURLConnection) url.openConnection();
+            con.setRequestMethod("POST");
+            con.connect();
+
+            BufferedReader bf=new BufferedReader(new InputStreamReader(con.getInputStream()));
+           String sonuc=bf.readLine();
+            System.out.println(sonuc);
+
+
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
+
+
+
+
+
+
+
+
+        return null;
+    }
+}
+
 
 
 }

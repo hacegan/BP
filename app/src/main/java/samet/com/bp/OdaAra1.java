@@ -1,6 +1,8 @@
 package samet.com.bp;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -16,10 +18,17 @@ public class OdaAra1 extends AppCompatActivity {
 
     Button btn,btnbay,btnbayan,btnikisi;
     Toolbar tb;
+    SharedPreferences sharedPref;
+    SharedPreferences.Editor editor;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.odaiste1);
+
+        sharedPref = getPreferences(Context.MODE_PRIVATE);
+        editor = sharedPref.edit();
+
+
         btn= (Button) findViewById(R.id.geribtn);
 
         btnbay= (Button) findViewById(R.id.btnbay);
@@ -44,6 +53,8 @@ public class OdaAra1 extends AppCompatActivity {
         btnbay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                editor.putString("odaara1bay","bay");
+                editor.commit();
                 Intent intent = new Intent(OdaAra1.this,OdaAra2.class);
                 startActivity(intent);
             }
@@ -52,6 +63,8 @@ public class OdaAra1 extends AppCompatActivity {
         btnbayan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                editor.putString("odaara1bayan","bayan");
+                editor.commit();
                 Intent intent = new Intent(OdaAra1.this,OdaAra2.class);
                 startActivity(intent);
             }
@@ -60,6 +73,8 @@ public class OdaAra1 extends AppCompatActivity {
         btnikisi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                editor.putString("odaara1ikisi","ikisi");
+                editor.commit();
                 Intent intent = new Intent(OdaAra1.this,OdaAra2.class);
                 startActivity(intent);
             }

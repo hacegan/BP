@@ -43,7 +43,7 @@ public class Kayit4 extends Activity {
     CheckBox kayitchkbir,kayitchkiki;
 String isim,sifre,email;
 TextView tv;
-    String server_url="http://sametd.demo.datacenter.fi/myphp/kayit.php";
+    String server_url="http://samet.j.layershift.co.uk/kayit.php";
     AlertDialog.Builder builder;
     static String code;
     String sonuc;
@@ -94,7 +94,7 @@ TextView tv;
                 }
 
 
-                server_url="http://sametd.demo.datacenter.fi/myphp/kayit.php";
+                server_url="http://samet.j.layershift.co.uk/kayit.php";
 
 
 server_url+="?Email="+email+"&Name="+isim+"&Password="+sifre;

@@ -221,6 +221,7 @@ public class Kirala3 extends AppCompatActivity  implements SimpleLocationGetter.
                 SharedPreferences sharedPref = getApplicationContext().getSharedPreferences("MyPref",0);
                 SharedPreferences.Editor editor = sharedPref.edit();
                 editor.putString("adres",adres);
+                editor.putString("kirala3adres",adres);
                 editor.commit();
                 Intent intent = new Intent(Kirala3.this,Kirala5.class);
                 startActivity(intent);

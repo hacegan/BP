@@ -97,7 +97,7 @@ public class OdaAraIl extends Activity implements  View.OnClickListener{
 
 
                 int i=0;
-                Document doc = Jsoup.connect("http://sametd.demo.datacenter.fi/myphp/GetSehir.php").get();
+                Document doc = Jsoup.connect("http://samet.j.layershift.co.uk/GetSehir.php").get();
                 Elements elements=doc.select("ul li");
                 for(Element element:elements){
 

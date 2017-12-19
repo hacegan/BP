@@ -2,6 +2,7 @@ package samet.com.bp;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -25,7 +26,11 @@ public class Kirala8 extends AppCompatActivity {
 TextView tv;
     CheckBox evet;
     CheckBox hayir;
+    static String tarih;
     private DatePickerDialog.OnDateSetListener onDateSetListener;
+
+    SharedPreferences sharedPref;
+    SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -37,17 +42,6 @@ TextView tv;
 
         //evet= (CheckBox) findViewById(R.id.kirala8evetcb);
       //  hayir= (CheckBox) findViewById(R.id.kirala8hayircb);
-
-btndvm= (Button) findViewById(R.id.btndvm);
-
-        btndvm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Kirala8.this,Kirala9.class);
-                startActivity(intent);
-            }
-        });
-
 
 
         tv.setOnClickListener(new View.OnClickListener() {
@@ -61,7 +55,7 @@ btndvm= (Button) findViewById(R.id.btndvm);
                 DatePickerDialog dialog=new DatePickerDialog(Kirala8.this,android.R.style.Theme_Holo_Light_Dialog_MinWidth,onDateSetListener,year,month,day);
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
-dialog.show();
+                dialog.show();
 
             }
         });
@@ -72,9 +66,28 @@ dialog.show();
 
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-tv.setText(dayOfMonth+"/"+month+"/"+year+"'itibaren");
+                tv.setText(dayOfMonth+"/"+month+"/"+year+"'itibaren");
+                tarih=""+dayOfMonth+month+year;
             }
         };
+
+
+
+btndvm= (Button) findViewById(R.id.btndvm);
+
+        btndvm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editor.putString("kirala8tarih",tarih);
+                editor.commit();
+                Intent intent = new Intent(Kirala8.this,Kirala9.class);
+                startActivity(intent);
+            }
+        });
+
+
+
+
 
 
 

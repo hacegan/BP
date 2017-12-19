@@ -28,8 +28,8 @@ public class UserMainActivity extends AppCompatActivity   implements NavigationV
 TextView tv;
     String isim;
     String email;
-    String server_url="http://sametd.demo.datacenter.fi/myphp/getname.php";
-
+    String server_url="http://samet.j.layershift.co.uk/getname.php";
+String user_id;
 
     @Override
     public void onBackPressed() {
@@ -47,7 +47,7 @@ TextView tv;
 
         // Setting Dialog Title
 
-        alertDialog.setTitle("Uygulumadan ayrılıyor musun?");
+        alertDialog.setTitle("Uygulamadan ayrılıyor musun?");
 
         // Setting Dialog Message
 
@@ -122,7 +122,7 @@ TextView tv;
         SharedPreferences.Editor editor = sharedPref.edit();
         email=sharedPref.getString("email",null);
 
-        server_url="http://sametd.demo.datacenter.fi/myphp/getname.php";
+        server_url="http://samet.j.layershift.co.uk/getname.php";
 
 
         server_url+="?Email="+email;
@@ -162,9 +162,29 @@ TextView tv;
                 BufferedReader bf=new BufferedReader(new InputStreamReader(con.getInputStream()));
                 isim=bf.readLine();
                 System.out.println(isim);
+                SharedPreferences sharedPref = getApplicationContext().getSharedPreferences("MyPref",0);
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.putString("kullaniciismi",isim);
 
 
+                bf.close();
+                con.disconnect();
 
+                 url=new URL("http://samet.j.layershift.co.uk/getuserid.php");
+                 con= (HttpURLConnection) url.openConnection();
+                con.setRequestMethod("GET");
+                con.connect();
+
+                bf=new BufferedReader(new InputStreamReader(con.getInputStream()));
+                user_id=bf.readLine();
+                System.out.println("User Id = "+user_id);
+                editor.putString("user_id",user_id);
+
+                editor.commit();
+
+                bf.close();
+
+                con.disconnect();
             }
             catch (Exception e){
                 System.out.println(e);

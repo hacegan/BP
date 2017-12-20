@@ -56,7 +56,7 @@ evet= (Button) findViewById(R.id.btnevet);
         hayir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                editor.putString("kirala11hayir","hayir");
+                editor.putString("kirala11evet","hayir");
                 editor.commit();
                 Intent intent = new Intent(Kirala11.this,Kirala12.class);
                 startActivity(intent);

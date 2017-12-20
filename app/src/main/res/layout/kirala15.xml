@@ -100,4 +100,18 @@
         android:textSize="30sp"
         android:textStyle="bold" />
 
+
+    <com.dd.CircularProgressButton
+        android:id="@+id/btnWithText"
+        android:layout_width="196dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="16dp"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        app:cpb_textComplete="Tamamlandı"
+        app:cpb_textError="Hata oldu ! "
+        app:cpb_textIdle="İlanı Yayınla "
+        app:cpb_selectorIdle="@drawable/idle_state_selector"
+        />
+
 </LinearLayout>

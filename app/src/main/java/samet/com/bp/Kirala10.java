@@ -55,7 +55,7 @@ public class Kirala10 extends AppCompatActivity {
         hayir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                editor.putString("kirala10yok","yok");
+                editor.putString("kirala10var","yok");
                 editor.commit();
                 Intent intent = new Intent(Kirala10.this,Kirala11.class);
                 startActivity(intent);

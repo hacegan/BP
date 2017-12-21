@@ -2,11 +2,15 @@ package samet.com.bp;
 
 import android.app.Activity;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
+import android.util.Base64;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Created by root on 21.12.2017.
@@ -17,6 +21,7 @@ public class Kirala_Yayin_Kontrol   extends Activity{
     SharedPreferences.Editor editor;
     TextView textView;
 ImageView imageView;
+    String encodedImage;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -105,70 +110,109 @@ ImageView imageView;
         System.out.println("kirala14numara = "+kirala14numara);
 
 
+        String kirala15baslik=sharedPref.getString("kirala15baslik",null);
+
+        String kirala15aciklama=sharedPref.getString("kirala15aciklama",null);
+
+
         //
 
         textView=findViewById(R.id.kirala_yayin_mulktur);
         String kirala_yayin_mulktur=textView.getText().toString();
+        textView.setText(kirala_yayin_mulktur+" "+kirala1mulktur);
 
 
         textView=findViewById(R.id.kirala_yayin_ilanverentur);
         String kirala_yayin_ilanverentur=textView.getText().toString();
+        textView.setText(kirala_yayin_ilanverentur+" "+kirala2ilanveren);
 
         textView=findViewById(R.id.kirala_yayin_adres);
         String kirala_yayin_adres=textView.getText().toString();
+        textView.setText(kirala_yayin_adres+" "+kirala3adres);
 
         imageView=findViewById(R.id.kirala_yayin_resim);
 
+        if (!kirala6resim.equalsIgnoreCase("")) {
+            //Decoding the Image and display in ImageView
+            byte[] b = Base64.decode(kirala6resim, Base64.DEFAULT);
+            Bitmap bitmap = BitmapFactory.decodeByteArray(b, 0, b.length);
+            imageView.setImageBitmap(bitmap);
+        }
+        else
+        {
+            Toast.makeText(getApplicationContext(),"You don't have Image in SharedPreferences!", Toast.LENGTH_SHORT).show();
+        }
+
+
+
         textView=findViewById(R.id.kirala_yayin_m2);
         String kirala_yayin_m2=textView.getText().toString();
+        textView.setText(kirala_yayin_m2+" "+kirala7m2);
 
         textView=findViewById(R.id.kirala_yayin_odasayi);
         String kirala_yayin_odasayi=textView.getText().toString();
+        textView.setText(kirala_yayin_odasayi+" "+kirala7oda);
 
         textView=findViewById(R.id.kirala_yayin_bkat);
         String kirala_yayin_bkat=textView.getText().toString();
+        textView.setText(kirala_yayin_bkat+" "+kirala7bkat);
 
         textView=findViewById(R.id.kirala_yayin_katsayi);
         String kirala_yayin_katsayi=textView.getText().toString();
+        textView.setText(kirala_yayin_katsayi+" "+kirala7kat);
+
 
         textView=findViewById(R.id.kirala_yayin_esyalimi);
         String kirala_yayin_esyalimi=textView.getText().toString();
+        textView.setText(kirala_yayin_esyalimi+" "+kirala7esya);
 
         textView=findViewById(R.id.kirala_yayin_aidat);
         String kirala_yayin_aidat=textView.getText().toString();
+        textView.setText(kirala_yayin_aidat+" "+kirala7aidat);
 
         textView=findViewById(R.id.kirala_yayin_kira);
         String kirala_yayin_kira=textView.getText().toString();
+        textView.setText(kirala_yayin_kira+" "+kirala7kira);
 
         textView=findViewById(R.id.kirala_yayin_odauyguntarih);
         String kirala_yayin_odauyguntarih=textView.getText().toString();
+        textView.setText(kirala_yayin_odauyguntarih+" "+kirala8tarih);
 
         textView=findViewById(R.id.kirala_yayin_erkeksayi);
         String kirala_yayin_erkeksayi=textView.getText().toString();
+        textView.setText(kirala_yayin_erkeksayi+" "+kirala9erkeksayi);
 
         textView=findViewById(R.id.kirala_yayin_kizsayi);
         String kirala_yayin_kizsayi=textView.getText().toString();
+        textView.setText(kirala_yayin_kizsayi+" "+kirala9kizsayi);
 
         textView=findViewById(R.id.kirala_yayin_evcilvarmi);
         String kirala_yayin_evcilvarmi=textView.getText().toString();
+        textView.setText(kirala_yayin_evcilvarmi+" "+kirala10var);
 
         textView=findViewById(R.id.kirala_yayin_sigaravarmi);
         String kirala_yayin_sigaravarmi=textView.getText().toString();
+        textView.setText(kirala_yayin_sigaravarmi+" "+kirala11evet);
 
         textView=findViewById(R.id.kirala_yayin_kimlelive);
         String kirala_yayin_kimlelive=textView.getText().toString();
+       // textView.setText(kirala_yayin_kimlelive+" kirala1mulktur");
 
         textView=findViewById(R.id.kirala_yayin_hangiyas);
         String kirala_yayin_hangiyas=textView.getText().toString();
+        textView.setText(kirala_yayin_hangiyas+" "+kirala13yas);
 
         textView=findViewById(R.id.kirala_yayin_no);
         String kirala_yayin_no=textView.getText().toString();
+        textView.setText(kirala_yayin_no+" "+kirala14numara);
 
         textView=findViewById(R.id.kirala_yayin_baslik);
         String kirala_yayin_baslik=textView.getText().toString();
+        textView.setText(kirala_yayin_baslik+" " + kirala15baslik);
 
         textView=findViewById(R.id.kirala_yayin_aciklama);
         String kirala_yayin_aciklama=textView.getText().toString();
+        textView.setText(kirala_yayin_aciklama+" "+kirala15aciklama);
 
 
     }

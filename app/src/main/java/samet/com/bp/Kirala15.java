@@ -182,9 +182,9 @@ btndvm= (Button) findViewById(R.id.btndvm);
         btndvm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // editor.putString("kirala15baslik",baslik.getText().toString());
-               // editor.putString("kirala15aciklama",aciklama.getText().toString());
-               // editor.commit();
+                editor.putString("kirala15baslik",baslik.getText().toString());
+                editor.putString("kirala15aciklama",aciklama.getText().toString());
+                editor.commit();
                 kirala_upload_url+="&kirala15baslik="+baslik.getText().toString()+"&kirala15aciklama="+aciklama.getText().toString();
                 System.out.println(kirala_upload_url);
               new  KiralaTask().execute();

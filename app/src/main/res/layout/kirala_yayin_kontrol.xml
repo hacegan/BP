@@ -179,7 +179,14 @@
                 android:text="İlan Açıklaması"
                 android:textSize="12sp" />
 
-            </LinearLayout>
+            <Button
+                android:id="@+id/kirala_yayin_onaybuton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TAMAM"
+                android:textSize="18sp" />
+
+        </LinearLayout>
 
     </ScrollView>
 

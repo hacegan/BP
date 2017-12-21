@@ -153,6 +153,7 @@ public class Kirala15 extends AppCompatActivity {
          if(sonuc.equals("Ilan Basariyla eklendi . ")){
              if (cbp.getProgress() == 0) {
                  simulateSuccessProgress(cbp);
+
              } else {
                  cbp.setProgress(0);
              }
@@ -188,6 +189,9 @@ btndvm= (Button) findViewById(R.id.btndvm);
                 kirala_upload_url+="&kirala15baslik="+baslik.getText().toString()+"&kirala15aciklama="+aciklama.getText().toString();
                 System.out.println(kirala_upload_url);
               new  KiralaTask().execute();
+
+                Intent intent = new Intent(Kirala15.this,Kirala_Yayin_Kontrol.class);
+                startActivity(intent);
 
             }
         });
@@ -276,8 +280,14 @@ btndvm= (Button) findViewById(R.id.btndvm);
                 Integer value = (Integer) animation.getAnimatedValue();
                 button.setProgress(value);
             }
+
+
+
+
         });
         widthAnimation.start();
+      //  Intent intent = new Intent(Kirala15.this,Kirala_Yayin_Kontrol.class);
+        //startActivity(intent);
     }
 
 

@@ -1,6 +1,7 @@
 package samet.com.bp;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -8,6 +9,8 @@ import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.util.Base64;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,6 +25,7 @@ public class Kirala_Yayin_Kontrol   extends Activity{
     TextView textView;
 ImageView imageView;
     String encodedImage;
+    Button btn;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -213,6 +217,16 @@ ImageView imageView;
         textView=findViewById(R.id.kirala_yayin_aciklama);
         String kirala_yayin_aciklama=textView.getText().toString();
         textView.setText(kirala_yayin_aciklama+" "+kirala15aciklama);
+
+
+        btn=findViewById(R.id.kirala_yayin_onaybuton);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Kirala_Yayin_Kontrol.this,UserMainActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
     }

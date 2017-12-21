@@ -4,6 +4,7 @@ import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -20,6 +21,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.HashMap;
 
 /**
  * Created by root on 20.11.2017.
@@ -32,7 +34,9 @@ public class Kirala15 extends AppCompatActivity {
     SharedPreferences sharedPref;
     SharedPreferences.Editor editor;
     CircularProgressButton cbp;
-    String kirala_upload_url="http://samet.j.layershift.co.uk/kirala_upload.php";
+   static String kirala_upload_url="http://samet.j.layershift.co.uk/kirala_upload.php";
+    static String kirala6resim;
+    static String  sonuc;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +61,7 @@ public class Kirala15 extends AppCompatActivity {
         System.out.println("kirala2ilanveren = "+kirala2ilanveren);
 
         String kirala3adres=sharedPref.getString("kirala3adres",null);
+        kirala3adres= kirala3adres.replaceAll("\\s+","");
         System.out.println("kirala3adres = "+kirala3adres);
 
         String kiralasecilenil=sharedPref.getString("kiralasecilenil",null);
@@ -65,8 +70,8 @@ public class Kirala15 extends AppCompatActivity {
         String kiralasecilenilce=sharedPref.getString("kiralasecilenilce",null);
         System.out.println("kiralasecilenilce = "+kiralasecilenilce);
 
-        String kirala6resim=sharedPref.getString("kirala6resim",null);
-        System.out.println("kirala6resim = "+kirala6resim);
+        kirala6resim=sharedPref.getString("kirala6resim",null);
+      //  System.out.println("kirala6resim = "+kirala6resim);
 
         String kirala7m2=sharedPref.getString("kirala7m2",null);
         System.out.println("kirala7m2 = "+kirala7m2);
@@ -128,17 +133,40 @@ public class Kirala15 extends AppCompatActivity {
         String  kirala14numara=sharedPref.getString("kirala14numara",null);
         System.out.println("kirala14numara = "+kirala14numara);
 
+        kirala_upload_url+="?kirala1mulktur="+kirala1mulktur+"&kirala2ilanveren="+kirala2ilanveren+"&kirala3adres="+kirala3adres+"&kirala7m2="+kirala7m2+"&kirala7oda="+kirala7oda
+        +"&kirala7kat="+kirala7kat+"&kirala7bkat="+kirala7bkat+"&kirala7aidat="+kirala7aidat+"&kirala7kira="+kirala7kira+"&kirala7esya="+kirala7esya+"&kirala8tarih="+kirala8tarih
+        +"&kirala9kizsayi="+kirala9kizsayi+"&kirala9erkeksayi="+kirala9erkeksayi+"&kirala10var="+kirala10var+"&kirala11evet="+kirala11evet+"&kirala13yas="+kirala13yas
+        +"&kirala14numara="+kirala14numara
+        ;
+
         cbp= (CircularProgressButton) findViewById(R.id.btnWithText);
        // cbp.setIndeterminateProgressMode(true);
 
         cbp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (cbp.getProgress() == 0) {
-                    simulateSuccessProgress(cbp);
-                } else {
-                    cbp.setProgress(0);
-                }
+
+                kirala_upload_url+="&kirala15baslik="+baslik.getText().toString()+"&kirala15aciklama="+aciklama.getText().toString();
+                System.out.println(kirala_upload_url);
+                new  KiralaTask().execute();
+
+         if(sonuc.equals("Ilan Basariyla eklendi . ")){
+             if (cbp.getProgress() == 0) {
+                 simulateSuccessProgress(cbp);
+             } else {
+                 cbp.setProgress(0);
+             }
+         }
+         else{
+             if (cbp.getProgress() == 0) {
+                 simulateErrorProgress(cbp);
+             } else {
+                 cbp.setProgress(0);
+             }
+         }
+
+
+
             }
         });
 
@@ -157,6 +185,9 @@ btndvm= (Button) findViewById(R.id.btndvm);
                // editor.putString("kirala15baslik",baslik.getText().toString());
                // editor.putString("kirala15aciklama",aciklama.getText().toString());
                // editor.commit();
+                kirala_upload_url+="&kirala15baslik="+baslik.getText().toString()+"&kirala15aciklama="+aciklama.getText().toString();
+                System.out.println(kirala_upload_url);
+              new  KiralaTask().execute();
 
             }
         });
@@ -188,14 +219,19 @@ btndvm= (Button) findViewById(R.id.btndvm);
         protected Object doInBackground(Object[] params) {
 
             try{
-                URL url=new URL("");
+                URL url=new URL(kirala_upload_url);
                 HttpURLConnection con= (HttpURLConnection) url.openConnection();
-                con.setRequestMethod("POST");
+                con.setRequestMethod("GET");
                 con.connect();
 
                 BufferedReader bf=new BufferedReader(new InputStreamReader(con.getInputStream()));
-              String  sonuc=bf.readLine();
+                sonuc=bf.readLine();
                 System.out.println(sonuc);
+
+
+
+
+
             }
             catch (Exception e){
                 e.printStackTrace();

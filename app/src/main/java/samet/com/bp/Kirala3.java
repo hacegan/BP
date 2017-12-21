@@ -214,8 +214,8 @@ public class Kirala3 extends AppCompatActivity  implements SimpleLocationGetter.
             try {
              List<Address> addresses=   geocoder.getFromLocation(location.getLatitude(),location.getLongitude(),1);
                 Address address=  addresses.get(0);
-                Log.d("LOCATION",address.getAdminArea()+" İli "+address.getSubAdminArea()+" İlçesi"+address.getThoroughfare()+" "+ address.getCountryName()+" Posta Kodu = "+address.getPostalCode());
-                adres=address.getAdminArea()+" İli "+address.getSubAdminArea()+" İlçesi"+address.getThoroughfare()+" "+ address.getCountryName()+" Posta Kodu = "+address.getPostalCode();
+                Log.d("LOCATION",address.getAdminArea()+" İli "+address.getSubAdminArea()+" İlcesi"+address.getThoroughfare()+" "+ address.getCountryName()+" Posta Kodu = "+address.getPostalCode());
+                adres=address.getAdminArea()+" Ili "+address.getSubAdminArea()+" Ilcesi"+address.getThoroughfare()+" "+ address.getCountryName()+" Posta Kodu  "+address.getPostalCode();
                 System.out.println("ONLOCATIONREADYDE = "+adres);
 
                 SharedPreferences sharedPref = getApplicationContext().getSharedPreferences("MyPref",0);

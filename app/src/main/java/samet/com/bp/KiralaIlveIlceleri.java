@@ -68,6 +68,7 @@ ll.addView(tv);
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putString("kiralasecilenilce",((TextView) v).getText().toString());
         editor.putString("kiralasecilenil",hangisehir);
+        editor.putString("kirala3adres",hangisehir+((TextView) v).getText().toString());
         editor.commit();
 
 

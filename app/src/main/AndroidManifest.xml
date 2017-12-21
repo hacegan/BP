@@ -97,7 +97,7 @@
         <activity android:name=".OdaAra14" android:parentActivityName=".UserMainActivity"/>
         <activity android:name=".OdaEkle" />
         <activity android:name=".OdaDuzenle" />
-
+        <activity android:name=".Kirala_Yayin_Kontrol" />
 
 
     </application>

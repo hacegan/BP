@@ -23,6 +23,7 @@ public class OdaAra13 extends AppCompatActivity {
     Toolbar tb;
     SharedPreferences sharedPref ;
     SharedPreferences.Editor editor;
+    EditText numaraet;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,11 +58,12 @@ public class OdaAra13 extends AppCompatActivity {
                 AlertDialog.Builder builder=new AlertDialog.Builder(OdaAra13.this);
                 LayoutInflater inflater=getLayoutInflater();
                 View dialog_layout=inflater.inflate(R.layout.telefonnoekleme,null);
+                numaraet = dialog_layout.findViewById(R.id.telefonnoet);
                 builder.setView(dialog_layout).setPositiveButton("ONAYLA", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
-                        EditText numaraet= (EditText) findViewById(R.id.telefonnoet);
+                      //  EditText numaraet= (EditText) findViewById(R.id.telefonnoet);
                         String numara=numaraet.getText().toString();
 
                         editor.putString("odaara13numara", numara);

@@ -38,7 +38,7 @@ public class Kirala14 extends AppCompatActivity {
         sharedPref = getApplicationContext().getSharedPreferences("MyPref",0);
         editor = sharedPref.edit();
 
-        numaraet = (EditText) findViewById(R.id.telefonnoet);
+
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,6 +60,7 @@ public class Kirala14 extends AppCompatActivity {
                 AlertDialog.Builder builder=new AlertDialog.Builder(Kirala14.this);
                 LayoutInflater inflater=getLayoutInflater();
                 View dialog_layout=inflater.inflate(R.layout.telefonnoekleme,null);
+                numaraet = dialog_layout.findViewById(R.id.telefonnoet);
 builder.setView(dialog_layout).setPositiveButton("ONAYLA", new DialogInterface.OnClickListener() {
     @Override
     public void onClick(DialogInterface dialogInterface, int i) {

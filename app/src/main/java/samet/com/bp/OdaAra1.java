@@ -63,7 +63,7 @@ public class OdaAra1 extends AppCompatActivity {
         btnbayan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                editor.putString("odaara1bayan","bayan");
+                editor.putString("odaara1bay","bayan");
                 editor.commit();
                 Intent intent = new Intent(OdaAra1.this,OdaAra2.class);
                 startActivity(intent);
@@ -73,7 +73,7 @@ public class OdaAra1 extends AppCompatActivity {
         btnikisi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                editor.putString("odaara1ikisi","ikisi");
+                editor.putString("odaara1bay","ikisi");
                 editor.commit();
                 Intent intent = new Intent(OdaAra1.this,OdaAra2.class);
                 startActivity(intent);

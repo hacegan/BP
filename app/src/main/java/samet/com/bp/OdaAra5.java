@@ -57,7 +57,7 @@ public class OdaAra5 extends AppCompatActivity {
         btnhayir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                editor.putString("odaara5hayir", "odaara5hayir");
+                editor.putString("odaara5evet", "odaara5hayir");
                 editor.commit();
                 Intent intent = new Intent(OdaAra5.this,OdaAra6.class);
                 startActivity(intent);

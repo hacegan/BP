@@ -63,10 +63,9 @@ public class OdaAra13 extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
-                      //  EditText numaraet= (EditText) findViewById(R.id.telefonnoet);
-                        String numara=numaraet.getText().toString();
 
-                        editor.putString("odaara13numara", numara);
+                        String numara=numaraet.getText().toString();
+                        editor.putString("odaara13numara",numara);
                         editor.commit();
 
                         Intent intent = new Intent(OdaAra13.this,OdaAra14.class);
@@ -80,6 +79,8 @@ public class OdaAra13 extends AppCompatActivity {
                                 dialogInterface.dismiss();
                             }
                         });
+
+                builder.show();
 
 
 

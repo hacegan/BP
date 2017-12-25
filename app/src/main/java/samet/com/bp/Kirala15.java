@@ -188,6 +188,7 @@ btndvm= (Button) findViewById(R.id.btndvm);
                 editor.commit();
                 kirala_upload_url+="&kirala15baslik="+baslik.getText().toString()+"&kirala15aciklama="+aciklama.getText().toString();
                 System.out.println(kirala_upload_url);
+                kirala_upload_url+="&user_id="+sharedPref.getString("user_id",null);
               new  KiralaTask().execute();
 
                 Intent intent = new Intent(Kirala15.this,Kirala_Yayin_Kontrol.class);

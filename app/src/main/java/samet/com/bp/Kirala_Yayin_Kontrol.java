@@ -1,6 +1,8 @@
 package samet.com.bp;
 
 import android.app.Activity;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -8,6 +10,7 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
+import android.support.v4.app.NotificationCompat;
 import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
@@ -26,6 +29,8 @@ public class Kirala_Yayin_Kontrol   extends Activity{
 ImageView imageView;
     String encodedImage;
     Button btn;
+    NotificationCompat.Builder noBuilder;
+    private static final int uniqueID=45612;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -220,10 +225,26 @@ ImageView imageView;
 
 
         btn=findViewById(R.id.kirala_yayin_onaybuton);
+
+        noBuilder=new  NotificationCompat.Builder(this);
+        noBuilder.setAutoCancel(true);
+
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Kirala_Yayin_Kontrol.this,UserMainActivity.class);
+                noBuilder.setSmallIcon(R.drawable.ic_launcher);
+                noBuilder.setTicker("This is the ticker");
+                noBuilder.setWhen(System.currentTimeMillis());
+                noBuilder.setContentTitle("Here is the title");
+                noBuilder.setContentText("I am body of noti");
+                Intent intent=new Intent(Kirala_Yayin_Kontrol.this,Kirala_Yayin_Kontrol.class);
+                PendingIntent pendingIntent=PendingIntent.getActivity(Kirala_Yayin_Kontrol.this,0,intent,PendingIntent.FLAG_UPDATE_CURRENT);
+                noBuilder.setContentIntent(pendingIntent);
+
+                NotificationManager notificationManager= (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                notificationManager.notify(uniqueID,noBuilder.build());
+
+                 intent = new Intent(Kirala_Yayin_Kontrol.this,UserMainActivity.class);
                 startActivity(intent);
             }
         });

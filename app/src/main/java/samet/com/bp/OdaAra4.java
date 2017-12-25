@@ -46,7 +46,7 @@ public class OdaAra4 extends AppCompatActivity {
         btnclsn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                editor.putString("odaara4calisan", "odaara4calisan");
+                editor.putString("odaara4meslek", "odaara4calisan");
                 editor.commit();
                 Intent intent = new Intent(OdaAra4.this,OdaAra5.class);
                 startActivity(intent);
@@ -57,7 +57,7 @@ public class OdaAra4 extends AppCompatActivity {
         btndgr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                editor.putString("odaara4diger", "odaara4diger");
+                editor.putString("odaara4meslek", "odaara4diger");
                 editor.commit();
                 Intent intent = new Intent(OdaAra4.this,OdaAra5.class);
                 startActivity(intent);
@@ -67,7 +67,7 @@ public class OdaAra4 extends AppCompatActivity {
         btnogr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                editor.putString("odaara4ogrenci", "odaara4ogrenci");
+                editor.putString("odaara4meslek", "odaara4ogrenci");
                 editor.commit();
                 Intent intent = new Intent(OdaAra4.this,OdaAra5.class);
                 startActivity(intent);

@@ -98,6 +98,8 @@
         <activity android:name=".OdaEkle" />
         <activity android:name=".OdaDuzenle" />
         <activity android:name=".Kirala_Yayin_Kontrol" />
+        <activity android:name=".Benim_ilanlarim"/>
+        <activity android:name=".Ara_Yayin_Kontrol"/>
 
 
     </application>

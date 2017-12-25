@@ -46,36 +46,7 @@ public class OdaAra12 extends AppCompatActivity {
             }
         });
 
-      /*  btnhergun= (Button) findViewById(R.id.hergunbtn);
-        btnhici= (Button) findViewById(R.id.hicibtn);
-        btnhsonu= (Button) findViewById(R.id.hsonubtn);
 
-
-       btnhergun.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(OdaAra12.this,OdaAra13.class);
-                startActivity(intent);
-            }
-        });
-
-
-        btnhici.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(OdaAra12.this,OdaAra13.class);
-                startActivity(intent);
-            }
-        });
-
-
-        btnhsonu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(OdaAra12.this,OdaAra13.class);
-                startActivity(intent);
-            }
-        });*/
 
 btndvm.setOnClickListener(new View.OnClickListener() {
     @Override

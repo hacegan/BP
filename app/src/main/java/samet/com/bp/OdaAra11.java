@@ -22,7 +22,7 @@ public class OdaAra11  extends AppCompatActivity {
     SharedPreferences sharedPref ;
     SharedPreferences.Editor editor;
     CalendarView cv;
-    String tarih;
+    String tarih="";
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

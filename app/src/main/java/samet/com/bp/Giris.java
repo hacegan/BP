@@ -40,7 +40,7 @@ public class Giris extends Activity{
 
    // String server_url="http://192.168.1.33/giris.php";
 
-    String server_url="http://samet.j.layershift.co.uk/giris.php";
+    String server_url="http://vodkamorello.cloud.unispace.io/giris.php";
 
     Button btngiris,btnreset;
     EditText giriseposta,girissifre;
@@ -68,7 +68,7 @@ btngiris= findViewById(R.id.girisyapbuton);
                 editor.commit();
 
 
-                server_url="http://samet.j.layershift.co.uk/giris.php";
+                server_url="http://vodkamorello.cloud.unispace.io/giris.php";
 
              email =giriseposta.getText().toString();
                  sifre=girissifre.getText().toString();

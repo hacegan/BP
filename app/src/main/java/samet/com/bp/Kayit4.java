@@ -43,7 +43,7 @@ public class Kayit4 extends Activity {
     CheckBox kayitchkbir,kayitchkiki;
 String isim,sifre,email;
 TextView tv;
-    String server_url="http://samet.j.layershift.co.uk/kayit.php";
+    String server_url="http://vodkamorello.cloud.unispace.io/kayit.php";
     AlertDialog.Builder builder;
     static String code;
     String sonuc;

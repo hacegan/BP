@@ -34,7 +34,7 @@ public class Kirala15 extends AppCompatActivity {
     SharedPreferences sharedPref;
     SharedPreferences.Editor editor;
     CircularProgressButton cbp;
-   static String kirala_upload_url="http://samet.j.layershift.co.uk/kirala_upload.php";
+   static String kirala_upload_url="http://vodkamorello.cloud.unispace.io/kirala_upload.php";
     static String kirala6resim;
     static String  sonuc;
     @Override

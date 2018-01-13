@@ -37,7 +37,7 @@ public class OdaAraIlce extends Activity implements  View.OnClickListener{
         Bundle bundle = getIntent().getExtras();
         sehir_isim=bundle.getString("odaarahangiil");
 
-        server_url="http://samet.j.layershift.co.uk/Getarailce.php?City="+sehir_isim.toUpperCase();
+        server_url="http://vodkamorello.cloud.unispace.io/Getarailce.php?City="+sehir_isim.toUpperCase();
 
 
 

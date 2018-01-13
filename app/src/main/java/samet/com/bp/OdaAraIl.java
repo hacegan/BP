@@ -100,7 +100,7 @@ public class OdaAraIl extends Activity implements  View.OnClickListener{
 
 
                 int i=0;
-                Document doc = Jsoup.connect("http://samet.j.layershift.co.uk/GetSehir.php").get();
+                Document doc = Jsoup.connect("http://vodkamorello.cloud.unispace.io/GetSehir.php").get();
                 Elements elements=doc.select("ul li");
                 for(Element element:elements){
 

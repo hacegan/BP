@@ -28,7 +28,7 @@ public class UserMainActivity extends AppCompatActivity   implements NavigationV
 TextView tv;
     String isim;
     String email;
-    String server_url="http://samet.j.layershift.co.uk/getname.php";
+    String server_url="http://vodkamorello.cloud.unispace.io/getname.php";
 String user_id;
 
     @Override

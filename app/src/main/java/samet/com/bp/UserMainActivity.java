@@ -122,7 +122,7 @@ String user_id;
         SharedPreferences.Editor editor = sharedPref.edit();
         email=sharedPref.getString("email",null);
 
-        server_url="http://samet.j.layershift.co.uk/getname.php";
+        server_url="http://vodkamorello.cloud.unispace.io/getname.php";
 
 
         server_url+="?Email="+email;
@@ -170,7 +170,7 @@ String user_id;
                 bf.close();
                 con.disconnect();
 
-                 url=new URL("http://samet.j.layershift.co.uk/getuserid.php");
+                 url=new URL("http://vodkamorello.cloud.unispace.io/getname.php/getuserid.php");
                  con= (HttpURLConnection) url.openConnection();
                 con.setRequestMethod("GET");
                 con.connect();

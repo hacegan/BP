@@ -89,7 +89,7 @@ Bitmap bitmap;
    SharedPreferences sharedPref =null;
     SharedPreferences.Editor editor ;
 
-private String uploadurl="http://samet.j.layershift.co.uk/kiralaimageupload.php";
+private String uploadurl="http://vodkamorello.cloud.unispace.io/kiralaimageupload.php";
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

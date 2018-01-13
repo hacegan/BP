@@ -42,7 +42,7 @@ public class OdaAra2 extends AppCompatActivity {
 
     String encodedImage;
 
-    private String uploadurl="http://samet.j.layershift.co.uk/kiralaimageupload.php";
+    private String uploadurl="http://vodkamorello.cloud.unispace.io/kiralaimageupload.php";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

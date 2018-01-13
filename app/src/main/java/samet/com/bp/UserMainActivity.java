@@ -244,6 +244,8 @@ String user_id;
 
 
         } else if (id == R.id.nav_share) {
+            Intent intent = new Intent(UserMainActivity.this,Benim_ilanlarim.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_send) {
 

@@ -12,6 +12,8 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -29,6 +31,7 @@ LinearLayout ll;
     SharedPreferences sharedPref;
     SharedPreferences.Editor editor;
     static int resultcount=0;
+    TextView resulttv;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -108,6 +111,8 @@ temp.replaceAll("result","");
             }
 
             System.out.println("Toplam Result "+resultcount);
+            resulttv=findViewById(R.id.benimilanresultsid);
+            resulttv.setText("Toplam Sonuc : "+resultcount);
 
 
         }

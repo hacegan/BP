@@ -170,7 +170,7 @@ String user_id;
                 bf.close();
                 con.disconnect();
 
-                 url=new URL("http://vodkamorello.cloud.unispace.io/getname.php/getuserid.php");
+                 url=new URL("http://vodkamorello.cloud.unispace.io/getuserid.php");
                  con= (HttpURLConnection) url.openConnection();
                 con.setRequestMethod("GET");
                 con.connect();

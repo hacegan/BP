@@ -233,10 +233,10 @@ ImageView imageView;
             @Override
             public void onClick(View v) {
                 noBuilder.setSmallIcon(R.drawable.ic_launcher);
-                noBuilder.setTicker("This is the ticker");
+                noBuilder.setTicker("Yeni Bir Kirala Ilanı eklendi");
                 noBuilder.setWhen(System.currentTimeMillis());
-                noBuilder.setContentTitle("Here is the title");
-                noBuilder.setContentText("I am body of noti");
+                noBuilder.setContentTitle("YENI ILAN");
+                noBuilder.setContentText("Yeni Bir Ilan Eklendi");
                 Intent intent=new Intent(Kirala_Yayin_Kontrol.this,Kirala_Yayin_Kontrol.class);
                 PendingIntent pendingIntent=PendingIntent.getActivity(Kirala_Yayin_Kontrol.this,0,intent,PendingIntent.FLAG_UPDATE_CURRENT);
                 noBuilder.setContentIntent(pendingIntent);

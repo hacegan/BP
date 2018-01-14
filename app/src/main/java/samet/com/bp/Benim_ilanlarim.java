@@ -13,12 +13,17 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 import org.w3c.dom.Text;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 import static java.security.AccessController.getContext;
@@ -35,6 +40,8 @@ public class Benim_ilanlarim extends Activity implements  View.OnClickListener{
     SharedPreferences.Editor editor;
     static int resultcount=0;
     TextView resulttv;
+    ArrayList<String> ilanbaslik = new ArrayList<String>();
+    ArrayList<String> ilanaciklama = new ArrayList<String>();
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,7 +87,7 @@ public class Benim_ilanlarim extends Activity implements  View.OnClickListener{
                 tv.setCompoundDrawablesWithIntrinsicBounds(drawable,null,null,null);
                // tv.setCompoundDrawables(R.drawable.empty_house,null,null,null);
 
-                 tv.setText(""+i);
+                 tv.setText(ilanbaslik.get(i)+"\n"+ilanaciklama.get(i));
                 tv.setTextSize(35);
                 tv.setPadding(80,80,80,80);
                 tv.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
@@ -130,6 +137,12 @@ public class Benim_ilanlarim extends Activity implements  View.OnClickListener{
 
                     }
 
+                    else{
+   ilanbaslik.add( temp.substring(temp.indexOf("ilanbaslik: ")+1,temp.indexOf("-") ) );
+                        ilanaciklama.add( temp.substring(temp.indexOf("ilanaciklama: ")+1,temp.indexOf("\0") ) );
+
+                    }
+
 
 
                 }
@@ -139,13 +152,49 @@ public class Benim_ilanlarim extends Activity implements  View.OnClickListener{
                 resulttv.setText("Toplam Sonuc : "+resultcount);
 
 
-
+con.disconnect();
 
 
             }
             catch (Exception e){
                 e.printStackTrace();
             }
+
+
+
+         /*   finally {
+
+                try {
+
+
+                    //  int i=0;
+                    Document doc = Jsoup.connect(benim_ilanlarim_url).get();
+                    Elements elements = doc.select("[class=\\\"style3\\\"]");
+                    for (Element element : elements) {
+                        String text =element.firstElementSibling().html();
+                        text = text.replaceAll("<br>", "\n");
+                        System.out.println(text);
+                     //   System.out.println(element.text());
+                   *//* if(i%2==1){
+                        System.out.println(element.text());
+                       // arrayplaka.add(element.text());
+                    }
+
+
+                    if(i%2==0)   {
+                        System.out.println(element.text());
+                      //  arrayil.add(element.text());
+                    }
+                    i++;*//*
+                    }
+
+                } catch (Exception e) {
+                    System.out.println(e);
+
+                }
+
+            }*/
+
 
 
 

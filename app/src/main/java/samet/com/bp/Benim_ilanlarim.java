@@ -3,6 +3,7 @@ package samet.com.bp;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -20,12 +21,14 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.StringTokenizer;
 
+import static java.security.AccessController.getContext;
+
 /**
  * Created by root on 24.12.2017.
  */
 
 public class Benim_ilanlarim extends Activity implements  View.OnClickListener{
-LinearLayout ll;
+    LinearLayout ll;
     static String benim_ilanlarim_url="http://vodkamorello.cloud.unispace.io/benim_ilanlarim.php";
     static String sonuc;
     SharedPreferences sharedPref;
@@ -40,13 +43,13 @@ LinearLayout ll;
         sharedPref = getApplicationContext().getSharedPreferences("MyPref",0);
         editor = sharedPref.edit();
 
-        benim_ilanlarim_url+="&user_id="+sharedPref.getString("user_id",null);
+        benim_ilanlarim_url+="?user_id="+sharedPref.getString("user_id",null);
 
-ll=findViewById(R.id.benimilantv);
+        ll=findViewById(R.id.benimilantv);
         ll.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
 
 
-       new MyAd().execute();
+        new MyAd().execute();
 
     }
 
@@ -59,77 +62,101 @@ ll=findViewById(R.id.benimilantv);
     public class MyAd extends  AsyncTask{
 
 
-    @Override
-    protected void onPreExecute() {
-        super.onPreExecute();
-    }
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
 
-    @Override
-    protected void onPostExecute(Object o) {
-
-        TextView tv=new TextView(Benim_ilanlarim.this);
+        @Override
+        protected void onPostExecute(Object o) {
 
 
-       // tv.setText(     arrayplaka.get(i) );
-        tv.setTextSize(35);
-        tv.setPadding(80,80,80,80);
-        tv.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+            for(int i=0;i<resultcount;i++){
+                TextView tv=new TextView(Benim_ilanlarim.this);
 
-        tv.setTextAppearance(android.R.attr.listSeparatorTextViewStyle);
-       // tv.setBackgroundResource(R.drawable.border_textview);
 
-        tv.setOnClickListener(Benim_ilanlarim.this);
 
-        ll.addView(tv);
+                Drawable drawable=getApplicationContext().getResources().getDrawable(R.drawable.empty_house);
+                tv.setCompoundDrawablesWithIntrinsicBounds(drawable,null,null,null);
+               // tv.setCompoundDrawables(R.drawable.empty_house,null,null,null);
 
-    }
+                 tv.setText(""+i);
+                tv.setTextSize(35);
+                tv.setPadding(80,80,80,80);
+                tv.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
 
-    @Override
-    protected Object doInBackground(Object[] params) {
+                tv.setTextAppearance(android.R.attr.textAppearanceLarge);
+                // tv.setBackgroundResource(R.drawable.border_textview);
 
-        try{
-            URL url=new URL(benim_ilanlarim_url);
-            HttpURLConnection con= (HttpURLConnection) url.openConnection();
-            con.setRequestMethod("GET");
-            con.connect();
+                tv.setOnClickListener(Benim_ilanlarim.this);
 
-            BufferedReader bf=new BufferedReader(new InputStreamReader(con.getInputStream()));
-            sonuc=bf.readLine();
-            System.out.println(sonuc);
 
-            StringTokenizer token = new StringTokenizer(sonuc, ";");
-            while (token.hasMoreTokens()) {
-               // System.out.println(token.nextToken());
-String temp=token.nextToken();
 
-                if(temp.contains("results")){
-temp.replaceAll("result","");
-                    resultcount+=Integer.valueOf(temp);
-                }
 
+                ll.addView(tv);
 
             }
 
-            System.out.println("Toplam Result "+resultcount);
-            resulttv=findViewById(R.id.benimilanresultsid);
-            resulttv.setText("Toplam Sonuc : "+resultcount);
 
 
         }
-        catch (Exception e){
-            e.printStackTrace();
+
+        @Override
+        protected Object doInBackground(Object[] params) {
+
+            try{
+                URL url=new URL(benim_ilanlarim_url);
+                HttpURLConnection con= (HttpURLConnection) url.openConnection();
+                con.setRequestMethod("GET");
+                con.connect();
+
+                BufferedReader bf=new BufferedReader(new InputStreamReader(con.getInputStream()));
+                sonuc=bf.readLine();
+                System.out.println(sonuc);
+
+                StringTokenizer token = new StringTokenizer(sonuc, ";");
+                resultcount=0;
+                while (token.hasMoreTokens()) {
+
+                    String temp=token.nextToken();
+
+
+                    if(!temp.contains("<br>")) {
+                        if (Integer.valueOf(temp) instanceof Integer) {
+
+
+                            resultcount += Integer.valueOf(temp);
+                        }
+
+                    }
+
+
+
+                }
+
+                System.out.println("Toplam Result "+resultcount);
+                resulttv=findViewById(R.id.benimilanresultsid);
+                resulttv.setText("Toplam Sonuc : "+resultcount);
+
+
+
+
+
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+
+
+
+            return null;
         }
 
 
 
-        return null;
+
+
     }
-
-
-
-
-
-}
 
 
 }

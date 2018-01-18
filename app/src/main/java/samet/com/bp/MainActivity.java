@@ -4,6 +4,7 @@ package samet.com.bp;
 import android.app.FragmentManager;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -21,11 +22,16 @@ import android.widget.Button;
 
 import org.glassfish.jersey.internal.guava.Predicates;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
 
 public class MainActivity extends AppCompatActivity  implements NavigationView.OnNavigationItemSelectedListener{
 
     Button kayitbuton,girisbuton;
-
+    Button evarabtn,evarkarabtn;
 
 
     @Override
@@ -103,6 +109,22 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        evarabtn= (Button) findViewById(R.id.evarabuton);
+        evarkarabtn= (Button) findViewById(R.id.evarkarabuton);
+
+        evarabtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        evarkarabtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -143,6 +165,92 @@ Intent intent=new Intent(MainActivity.this,Kayit1.class);
         });
 
 
+    }
+
+
+    class GetKayitliEvAraTask extends AsyncTask{
+
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected void onPostExecute(Object o) {
+            super.onPostExecute(o);
+        }
+
+        @Override
+        protected Object doInBackground(Object[] params) {
+
+            try{
+                URL url=new URL("http://vodkamorello.cloud.unispace.io/get_all_kirala.php");
+                HttpURLConnection con= (HttpURLConnection) url.openConnection();
+                con.setRequestMethod("GET");
+                con.connect();
+
+                BufferedReader bf=new BufferedReader(new InputStreamReader(con.getInputStream()));
+                String  sonuc=bf.readLine();
+                System.out.println(sonuc);
+
+
+                bf.close();
+                con.disconnect();
+
+
+            }
+            catch (Exception e){
+                System.out.println(e);
+
+            }
+
+
+
+            return null;
+        }
+    }
+
+    class GetKayitliEvArkAraTask extends AsyncTask{
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected void onPostExecute(Object o) {
+            super.onPostExecute(o);
+        }
+
+        @Override
+        protected Object doInBackground(Object[] params) {
+
+
+            try{
+                URL url=new URL("http://vodkamorello.cloud.unispace.io/get_all_ara.php");
+                HttpURLConnection con= (HttpURLConnection) url.openConnection();
+                con.setRequestMethod("GET");
+                con.connect();
+
+                BufferedReader bf=new BufferedReader(new InputStreamReader(con.getInputStream()));
+                String  sonuc=bf.readLine();
+                System.out.println(sonuc);
+
+
+                bf.close();
+                con.disconnect();
+
+
+            }
+            catch (Exception e){
+                System.out.println(e);
+
+            }
+
+
+
+            return null;
+        }
     }
 
 

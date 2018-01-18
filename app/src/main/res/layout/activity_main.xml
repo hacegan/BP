@@ -83,25 +83,27 @@ android:layout_marginTop="55dp"
             android:layout_width="match_parent"
             android:layout_height="364dp">
 
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="182dp"
-                    android:background="@drawable/searchrooms"
-                    android:scaleType="fitXY"
-                    android:text="Ev Arayın"
-                    android:textColor="@android:color/white"
-                    android:textSize="25sp" />
+            <Button
+                android:id="@+id/evarabuton"
+                android:layout_width="match_parent"
+                android:layout_height="182dp"
+                android:background="@drawable/searchrooms"
+                android:scaleType="fitXY"
+                android:text="Ev Arayın"
+                android:textColor="@android:color/white"
+                android:textSize="25sp" />
 
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="182dp"
-                    android:layout_alignParentBottom="true"
-                    android:background="@drawable/searchflatmates"
+            <Button
+                android:id="@+id/evarkarabuton"
+                android:layout_width="match_parent"
+                android:layout_height="182dp"
+                android:layout_alignParentBottom="true"
 
-                    android:scaleType="fitXY"
-                    android:text="Ev Arkadaşı Arayın"
-                    android:textColor="@android:color/white"
-                    android:textSize="25sp" />
+                android:background="@drawable/searchflatmates"
+                android:scaleType="fitXY"
+                android:text="Ev Arkadaşı Arayın"
+                android:textColor="@android:color/white"
+                android:textSize="25sp" />
             </RelativeLayout>
 
 

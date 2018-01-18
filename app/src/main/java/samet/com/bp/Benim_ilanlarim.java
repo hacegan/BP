@@ -63,6 +63,7 @@ public class Benim_ilanlarim extends Activity implements  View.OnClickListener{
     @Override
     public void onClick(View v) {
 
+
     }
 
 
@@ -88,6 +89,7 @@ public class Benim_ilanlarim extends Activity implements  View.OnClickListener{
                // tv.setCompoundDrawables(R.drawable.empty_house,null,null,null);
 
                  tv.setText(ilanbaslik.get(i)+"\n"+ilanaciklama.get(i));
+                //tv.setText(ilanbaslik.get(i));
                 tv.setTextSize(35);
                 tv.setPadding(80,80,80,80);
                 tv.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
@@ -138,8 +140,9 @@ public class Benim_ilanlarim extends Activity implements  View.OnClickListener{
                     }
 
                     else{
-   ilanbaslik.add( temp.substring(temp.indexOf("ilanbaslik: ")+1,temp.indexOf("-") ) );
-                        ilanaciklama.add( temp.substring(temp.indexOf("ilanaciklama: ")+1,temp.indexOf("\0") ) );
+
+   ilanbaslik.add( temp.substring(temp.indexOf("ilanbaslik:"),temp.indexOf("-",temp.indexOf("ilanbaslik:")) ) );
+                        ilanaciklama.add( temp.substring(temp.indexOf("ilanaciklama:") ) );
 
                     }
 
@@ -161,51 +164,15 @@ con.disconnect();
             }
 
 
-
-         /*   finally {
-
-                try {
-
-
-                    //  int i=0;
-                    Document doc = Jsoup.connect(benim_ilanlarim_url).get();
-                    Elements elements = doc.select("[class=\\\"style3\\\"]");
-                    for (Element element : elements) {
-                        String text =element.firstElementSibling().html();
-                        text = text.replaceAll("<br>", "\n");
-                        System.out.println(text);
-                     //   System.out.println(element.text());
-                   *//* if(i%2==1){
-                        System.out.println(element.text());
-                       // arrayplaka.add(element.text());
-                    }
-
-
-                    if(i%2==0)   {
-                        System.out.println(element.text());
-                      //  arrayil.add(element.text());
-                    }
-                    i++;*//*
-                    }
-
-                } catch (Exception e) {
-                    System.out.println(e);
-
-                }
-
-            }*/
-
-
-
-
             return null;
         }
 
 
-
-
-
     }
+
+
+
+
 
 
 }

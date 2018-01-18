@@ -50,25 +50,27 @@
 
             <Button
 
-                android:layout_height="182dp"
+                android:id="@+id/evarabuton"
                 android:layout_width="match_parent"
+                android:layout_height="182dp"
                 android:background="@drawable/searchrooms"
                 android:scaleType="fitXY"
                 android:text="Ev Arayın"
-                android:textSize="25sp"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                android:textSize="25sp" />
 
             <Button
 
-                android:layout_height="182dp"
+                android:id="@+id/evarkarabuton"
                 android:layout_width="match_parent"
-                android:background="@drawable/searchflatmates"
+                android:layout_height="182dp"
                 android:layout_alignParentBottom="true"
 
+                android:background="@drawable/searchflatmates"
                 android:scaleType="fitXY"
                 android:text="Ev Arkadaşı Arayın"
-                android:textSize="25sp"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                android:textSize="25sp" />
         </RelativeLayout>
 
 

@@ -94,7 +94,7 @@ TextView tv;
                 }
 
 
-                server_url="http://samet.j.layershift.co.uk/kayit.php";
+                server_url="http://vodkamorello.cloud.unispace.io/kayit.php";
 
 
 server_url+="?Email="+email+"&Name="+isim+"&Password="+sifre;

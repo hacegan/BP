@@ -15,6 +15,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.io.BufferedReader;
@@ -30,6 +32,7 @@ TextView tv;
     String email;
     String server_url="http://vodkamorello.cloud.unispace.io/getname.php";
 String user_id;
+    Button evarabtn,evarkarabtn;
 
     @Override
     public void onBackPressed() {
@@ -105,6 +108,22 @@ String user_id;
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        evarabtn= (Button) findViewById(R.id.evarabuton);
+evarkarabtn= (Button) findViewById(R.id.evarkarabuton);
+
+        evarabtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        evarkarabtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -196,7 +215,90 @@ String user_id;
     }
 
 
+    class GetKayitliEvAraTask extends AsyncTask{
 
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected void onPostExecute(Object o) {
+            super.onPostExecute(o);
+        }
+
+        @Override
+        protected Object doInBackground(Object[] params) {
+
+            try{
+                URL url=new URL("http://vodkamorello.cloud.unispace.io/get_all_kirala.php");
+                HttpURLConnection con= (HttpURLConnection) url.openConnection();
+                con.setRequestMethod("GET");
+                con.connect();
+
+                BufferedReader bf=new BufferedReader(new InputStreamReader(con.getInputStream()));
+              String  sonuc=bf.readLine();
+                System.out.println(sonuc);
+
+
+                bf.close();
+                con.disconnect();
+
+
+            }
+            catch (Exception e){
+                System.out.println(e);
+
+            }
+
+
+
+            return null;
+        }
+    }
+
+    class GetKayitliEvArkAraTask extends AsyncTask{
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected void onPostExecute(Object o) {
+            super.onPostExecute(o);
+        }
+
+        @Override
+        protected Object doInBackground(Object[] params) {
+
+
+            try{
+                URL url=new URL("http://vodkamorello.cloud.unispace.io/get_all_ara.php");
+                HttpURLConnection con= (HttpURLConnection) url.openConnection();
+                con.setRequestMethod("GET");
+                con.connect();
+
+                BufferedReader bf=new BufferedReader(new InputStreamReader(con.getInputStream()));
+                String  sonuc=bf.readLine();
+                System.out.println(sonuc);
+
+
+                bf.close();
+                con.disconnect();
+
+
+            }
+            catch (Exception e){
+                System.out.println(e);
+
+            }
+
+
+
+            return null;
+        }
+    }
 
 
 

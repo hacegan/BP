@@ -35,7 +35,7 @@ public class OdaAraIl extends Activity implements  View.OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.odaarail);
 
-         ll = findViewById(R.id.dyntvekle);
+         ll = (LinearLayout) findViewById(R.id.dyntvekle);
         ll.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
 
 
@@ -100,7 +100,7 @@ public class OdaAraIl extends Activity implements  View.OnClickListener{
 
 
                 int i=0;
-                Document doc = Jsoup.connect("http://vodkamorello.cloud.unispace.io/GetSehir.php").get();
+                Document doc = Jsoup.connect("http://vodkamorello.atspace.co.uk/GetSehir.php").get();
                 Elements elements=doc.select("ul li");
                 for(Element element:elements){
 

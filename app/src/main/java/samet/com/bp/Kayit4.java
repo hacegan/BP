@@ -43,7 +43,7 @@ public class Kayit4 extends Activity {
     CheckBox kayitchkbir,kayitchkiki;
 String isim,sifre,email;
 TextView tv;
-    String server_url="http://vodkamorello.cloud.unispace.io/kayit.php";
+    String server_url="http://vodkamorello.atspace.co.uk/kayit.php";
     AlertDialog.Builder builder;
     static String code;
     String sonuc;
@@ -54,7 +54,7 @@ TextView tv;
         setContentView(R.layout.kayit4);
 
 
-        tv=findViewById(R.id.kayitisim);
+        tv= (TextView) findViewById(R.id.kayitisim);
 
         SharedPreferences sharedPref = getApplicationContext().getSharedPreferences("MyPref", 0);
         SharedPreferences.Editor editor = sharedPref.edit();
@@ -65,10 +65,10 @@ TextView tv;
         email=sharedPref.getString("email",null);
 
 
-        btn=findViewById(R.id.kayit4devambuton);
+        btn= (Button) findViewById(R.id.kayit4devambuton);
 
-        kayitchkbir=findViewById(R.id.kayitchkbir);
-        kayitchkiki=findViewById(R.id.kayitchkiki);
+        kayitchkbir= (CheckBox) findViewById(R.id.kayitchkbir);
+        kayitchkiki= (CheckBox) findViewById(R.id.kayitchkiki);
 
 
 
@@ -94,7 +94,7 @@ TextView tv;
                 }
 
 
-                server_url="http://vodkamorello.cloud.unispace.io/kayit.php";
+                server_url="http://vodkamorello.atspace.co.uk/kayit.php";
 
 
 server_url+="?Email="+email+"&Name="+isim+"&Password="+sifre;

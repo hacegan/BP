@@ -31,7 +31,7 @@ public class Ilanver1 extends AppCompatActivity{
 Button btn;
     String isRegistered;
     String email,isim;
-    String server_url="http://vodkamorello.cloud.unispace.io/getname.php";
+    String server_url="http://vodkamorello.atspace.co.uk/getname.php";
     Toolbar tb;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

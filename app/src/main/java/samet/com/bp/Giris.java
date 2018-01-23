@@ -40,7 +40,7 @@ public class Giris extends Activity{
 
    // String server_url="http://192.168.1.33/giris.php";
 
-    String server_url="http://vodkamorello.cloud.unispace.io/giris.php";
+    String server_url="http://vodkamorello.atspace.co.uk/giris.php";
 
     Button btngiris,btnreset;
     EditText giriseposta,girissifre;
@@ -55,9 +55,9 @@ setContentView(R.layout.giris);
 
 
 
-      giriseposta= findViewById(R.id.giriseposta);
-        girissifre= findViewById(R.id.girissifre);
-btngiris= findViewById(R.id.girisyapbuton);
+      giriseposta= (EditText) findViewById(R.id.giriseposta);
+        girissifre= (EditText) findViewById(R.id.girissifre);
+btngiris= (Button) findViewById(R.id.girisyapbuton);
 
         btngiris.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,7 +68,7 @@ btngiris= findViewById(R.id.girisyapbuton);
                 editor.commit();
 
 
-                server_url="http://vodkamorello.cloud.unispace.io/giris.php";
+                server_url="http://vodkamorello.atspace.co.uk/giris.php";
 
              email =giriseposta.getText().toString();
                  sifre=girissifre.getText().toString();

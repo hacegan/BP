@@ -30,7 +30,7 @@ public class UserMainActivity extends AppCompatActivity   implements NavigationV
 TextView tv;
     String isim;
     String email;
-    String server_url="http://vodkamorello.cloud.unispace.io/getname.php";
+    String server_url="http://vodkamorello.atspace.co.uk/getname.php";
 String user_id;
     Button evarabtn,evarkarabtn;
 
@@ -141,7 +141,7 @@ evarkarabtn= (Button) findViewById(R.id.evarkarabuton);
         SharedPreferences.Editor editor = sharedPref.edit();
         email=sharedPref.getString("email",null);
 
-        server_url="http://vodkamorello.cloud.unispace.io/getname.php";
+        server_url="http://vodkamorello.atspace.co.uk/getname.php";
 
 
         server_url+="?Email="+email;
@@ -189,7 +189,7 @@ evarkarabtn= (Button) findViewById(R.id.evarkarabuton);
                 bf.close();
                 con.disconnect();
 
-                 url=new URL("http://vodkamorello.cloud.unispace.io/getuserid.php");
+                 url=new URL("http://vodkamorello.atspace.co.uk/getuserid.php");
                  con= (HttpURLConnection) url.openConnection();
                 con.setRequestMethod("GET");
                 con.connect();
@@ -232,7 +232,7 @@ evarkarabtn= (Button) findViewById(R.id.evarkarabuton);
         protected Object doInBackground(Object[] params) {
 
             try{
-                URL url=new URL("http://vodkamorello.cloud.unispace.io/get_all_kirala.php");
+                URL url=new URL("http://vodkamorello.atspace.co.uk/get_all_kirala.php");
                 HttpURLConnection con= (HttpURLConnection) url.openConnection();
                 con.setRequestMethod("GET");
                 con.connect();
@@ -274,7 +274,7 @@ evarkarabtn= (Button) findViewById(R.id.evarkarabuton);
 
 
             try{
-                URL url=new URL("http://vodkamorello.cloud.unispace.io/get_all_ara.php");
+                URL url=new URL("http://vodkamorello.atspace.co.uk/get_all_ara.php");
                 HttpURLConnection con= (HttpURLConnection) url.openConnection();
                 con.setRequestMethod("GET");
                 con.connect();

@@ -68,7 +68,7 @@ public class Kirala4 extends AppCompatActivity {
             public void onClick(View v) {
                 et= (EditText) findViewById(R.id.plakaet);
                 gitdeger= et.getText().toString();
-                server_url="http://vodkamorello.cloud.unispace.io/Getilce.php";
+                server_url="http://vodkamorello.atspace.co.uk/Getilce.php";
 
                 server_url+="?Plaka="+gitdeger;
                 System.out.println(gitdeger);

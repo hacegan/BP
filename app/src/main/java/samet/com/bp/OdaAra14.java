@@ -27,7 +27,7 @@ public class OdaAra14 extends AppCompatActivity {
     EditText aciklama,baslik;
     SharedPreferences sharedPref ;
     SharedPreferences.Editor editor;
-    static String ara_upload_url="http://vodkamorello.cloud.unispace.io/ara_upload.php";
+    static String ara_upload_url="http://vodkamorello.atspace.co.uk/ara_upload.php";
     static String  sonuc;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

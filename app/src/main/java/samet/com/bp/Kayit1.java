@@ -33,7 +33,7 @@ public class Kayit1 extends Activity{
         setContentView(R.layout.kayit1);
 
         name= (EditText) findViewById(R.id.kayitadsoyadtxt);
-        btn=findViewById(R.id.kayit1devambuton);
+        btn= (Button) findViewById(R.id.kayit1devambuton);
 
 
 

@@ -126,20 +126,20 @@ ImageView imageView;
 
         //
 
-        textView=findViewById(R.id.kirala_yayin_mulktur);
+        textView= (TextView) findViewById(R.id.kirala_yayin_mulktur);
         String kirala_yayin_mulktur=textView.getText().toString();
         textView.setText(kirala_yayin_mulktur+" "+kirala1mulktur);
 
 
-        textView=findViewById(R.id.kirala_yayin_ilanverentur);
+        textView= (TextView) findViewById(R.id.kirala_yayin_ilanverentur);
         String kirala_yayin_ilanverentur=textView.getText().toString();
         textView.setText(kirala_yayin_ilanverentur+" "+kirala2ilanveren);
 
-        textView=findViewById(R.id.kirala_yayin_adres);
+        textView= (TextView) findViewById(R.id.kirala_yayin_adres);
         String kirala_yayin_adres=textView.getText().toString();
         textView.setText(kirala_yayin_adres+" "+kirala3adres);
 
-        imageView=findViewById(R.id.kirala_yayin_resim);
+        imageView= (ImageView) findViewById(R.id.kirala_yayin_resim);
 
         if (!kirala6resim.equalsIgnoreCase("")) {
             //Decoding the Image and display in ImageView
@@ -154,77 +154,77 @@ ImageView imageView;
 
 
 
-        textView=findViewById(R.id.kirala_yayin_m2);
+        textView= (TextView) findViewById(R.id.kirala_yayin_m2);
         String kirala_yayin_m2=textView.getText().toString();
         textView.setText(kirala_yayin_m2+" "+kirala7m2);
 
-        textView=findViewById(R.id.kirala_yayin_odasayi);
+        textView= (TextView) findViewById(R.id.kirala_yayin_odasayi);
         String kirala_yayin_odasayi=textView.getText().toString();
         textView.setText(kirala_yayin_odasayi+" "+kirala7oda);
 
-        textView=findViewById(R.id.kirala_yayin_bkat);
+        textView= (TextView) findViewById(R.id.kirala_yayin_bkat);
         String kirala_yayin_bkat=textView.getText().toString();
         textView.setText(kirala_yayin_bkat+" "+kirala7bkat);
 
-        textView=findViewById(R.id.kirala_yayin_katsayi);
+        textView= (TextView) findViewById(R.id.kirala_yayin_katsayi);
         String kirala_yayin_katsayi=textView.getText().toString();
         textView.setText(kirala_yayin_katsayi+" "+kirala7kat);
 
 
-        textView=findViewById(R.id.kirala_yayin_esyalimi);
+        textView= (TextView) findViewById(R.id.kirala_yayin_esyalimi);
         String kirala_yayin_esyalimi=textView.getText().toString();
         textView.setText(kirala_yayin_esyalimi+" "+kirala7esya);
 
-        textView=findViewById(R.id.kirala_yayin_aidat);
+        textView= (TextView) findViewById(R.id.kirala_yayin_aidat);
         String kirala_yayin_aidat=textView.getText().toString();
         textView.setText(kirala_yayin_aidat+" "+kirala7aidat);
 
-        textView=findViewById(R.id.kirala_yayin_kira);
+        textView= (TextView) findViewById(R.id.kirala_yayin_kira);
         String kirala_yayin_kira=textView.getText().toString();
         textView.setText(kirala_yayin_kira+" "+kirala7kira);
 
-        textView=findViewById(R.id.kirala_yayin_odauyguntarih);
+        textView= (TextView) findViewById(R.id.kirala_yayin_odauyguntarih);
         String kirala_yayin_odauyguntarih=textView.getText().toString();
         textView.setText(kirala_yayin_odauyguntarih+" "+kirala8tarih);
 
-        textView=findViewById(R.id.kirala_yayin_erkeksayi);
+        textView= (TextView) findViewById(R.id.kirala_yayin_erkeksayi);
         String kirala_yayin_erkeksayi=textView.getText().toString();
         textView.setText(kirala_yayin_erkeksayi+" "+kirala9erkeksayi);
 
-        textView=findViewById(R.id.kirala_yayin_kizsayi);
+        textView= (TextView) findViewById(R.id.kirala_yayin_kizsayi);
         String kirala_yayin_kizsayi=textView.getText().toString();
         textView.setText(kirala_yayin_kizsayi+" "+kirala9kizsayi);
 
-        textView=findViewById(R.id.kirala_yayin_evcilvarmi);
+        textView= (TextView) findViewById(R.id.kirala_yayin_evcilvarmi);
         String kirala_yayin_evcilvarmi=textView.getText().toString();
         textView.setText(kirala_yayin_evcilvarmi+" "+kirala10var);
 
-        textView=findViewById(R.id.kirala_yayin_sigaravarmi);
+        textView= (TextView) findViewById(R.id.kirala_yayin_sigaravarmi);
         String kirala_yayin_sigaravarmi=textView.getText().toString();
         textView.setText(kirala_yayin_sigaravarmi+" "+kirala11evet);
 
-        textView=findViewById(R.id.kirala_yayin_kimlelive);
+        textView= (TextView) findViewById(R.id.kirala_yayin_kimlelive);
         String kirala_yayin_kimlelive=textView.getText().toString();
        // textView.setText(kirala_yayin_kimlelive+" kirala1mulktur");
 
-        textView=findViewById(R.id.kirala_yayin_hangiyas);
+        textView= (TextView) findViewById(R.id.kirala_yayin_hangiyas);
         String kirala_yayin_hangiyas=textView.getText().toString();
         textView.setText(kirala_yayin_hangiyas+" "+kirala13yas);
 
-        textView=findViewById(R.id.kirala_yayin_no);
+        textView= (TextView) findViewById(R.id.kirala_yayin_no);
         String kirala_yayin_no=textView.getText().toString();
         textView.setText(kirala_yayin_no+" "+kirala14numara);
 
-        textView=findViewById(R.id.kirala_yayin_baslik);
+        textView= (TextView) findViewById(R.id.kirala_yayin_baslik);
         String kirala_yayin_baslik=textView.getText().toString();
         textView.setText(kirala_yayin_baslik+" " + kirala15baslik);
 
-        textView=findViewById(R.id.kirala_yayin_aciklama);
+        textView= (TextView) findViewById(R.id.kirala_yayin_aciklama);
         String kirala_yayin_aciklama=textView.getText().toString();
         textView.setText(kirala_yayin_aciklama+" "+kirala15aciklama);
 
 
-        btn=findViewById(R.id.kirala_yayin_onaybuton);
+        btn= (Button) findViewById(R.id.kirala_yayin_onaybuton);
 
         noBuilder=new  NotificationCompat.Builder(this);
         noBuilder.setAutoCancel(true);

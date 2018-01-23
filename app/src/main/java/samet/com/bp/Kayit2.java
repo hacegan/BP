@@ -26,8 +26,8 @@ EditText kayitepostatxt;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.kayit2);
 
-        btn=findViewById(R.id.kayit2devambuton);
-        kayitepostatxt=findViewById(R.id.kayitepostatxt);
+        btn= (Button) findViewById(R.id.kayit2devambuton);
+        kayitepostatxt= (EditText) findViewById(R.id.kayitepostatxt);
 
 
 

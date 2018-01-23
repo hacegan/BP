@@ -26,8 +26,8 @@ EditText kayitsifretxt;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.kayit3);
 
-        btn=findViewById(R.id.kayit3devambuton);
-        kayitsifretxt=findViewById(R.id.kayitsifretxt);
+        btn= (Button) findViewById(R.id.kayit3devambuton);
+        kayitsifretxt= (EditText) findViewById(R.id.kayitsifretxt);
 
 
         final SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);

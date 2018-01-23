@@ -51,13 +51,13 @@ getWindow().clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
 
         setContentView(R.layout.activity_intro);
 
-        mPager= findViewById(R.id.viewPager);
+        mPager= (ViewPager) findViewById(R.id.viewPager);
         mpagerAdapter=new MpagerAdapter(layouts,this);
         mPager.setAdapter(mpagerAdapter);
 
-        Dots_Layout= findViewById(R.id.dotsLayout);
-        btnNext= findViewById(R.id.btnNext);
-        btnSkip= findViewById(R.id.btnSkip);
+        Dots_Layout= (LinearLayout) findViewById(R.id.dotsLayout);
+        btnNext= (Button) findViewById(R.id.btnNext);
+        btnSkip= (Button) findViewById(R.id.btnSkip);
         btnNext.setOnClickListener(this);
         btnSkip.setOnClickListener(this);
         createDots(0);

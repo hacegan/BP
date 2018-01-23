@@ -185,7 +185,7 @@ Intent intent=new Intent(MainActivity.this,Kayit1.class);
         protected Object doInBackground(Object[] params) {
 
             try{
-                URL url=new URL("http://vodkamorello.cloud.unispace.io/get_all_kirala.php");
+                URL url=new URL("http://vodkamorello.atspace.co.uk/get_all_kirala.php");
                 HttpURLConnection con= (HttpURLConnection) url.openConnection();
                 con.setRequestMethod("GET");
                 con.connect();
@@ -227,7 +227,7 @@ Intent intent=new Intent(MainActivity.this,Kayit1.class);
 
 
             try{
-                URL url=new URL("http://vodkamorello.cloud.unispace.io/get_all_ara.php");
+                URL url=new URL("http://vodkamorello.atspace.co.uk/get_all_ara.php");
                 HttpURLConnection con= (HttpURLConnection) url.openConnection();
                 con.setRequestMethod("GET");
                 con.connect();

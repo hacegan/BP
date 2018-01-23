@@ -58,7 +58,7 @@ public class OdaAra13 extends AppCompatActivity {
                 AlertDialog.Builder builder=new AlertDialog.Builder(OdaAra13.this);
                 LayoutInflater inflater=getLayoutInflater();
                 View dialog_layout=inflater.inflate(R.layout.telefonnoekleme,null);
-                numaraet = dialog_layout.findViewById(R.id.telefonnoet);
+                numaraet = (EditText) dialog_layout.findViewById(R.id.telefonnoet);
                 builder.setView(dialog_layout).setPositiveButton("ONAYLA", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {

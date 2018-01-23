@@ -34,7 +34,7 @@ import static java.security.AccessController.getContext;
 
 public class Benim_ilanlarim extends Activity implements  View.OnClickListener{
     LinearLayout ll;
-    static String benim_ilanlarim_url="http://vodkamorello.cloud.unispace.io/benim_ilanlarim.php";
+    static String benim_ilanlarim_url="http://vodkamorello.atspace.co.uk/benim_ilanlarim.php";
     static String sonuc;
     SharedPreferences sharedPref;
     SharedPreferences.Editor editor;

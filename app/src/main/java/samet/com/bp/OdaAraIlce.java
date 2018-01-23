@@ -31,13 +31,13 @@ public class OdaAraIlce extends Activity implements  View.OnClickListener{
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.odaarailce);
-         ll = findViewById(R.id.dyntvekle);
+         ll = (LinearLayout) findViewById(R.id.dyntvekle);
         ll.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
 
         Bundle bundle = getIntent().getExtras();
         sehir_isim=bundle.getString("odaarahangiil");
 
-        server_url="http://vodkamorello.cloud.unispace.io/Getarailce.php?City="+sehir_isim.toUpperCase();
+        server_url="http://vodkamorello.atspace.co.uk/Getarailce.php?City="+sehir_isim.toUpperCase();
 
 
 

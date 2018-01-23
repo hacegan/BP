@@ -85,12 +85,12 @@ private static final int uniqueID=45612;
 
         //
 
-        textView=findViewById(R.id.ara_yayin_arayan);
+        textView= (TextView) findViewById(R.id.ara_yayin_arayan);
         String ara_yayin_arayan=textView.getText().toString();
         textView.setText(ara_yayin_arayan+" "+odaara1bay);
 
 
-        imageView=findViewById(R.id.ara_yayin_resim);
+        imageView= (ImageView) findViewById(R.id.ara_yayin_resim);
 
         if (!odaara2resim.equalsIgnoreCase("")) {
             //Decoding the Image and display in ImageView
@@ -103,57 +103,57 @@ private static final int uniqueID=45612;
             Toast.makeText(getApplicationContext(),"You don't have Image in SharedPreferences!", Toast.LENGTH_SHORT).show();
         }
 
-        textView=findViewById(R.id.ara_yayin_yas);
+        textView= (TextView) findViewById(R.id.ara_yayin_yas);
         String ara_yayin_yas=textView.getText().toString();
         textView.setText(ara_yayin_yas+" "+odaara3yas);
 
 
-        textView=findViewById(R.id.ara_yayin_meslek);
+        textView= (TextView) findViewById(R.id.ara_yayin_meslek);
         String ara_yayin_meslek=textView.getText().toString();
         textView.setText(ara_yayin_meslek+" "+odaara4meslek);
 
-        textView=findViewById(R.id.ara_yayin_evcilvarmi);
+        textView= (TextView) findViewById(R.id.ara_yayin_evcilvarmi);
         String ara_yayin_evcilvarmi=textView.getText().toString();
         textView.setText(ara_yayin_evcilvarmi+" "+odaara5evet);
 
-        textView=findViewById(R.id.ara_yayin_sigaravarmi);
+        textView= (TextView) findViewById(R.id.ara_yayin_sigaravarmi);
         String ara_yayin_sigaravarmi=textView.getText().toString();
         textView.setText(ara_yayin_sigaravarmi+" "+odaara6evet);
 
-        textView=findViewById(R.id.ara_yayin_yasaralik);
+        textView= (TextView) findViewById(R.id.ara_yayin_yasaralik);
         String ara_yayin_yasaralik=textView.getText().toString();
         textView.setText(ara_yayin_yasaralik+" "+odaara8tv);
 
-        textView=findViewById(R.id.ara_yayin_neredelive);
+        textView= (TextView) findViewById(R.id.ara_yayin_neredelive);
         String ara_yayin_neredelive=textView.getText().toString();
         textView.setText(ara_yayin_neredelive+" "+odaarahangiil);
 
-        textView=findViewById(R.id.ara_yayin_butce);
+        textView= (TextView) findViewById(R.id.ara_yayin_butce);
         String ara_yayin_butce=textView.getText().toString();
         textView.setText(ara_yayin_butce+" "+odaarahangiilce);
 
-        textView=findViewById(R.id.ara_yayin_hazirtarih);
+        textView= (TextView) findViewById(R.id.ara_yayin_hazirtarih);
         String ara_yayin_hazirtarih=textView.getText().toString();
         textView.setText(ara_yayin_hazirtarih+" "+odaara10butce);
 
-        textView=findViewById(R.id.ara_yayin_konaksure);
+        textView= (TextView) findViewById(R.id.ara_yayin_konaksure);
         String ara_yayin_konaksure=textView.getText().toString();
         textView.setText(ara_yayin_konaksure+" "+odaara11tarih);
 
-        textView=findViewById(R.id.ara_yayin_telefonno);
+        textView= (TextView) findViewById(R.id.ara_yayin_telefonno);
         String ara_yayin_telefonno=textView.getText().toString();
         textView.setText(ara_yayin_telefonno+" "+odaara12sure);
 
-        textView=findViewById(R.id.ara_yayin_ilanbaslik);
+        textView= (TextView) findViewById(R.id.ara_yayin_ilanbaslik);
         String ara_yayin_ilanbaslik=textView.getText().toString();
         textView.setText(ara_yayin_ilanbaslik+" "+odaara13numara);
 
-        textView=findViewById(R.id.ara_yayin_ilanaciklama);
+        textView= (TextView) findViewById(R.id.ara_yayin_ilanaciklama);
         String ara_yayin_ilanaciklama=textView.getText().toString();
         textView.setText(ara_yayin_ilanaciklama+" "+odaara13numara);
 
 
-        btn=findViewById(R.id.ara_yayin_onaybuton);
+        btn= (Button) findViewById(R.id.ara_yayin_onaybuton);
 
 
         noBuilder=new  NotificationCompat.Builder(this);

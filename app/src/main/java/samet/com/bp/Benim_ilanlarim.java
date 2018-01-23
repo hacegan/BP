@@ -52,7 +52,7 @@ public class Benim_ilanlarim extends Activity implements  View.OnClickListener{
 
         benim_ilanlarim_url+="?user_id="+sharedPref.getString("user_id",null);
 
-        ll=findViewById(R.id.benimilantv);
+        ll= (LinearLayout) findViewById(R.id.benimilantv);
         ll.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
 
 
@@ -151,7 +151,7 @@ public class Benim_ilanlarim extends Activity implements  View.OnClickListener{
                 }
 
                 System.out.println("Toplam Result "+resultcount);
-                resulttv=findViewById(R.id.benimilanresultsid);
+                resulttv= (TextView) findViewById(R.id.benimilanresultsid);
                 resulttv.setText("Toplam Sonuc : "+resultcount);
 
 

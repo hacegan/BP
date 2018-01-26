@@ -1,12 +1,17 @@
 package samet.com.bp;
 
+import io.realm.RealmObject;
+
 /**
  * Created by root on 19.01.2018.
  */
 
-public class kirala_pojo {
+public class kirala_pojo  {
     String ilanbaslik,ilanaciklama;
     int photo;
+
+    public kirala_pojo() {
+    }
 
     public kirala_pojo(String ilanbaslik, String ilanaciklama, int photo) {
         this.ilanbaslik = ilanbaslik;

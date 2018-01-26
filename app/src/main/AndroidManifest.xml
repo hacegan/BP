@@ -165,7 +165,12 @@
         <activity android:name=".Kirala_Yayin_Kontrol" />
         <activity android:name=".Benim_ilanlarim" />
         <activity android:name=".Ara_Yayin_Kontrol" />
-        <activity android:name=".goster_tum_kirala" />
+        <activity android:name=".goster_tum_kirala"
+            android:windowSoftInputMode="stateHidden"
+
+            />
+
+
         <activity android:name=".goster_tum_ara"></activity>
     </application>
 

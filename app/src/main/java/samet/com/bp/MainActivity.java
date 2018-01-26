@@ -115,14 +115,16 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
         evarabtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(MainActivity.this, goster_tum_kirala.class);
+                startActivity(intent);
             }
         });
 
         evarkarabtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(MainActivity.this, goster_tum_ara.class);
+                startActivity(intent);
             }
         });
 

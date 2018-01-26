@@ -114,14 +114,16 @@ evarkarabtn= (Button) findViewById(R.id.evarkarabuton);
         evarabtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(UserMainActivity.this, goster_tum_kirala.class);
+                startActivity(intent);
             }
         });
 
         evarkarabtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(UserMainActivity.this, goster_tum_ara.class);
+                startActivity(intent);
             }
         });
 

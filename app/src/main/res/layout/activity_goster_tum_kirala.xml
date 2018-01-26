@@ -9,10 +9,14 @@
     tools:context="samet.com.bp.goster_tum_kirala">
 
 
-    <android.support.v7.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/listshow"
-        android:fadeScrollbars="true"
-        />
+    <include layout="@layout/kiralalisttoolbar_layout" />
+
+   <android.support.v7.widget.RecyclerView
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:id="@+id/kiralalistrecview"
+
+       ></android.support.v7.widget.RecyclerView>
+
+
 </LinearLayout>

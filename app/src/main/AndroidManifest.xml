@@ -172,6 +172,10 @@
 
 
         <activity android:name=".goster_tum_ara"></activity>
+
+
+        <activity android:name=".tekilkiralailangoster"></activity>
+        <activity android:name=".tekilarailangoster"></activity>
     </application>
 
 </manifest>

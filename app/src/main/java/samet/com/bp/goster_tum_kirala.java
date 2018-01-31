@@ -53,6 +53,7 @@ ArrayList<kirala_pojo> kirala_pojos=new ArrayList<kirala_pojo>();
     static int resultcount=0;
     ArrayList<String> ilanbaslik = new ArrayList<String>();
     ArrayList<String> ilanaciklama = new ArrayList<String>();
+    ArrayList<String> ilanid = new ArrayList<String>();
     ListView listView;
     // Search EditText
     EditText inputSearch;
@@ -135,13 +136,15 @@ kiralaListAdapter.setFilter(newList);
 String[] data=new String[ilanbaslik.size()];
 
             for(int i=0;i<ilanbaslik.size();i++){
-kirala_pojos.add(new kirala_pojo(ilanbaslik.get(i),ilanaciklama.get(i),R.drawable.empty_house));
+kirala_pojos.add(new kirala_pojo(ilanbaslik.get(i),ilanaciklama.get(i),R.drawable.empty_house,ilanid.get(i)));
 data[i]=ilanbaslik.get(i).toString();
 
             }
 
-kiralaListAdapter=new KiralaListAdapter(kirala_pojos);
+kiralaListAdapter=new KiralaListAdapter(kirala_pojos,getApplicationContext());
             recyclerView.setAdapter(kiralaListAdapter);
+
+
 
 
 
@@ -170,10 +173,10 @@ kiralaListAdapter=new KiralaListAdapter(kirala_pojos);
 
                         ilanbaslik.add( temp.substring(temp.indexOf("ilanbaslik:"),temp.indexOf("-",temp.indexOf("ilanbaslik:")) ).replaceAll("ilanbaslik:","").trim() );
                         ilanaciklama.add( temp.substring(temp.indexOf("ilanaciklama:") ).replaceAll("ilanaciklama:","").trim() );
-
+ilanid.add(  temp.substring(temp.indexOf("Kirala id:"),temp.indexOf("-",temp.indexOf("Kirala id:")) ).replaceAll("Kirala id:","").trim()  );
                 }
 
-
+                System.out.println(ilanid);
 
 
                 con.disconnect();

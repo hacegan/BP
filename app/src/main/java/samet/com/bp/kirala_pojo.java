@@ -7,16 +7,17 @@ import io.realm.RealmObject;
  */
 
 public class kirala_pojo  {
-    String ilanbaslik,ilanaciklama;
+    String ilanbaslik,ilanaciklama,ilanid;
     int photo;
 
     public kirala_pojo() {
     }
 
-    public kirala_pojo(String ilanbaslik, String ilanaciklama, int photo) {
+    public kirala_pojo(String ilanbaslik, String ilanaciklama, int photo,String ilanid) {
         this.ilanbaslik = ilanbaslik;
         this.ilanaciklama = ilanaciklama;
         this.photo = photo;
+        this.ilanid=ilanid;
     }
 
 
@@ -42,5 +43,14 @@ public class kirala_pojo  {
 
     public void setPhoto(int photo) {
         this.photo = photo;
+    }
+
+
+    public String getIlanid() {
+        return ilanid;
+    }
+
+    public void setIlanid(String ilanid) {
+        this.ilanid = ilanid;
     }
 }

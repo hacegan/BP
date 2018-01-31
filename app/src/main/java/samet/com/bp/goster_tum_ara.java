@@ -29,7 +29,7 @@ public class goster_tum_ara extends AppCompatActivity implements  View.OnClickLi
     ArrayList<String> ilanaciklama = new ArrayList<String>();
     Toolbar toolbar;
     AraListAdapter araListAdapter;
-
+    ArrayList<String> ilanid = new ArrayList<String>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,12 +94,12 @@ public class goster_tum_ara extends AppCompatActivity implements  View.OnClickLi
             String[] data=new String[ilanbaslik.size()];
 
             for(int i=0;i<ilanbaslik.size();i++){
-                ara_pojos.add(new ara_pojo(ilanbaslik.get(i),ilanaciklama.get(i),R.drawable.empty_house));
+                ara_pojos.add(new ara_pojo(ilanbaslik.get(i),ilanaciklama.get(i),R.drawable.empty_house,ilanid.get(i)));
                 data[i]=ilanbaslik.get(i).toString();
 
             }
 
-            araListAdapter=new AraListAdapter(ara_pojos);
+            araListAdapter=new AraListAdapter(ara_pojos,getApplicationContext());
             recyclerView.setAdapter(araListAdapter);
 
 
@@ -129,7 +129,7 @@ public class goster_tum_ara extends AppCompatActivity implements  View.OnClickLi
 
                     ilanbaslik.add( temp.substring(temp.indexOf("ilanbaslik:"),temp.indexOf("-",temp.indexOf("ilanbaslik:")) ).replaceAll("ilanbaslik:","").trim() );
                     ilanaciklama.add( temp.substring(temp.indexOf("ilanaciklama:") ).replaceAll("ilanaciklama:","").trim() );
-
+                    ilanid.add(  temp.substring(temp.indexOf("Ara id:"),temp.indexOf("-",temp.indexOf("Ara id:")) ).replaceAll("Kirala id:","").trim()  );
                 }
 
 

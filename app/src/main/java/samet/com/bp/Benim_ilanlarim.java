@@ -114,7 +114,7 @@ public class Benim_ilanlarim extends Activity implements  View.OnClickListener{
 
                // tv.setOnClickListener(Benim_ilanlarim.this);
 
-                    setOnClick(tv,ilanid.get(i));
+                    //setOnClick(tv,ilanid.get(i));
 
 
                 ll.addView(tv);

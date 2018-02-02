@@ -191,7 +191,8 @@ evarkarabtn= (Button) findViewById(R.id.evarkarabuton);
                 bf.close();
                 con.disconnect();
 
-                 url=new URL("http://vodkamorello.atspace.co.uk/getuserid.php");
+                email=sharedPref.getString("email",null);
+                 url=new URL("http://vodkamorello.atspace.co.uk/getuserid.php?Email="+email);
                  con= (HttpURLConnection) url.openConnection();
                 con.setRequestMethod("GET");
                 con.connect();

@@ -8,6 +8,8 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Base64;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,25 +31,92 @@ public class tekilarailangoster extends Activity{
     TextView textView;
     ImageView imageView;
     String odaara1bay,odaara3yas,odaara4meslek,odaara5evet,odaara6evet,odaara10butce,odaara11tarih,odaara12sure,odaara13numara,odaara14baslik,odaara14aciklama;
+
+    static String ilanid;
+
+    Button mesajbtn,kaydetbtn;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tekilarailangoster);
 
-        sharedPref = getApplicationContext().getSharedPreferences("MyPref",0);
-        editor = sharedPref.edit();
+       // sharedPref = getApplicationContext().getSharedPreferences("MyPref",0);
+       // editor = sharedPref.edit();
 
 
 
-        String ilanid= getIntent().getStringExtra("tekilaraitemid");
+         ilanid= getIntent().getStringExtra("tekilaraitemid");
         int id=Integer.valueOf(ilanid.trim());
 
         ilan_url+="?ilan_id="+id;
 
         new MyAd().execute();
+
+        kaydetbtn= (Button) findViewById(R.id.tekilkaydetarabtn);
+        mesajbtn= (Button) findViewById(R.id.tekilmesajbtn);
+
+        kaydetbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+new Kaydet().execute();
+            }
+        });
+
+        mesajbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+
     }
 
+    public class Kaydet extends  AsyncTask{
 
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected void onPostExecute(Object o) {
+            super.onPostExecute(o);
+        }
+
+        @Override
+        protected Object doInBackground(Object[] params) {
+            sharedPref = getApplicationContext().getSharedPreferences("MyPref",0);
+            editor = sharedPref.edit();
+
+            String user_id_str= sharedPref.getString("user_id","");
+            int user_id=Integer.valueOf(user_id_str);
+
+
+            try{
+                URL url=new URL("http://vodkamorello.atspace.co.uk/kisikaydet_arailan.php?ara_ilanid="+ilanid+"&user_id="+user_id);
+                HttpURLConnection con= (HttpURLConnection) url.openConnection();
+                con.setRequestMethod("GET");
+                con.connect();
+
+                BufferedReader bf=new BufferedReader(new InputStreamReader(con.getInputStream()));
+                String  sonuc=bf.readLine();
+                // System.out.println(sonuc);
+
+                con.disconnect();
+
+
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+
+
+
+            return null;
+        }
+    }
 
     public class MyAd extends AsyncTask {
 

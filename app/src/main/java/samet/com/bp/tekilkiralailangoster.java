@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Base64;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,17 +33,20 @@ public class tekilkiralailangoster extends Activity {
     ImageView imageView;
     static String kirala1mulktur,kirala2ilanveren,kirala3adres,kirala7m2,kirala7oda,kirala7kat,kirala7bkat,kirala7aidat,kirala7kira,kirala7esya,kirala8tarih,kirala9kizsayi
             ,kirala9erkeksayi,kirala10var,kirala11evet,kirala13yas,kirala14numara,kirala15baslik,kirala15aciklama;
+
+    Button kaydetbtn,mesajbtn;
+
+   static String ilanid;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tekilkiralailangoster);
 
-        sharedPref = getApplicationContext().getSharedPreferences("MyPref",0);
-        editor = sharedPref.edit();
 
 
 
-       String ilanid= getIntent().getStringExtra("tekilkiralaitemid");
+
+        ilanid= getIntent().getStringExtra("tekilkiralaitemid");
         int id=Integer.valueOf(ilanid.trim());
 
         ilan_url+="?ilan_id="+id;
@@ -51,13 +55,77 @@ public class tekilkiralailangoster extends Activity {
         new MyAd().execute();
 
 
+kaydetbtn= (Button) findViewById(R.id.tekilkirailankaydetbtn);
+        mesajbtn= (Button) findViewById(R.id.tekilkiramesajbtn);
+
+
+        kaydetbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+new Kaydet().execute();
+
+            }
+        });
+
+
+        mesajbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
 
 
 
+    }
+
+
+    public class Kaydet extends  AsyncTask{
+
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected void onPostExecute(Object o) {
+            super.onPostExecute(o);
+        }
+
+        @Override
+        protected Object doInBackground(Object[] params) {
+            sharedPref = getApplicationContext().getSharedPreferences("MyPref",0);
+            editor = sharedPref.edit();
+
+            String user_id_str= sharedPref.getString("user_id","");
+            int user_id=Integer.valueOf(user_id_str);
+
+
+            try{
+                URL url=new URL("http://vodkamorello.atspace.co.uk/kisikaydet_kiralailan.php?kirala_ilanid="+Integer.valueOf(ilanid.trim())+"&user_id="+user_id);
+                HttpURLConnection con= (HttpURLConnection) url.openConnection();
+                con.setRequestMethod("GET");
+                con.connect();
+
+                BufferedReader bf=new BufferedReader(new InputStreamReader(con.getInputStream()));
+                String  sonuc=bf.readLine();
+                // System.out.println(sonuc);
+
+                con.disconnect();
+
+
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
 
 
 
+            return null;
+        }
     }
 
 

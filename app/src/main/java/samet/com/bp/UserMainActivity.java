@@ -337,7 +337,9 @@ evarkarabtn= (Button) findViewById(R.id.evarkarabuton);
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_slideshow) {//Kayıtlı İlanlarım
+           // Intent intent = new Intent(UserMainActivity.this,Benim_ilanlarim.class);
+            //startActivity(intent);
 
         } else if (id == R.id.nav_manage) {//İlan Yerleştir Oluştur etc.
 

@@ -176,6 +176,7 @@
 
         <activity android:name=".tekilkiralailangoster"></activity>
         <activity android:name=".tekilarailangoster"></activity>
+        <activity android:name=".kaydedilmis_ilanlarim"></activity>
     </application>
 
 </manifest>

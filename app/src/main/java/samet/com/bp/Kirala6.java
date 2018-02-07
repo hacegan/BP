@@ -44,9 +44,13 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.gms.common.images.Size;
 import com.mindorks.paracamera.Camera;
 
@@ -62,7 +66,9 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ExecutionException;
 
@@ -80,11 +86,11 @@ public class Kirala6 extends AppCompatActivity  {
 ImageView iv;
     Toolbar tb;
 Camera camera;
-    String encodedImage;
+   static String encodedImage;
 
  private static int LOAD_IMAGE_RESULTS=2;
 
-Bitmap bitmap;
+static Bitmap bitmap;
 
    SharedPreferences sharedPref =null;
     SharedPreferences.Editor editor ;
@@ -184,13 +190,13 @@ e.printStackTrace();
 
         if(requestCode == Camera.REQUEST_TAKE_PHOTO){
             InputStream stream;
-            Bitmap bitmap = camera.getCameraBitmap();
+             bitmap = camera.getCameraBitmap();
             if(bitmap != null) {
                 iv.setImageBitmap(bitmap);
                 btndvm.setText("ONAYLA VE DEVAM ET");
 
 
-                try {
+               /* try {
                     //stream = getContentResolver().openInputStream(data.getData());
                     // Encoding Image into Base64
                    // Bitmap realImage = BitmapFactory.decodeStream(stream);
@@ -201,13 +207,38 @@ e.printStackTrace();
                     encodedImage = Base64.encodeToString(b, Base64.DEFAULT);
                     //NOw storing String to SharedPreferences
 
+                /*    RequestQueue requestQueue = Volley.newRequestQueue(this);
+                    StringRequest request = new StringRequest(Request.Method.POST, "http://vodkamorello.atspace.co.uk/kiralaimageupload.php",
+                            new Response.Listener<String>() {
+                                @Override
+                                public void onResponse(String response) {
 
-                    editor.putString("kirala6resim", encodedImage);
+                                }
+                            }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+
+                        }
+                    }) {
+                        @Override
+                        protected Map<String, String> getParams() throws AuthFailureError {
+                            HashMap<String,String> map = new HashMap<>();
+                            map.put("encoded_string",encodedImage);
+                            map.put("image_name","test.jpg");
+
+                            return map;
+                        }
+                    };
+                    requestQueue.add(request);*/
+
+
+
+                   /* editor.putString("kirala6resim", encodedImage);
                     editor.commit();
                     Toast.makeText(getApplicationContext(),"Image has been Stored!",Toast.LENGTH_LONG).show();
                 } catch (Exception e) {
                     e.printStackTrace();
-                }
+                }*/
 
 
 
@@ -231,7 +262,39 @@ e.printStackTrace();
             iv.setImageURI(pickedImage);
             btndvm.setText("ONAYLA VE DEVAM ET");
 
-            try {
+            bitmap = BitmapFactory.decodeFile(pickedImage.getPath());
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            bitmap.recycle();
+
+            byte[] array = baos.toByteArray();
+            encodedImage = Base64.encodeToString(array, 0);
+
+            RequestQueue requestQueue = Volley.newRequestQueue(this);
+            StringRequest request = new StringRequest(Request.Method.POST, "http://vodkamorello.atspace.co.uk/kiralaimageupload.php",
+                    new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+
+                        }
+                    }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+
+                }
+            }) {
+                @Override
+                protected Map<String, String> getParams() throws AuthFailureError {
+                    HashMap<String,String> map = new HashMap<>();
+                    map.put("encoded_string",encodedImage);
+                        map.put("image_name","test.jpg");
+
+                    return map;
+                }
+            };
+            requestQueue.add(request);
+
+          /*  try {
                 stream = getContentResolver().openInputStream(data.getData());
                 // Encoding Image into Base64
                 Bitmap realImage = BitmapFactory.decodeStream(stream);
@@ -257,7 +320,7 @@ e.printStackTrace();
 String kullanici_ismi = sharedPref.getString("kullaniciismi",null);
 String user_id=sharedPref.getString("user_id",null);
 
-new resim_ekle().execute();
+new resim_ekle().execute(); */
 
         }
 
@@ -276,7 +339,49 @@ public class resim_ekle extends AsyncTask{
 
 
     @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+    }
+
+    @Override
+    protected void onPostExecute(Object o) {
+        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+        StringRequest request = new StringRequest(Request.Method.POST, "http://vodkamorello.atspace.co.uk/kiralaimageupload.php",
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                HashMap<String,String> map = new HashMap<>();
+                map.put("encoded_string",encodedImage);
+                map.put("image_name","test.jpg");
+
+                return map;
+            }
+        };
+        requestQueue.add(request);
+    }
+
+    @Override
     protected Object doInBackground(Object[] params) {
+
+
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        bitmap.recycle();
+        byte[] b = baos.toByteArray();
+        //Converting Base64 into String to Store in SharedPreferences
+        encodedImage = Base64.encodeToString(b, Base64.DEFAULT);
+
+
 
         try{
             URL url=new URL(uploadurl);

@@ -36,7 +36,7 @@
 
 
             <TextView
-                android:id="@+id/ara_yayin_arayan"
+                android:id="@+id/Tara_yayin_arayan"
                 style="?android:attr/listSeparatorTextViewStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -44,13 +44,13 @@
                 android:textSize="12sp" />
 
             <ImageView
-                android:id="@+id/ara_yayin_resim"
+                android:id="@+id/Tara_yayin_resim"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:srcCompat="@color/common_google_signin_btn_text_light_disabled" />
 
             <TextView
-                android:id="@+id/ara_yayin_yas"
+                android:id="@+id/Tara_yayin_yas"
                 style="?android:attr/listSeparatorTextViewStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -58,7 +58,7 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/ara_yayin_meslek"
+                android:id="@+id/Tara_yayin_meslek"
                 style="?android:attr/listSeparatorTextViewStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -66,7 +66,7 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/ara_yayin_evcilvarmi"
+                android:id="@+id/Tara_yayin_evcilvarmi"
                 style="?android:attr/listSeparatorTextViewStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -74,7 +74,7 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/ara_yayin_sigaravarmi"
+                android:id="@+id/Tara_yayin_sigaravarmi"
                 style="?android:attr/listSeparatorTextViewStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -82,7 +82,7 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/ara_yayin_yasaralik"
+                android:id="@+id/Tara_yayin_yasaralik"
                 style="?android:attr/listSeparatorTextViewStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -90,7 +90,7 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/ara_yayin_neredelive"
+                android:id="@+id/Tara_yayin_neredelive"
                 style="?android:attr/listSeparatorTextViewStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -98,7 +98,7 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/ara_yayin_butce"
+                android:id="@+id/Tara_yayin_butce"
                 style="?android:attr/listSeparatorTextViewStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -106,7 +106,7 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/ara_yayin_hazirtarih"
+                android:id="@+id/Tara_yayin_hazirtarih"
                 style="?android:attr/listSeparatorTextViewStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -114,7 +114,7 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/ara_yayin_konaksure"
+                android:id="@+id/Tara_yayin_konaksure"
                 style="?android:attr/listSeparatorTextViewStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -122,7 +122,7 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/ara_yayin_telefonno"
+                android:id="@+id/Tara_yayin_telefonno"
                 style="?android:attr/listSeparatorTextViewStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -130,7 +130,7 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/ara_yayin_ilanbaslik"
+                android:id="@+id/Tara_yayin_ilanbaslik"
                 style="?android:attr/listSeparatorTextViewStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -138,7 +138,7 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/ara_yayin_ilanaciklama"
+                android:id="@+id/Tara_yayin_ilanaciklama"
                 style="?android:attr/listSeparatorTextViewStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

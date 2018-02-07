@@ -28,7 +28,7 @@ public class tekilarailangoster extends Activity{
     SharedPreferences.Editor editor;
     TextView textView;
     ImageView imageView;
-
+    String odaara1bay,odaara3yas,odaara4meslek,odaara5evet,odaara6evet,odaara10butce,odaara11tarih,odaara12sure,odaara13numara,odaara14baslik,odaara14aciklama;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,6 +88,73 @@ public class tekilarailangoster extends Activity{
 
             }*/
 
+            textView= (TextView) findViewById(R.id.Tara_yayin_arayan);
+            String ara_yayin_arayan=textView.getText().toString();
+            textView.setText(ara_yayin_arayan+" "+odaara1bay);
+
+
+                /*    imageView= (ImageView) findViewById(R.id.ara_yayin_resim);
+
+                    if (!odaara2resim.equalsIgnoreCase("")) {
+                        //Decoding the Image and display in ImageView
+                        byte[] b = Base64.decode(odaara2resim, Base64.DEFAULT);
+                        Bitmap bitmap = BitmapFactory.decodeByteArray(b, 0, b.length);
+                        imageView.setImageBitmap(bitmap);
+                    }
+                    else
+                    {
+                        Toast.makeText(getApplicationContext(),"You don't have Image in SharedPreferences!", Toast.LENGTH_SHORT).show();
+                    }
+*/
+            textView= (TextView) findViewById(R.id.Tara_yayin_yas);
+            String ara_yayin_yas=textView.getText().toString();
+            textView.setText(ara_yayin_yas+" "+odaara3yas);
+
+
+            textView= (TextView) findViewById(R.id.Tara_yayin_meslek);
+            String ara_yayin_meslek=textView.getText().toString();
+            textView.setText(ara_yayin_meslek+" "+odaara4meslek);
+
+            textView= (TextView) findViewById(R.id.Tara_yayin_evcilvarmi);
+            String ara_yayin_evcilvarmi=textView.getText().toString();
+            textView.setText(ara_yayin_evcilvarmi+" "+odaara5evet);
+
+            textView= (TextView) findViewById(R.id.Tara_yayin_sigaravarmi);
+            String ara_yayin_sigaravarmi=textView.getText().toString();
+            textView.setText(ara_yayin_sigaravarmi+" "+odaara6evet);
+
+                /*    textView= (TextView) findViewById(R.id.ara_yayin_yasaralik);
+                    String ara_yayin_yasaralik=textView.getText().toString();
+                    textView.setText(ara_yayin_yasaralik+" "+odaara8tv);*/
+
+                /*    textView= (TextView) findViewById(R.id.ara_yayin_neredelive);
+                    String ara_yayin_neredelive=textView.getText().toString();
+                    textView.setText(ara_yayin_neredelive+" "+odaarahangiil);*/
+
+                /*    textView= (TextView) findViewById(R.id.ara_yayin_butce);
+                    String ara_yayin_butce=textView.getText().toString();
+                    textView.setText(ara_yayin_butce+" "+odaarahangiilce);*/
+
+            textView= (TextView) findViewById(R.id.Tara_yayin_hazirtarih);
+            String ara_yayin_hazirtarih=textView.getText().toString();
+            textView.setText(ara_yayin_hazirtarih+" "+odaara11tarih);
+
+            textView= (TextView) findViewById(R.id.Tara_yayin_konaksure);
+            String ara_yayin_konaksure=textView.getText().toString();
+            textView.setText(ara_yayin_konaksure+" "+odaara12sure);
+
+            textView= (TextView) findViewById(R.id.Tara_yayin_telefonno);
+            String ara_yayin_telefonno=textView.getText().toString();
+            textView.setText(ara_yayin_telefonno+" "+odaara13numara);
+
+            textView= (TextView) findViewById(R.id.Tara_yayin_ilanbaslik);
+            String ara_yayin_ilanbaslik=textView.getText().toString();
+            textView.setText(ara_yayin_ilanbaslik+" "+odaara14baslik);
+
+            textView= (TextView) findViewById(R.id.Tara_yayin_ilanaciklama);
+            String ara_yayin_ilanaciklama=textView.getText().toString();
+            textView.setText(ara_yayin_ilanaciklama+" "+odaara14aciklama);
+
 
 
         }
@@ -109,129 +176,66 @@ public class tekilarailangoster extends Activity{
 
                 while (token.hasMoreTokens()) {
 
-                    String temp=token.nextToken();
+                    String temp = token.nextToken();
 
                     //    ilanbaslik.add( temp.substring(temp.indexOf("ilanbaslik:"),temp.indexOf("-",temp.indexOf("ilanbaslik:")) ) );
                     //    ilanaciklama.add( temp.substring(temp.indexOf("ilanaciklama:") ) );
 
                     //  ilanid.add(  temp.substring(temp.indexOf("Kirala id:"),temp.indexOf("-",temp.indexOf("Kirala id:")) )        );
 
-                    String odaara1bay=temp.substring(temp.indexOf("arayanbir: "),temp.indexOf("-",temp.indexOf("arayanbir: ")) );
-                    System.out.println("odaara1bay ="+odaara1bay);
+                    odaara1bay = temp.substring(temp.indexOf("arayanbir: ")+12, temp.indexOf("-", temp.indexOf("arayanbir: ")));
+                    System.out.println("odaara1bay =" + odaara1bay);
 
-                 //   String odaara2resim=temp.substring(temp.indexOf("ilanbaslik:"),temp.indexOf("-",temp.indexOf("ilanbaslik:")) );
+                    //   String odaara2resim=temp.substring(temp.indexOf("ilanbaslik:"),temp.indexOf("-",temp.indexOf("ilanbaslik:")) );
                     //System.out.println("odaara2resim = "+odaara2resim);
 
-                    String odaara3yas=temp.substring(temp.indexOf("yas : "),temp.indexOf("-",temp.indexOf("yas : ")) );
-                    System.out.println("odaara3yas = "+odaara3yas);
+                    odaara3yas = temp.substring(temp.indexOf("yas : ")+7, temp.indexOf("-", temp.indexOf("yas : ")));
+                    System.out.println("odaara3yas = " + odaara3yas);
 
-                    String odaara4meslek=temp.substring(temp.indexOf("meslek: "),temp.indexOf("-",temp.indexOf("meslek: ")) );
-                    System.out.println("odaara4meslek = "+odaara4meslek);
+                    odaara4meslek = temp.substring(temp.indexOf("meslek: ")+9, temp.indexOf("-", temp.indexOf("meslek: ")));
+                    System.out.println("odaara4meslek = " + odaara4meslek);
 
-                    String odaara5evet=temp.substring(temp.indexOf("havepet: "),temp.indexOf("-",temp.indexOf("havepet: ")) );
-                    System.out.println("odaara5evet = "+odaara5evet);
+                    odaara5evet = temp.substring(temp.indexOf("havepet: ")+10, temp.indexOf("-", temp.indexOf("havepet: ")));
+                    System.out.println("odaara5evet = " + odaara5evet);
 
-                    String odaara6evet=temp.substring(temp.indexOf("havesmoke: "),temp.indexOf("-",temp.indexOf("havesmoke: ")) );
-                    System.out.println("odaara6evet = "+odaara6evet);
+                    odaara6evet = temp.substring(temp.indexOf("havesmoke: ")+12, temp.indexOf("-", temp.indexOf("havesmoke: ")));
+                    System.out.println("odaara6evet = " + odaara6evet);
 
-                  //  String odaara8tv =temp.substring(temp.indexOf("ilanbaslik:"),temp.indexOf("-",temp.indexOf("ilanbaslik:")) );
-                  //  System.out.println("odaara8tv = "+odaara8tv);
+                    //  String odaara8tv =temp.substring(temp.indexOf("ilanbaslik:"),temp.indexOf("-",temp.indexOf("ilanbaslik:")) );
+                    //  System.out.println("odaara8tv = "+odaara8tv);
 
-             //       String odaarahangiil=temp.substring(temp.indexOf("ilanbaslik:"),temp.indexOf("-",temp.indexOf("ilanbaslik:")) );
-                 //   System.out.println("odaarahangiil = "+odaarahangiil);
+                    //       String odaarahangiil=temp.substring(temp.indexOf("ilanbaslik:"),temp.indexOf("-",temp.indexOf("ilanbaslik:")) );
+                    //   System.out.println("odaarahangiil = "+odaarahangiil);
 
-                 //   String odaarahangiilce=temp.substring(temp.indexOf("ilanbaslik:"),temp.indexOf("-",temp.indexOf("ilanbaslik:")) );
-                 //   System.out.println("odaarahangiilce = "+odaarahangiilce);
+                    //   String odaarahangiilce=temp.substring(temp.indexOf("ilanbaslik:"),temp.indexOf("-",temp.indexOf("ilanbaslik:")) );
+                    //   System.out.println("odaarahangiilce = "+odaarahangiilce);
 
-                    String odaara10butce=temp.substring(temp.indexOf("butce: "),temp.indexOf("-",temp.indexOf("butce: ")) );
-                    System.out.println("odaara10butce = "+odaara10butce);
+                    odaara10butce = temp.substring(temp.indexOf("butce: ")+8, temp.indexOf("-", temp.indexOf("butce: ")));
+                    System.out.println("odaara10butce = " + odaara10butce);
 
-                    String odaara11tarih=temp.substring(temp.indexOf("hazirbulunmatarih:"),temp.indexOf("-",temp.indexOf("hazirbulunmatarih:")) );
-                    System.out.println("odaara11tarih = "+odaara11tarih);
+                    odaara11tarih = temp.substring(temp.indexOf("hazirbulunmatarih:")+19, temp.indexOf("-", temp.indexOf("hazirbulunmatarih:")));
+                    System.out.println("odaara11tarih = " + odaara11tarih);
 
-                    String odaara12sure=temp.substring(temp.indexOf("konaklamasure: "),temp.indexOf("-",temp.indexOf("konaklamasure: ")) );
-                    System.out.println("odaara12sure = "+odaara12sure);
+                    odaara12sure = temp.substring(temp.indexOf("konaklamasure: ")+16, temp.indexOf("-", temp.indexOf("konaklamasure: ")));
+                    System.out.println("odaara12sure = " + odaara12sure);
 
-                    String odaara13numara=temp.substring(temp.indexOf("telefonno: "),temp.indexOf("-",temp.indexOf("telefonno: ")) );
-                    System.out.println("odaara13numara = "+odaara13numara);
+                    odaara13numara = temp.substring(temp.indexOf("telefonno: ")+12, temp.indexOf("-", temp.indexOf("telefonno: ")));
+                    System.out.println("odaara13numara = " + odaara13numara);
 
-                    String odaara14baslik=temp.substring(temp.indexOf("ilanbaslik: "),temp.indexOf("-",temp.indexOf("ilanbaslik: ")) );
+                    odaara14baslik = temp.substring(temp.indexOf("ilanbaslik: ")+13, temp.indexOf("-", temp.indexOf("ilanbaslik: ")));
+                    System.out.println("odaara14baslik="+odaara14baslik);
 
-                    String odaara14aciklama=temp.substring(temp.indexOf("ilanaciklama: "),temp.indexOf("-",temp.indexOf("ilanaciklama: ")) );
-
-
-
-
-                    textView= (TextView) findViewById(R.id.ara_yayin_arayan);
-                    String ara_yayin_arayan=textView.getText().toString();
-                    textView.setText(ara_yayin_arayan+" "+odaara1bay);
-
-
-                /*    imageView= (ImageView) findViewById(R.id.ara_yayin_resim);
-
-                    if (!odaara2resim.equalsIgnoreCase("")) {
-                        //Decoding the Image and display in ImageView
-                        byte[] b = Base64.decode(odaara2resim, Base64.DEFAULT);
-                        Bitmap bitmap = BitmapFactory.decodeByteArray(b, 0, b.length);
-                        imageView.setImageBitmap(bitmap);
-                    }
-                    else
-                    {
-                        Toast.makeText(getApplicationContext(),"You don't have Image in SharedPreferences!", Toast.LENGTH_SHORT).show();
-                    }
-*/
-                    textView= (TextView) findViewById(R.id.ara_yayin_yas);
-                    String ara_yayin_yas=textView.getText().toString();
-                    textView.setText(ara_yayin_yas+" "+odaara3yas);
-
-
-                    textView= (TextView) findViewById(R.id.ara_yayin_meslek);
-                    String ara_yayin_meslek=textView.getText().toString();
-                    textView.setText(ara_yayin_meslek+" "+odaara4meslek);
-
-                    textView= (TextView) findViewById(R.id.ara_yayin_evcilvarmi);
-                    String ara_yayin_evcilvarmi=textView.getText().toString();
-                    textView.setText(ara_yayin_evcilvarmi+" "+odaara5evet);
-
-                    textView= (TextView) findViewById(R.id.ara_yayin_sigaravarmi);
-                    String ara_yayin_sigaravarmi=textView.getText().toString();
-                    textView.setText(ara_yayin_sigaravarmi+" "+odaara6evet);
-
-                /*    textView= (TextView) findViewById(R.id.ara_yayin_yasaralik);
-                    String ara_yayin_yasaralik=textView.getText().toString();
-                    textView.setText(ara_yayin_yasaralik+" "+odaara8tv);*/
-
-                /*    textView= (TextView) findViewById(R.id.ara_yayin_neredelive);
-                    String ara_yayin_neredelive=textView.getText().toString();
-                    textView.setText(ara_yayin_neredelive+" "+odaarahangiil);*/
-
-                /*    textView= (TextView) findViewById(R.id.ara_yayin_butce);
-                    String ara_yayin_butce=textView.getText().toString();
-                    textView.setText(ara_yayin_butce+" "+odaarahangiilce);*/
-
-                    textView= (TextView) findViewById(R.id.ara_yayin_hazirtarih);
-                    String ara_yayin_hazirtarih=textView.getText().toString();
-                    textView.setText(ara_yayin_hazirtarih+" "+odaara10butce);
-
-                    textView= (TextView) findViewById(R.id.ara_yayin_konaksure);
-                    String ara_yayin_konaksure=textView.getText().toString();
-                    textView.setText(ara_yayin_konaksure+" "+odaara11tarih);
-
-                    textView= (TextView) findViewById(R.id.ara_yayin_telefonno);
-                    String ara_yayin_telefonno=textView.getText().toString();
-                    textView.setText(ara_yayin_telefonno+" "+odaara12sure);
-
-                    textView= (TextView) findViewById(R.id.ara_yayin_ilanbaslik);
-                    String ara_yayin_ilanbaslik=textView.getText().toString();
-                    textView.setText(ara_yayin_ilanbaslik+" "+odaara13numara);
-
-                    textView= (TextView) findViewById(R.id.ara_yayin_ilanaciklama);
-                    String ara_yayin_ilanaciklama=textView.getText().toString();
-                    textView.setText(ara_yayin_ilanaciklama+" "+odaara13numara);
-
-
+                    odaara14aciklama = temp.substring(temp.indexOf("ilanaciklama: ")+15, temp.indexOf("-", temp.indexOf("ilanaciklama: ")));
+                    System.out.println("odaara14aciklama"+odaara14aciklama);
 
                 }
+
+
+
+
+
+
+
 
 
                 con.disconnect();

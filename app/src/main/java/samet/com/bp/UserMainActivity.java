@@ -338,8 +338,8 @@ evarkarabtn= (Button) findViewById(R.id.evarkarabuton);
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {//Kayıtlı İlanlarım
-           // Intent intent = new Intent(UserMainActivity.this,Benim_ilanlarim.class);
-            //startActivity(intent);
+           Intent intent = new Intent(UserMainActivity.this,kaydedilmis_ilanlarim.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_manage) {//İlan Yerleştir Oluştur etc.
 

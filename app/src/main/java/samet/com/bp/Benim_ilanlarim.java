@@ -2,6 +2,7 @@ package samet.com.bp;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
@@ -43,7 +44,8 @@ public class Benim_ilanlarim extends Activity implements  View.OnClickListener{
     TextView resulttv;
     ArrayList<String> ilanbaslik = new ArrayList<String>();
     ArrayList<String> ilanaciklama = new ArrayList<String>();
-    ArrayList<String> ilanid=new ArrayList<String>();
+    ArrayList<String> kiralailanid=new ArrayList<String>();
+    ArrayList<String> arailanid=new ArrayList<String>();
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,7 +64,7 @@ public class Benim_ilanlarim extends Activity implements  View.OnClickListener{
 
     }
 
-
+/*
     private void setOnClick(final TextView tv, final String str){
         tv.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,12 +74,23 @@ public class Benim_ilanlarim extends Activity implements  View.OnClickListener{
 
             }
         });
-    }
+    }*/
 
 
     @Override
     public void onClick(View v) {
 
+       String text_tag= (String) v.getTag();
+
+        if(text_tag.contains("Kirala")){
+          //Intent  intent = new Intent(Benim_ilanlarim.this,UserMainActivity.class);
+          //  startActivity(intent);
+        }
+
+        else{
+            //Intent  intent = new Intent(Benim_ilanlarim.this,UserMainActivity.class);
+            //  startActivity(intent);
+        }
 
     }
 
@@ -110,9 +123,19 @@ public class Benim_ilanlarim extends Activity implements  View.OnClickListener{
                 tv.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
 
                 tv.setTextAppearance(android.R.attr.textAppearanceLarge);
+
+if(i<kiralailanid.size())
+tv.setTag("Kirala:"+kiralailanid.get(i));
+
+                else{
+    tv.setTag("Ara:"+arailanid.get(i));
+                }
+
+
+
                 // tv.setBackgroundResource(R.drawable.border_textview);
 
-               // tv.setOnClickListener(Benim_ilanlarim.this);
+                tv.setOnClickListener(Benim_ilanlarim.this);
 
                     //setOnClick(tv,ilanid.get(i));
 
@@ -120,7 +143,7 @@ public class Benim_ilanlarim extends Activity implements  View.OnClickListener{
                 ll.addView(tv);
 
             }
-
+//
 
 
         }
@@ -159,7 +182,13 @@ public class Benim_ilanlarim extends Activity implements  View.OnClickListener{
    ilanbaslik.add( temp.substring(temp.indexOf("ilanbaslik:"),temp.indexOf("-",temp.indexOf("ilanbaslik:")) ) );
                         ilanaciklama.add( temp.substring(temp.indexOf("ilanaciklama:") ) );
 
-                      //  ilanid.add(  temp.substring(temp.indexOf("Kirala id:"),temp.indexOf("-",temp.indexOf("Kirala id:")) )        );
+                        if(temp.contains("Kirala"))
+                            kiralailanid.add(  temp.substring(temp.indexOf("Kirala id:")+11,temp.indexOf("-",temp.indexOf("Kirala id:")) ));
+
+                        else
+                            arailanid.add(  temp.substring(temp.indexOf("Ara id:")+8,temp.indexOf("-",temp.indexOf("Ara id:")) ));
+
+                                    //  ilanid.add(  temp.substring(temp.indexOf("Kirala id:"),temp.indexOf("-",temp.indexOf("Kirala id:")) )        );
 
                     }
 

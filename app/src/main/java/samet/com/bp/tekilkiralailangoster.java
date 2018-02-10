@@ -1,6 +1,7 @@
 package samet.com.bp;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -37,6 +38,9 @@ public class tekilkiralailangoster extends Activity {
     Button kaydetbtn,mesajbtn;
 
    static String ilanid;
+    static int id;
+
+    static String chatown,chatwth;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +51,7 @@ public class tekilkiralailangoster extends Activity {
 
 
         ilanid= getIntent().getStringExtra("tekilkiralaitemid");
-        int id=Integer.valueOf(ilanid.trim());
+         id=Integer.valueOf(ilanid.trim());
 
         ilan_url+="?ilan_id="+id;
         System.out.println("İlan URL:"+ilan_url);
@@ -73,6 +77,8 @@ new Kaydet().execute();
             @Override
             public void onClick(View v) {
 
+new Mesaj().execute();
+
             }
         });
 
@@ -80,6 +86,72 @@ new Kaydet().execute();
 
 
     }
+
+
+    public class Mesaj extends  AsyncTask{
+
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected void onPostExecute(Object o) {
+           // super.onPostExecute(o);
+
+            UserDetails_Firebase.chatWith = chatwth;
+            startActivity(new Intent(tekilkiralailangoster.this, Chat_Firebase.class));
+        }
+
+        @Override
+        protected Object doInBackground(Object[] params) {
+            sharedPref = getApplicationContext().getSharedPreferences("MyPref",0);
+            editor = sharedPref.edit();
+
+            String user_id_str= sharedPref.getString("user_id","");
+            int user_id=Integer.valueOf(user_id_str);
+
+
+            try{
+                URL url=new URL("http://vodkamorello.atspace.co.uk/getemailpass_tekil_Kira.php?ilan_id="+id);
+                HttpURLConnection con= (HttpURLConnection) url.openConnection();
+                con.setRequestMethod("GET");
+                con.connect();
+
+                BufferedReader bf=new BufferedReader(new InputStreamReader(con.getInputStream()));
+                String  sonuc=bf.readLine();
+                // System.out.println(sonuc);
+
+                StringTokenizer token = new StringTokenizer(sonuc, "<br>");
+int i=0;
+                while (token.hasMoreTokens()) {
+
+                    String temp = token.nextToken();
+if(i==0){
+    chatwth=temp.replace(".",",");
+}
+else{
+
+}
+i++;
+                }
+
+                con.disconnect();
+
+
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+
+
+
+            return null;
+        }
+    }
+
+
 
 
     public class Kaydet extends  AsyncTask{

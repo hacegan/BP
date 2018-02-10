@@ -139,7 +139,7 @@ ImageView imageView;
         String kirala_yayin_adres=textView.getText().toString();
         textView.setText(kirala_yayin_adres+" "+kirala3adres);
 
-        imageView= (ImageView) findViewById(R.id.kirala_yayin_resim);
+     /*   imageView= (ImageView) findViewById(R.id.kirala_yayin_resim);
 
         if (!kirala6resim.equalsIgnoreCase("")) {
             //Decoding the Image and display in ImageView
@@ -151,7 +151,7 @@ ImageView imageView;
         {
             Toast.makeText(getApplicationContext(),"You don't have Image in SharedPreferences!", Toast.LENGTH_SHORT).show();
         }
-
+*/
 
 
         textView= (TextView) findViewById(R.id.kirala_yayin_m2);

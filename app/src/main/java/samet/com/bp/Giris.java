@@ -148,6 +148,9 @@ btnreset.setOnClickListener(new View.OnClickListener() {
                                     //startActivity(new Intent(Login_Firebase.this, Users.class));
                                     Toast.makeText(Giris.this, "Basariyla giris yapildi firebasee", Toast.LENGTH_LONG).show();
                                     System.out.println("Connected to Fİrebase");
+
+                                    UserDetails_Firebase.username = email.replace(".",",");
+                                    UserDetails_Firebase.password = sifre;
                                 }
                                 else {
                                     Toast.makeText(Giris.this, "incorrect password", Toast.LENGTH_LONG).show();

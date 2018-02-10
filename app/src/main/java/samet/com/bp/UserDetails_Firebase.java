@@ -5,4 +5,8 @@ package samet.com.bp;
  */
 
 public class UserDetails_Firebase {
+    static String username = "";
+    static String password = "";
+    static String chatWith = "";
+
 }

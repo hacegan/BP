@@ -2,6 +2,7 @@ package samet.com.bp;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -20,9 +21,12 @@ import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.firebase.client.Firebase;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -138,6 +142,57 @@ new RegisterTask().execute();
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);*/
 
+                Firebase.setAndroidContext(getApplicationContext());
+
+                SharedPreferences sharedPref = getApplicationContext().getSharedPreferences("MyPref", 0);
+                SharedPreferences.Editor editor = sharedPref.edit();
+
+                sifre=sharedPref.getString("sifre",null);
+                email=sharedPref.getString("email",null);
+
+                final ProgressDialog pd = new ProgressDialog(Kayit4.this);
+                pd.setMessage("Kaydediliyor...");
+                pd.show();
+                String url = "https://bitirme-proje-1511471101877.firebaseio.com/users.json";
+
+                StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>(){
+                    @Override
+                    public void onResponse(String s) {
+                        Firebase reference = new Firebase("https://bitirme-proje-1511471101877.firebaseio.com/users");
+
+                        if(s.equals("null")) {
+                            reference.child(email.replace(".",",")).child("password").setValue(sifre);
+                            Toast.makeText(Kayit4.this, "registration successful", Toast.LENGTH_LONG).show();
+                        }
+                        else {
+                            try {
+                                JSONObject obj = new JSONObject(s);
+
+                                if (!obj.has(email.replace(".",","))) {
+                                    reference.child(email.replace(".",",")).child("password").setValue(sifre);
+                                    Toast.makeText(Kayit4.this, "Fİrebase registration successful", Toast.LENGTH_LONG).show();
+                                } else {
+                                    Toast.makeText(Kayit4.this, "Firebase username already exists", Toast.LENGTH_LONG).show();
+                                }
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+
+                        pd.dismiss();
+                    }
+
+                },new Response.ErrorListener(){
+                    @Override
+                    public void onErrorResponse(VolleyError volleyError) {
+                        System.out.println("" + volleyError );
+                        pd.dismiss();
+                    }
+                });
+
+                RequestQueue rQueue = Volley.newRequestQueue(Kayit4.this);
+                rQueue.add(request);
 
                 getApplicationContext().startActivity(new Intent(getApplicationContext(),UserMainActivity.class));
 

@@ -177,6 +177,8 @@
         <activity android:name=".tekilkiralailangoster"></activity>
         <activity android:name=".tekilarailangoster"></activity>
         <activity android:name=".kaydedilmis_ilanlarim"></activity>
+        <activity android:name=".Register_Firebase"></activity>
+        <activity android:name=".Login_Firebase"></activity>
     </application>
 
 </manifest>

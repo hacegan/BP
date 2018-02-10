@@ -1,6 +1,7 @@
 package samet.com.bp;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -13,9 +14,11 @@ import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -44,7 +47,7 @@ public class Giris extends Activity{
 
     Button btngiris,btnreset;
     EditText giriseposta,girissifre;
-    String email,sifre;
+ static   String email,sifre;
 String sonuc;
 
 
@@ -121,6 +124,55 @@ btnreset.setOnClickListener(new View.OnClickListener() {
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);*/
 
+                String fire_url = "https://bitirme-proje-1511471101877.firebaseio.com/users.json";
+                final ProgressDialog pd = new ProgressDialog(Giris.this);
+                pd.setMessage("Giris Yapiliyor...");
+                pd.show();
+
+                StringRequest request = new StringRequest(Request.Method.GET, fire_url, new Response.Listener<String>(){
+                    @Override
+                    public void onResponse(String s) {
+                        if(s.equals("null")){
+                            Toast.makeText(Giris.this, "user not found", Toast.LENGTH_LONG).show();
+                        }
+                        else{
+                            try {
+                                JSONObject obj = new JSONObject(s);
+
+                                if(!obj.has(email.replace(".",","))){
+                                    Toast.makeText(Giris.this, "user not found", Toast.LENGTH_LONG).show();
+                                }
+                                else if(obj.getJSONObject(email.replace(".",",")).getString("password").equals(sifre)){
+                                    // UserDetails.username = user;
+                                    //UserDetails.password = pass;
+                                    //startActivity(new Intent(Login_Firebase.this, Users.class));
+                                    Toast.makeText(Giris.this, "Basariyla giris yapildi firebasee", Toast.LENGTH_LONG).show();
+                                    System.out.println("Connected to Fİrebase");
+                                }
+                                else {
+                                    Toast.makeText(Giris.this, "incorrect password", Toast.LENGTH_LONG).show();
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+
+                        pd.dismiss();
+                    }
+                },new Response.ErrorListener(){
+                    @Override
+                    public void onErrorResponse(VolleyError volleyError) {
+                        System.out.println("" + volleyError);
+                        pd.dismiss();
+                    }
+                });
+
+                RequestQueue rQueue = Volley.newRequestQueue(Giris.this);
+                rQueue.add(request);
+
+
+
+
                 getApplicationContext().startActivity(new Intent(getApplicationContext(),UserMainActivity.class));
 
 
@@ -145,6 +197,7 @@ btnreset.setOnClickListener(new View.OnClickListener() {
                 BufferedReader bf=new BufferedReader(new InputStreamReader(con.getInputStream()));
    sonuc=bf.readLine();
                 System.out.println(sonuc);
+
 
 
 

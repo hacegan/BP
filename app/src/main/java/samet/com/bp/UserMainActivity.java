@@ -340,7 +340,10 @@ evarkarabtn= (Button) findViewById(R.id.evarkarabuton);
         } else if (id == R.id.nav_slideshow) {//Kayıtlı İlanlarım
            Intent intent = new Intent(UserMainActivity.this,kaydedilmis_ilanlarim.class);
             startActivity(intent);
-
+           // Intent intent = new Intent(UserMainActivity.this,Register_Firebase.class);
+           // startActivity(intent);
+          //  Intent intent = new Intent(UserMainActivity.this,Login_Firebase.class);
+           // startActivity(intent);
         } else if (id == R.id.nav_manage) {//İlan Yerleştir Oluştur etc.
 
 

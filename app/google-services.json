@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "345957108472",
+    "firebase_url": "https://bitirme-proje-1511471101877.firebaseio.com",
+    "project_id": "bitirme-proje-1511471101877",
+    "storage_bucket": "bitirme-proje-1511471101877.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:345957108472:android:87a6598ca3261070",
+        "android_client_info": {
+          "package_name": "samet.com.bp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "345957108472-c0dlt0mr95qrkaupidu7rodseo70rfmi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "samet.com.bp",
+            "certificate_hash": "c42c4b582c4e9ea18022906321a8f8b743e3ce03"
+          }
+        },
+        {
+          "client_id": "345957108472-92nfgm56rfr2rr17mqguq6ldhn81fklu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBi4fuA1vTYSUmUKUw7bIQ0uzxqQOmwpzk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "345957108472-92nfgm56rfr2rr17mqguq6ldhn81fklu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

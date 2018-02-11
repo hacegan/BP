@@ -180,6 +180,7 @@
         <activity android:name=".Register_Firebase"></activity>
         <activity android:name=".Login_Firebase"></activity>
         <activity android:name=".Chat_Firebase"></activity>
+        <activity android:name=".Benim_Mesajlarim"></activity>
     </application>
 
 </manifest>

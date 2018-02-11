@@ -20,6 +20,7 @@ import com.firebase.client.ChildEventListener;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -44,7 +45,7 @@ public class Chat_Firebase extends AppCompatActivity{
         messageArea = (EditText)findViewById(R.id.messageArea);
         scrollView = (ScrollView)findViewById(R.id.scrollView);
 
-        Firebase.setAndroidContext(this);
+        //FirebaseDatabase.setAndroidContext(this);
         reference1 = new Firebase("https://bitirme-proje-1511471101877.firebaseio.com/messages/" + UserDetails_Firebase.username + "_" + UserDetails_Firebase.chatWith);
         reference2 = new Firebase("https://bitirme-proje-1511471101877.firebaseio.com/messages/" + UserDetails_Firebase.chatWith + "_" + UserDetails_Firebase.username);
 

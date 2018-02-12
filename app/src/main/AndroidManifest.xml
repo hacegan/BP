@@ -181,6 +181,8 @@
         <activity android:name=".Login_Firebase"></activity>
         <activity android:name=".Chat_Firebase"></activity>
         <activity android:name=".Benim_Mesajlarim"></activity>
+        <activity android:name=".Benim_Tekil_Kira_Goster"></activity>
+        <activity android:name=".Benim_Tekil_Ara_Goster"></activity>
     </application>
 
 </manifest>

@@ -81,15 +81,47 @@ public class Benim_ilanlarim extends Activity implements  View.OnClickListener{
     public void onClick(View v) {
 
        String text_tag= (String) v.getTag();
-
+Intent intent=new Intent(Benim_ilanlarim.this,Benim_Tekil_Kira_Goster.class);
         if(text_tag.contains("Kirala")){
-          //Intent  intent = new Intent(Benim_ilanlarim.this,UserMainActivity.class);
-          //  startActivity(intent);
+
+
+            StringTokenizer token = new StringTokenizer(text_tag,":");
+
+            int i=0;
+            while (token.hasMoreTokens()) {
+
+                String temp = token.nextToken();
+
+                if(i==1){
+intent.putExtra("ilan_id",temp);
+                }
+
+            }
+
+
+         // Intent  intent = new Intent(Benim_ilanlarim.this,Benim_Tekil_Kira_Goster.class);
+            startActivity(intent);
         }
 
         else{
-            //Intent  intent = new Intent(Benim_ilanlarim.this,UserMainActivity.class);
-            //  startActivity(intent);
+
+
+            StringTokenizer token = new StringTokenizer(text_tag,":");
+
+            int i=0;
+            while (token.hasMoreTokens()) {
+
+                String temp = token.nextToken();
+                if(i==1){
+                    intent.putExtra("ilan_id",temp);
+                }
+
+
+            }
+
+
+            //Intent  intent = new Intent(Benim_ilanlarim.this,Benim_Tekil_Ara_Goster.class);
+              startActivity(intent);
         }
 
     }

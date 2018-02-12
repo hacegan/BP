@@ -128,7 +128,7 @@ if(i<kiralailanid.size())
 tv.setTag("Kirala:"+kiralailanid.get(i));
 
                 else{
-    tv.setTag("Ara:"+arailanid.get(i));
+    tv.setTag("Ara:"+arailanid.get(i-kiralailanid.size()));
                 }
 
 
@@ -143,7 +143,7 @@ tv.setTag("Kirala:"+kiralailanid.get(i));
                 ll.addView(tv);
 
             }
-//
+
 
 
         }

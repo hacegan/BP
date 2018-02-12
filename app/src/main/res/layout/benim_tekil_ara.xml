@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:orientation="horizontal"
+
+        >
+
+
+        <Button
+            android:layout_width="180dp"
+            android:layout_height="60dp"
+            android:text="İlanı Sil"
+            android:id="@+id/tekilkaydetarabtn"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="66dp"
+            android:text="İlanı Düzenle"
+            android:id="@+id/tekilmesajbtn"
+            />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="35dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+
+            <TextView
+                android:id="@+id/Tara_yayin_arayan"
+                style="?android:attr/listSeparatorTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ev Arayan"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:id="@+id/Tara_yayin_resim"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@color/common_google_signin_btn_text_light_disabled" />
+
+            <TextView
+                android:id="@+id/Tara_yayin_yas"
+                style="?android:attr/listSeparatorTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Kaç Yaşındasınız"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/Tara_yayin_meslek"
+                style="?android:attr/listSeparatorTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mesleğiniz"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/Tara_yayin_evcilvarmi"
+                style="?android:attr/listSeparatorTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Evcil Hayvanınız Var mı ?"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/Tara_yayin_sigaravarmi"
+                style="?android:attr/listSeparatorTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sigara Kullanıyor musunuz?"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/Tara_yayin_yasaralik"
+                style="?android:attr/listSeparatorTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hangi Yaş Aralığı ile yaşamak istiyorsunuz?"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/Tara_yayin_neredelive"
+                style="?android:attr/listSeparatorTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ne Tarafta oturmak istiyorsunuz?"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/Tara_yayin_butce"
+                style="?android:attr/listSeparatorTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bütçeniz "
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/Tara_yayin_hazirtarih"
+                style="?android:attr/listSeparatorTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ne zaman yerleşiceksiniz?"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/Tara_yayin_konaksure"
+                style="?android:attr/listSeparatorTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ne Kadar Konaklamak İstiyorsunuz?"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/Tara_yayin_telefonno"
+                style="?android:attr/listSeparatorTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Telefon Numarası"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/Tara_yayin_ilanbaslik"
+                style="?android:attr/listSeparatorTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="İlan Başlığı"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/Tara_yayin_ilanaciklama"
+                style="?android:attr/listSeparatorTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="İlan Açıklaması"
+                android:textSize="12sp" />
+
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>

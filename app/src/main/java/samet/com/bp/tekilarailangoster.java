@@ -224,7 +224,7 @@ new Kaydet().execute();
             String ara_yayin_ilanaciklama=textView.getText().toString();
             textView.setText(ara_yayin_ilanaciklama+" "+odaara14aciklama);
 
-
+            ilan_url="http://vodkamorello.atspace.co.uk/tekilaragetir.php";
 
         }
 

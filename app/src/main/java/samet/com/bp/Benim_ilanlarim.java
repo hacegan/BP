@@ -81,10 +81,13 @@ public class Benim_ilanlarim extends Activity implements  View.OnClickListener{
     public void onClick(View v) {
 
        String text_tag= (String) v.getTag();
-Intent intent=new Intent(Benim_ilanlarim.this,Benim_Tekil_Kira_Goster.class);
+Intent intent;
+
+        System.out.println("Gelen Tag DEgeri = "+text_tag);
+
         if(text_tag.contains("Kirala")){
 
-
+intent=new Intent(Benim_ilanlarim.this,Benim_Tekil_Kira_Goster.class);
             StringTokenizer token = new StringTokenizer(text_tag,":");
 
             int i=0;
@@ -94,8 +97,9 @@ Intent intent=new Intent(Benim_ilanlarim.this,Benim_Tekil_Kira_Goster.class);
 
                 if(i==1){
 intent.putExtra("ilan_id",temp);
+                    System.out.println("GÖnderilen id ="+temp);
                 }
-
+i++;
             }
 
 
@@ -105,7 +109,7 @@ intent.putExtra("ilan_id",temp);
 
         else{
 
-
+            intent=new Intent(Benim_ilanlarim.this,Benim_Tekil_Ara_Goster.class);
             StringTokenizer token = new StringTokenizer(text_tag,":");
 
             int i=0;
@@ -114,9 +118,10 @@ intent.putExtra("ilan_id",temp);
                 String temp = token.nextToken();
                 if(i==1){
                     intent.putExtra("ilan_id",temp);
+                    System.out.println("GÖnderilen id ="+temp);
                 }
 
-
+i++;
             }
 
 

@@ -32,12 +32,13 @@ public class Benim_Tekil_Kira_Goster extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+setContentView(R.layout.benim_tekil_kirala);
 
       ilan_id=  getIntent().getStringExtra("ilan_id");
-        il_id=Integer.valueOf(ilan_id);
+        System.out.println("Benim İLanlarimdan gelen kirala id si = "+ilan_id);
+       il_id=Integer.valueOf(ilan_id.trim());
 
-
+     new  MyAd().execute();
 
     }
 
@@ -190,7 +191,7 @@ public class Benim_Tekil_Kira_Goster extends AppCompatActivity {
         protected Object doInBackground(Object[] params) {
 
             try{
-                URL url=new URL(ilan_url);
+                URL url=new URL(ilan_url+"?ilan_id="+il_id);
                 HttpURLConnection con= (HttpURLConnection) url.openConnection();
                 con.setRequestMethod("GET");
                 con.connect();

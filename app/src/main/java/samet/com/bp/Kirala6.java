@@ -2,6 +2,7 @@ package samet.com.bp;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -27,6 +28,7 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -52,6 +54,14 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.gms.common.images.Size;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 import com.mindorks.paracamera.Camera;
 
 import java.io.BufferedReader;
@@ -95,6 +105,9 @@ static Bitmap bitmap;
    SharedPreferences sharedPref =null;
     SharedPreferences.Editor editor ;
 
+     static FirebaseStorage firebaseStorage;
+  static  StorageReference storageReference;
+
 private String uploadurl="http://vodkamorello.atspace.co.uk/kiralaimageupload.php";
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -104,6 +117,9 @@ private String uploadurl="http://vodkamorello.atspace.co.uk/kiralaimageupload.ph
         sharedPref = getApplicationContext().getSharedPreferences("MyPref",0);
         editor = sharedPref.edit();
 
+
+        firebaseStorage=FirebaseStorage.getInstance();
+        storageReference=firebaseStorage.getReference();
 
         fotocekbtn= (Button) findViewById(R.id.fotocekbtn);
         fotosecbtn= (Button) findViewById(R.id.fotosecbtn);
@@ -265,7 +281,8 @@ e.printStackTrace();
             bitmap = BitmapFactory.decodeFile(pickedImage.getPath());
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-            bitmap.recycle();
+
+         /*   bitmap.recycle();
 
             byte[] array = baos.toByteArray();
             encodedImage = Base64.encodeToString(array, 0);
@@ -292,7 +309,7 @@ e.printStackTrace();
                     return map;
                 }
             };
-            requestQueue.add(request);
+            requestQueue.add(request);*/
 
           /*  try {
                 stream = getContentResolver().openInputStream(data.getData());
@@ -321,6 +338,28 @@ String kullanici_ismi = sharedPref.getString("kullaniciismi",null);
 String user_id=sharedPref.getString("user_id",null);
 
 new resim_ekle().execute(); */
+
+            final ProgressDialog progressDialog=new ProgressDialog(getApplicationContext());
+          StorageReference ref=storageReference.child("images/"+UUID.randomUUID().toString());
+
+            ref.putFile(pickedImage).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+
+                }
+            }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                    double progress=(100.0*taskSnapshot.getBytesTransferred()/taskSnapshot.getTotalByteCount());
+progressDialog.setMessage("Yüklendi "+(int)progress+"%");
+                }
+            });
+
 
         }
 

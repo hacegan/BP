@@ -108,6 +108,11 @@ static Bitmap bitmap;
      static FirebaseStorage firebaseStorage;
   static  StorageReference storageReference;
 
+     static long kamera_milis ;
+
+    String FILENAME = "samet_"+kamera_milis;
+   // String PATH = "/mnt/sdcard/pics/"+ FILENAME;
+
 private String uploadurl="http://vodkamorello.atspace.co.uk/kiralaimageupload.php";
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -169,12 +174,14 @@ Intent i =new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTEN
 
                     ActivityCompat.requestPermissions(Kirala6.this, new String[] { Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE }, 0);
                 }
+kamera_milis=System.currentTimeMillis();
 
+           //     System.out.println("GEt External ="+Environment.getExternalStorageState());
 
 camera=new Camera.Builder().resetToCorrectOrientation(true)
         .setTakePhotoRequestCode(1)
         .setDirectory("pics")
-        .setName("samet_"+System.currentTimeMillis())
+        .setName("samet_"+kamera_milis)
         .setImageFormat(Camera.IMAGE_JPEG)
 .setCompression(75)
         .setImageHeight(1000)
@@ -211,6 +218,16 @@ e.printStackTrace();
                 iv.setImageBitmap(bitmap);
                 btndvm.setText("ONAYLA VE DEVAM ET");
 
+
+                ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+                String path = MediaStore.Images.Media.insertImage(getApplicationContext().getContentResolver(), bitmap, "Title", null);
+             Uri myUri=   Uri.parse(path);
+
+            /*    String PATH = Environment.getExternalStorageDirectory().getPath()+"/samet_"+kamera_milis+".jpeg" ;
+                File f = new File(PATH);
+                Uri yourUri = Uri.fromFile(f);
+                System.out.println("Dosyanın Yolu ="+yourUri.getEncodedPath()+"Dosya ="+yourUri.toString());*/
 
                /* try {
                     //stream = getContentResolver().openInputStream(data.getData());
@@ -258,10 +275,33 @@ e.printStackTrace();
 
 
 
-                String kullanici_ismi = sharedPref.getString("kullaniciismi",null);
-                String user_id=sharedPref.getString("user_id",null);
+                final ProgressDialog progressDialog=new ProgressDialog(getApplicationContext());
+                StorageReference ref=storageReference.child("images/"+UUID.randomUUID().toString());
 
-                new resim_ekle().execute();
+                ref.putFile(myUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+
+                    }
+                }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                        double progress=(100.0*taskSnapshot.getBytesTransferred()/taskSnapshot.getTotalByteCount());
+                        progressDialog.setMessage("Yüklendi "+(int)progress+"%");
+                    }
+                });
+
+
+
+        //        String kullanici_ismi = sharedPref.getString("kullaniciismi",null);
+             //   String user_id=sharedPref.getString("user_id",null);
+
+            //    new resim_ekle().execute();
 
             }else{
                 Toast.makeText(this.getApplicationContext(),"Fotoğraf Çekilmedi!",Toast.LENGTH_SHORT).show();
@@ -278,11 +318,11 @@ e.printStackTrace();
             iv.setImageURI(pickedImage);
             btndvm.setText("ONAYLA VE DEVAM ET");
 
-            bitmap = BitmapFactory.decodeFile(pickedImage.getPath());
+     /*       bitmap = BitmapFactory.decodeFile(pickedImage.getPath());
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
 
-         /*   bitmap.recycle();
+           bitmap.recycle();
 
             byte[] array = baos.toByteArray();
             encodedImage = Base64.encodeToString(array, 0);

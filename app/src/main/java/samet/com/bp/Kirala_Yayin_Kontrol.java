@@ -56,7 +56,7 @@ ImageView imageView;
         System.out.println("kiralasecilenilce = "+kiralasecilenilce);
 
      String   kirala6resim=sharedPref.getString("kirala6resim",null);
-        //  System.out.println("kirala6resim = "+kirala6resim);
+         // System.out.println("kirala6resim = "+kirala6resim);
 
         String kirala7m2=sharedPref.getString("kirala7m2",null);
         System.out.println("kirala7m2 = "+kirala7m2);
@@ -139,19 +139,19 @@ ImageView imageView;
         String kirala_yayin_adres=textView.getText().toString();
         textView.setText(kirala_yayin_adres+" "+kirala3adres);
 
-     /*   imageView= (ImageView) findViewById(R.id.kirala_yayin_resim);
+        imageView= (ImageView) findViewById(R.id.kirala_yayin_resim);
 
         if (!kirala6resim.equalsIgnoreCase("")) {
             //Decoding the Image and display in ImageView
             byte[] b = Base64.decode(kirala6resim, Base64.DEFAULT);
-            Bitmap bitmap = BitmapFactory.decodeByteArray(b, 0, b.length);
+            Bitmap bitmap = BitmapFactory.decodeByteArray(b,0,b.length);
             imageView.setImageBitmap(bitmap);
         }
         else
         {
             Toast.makeText(getApplicationContext(),"You don't have Image in SharedPreferences!", Toast.LENGTH_SHORT).show();
         }
-*/
+
 
 
         textView= (TextView) findViewById(R.id.kirala_yayin_m2);

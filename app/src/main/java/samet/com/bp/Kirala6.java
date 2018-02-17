@@ -102,8 +102,8 @@ Camera camera;
 
 static Bitmap bitmap;
 
-   SharedPreferences sharedPref =null;
-    SharedPreferences.Editor editor ;
+  static SharedPreferences sharedPref =null;
+  static  SharedPreferences.Editor editor ;
 
      static FirebaseStorage firebaseStorage;
   static  StorageReference storageReference;
@@ -224,6 +224,25 @@ e.printStackTrace();
                 String path = MediaStore.Images.Media.insertImage(getApplicationContext().getContentResolver(), bitmap, "Title", null);
              Uri myUri=   Uri.parse(path);
 
+                try{
+
+                    stream = getContentResolver().openInputStream(myUri);
+                    // Encoding Image into Base64
+                    Bitmap realImage = BitmapFactory.decodeStream(stream);
+                    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                    realImage.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+                    byte[] b = baos.toByteArray();
+                    //Converting Base64 into String to Store in SharedPreferences
+                    encodedImage = Base64.encodeToString(b, Base64.DEFAULT);
+
+                    editor.putString("kirala6resim", encodedImage);
+                    editor.commit();
+                }
+                catch (Exception e){
+                    e.printStackTrace();
+                }
+
+
             /*    String PATH = Environment.getExternalStorageDirectory().getPath()+"/samet_"+kamera_milis+".jpeg" ;
                 File f = new File(PATH);
                 Uri yourUri = Uri.fromFile(f);
@@ -275,7 +294,7 @@ e.printStackTrace();
 
 
 
-                final ProgressDialog progressDialog=new ProgressDialog(getApplicationContext());
+          /*      final ProgressDialog progressDialog=new ProgressDialog(getApplicationContext());
                 StorageReference ref=storageReference.child("images/"+UUID.randomUUID().toString());
 
                 ref.putFile(myUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -295,7 +314,7 @@ e.printStackTrace();
                         progressDialog.setMessage("Yüklendi "+(int)progress+"%");
                     }
                 });
-
+*/
 
 
         //        String kullanici_ismi = sharedPref.getString("kullaniciismi",null);
@@ -317,6 +336,24 @@ e.printStackTrace();
             Uri pickedImage = data.getData();
             iv.setImageURI(pickedImage);
             btndvm.setText("ONAYLA VE DEVAM ET");
+
+            try{
+
+                stream = getContentResolver().openInputStream(pickedImage);
+                // Encoding Image into Base64
+                Bitmap realImage = BitmapFactory.decodeStream(stream);
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                realImage.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+                byte[] b = baos.toByteArray();
+                //Converting Base64 into String to Store in SharedPreferences
+                encodedImage = Base64.encodeToString(b, Base64.DEFAULT);
+
+                editor.putString("kirala6resim", encodedImage);
+                editor.commit();
+            }
+            catch (Exception e){
+e.printStackTrace();
+            }
 
      /*       bitmap = BitmapFactory.decodeFile(pickedImage.getPath());
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -379,7 +416,7 @@ String user_id=sharedPref.getString("user_id",null);
 
 new resim_ekle().execute(); */
 
-            final ProgressDialog progressDialog=new ProgressDialog(getApplicationContext());
+     /*       final ProgressDialog progressDialog=new ProgressDialog(getApplicationContext());
           StorageReference ref=storageReference.child("images/"+UUID.randomUUID().toString());
 
             ref.putFile(pickedImage).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -398,7 +435,8 @@ new resim_ekle().execute(); */
                     double progress=(100.0*taskSnapshot.getBytesTransferred()/taskSnapshot.getTotalByteCount());
 progressDialog.setMessage("Yüklendi "+(int)progress+"%");
                 }
-            });
+            });*/
+
 
 
         }

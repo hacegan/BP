@@ -38,8 +38,8 @@ public class Benim_ilanlarim extends Activity implements  View.OnClickListener{
     LinearLayout ll;
     static String benim_ilanlarim_url="http://vodkamorello.atspace.co.uk/benim_ilanlarim.php";
     static String sonuc;
-    SharedPreferences sharedPref;
-    SharedPreferences.Editor editor;
+   static SharedPreferences sharedPref;
+    static SharedPreferences.Editor editor;
     static int resultcount=0;
     TextView resulttv;
     ArrayList<String> ilanbaslik = new ArrayList<String>();
@@ -245,6 +245,9 @@ con.disconnect();
             catch (Exception e){
                 e.printStackTrace();
             }
+
+
+
 
 
             return null;

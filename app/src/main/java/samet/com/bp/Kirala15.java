@@ -36,7 +36,7 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.UUID;
 
-import static samet.com.bp.Kirala6.storageReference;
+
 
 /**
  * Created by root on 20.11.2017.
@@ -46,12 +46,13 @@ public class Kirala15 extends AppCompatActivity {
     Button btn,btndvm;
     Toolbar tb;
     EditText baslik,aciklama;
-    SharedPreferences sharedPref;
-    SharedPreferences.Editor editor;
+  static  SharedPreferences sharedPref;
+ static   SharedPreferences.Editor editor;
     CircularProgressButton cbp;
    static String kirala_upload_url="http://vodkamorello.atspace.co.uk/kirala_upload.php";
     static String kirala6resim;
     static String  sonuc;
+    static  StorageReference storageReference;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -254,8 +255,11 @@ btndvm= (Button) findViewById(R.id.btndvm);
                 String path = MediaStore.Images.Media.insertImage(getApplicationContext().getContentResolver(), bitmap, "Title", null);
                 Uri myUri=   Uri.parse(path);
 
+
+                String kul_mail=sharedPref.getString("email",null);
+
 //                final ProgressDialog progressDialog=new ProgressDialog(getApplicationContext());
-                StorageReference ref=storageReference.child("images/"+ UUID.randomUUID().toString());
+                StorageReference ref=storageReference.child("images/kirala/"+kul_mail+"/"+UUID.randomUUID().toString());
 
                 ref.putFile(myUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override

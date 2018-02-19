@@ -37,10 +37,10 @@ public class OdaAra2 extends AppCompatActivity {
     private static int LOAD_IMAGE_RESULTS=2;
     Camera camera;
 
-    SharedPreferences sharedPref ;
-    SharedPreferences.Editor editor;
+   static SharedPreferences sharedPref ;
+   static SharedPreferences.Editor editor;
 
-    String encodedImage;
+     static String encodedImage;
 
     private String uploadurl="http://vodkamorello.atspace.co.uk/kiralaimageupload.php";
 
@@ -134,20 +134,25 @@ public class OdaAra2 extends AppCompatActivity {
 
         if(requestCode == Camera.REQUEST_TAKE_PHOTO){
             Bitmap bitmap = camera.getCameraBitmap();
+            InputStream stream;
             if(bitmap != null) {
                 iv.setImageBitmap(bitmap);
                 btndvm.setText("ONAYLA VE DEVAM ET");
 
+
+                ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+                String path = MediaStore.Images.Media.insertImage(getApplicationContext().getContentResolver(), bitmap, "Title", null);
+                Uri myUri=   Uri.parse(path);
                 try {
-                    //stream = getContentResolver().openInputStream(data.getData());
+                    stream = getContentResolver().openInputStream(myUri);
                     // Encoding Image into Base64
-                    // Bitmap realImage = BitmapFactory.decodeStream(stream);
+                    Bitmap realImage = BitmapFactory.decodeStream(stream);
                     ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+                    realImage.compress(Bitmap.CompressFormat.JPEG, 100, baos);
                     byte[] b = baos.toByteArray();
                     //Converting Base64 into String to Store in SharedPreferences
                     encodedImage = Base64.encodeToString(b, Base64.DEFAULT);
-                    //NOw storing String to SharedPreferences
 
 
                     editor.putString("odaara2resim", encodedImage);
@@ -157,7 +162,7 @@ public class OdaAra2 extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
-                String kullanici_ismi = sharedPref.getString("kullaniciismi",null);
+              //  String kullanici_ismi = sharedPref.getString("kullaniciismi",null);
 
 
             }else{
@@ -195,7 +200,7 @@ public class OdaAra2 extends AppCompatActivity {
             }
 
 
-            String kullanici_ismi = sharedPref.getString("kullaniciismi",null);
+            //String kullanici_ismi = sharedPref.getString("kullaniciismi",null);
 
 
 

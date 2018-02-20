@@ -12,8 +12,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
+import com.firebase.ui.storage.images.FirebaseImageLoader;
+import com.google.firebase.storage.StorageReference;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -29,6 +34,7 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 import static java.security.AccessController.getContext;
+import static samet.com.bp.Benim_ilanlarim.storageReference;
 
 /**
  * Created by root on 24.12.2017.
@@ -46,6 +52,7 @@ public class Benim_ilanlarim extends Activity implements  View.OnClickListener{
     ArrayList<String> ilanaciklama = new ArrayList<String>();
     ArrayList<String> kiralailanid=new ArrayList<String>();
     ArrayList<String> arailanid=new ArrayList<String>();
+    static  StorageReference storageReference=null;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -143,11 +150,18 @@ i++;
         @Override
         protected void onPostExecute(Object o) {
 
-
+            String kul_mail=sharedPref.getString("email",null);
             for(int i=0;i<resultcount;i++){
                 TextView tv=new TextView(Benim_ilanlarim.this);
 
 
+//                StorageReference ref=storageReference.child("images/kirala/"+kul_mail+"/"+i+".jpg");
+
+           //     ImageView tempimg=new ImageView(getApplicationContext());
+
+            //    Glide.with(getApplicationContext()).using(new FirebaseImageLoader()).load(ref).into(tempimg);
+
+            //   Drawable drawable=tempimg.getDrawable();
 
                 Drawable drawable=getApplicationContext().getResources().getDrawable(R.drawable.empty_house);
                 tv.setCompoundDrawablesWithIntrinsicBounds(drawable,null,null,null);
@@ -239,6 +253,13 @@ tv.setTag("Kirala:"+kiralailanid.get(i));
 
 
 con.disconnect();
+
+
+                
+
+
+
+
 
 
             }

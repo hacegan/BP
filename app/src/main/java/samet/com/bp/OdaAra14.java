@@ -177,12 +177,12 @@ String odaarahangiilce=sharedPref.getString("odaarahangiilce",null);
                 String kul_mail=sharedPref.getString("email",null);
 
 //                final ProgressDialog progressDialog=new ProgressDialog(getApplicationContext());
-                StorageReference ref=storageReference.child("images/ara/"+kul_mail+"/"+ UUID.randomUUID().toString());
+                StorageReference ref=storageReference.child("images/ara/"+kul_mail+"/"+ firebase_ara_imgpojo.ara_img_id);
 
                 ref.putFile(myUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-
+firebase_ara_imgpojo.ara_img_id+=1;
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override

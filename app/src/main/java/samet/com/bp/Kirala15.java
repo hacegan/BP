@@ -1,10 +1,12 @@
 package samet.com.bp;
 
 import android.animation.ValueAnimator;
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -13,6 +15,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Base64;
@@ -23,11 +26,13 @@ import android.widget.EditText;
 import com.dd.CircularProgressButton;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import android.view.animation.AccelerateDecelerateInterpolator;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -52,7 +57,8 @@ public class Kirala15 extends AppCompatActivity {
    static String kirala_upload_url="http://vodkamorello.atspace.co.uk/kirala_upload.php";
     static String kirala6resim;
     static String  sonuc;
-    static  StorageReference storageReference;
+    static  StorageReference storageReference= FirebaseStorage.getInstance().getReference();
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -222,6 +228,61 @@ btndvm= (Button) findViewById(R.id.btndvm);
         startActivity(intent);
     }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+
+        switch (requestCode) {
+            case 2:
+
+                if(grantResults[0]== PackageManager.PERMISSION_GRANTED){
+                    byte[] b = Base64.decode(kirala6resim, Base64.DEFAULT);
+                    Bitmap bitmap = BitmapFactory.decodeByteArray(b,0,b.length);
+
+                    String path = MediaStore.Images.Media.insertImage(getApplicationContext().getContentResolver(), bitmap, "Title", null);
+                    Uri myUri=   Uri.parse(path);
+
+
+                    String kul_mail=sharedPref.getString("email",null);
+
+//                final ProgressDialog progressDialog=new ProgressDialog(getApplicationContext());
+                    StorageReference ref=storageReference.child("images/kirala/"+kul_mail+"/"+firebase_kirala_imgpojo.kirala_img_id);
+
+                    ref.putFile(myUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            firebase_kirala_imgpojo.kirala_img_id+=1;
+                            System.out.println("Firebase dosya basirlya yüklendi");
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            System.out.println("Firebase dosya yüklenmedi = "+e.getCause());
+                        }
+                    }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                            double progress=(100.0*taskSnapshot.getBytesTransferred()/taskSnapshot.getTotalByteCount());
+                            //  progressDialog.setMessage("Yüklendi "+(int)progress+"%");
+                            System.out.println("Dosya yükleniyor...");
+                        }
+                    });
+
+
+
+                }else{
+                    Toast.makeText(getApplicationContext(),"İzin vermeniz gerekli",Toast.LENGTH_LONG);
+                }
+                break;
+
+
+        }
+
+
+
+
+    }
 
     public class KiralaTask extends AsyncTask{
 
@@ -249,35 +310,66 @@ btndvm= (Button) findViewById(R.id.btndvm);
                 sonuc=bf.readLine();
                 System.out.println(sonuc);
 
-                byte[] b = Base64.decode(kirala6resim, Base64.DEFAULT);
-                Bitmap bitmap = BitmapFactory.decodeByteArray(b,0,b.length);
-
-                String path = MediaStore.Images.Media.insertImage(getApplicationContext().getContentResolver(), bitmap, "Title", null);
-                Uri myUri=   Uri.parse(path);
+                con.disconnect();
 
 
                 String kul_mail=sharedPref.getString("email",null);
 
+                 url=new URL("http://vodkamorello.atspace.co.uk/kiralamaxdegerimage.php?email="+kul_mail);
+                con= (HttpURLConnection) url.openConnection();
+                con.setRequestMethod("GET");
+                con.connect();
+
+               bf=new BufferedReader(new InputStreamReader(con.getInputStream()));
+                sonuc=bf.readLine();
+
+
+
+                byte[] b = Base64.decode(kirala6resim, Base64.DEFAULT);
+                Bitmap bitmap = BitmapFactory.decodeByteArray(b,0,b.length);
+
+
+                if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                        == PackageManager.PERMISSION_GRANTED) {
+
+
+                    String path = MediaStore.Images.Media.insertImage(getApplicationContext().getContentResolver(), bitmap, "Title", null);
+                    Uri myUri=   Uri.parse(path);
+
+
+
 //                final ProgressDialog progressDialog=new ProgressDialog(getApplicationContext());
-                StorageReference ref=storageReference.child("images/kirala/"+kul_mail+"/"+UUID.randomUUID().toString());
+                    StorageReference ref=storageReference.child("images/kirala/"+kul_mail+"/"+firebase_kirala_imgpojo.kirala_img_id);
 
-                ref.putFile(myUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                    @Override
-                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    ref.putFile(myUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            firebase_kirala_imgpojo.kirala_img_id+=1;
+                            System.out.println("Firebase dosya basirlya yüklendi");
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            System.out.println("Firebase dosya yüklenmedi = "+e.getCause());
 
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
+                        }
+                    }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                            double progress=(100.0*taskSnapshot.getBytesTransferred()/taskSnapshot.getTotalByteCount());
+                            //  progressDialog.setMessage("Yüklendi "+(int)progress+"%");
+                            System.out.println("Dosya yükleniyor...");
+                        }
+                    });
 
-                    }
-                }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-                    @Override
-                    public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
-                        double progress=(100.0*taskSnapshot.getBytesTransferred()/taskSnapshot.getTotalByteCount());
-                      //  progressDialog.setMessage("Yüklendi "+(int)progress+"%");
-                    }
-                });
+
+
+                }//İzin alındı
+
+else{
+                    ActivityCompat.requestPermissions(Kirala15.this, new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE}, 2);
+                }
+
 
 
 

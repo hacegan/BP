@@ -311,8 +311,9 @@ btndvm= (Button) findViewById(R.id.btndvm);
                 System.out.println(sonuc);
 
                 con.disconnect();
+                bf.close();
 
-
+                sonuc="";
                 String kul_mail=sharedPref.getString("email",null);
 
                  url=new URL("http://vodkamorello.atspace.co.uk/kiralamaxdegerimage.php?email="+kul_mail);
@@ -323,23 +324,34 @@ btndvm= (Button) findViewById(R.id.btndvm);
                bf=new BufferedReader(new InputStreamReader(con.getInputStream()));
                 sonuc=bf.readLine();
 con.disconnect();
+                bf.close();
 
-                int ensonid=0;
-                if(sonuc=="null"){
+
+
+                int ensonid=1;
+                System.out.println("332 satir sonuc bu ==="+sonuc);
+                if(sonuc.equals("bos")){
+                    System.out.println("SOnuc girdi");
                     url=new URL("http://vodkamorello.atspace.co.uk/kiralaimagedegerolustur.php?email="+kul_mail);
                     con= (HttpURLConnection) url.openConnection();
                     con.setRequestMethod("GET");
                     con.connect();
 
                     bf=new BufferedReader(new InputStreamReader(con.getInputStream()));
-                    sonuc=bf.readLine();
+                   sonuc=bf.readLine();
+                    bf.close();
                     con.disconnect();
 
+                    System.out.println("Girdikten sonra gelen deger ="+sonuc);
+
+
+                    ensonid = 1;
 
 
                 }
                 else {
-                    ensonid = Integer.valueOf(sonuc);
+                    System.out.println("SOnuc girmedi");
+                    ensonid = Integer.valueOf(sonuc.trim());
 
                 }
 

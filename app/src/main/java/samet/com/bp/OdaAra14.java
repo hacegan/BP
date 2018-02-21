@@ -181,22 +181,22 @@ String odaarahangiilce=sharedPref.getString("odaarahangiilce",null);
                 sonuc=bf.readLine();
                 con.disconnect();
 
-                int ensonid=0;
-                if(sonuc=="null"){
+                int ensonid=1;
+                if(sonuc.equals("bos")){
                     url=new URL("http://vodkamorello.atspace.co.uk/araimagedegerolustur.php?email="+kul_mail);
                     con= (HttpURLConnection) url.openConnection();
                     con.setRequestMethod("GET");
                     con.connect();
 
-                    bf=new BufferedReader(new InputStreamReader(con.getInputStream()));
-                    sonuc=bf.readLine();
-                    con.disconnect();
+                   // bf=new BufferedReader(new InputStreamReader(con.getInputStream()));
+                   // sonuc=bf.readLine();
+                   con.disconnect();
 
                     ensonid=1;
 
                 }
                 else {
-                    ensonid = Integer.valueOf(sonuc);
+                    ensonid = Integer.valueOf(sonuc.trim());
 
                 }
 

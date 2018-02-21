@@ -167,6 +167,41 @@ String odaarahangiilce=sharedPref.getString("odaarahangiilce",null);
                 sonuc=bf.readLine();
                 System.out.println(sonuc);
 
+                con.disconnect();
+
+
+                String kul_mail=sharedPref.getString("email",null);
+
+                url=new URL("http://vodkamorello.atspace.co.uk/aramaxdegerimage.php?email="+kul_mail);
+                con= (HttpURLConnection) url.openConnection();
+                con.setRequestMethod("GET");
+                con.connect();
+
+                bf=new BufferedReader(new InputStreamReader(con.getInputStream()));
+                sonuc=bf.readLine();
+                con.disconnect();
+
+                int ensonid=0;
+                if(sonuc=="null"){
+                    url=new URL("http://vodkamorello.atspace.co.uk/araimagedegerolustur.php?email="+kul_mail);
+                    con= (HttpURLConnection) url.openConnection();
+                    con.setRequestMethod("GET");
+                    con.connect();
+
+                    bf=new BufferedReader(new InputStreamReader(con.getInputStream()));
+                    sonuc=bf.readLine();
+                    con.disconnect();
+
+                    ensonid=1;
+
+                }
+                else {
+                    ensonid = Integer.valueOf(sonuc);
+
+                }
+
+
+
                 byte[] b = Base64.decode(odaara2resim, Base64.DEFAULT);
                 Bitmap bitmap = BitmapFactory.decodeByteArray(b,0,b.length);
 
@@ -174,10 +209,9 @@ String odaarahangiilce=sharedPref.getString("odaarahangiilce",null);
                 Uri myUri=   Uri.parse(path);
 
 
-                String kul_mail=sharedPref.getString("email",null);
 
 //                final ProgressDialog progressDialog=new ProgressDialog(getApplicationContext());
-                StorageReference ref=storageReference.child("images/ara/"+kul_mail+"/"+ firebase_ara_imgpojo.ara_img_id);
+                StorageReference ref=storageReference.child("images/ara/"+kul_mail+"/"+ ensonid);
 
                 ref.putFile(myUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override

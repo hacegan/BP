@@ -322,7 +322,26 @@ btndvm= (Button) findViewById(R.id.btndvm);
 
                bf=new BufferedReader(new InputStreamReader(con.getInputStream()));
                 sonuc=bf.readLine();
+con.disconnect();
 
+                int ensonid=0;
+                if(sonuc=="null"){
+                    url=new URL("http://vodkamorello.atspace.co.uk/kiralaimagedegerolustur.php?email="+kul_mail);
+                    con= (HttpURLConnection) url.openConnection();
+                    con.setRequestMethod("GET");
+                    con.connect();
+
+                    bf=new BufferedReader(new InputStreamReader(con.getInputStream()));
+                    sonuc=bf.readLine();
+                    con.disconnect();
+
+
+
+                }
+                else {
+                    ensonid = Integer.valueOf(sonuc);
+
+                }
 
 
                 byte[] b = Base64.decode(kirala6resim, Base64.DEFAULT);
@@ -339,7 +358,7 @@ btndvm= (Button) findViewById(R.id.btndvm);
 
 
 //                final ProgressDialog progressDialog=new ProgressDialog(getApplicationContext());
-                    StorageReference ref=storageReference.child("images/kirala/"+kul_mail+"/"+firebase_kirala_imgpojo.kirala_img_id);
+                    StorageReference ref=storageReference.child("images/kirala/"+kul_mail+"/"+ensonid);
 
                     ref.putFile(myUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override

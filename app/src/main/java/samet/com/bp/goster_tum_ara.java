@@ -30,6 +30,9 @@ public class goster_tum_ara extends AppCompatActivity implements  View.OnClickLi
     Toolbar toolbar;
     AraListAdapter araListAdapter;
     ArrayList<String> ilanid = new ArrayList<String>();
+    static int maxkiraid;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

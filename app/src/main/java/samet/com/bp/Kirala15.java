@@ -58,7 +58,7 @@ public class Kirala15 extends AppCompatActivity {
     static String kirala6resim;
     static String  sonuc;
     static  StorageReference storageReference= FirebaseStorage.getInstance().getReference();
-
+   static int herkiraid;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -270,6 +270,30 @@ btndvm= (Button) findViewById(R.id.btndvm);
                     });
 
 
+                    ref=storageReference.child("images/herkirala/"+herkiraid);
+
+                    ref.putFile(myUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            firebase_kirala_imgpojo.kirala_img_id+=1;
+                            System.out.println("HER Firebase dosya basirlya yüklendi");
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            System.out.println("HER Firebase dosya yüklenmedi = "+e.getCause());
+
+                        }
+                    }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                            double progress=(100.0*taskSnapshot.getBytesTransferred()/taskSnapshot.getTotalByteCount());
+                            //  progressDialog.setMessage("Yüklendi "+(int)progress+"%");
+                            System.out.println("HER Dosya yükleniyor...");
+                        }
+                    });
+
+
 
                 }else{
                     Toast.makeText(getApplicationContext(),"İzin vermeniz gerekli",Toast.LENGTH_LONG);
@@ -355,6 +379,18 @@ con.disconnect();
 
                 }
 
+//BÜtün kiralaya eklmee
+                url=new URL("http://vodkamorello.atspace.co.uk/herkiralamaximgolustur.php");
+                con= (HttpURLConnection) url.openConnection();
+                con.setRequestMethod("GET");
+                con.connect();
+
+                bf=new BufferedReader(new InputStreamReader(con.getInputStream()));
+                sonuc=bf.readLine();
+                bf.close();
+                con.disconnect();
+
+                 herkiraid=Integer.valueOf(sonuc.trim());
 
                 byte[] b = Base64.decode(kirala6resim, Base64.DEFAULT);
                 Bitmap bitmap = BitmapFactory.decodeByteArray(b,0,b.length);
@@ -392,6 +428,31 @@ con.disconnect();
                             System.out.println("Dosya yükleniyor...");
                         }
                     });
+
+
+                    ref=storageReference.child("images/herkirala/"+herkiraid);
+
+                    ref.putFile(myUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            firebase_kirala_imgpojo.kirala_img_id+=1;
+                            System.out.println("HER Firebase dosya basirlya yüklendi");
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            System.out.println("HER Firebase dosya yüklenmedi = "+e.getCause());
+
+                        }
+                    }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                            double progress=(100.0*taskSnapshot.getBytesTransferred()/taskSnapshot.getTotalByteCount());
+                            //  progressDialog.setMessage("Yüklendi "+(int)progress+"%");
+                            System.out.println("HER Dosya yükleniyor...");
+                        }
+                    });
+
 
 
 

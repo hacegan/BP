@@ -62,7 +62,7 @@ ArrayList<kirala_pojo> kirala_pojos=new ArrayList<kirala_pojo>();
     ArrayAdapter<String> adapter;
     TextView toplamilansayi;
     Toolbar toolbar;
-
+static int maxkiraid;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -180,6 +180,15 @@ ilanid.add(  temp.substring(temp.indexOf("Kirala id:"),temp.indexOf("-",temp.ind
 
 
                 con.disconnect();
+
+
+                url=new URL("http://vodkamorello.atspace.co.uk/getmaxallkiralaimg.php");
+   con= (HttpURLConnection) url.openConnection();
+                con.setRequestMethod("GET");
+                con.connect();
+
+             bf=new BufferedReader(new InputStreamReader(con.getInputStream()));
+               sonuc=bf.readLine();
 
 
             }

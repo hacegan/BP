@@ -1,17 +1,19 @@
 package samet.com.bp;
 
+import android.graphics.drawable.Drawable;
+
 /**
  * Created by root on 26.01.2018.
  */
 
 public class ara_pojo {
     String ilanbaslik,ilanaciklama,ilanid;
-    int photo;
+    Drawable photo;
 
     public ara_pojo() {
     }
 
-    public ara_pojo(String ilanbaslik, String ilanaciklama, int photo,String ilanid) {
+    public ara_pojo(String ilanbaslik, String ilanaciklama, Drawable photo,String ilanid) {
         this.ilanbaslik = ilanbaslik;
         this.ilanaciklama = ilanaciklama;
         this.photo = photo;
@@ -35,11 +37,11 @@ public class ara_pojo {
         this.ilanaciklama = ilanaciklama;
     }
 
-    public int getPhoto() {
+    public Drawable getPhoto() {
         return photo;
     }
 
-    public void setPhoto(int photo) {
+    public void setPhoto(Drawable photo) {
         this.photo = photo;
     }
 

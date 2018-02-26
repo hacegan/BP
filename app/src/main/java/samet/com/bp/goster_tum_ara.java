@@ -1,6 +1,10 @@
 package samet.com.bp;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
+import android.support.annotation.NonNull;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,6 +15,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -30,8 +40,10 @@ public class goster_tum_ara extends AppCompatActivity implements  View.OnClickLi
     Toolbar toolbar;
     AraListAdapter araListAdapter;
     ArrayList<String> ilanid = new ArrayList<String>();
-    static int maxkiraid;
-
+    static int maxaraid;
+    static StorageReference storageReference= FirebaseStorage.getInstance().getReference();
+    static Drawable drawable;
+    static int drawableResourceId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,8 +109,41 @@ public class goster_tum_ara extends AppCompatActivity implements  View.OnClickLi
             String[] data=new String[ilanbaslik.size()];
 
             for(int i=0;i<ilanbaslik.size();i++){
-                ara_pojos.add(new ara_pojo(ilanbaslik.get(i),ilanaciklama.get(i),R.drawable.empty_house,ilanid.get(i)));
-                data[i]=ilanbaslik.get(i).toString();
+
+                final ImageView tempimg=new ImageView(goster_tum_ara.this);
+                final int sayac=i;
+
+                storageReference.child("images/herara/"+(i+1)).getBytes(Long.MAX_VALUE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+                    @Override
+                    public void onSuccess(byte[] bytes) {
+                        System.out.println("Basariilli");
+                        Bitmap bmp = BitmapFactory.decodeByteArray(bytes,0,bytes.length);
+                        tempimg.setImageBitmap(bmp);
+                        drawable=tempimg.getDrawable();
+                        drawable.setBounds(0,0,460,460);
+                        drawableResourceId=tempimg.getId();
+
+                        ara_pojos.add(new ara_pojo(ilanbaslik.get(sayac),ilanaciklama.get(sayac),drawable,ilanid.get(sayac)));
+
+
+                        if(sayac==ilanbaslik.size()-1){
+                            araListAdapter=new AraListAdapter(ara_pojos,getApplicationContext());
+                            recyclerView.setAdapter(araListAdapter);
+                        }
+
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception exception) {
+                        System.out.println("Basarisiz");
+                    }
+                });
+
+
+
+
+
+                //data[i]=ilanbaslik.get(i).toString();
 
             }
 
@@ -137,6 +182,20 @@ public class goster_tum_ara extends AppCompatActivity implements  View.OnClickLi
 
 
 
+
+                con.disconnect();
+
+                url=new URL("http://vodkamorello.atspace.co.uk/getmaxallaraimg.php");
+                con= (HttpURLConnection) url.openConnection();
+                con.setRequestMethod("GET");
+                con.connect();
+
+                bf=new BufferedReader(new InputStreamReader(con.getInputStream()));
+                sonuc=bf.readLine();
+
+                if(sonuc!=null){
+                    maxaraid=Integer.valueOf(sonuc.trim());
+                }
 
                 con.disconnect();
 

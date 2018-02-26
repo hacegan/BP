@@ -42,7 +42,9 @@ ArrayList<kirala_pojo> arrayList=new ArrayList<kirala_pojo>();
     public void onBindViewHolder(MyViewHolder holder, int position) {
 
         //holder.c_flag.setImageResource(arrayList.get(position).getPhoto());
-        holder.c_flag.setImageResource(R.drawable.empty_house);
+       // holder.c_flag.setImageResource(R.drawable.empty_house);
+       // holder.c_flag.setImageResource(arrayList.get(position).getPhoto());
+        holder.c_flag.setImageDrawable(arrayList.get(position).getPhoto());
 holder.c_name.setText(arrayList.get(position).getIlanbaslik());
 
     }

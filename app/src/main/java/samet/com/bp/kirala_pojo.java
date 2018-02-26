@@ -1,5 +1,7 @@
 package samet.com.bp;
 
+import android.graphics.drawable.Drawable;
+
 import io.realm.RealmObject;
 
 /**
@@ -8,12 +10,12 @@ import io.realm.RealmObject;
 
 public class kirala_pojo  {
     String ilanbaslik,ilanaciklama,ilanid;
-    int photo;
+    Drawable photo;
 
     public kirala_pojo() {
     }
 
-    public kirala_pojo(String ilanbaslik, String ilanaciklama, int photo,String ilanid) {
+    public kirala_pojo(String ilanbaslik, String ilanaciklama, Drawable photo,String ilanid) {
         this.ilanbaslik = ilanbaslik;
         this.ilanaciklama = ilanaciklama;
         this.photo = photo;
@@ -37,11 +39,11 @@ public class kirala_pojo  {
         this.ilanaciklama = ilanaciklama;
     }
 
-    public int getPhoto() {
+    public Drawable getPhoto() {
         return photo;
     }
 
-    public void setPhoto(int photo) {
+    public void setPhoto(Drawable photo) {
         this.photo = photo;
     }
 

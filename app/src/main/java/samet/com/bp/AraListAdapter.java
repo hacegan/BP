@@ -37,7 +37,9 @@ public class AraListAdapter extends RecyclerView.Adapter<AraListAdapter.MyViewHo
     public void onBindViewHolder(AraListAdapter.MyViewHolder holder, int position) {
 
         //holder.c_flag.setImageResource(arrayList.get(position).getPhoto());
-        holder.c_flag.setImageResource(R.drawable.empty_house);
+       // holder.c_flag.setImageResource(R.drawable.empty_house);
+        //holder.c_flag.setImageResource(arrayList.get(position).getPhoto());
+        holder.c_flag.setImageDrawable(arrayList.get(position).getPhoto());
         holder.c_name.setText(arrayList.get(position).getIlanbaslik());
 
     }

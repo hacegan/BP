@@ -207,7 +207,7 @@ Drawable drawable=tempimg.getDrawable();
                     final ImageView tempimg=new ImageView(Benim_ilanlarim.this);
 
 
-                    storageReference.child("images/ara/"+kul_mail+"/"+(i+1)).getBytes(Long.MAX_VALUE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+                    storageReference.child("images/ara/"+kul_mail+"/"+   (i-kiralailanid.size()+1)     ).getBytes(Long.MAX_VALUE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
                         @Override
                         public void onSuccess(byte[] bytes) {
                             System.out.println("Basariilli");

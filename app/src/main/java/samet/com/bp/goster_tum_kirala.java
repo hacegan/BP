@@ -76,7 +76,7 @@ static int maxkiraid;
     static Drawable drawable;
    static int drawableResourceId;
 static Drawable[] drawables;
-
+    static int sayac;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -153,7 +153,7 @@ String[] data=new String[ilanbaslik.size()];
 
                 final ImageView tempimg=new ImageView(goster_tum_kirala.this);
 
-final int sayac=i;
+sayac=i;
                 storageReference.child("images/herkirala/"+(i+1)).getBytes(Long.MAX_VALUE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
                     @Override
                     public void onSuccess(byte[] bytes) {

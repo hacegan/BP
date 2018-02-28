@@ -44,7 +44,7 @@ public class goster_tum_ara extends AppCompatActivity implements  View.OnClickLi
     static StorageReference storageReference= FirebaseStorage.getInstance().getReference();
     static Drawable drawable;
     static int drawableResourceId;
-
+    static int sayac;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -111,7 +111,7 @@ public class goster_tum_ara extends AppCompatActivity implements  View.OnClickLi
             for(int i=0;i<ilanbaslik.size();i++){
 
                 final ImageView tempimg=new ImageView(goster_tum_ara.this);
-                final int sayac=i;
+                 sayac=i;
 
                 storageReference.child("images/herara/"+(i+1)).getBytes(Long.MAX_VALUE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
                     @Override

@@ -46,7 +46,14 @@ public class tekilarailangoster extends Activity{
 
 
          ilanid= getIntent().getStringExtra("tekilaraitemid");
-        int id=Integer.valueOf(ilanid.trim());
+        StringTokenizer stringTokenizer=new StringTokenizer("ilanid",":");
+
+        int id=0;
+
+                //id=Integer.valueOf(stringTokenizer.nextToken().trim());
+           id=Integer.valueOf(ilanid.replaceAll("Ara id: ","").trim());
+
+
 
         ilan_url+="?ilan_id="+id;
 

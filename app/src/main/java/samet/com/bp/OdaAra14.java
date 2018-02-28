@@ -22,6 +22,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -45,7 +46,7 @@ public class OdaAra14 extends AppCompatActivity {
     SharedPreferences.Editor editor;
     static String ara_upload_url="http://vodkamorello.atspace.co.uk/ara_upload.php";
     static String  sonuc;
-    static  StorageReference storageReference;
+    static  StorageReference storageReference= FirebaseStorage.getInstance().getReference();
    static String odaara2resim;
    static int heraraid;
     @Override

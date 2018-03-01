@@ -28,6 +28,7 @@ public class Benim_Tekil_Ara_Goster  extends AppCompatActivity{
     String odaara1bay,odaara3yas,odaara4meslek,odaara5evet,odaara6evet,odaara10butce,odaara11tarih,odaara12sure,odaara13numara,odaara14baslik,odaara14aciklama;
 
     static String ilanid;
+    static     int il_id;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,9 +36,10 @@ public class Benim_Tekil_Ara_Goster  extends AppCompatActivity{
 
 
         ilanid= getIntent().getStringExtra("ilan_id");
-        int id=Integer.valueOf(ilanid.trim());
+        System.out.println("Benim İLanlarimdan gelen ara id si = "+ilanid);
+        il_id=Integer.valueOf(ilanid.trim());
 
-        ilan_url+="?ilan_id="+id;
+        ilan_url+="?ilan_id="+il_id;
 
         new MyAd().execute();
     }
@@ -125,13 +127,13 @@ public class Benim_Tekil_Ara_Goster  extends AppCompatActivity{
                     String ara_yayin_neredelive=textView.getText().toString();
                     textView.setText(ara_yayin_neredelive+" "+odaarahangiil);*/
 
-                /*    textView= (TextView) findViewById(R.id.ara_yayin_butce);
+                    textView= (TextView) findViewById(R.id.Tara_yayin_butce);
                     String ara_yayin_butce=textView.getText().toString();
-                    textView.setText(ara_yayin_butce+" "+odaarahangiilce);*/
+                    textView.setText(ara_yayin_butce+" "+odaara10butce);
 
-            textView= (TextView) findViewById(R.id.Tara_yayin_hazirtarih);
-            String ara_yayin_hazirtarih=textView.getText().toString();
-            textView.setText(ara_yayin_hazirtarih+" "+odaara11tarih);
+           // textView= (TextView) findViewById(R.id.Tara_yayin_hazirtarih);
+          //  String ara_yayin_hazirtarih=textView.getText().toString();
+           // textView.setText(ara_yayin_hazirtarih+" "+odaara11tarih);
 
             textView= (TextView) findViewById(R.id.Tara_yayin_konaksure);
             String ara_yayin_konaksure=textView.getText().toString();
@@ -177,22 +179,22 @@ public class Benim_Tekil_Ara_Goster  extends AppCompatActivity{
 
                     //  ilanid.add(  temp.substring(temp.indexOf("Kirala id:"),temp.indexOf("-",temp.indexOf("Kirala id:")) )        );
 
-                    odaara1bay = temp.substring(temp.indexOf("arayanbir: ")+12, temp.indexOf("-", temp.indexOf("arayanbir: ")));
+                    odaara1bay = temp.substring(temp.indexOf("arayanbir: ")+11, temp.indexOf("-", temp.indexOf("arayanbir: ")));
                     System.out.println("odaara1bay =" + odaara1bay);
 
                     //   String odaara2resim=temp.substring(temp.indexOf("ilanbaslik:"),temp.indexOf("-",temp.indexOf("ilanbaslik:")) );
                     //System.out.println("odaara2resim = "+odaara2resim);
 
-                    odaara3yas = temp.substring(temp.indexOf("yas : ")+7, temp.indexOf("-", temp.indexOf("yas : ")));
+                    odaara3yas = temp.substring(temp.indexOf("yas : ")+6, temp.indexOf("-", temp.indexOf("yas : ")));
                     System.out.println("odaara3yas = " + odaara3yas);
 
-                    odaara4meslek = temp.substring(temp.indexOf("meslek: ")+9, temp.indexOf("-", temp.indexOf("meslek: ")));
+                    odaara4meslek = temp.substring(temp.indexOf("meslek: ")+8, temp.indexOf("-", temp.indexOf("meslek: ")));
                     System.out.println("odaara4meslek = " + odaara4meslek);
 
-                    odaara5evet = temp.substring(temp.indexOf("havepet: ")+10, temp.indexOf("-", temp.indexOf("havepet: ")));
+                    odaara5evet = temp.substring(temp.indexOf("havepet: ")+9, temp.indexOf("-", temp.indexOf("havepet: ")));
                     System.out.println("odaara5evet = " + odaara5evet);
 
-                    odaara6evet = temp.substring(temp.indexOf("havesmoke: ")+12, temp.indexOf("-", temp.indexOf("havesmoke: ")));
+                    odaara6evet = temp.substring(temp.indexOf("havesmoke: ")+11, temp.indexOf("-", temp.indexOf("havesmoke: ")));
                     System.out.println("odaara6evet = " + odaara6evet);
 
                     //  String odaara8tv =temp.substring(temp.indexOf("ilanbaslik:"),temp.indexOf("-",temp.indexOf("ilanbaslik:")) );
@@ -204,22 +206,22 @@ public class Benim_Tekil_Ara_Goster  extends AppCompatActivity{
                     //   String odaarahangiilce=temp.substring(temp.indexOf("ilanbaslik:"),temp.indexOf("-",temp.indexOf("ilanbaslik:")) );
                     //   System.out.println("odaarahangiilce = "+odaarahangiilce);
 
-                    odaara10butce = temp.substring(temp.indexOf("butce: ")+8, temp.indexOf("-", temp.indexOf("butce: ")));
+                    odaara10butce = temp.substring(temp.indexOf("butce: ")+7, temp.indexOf("-", temp.indexOf("butce: ")));
                     System.out.println("odaara10butce = " + odaara10butce);
 
                     odaara11tarih = temp.substring(temp.indexOf("hazirbulunmatarih:")+19, temp.indexOf("-", temp.indexOf("hazirbulunmatarih:")));
                     System.out.println("odaara11tarih = " + odaara11tarih);
 
-                    odaara12sure = temp.substring(temp.indexOf("konaklamasure: ")+16, temp.indexOf("-", temp.indexOf("konaklamasure: ")));
+                    odaara12sure = temp.substring(temp.indexOf("konaklamasure: ")+15, temp.indexOf("-", temp.indexOf("konaklamasure: ")));
                     System.out.println("odaara12sure = " + odaara12sure);
 
-                    odaara13numara = temp.substring(temp.indexOf("telefonno: ")+12, temp.indexOf("-", temp.indexOf("telefonno: ")));
+                    odaara13numara = temp.substring(temp.indexOf("telefonno: ")+11, temp.indexOf("-", temp.indexOf("telefonno: ")));
                     System.out.println("odaara13numara = " + odaara13numara);
 
                     odaara14baslik = temp.substring(temp.indexOf("ilanbaslik: ")+13, temp.indexOf("-", temp.indexOf("ilanbaslik: ")));
                     System.out.println("odaara14baslik="+odaara14baslik);
 
-                    odaara14aciklama = temp.substring(temp.indexOf("ilanaciklama: ")+15, temp.indexOf("-", temp.indexOf("ilanaciklama: ")));
+                    odaara14aciklama = temp.substring(temp.indexOf("ilanaciklama: ")+14);
                     System.out.println("odaara14aciklama"+odaara14aciklama);
 
                 }

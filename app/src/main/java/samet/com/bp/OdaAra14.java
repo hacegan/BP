@@ -265,6 +265,7 @@ String odaarahangiilce=sharedPref.getString("odaarahangiilce",null);
 
                 bf=new BufferedReader(new InputStreamReader(con.getInputStream()));
                 sonuc=bf.readLine();
+                System.out.println("aramaxdegerimage sonucu ="+sonuc);
                 con.disconnect();
 
                 int ensonid=1;
@@ -274,10 +275,11 @@ String odaarahangiilce=sharedPref.getString("odaarahangiilce",null);
                     con.setRequestMethod("GET");
                     con.connect();
 
-                   // bf=new BufferedReader(new InputStreamReader(con.getInputStream()));
-                   // sonuc=bf.readLine();
+                    bf=new BufferedReader(new InputStreamReader(con.getInputStream()));
+                   sonuc=bf.readLine();
+                    System.out.println("araimagedegerolustur sonucu ="+sonuc);
                    con.disconnect();
-
+bf.close();
                     ensonid=1;
 
                 }
@@ -294,6 +296,7 @@ String odaarahangiilce=sharedPref.getString("odaarahangiilce",null);
 
                 bf=new BufferedReader(new InputStreamReader(con.getInputStream()));
                 sonuc=bf.readLine();
+                System.out.println("heraramaximgolustur sonucu ="+sonuc);
                 bf.close();
                 con.disconnect();
 

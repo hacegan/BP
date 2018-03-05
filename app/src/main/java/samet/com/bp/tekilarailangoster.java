@@ -1,6 +1,7 @@
 package samet.com.bp;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -35,6 +36,8 @@ public class tekilarailangoster extends Activity{
     static String ilanid;
 
     Button mesajbtn,kaydetbtn;
+    static String chatown,chatwth;
+    static int id;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,7 +51,7 @@ public class tekilarailangoster extends Activity{
          ilanid= getIntent().getStringExtra("tekilaraitemid");
         StringTokenizer stringTokenizer=new StringTokenizer("ilanid",":");
 
-        int id=0;
+      //  int id=0;
 
                 //id=Integer.valueOf(stringTokenizer.nextToken().trim());
            id=Integer.valueOf(ilanid.replaceAll("Ara id: ","").trim());
@@ -72,12 +75,79 @@ new Kaydet().execute();
         mesajbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                new Mesaj().execute();
             }
         });
 
 
     }
+
+
+    public class Mesaj extends  AsyncTask{
+
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected void onPostExecute(Object o) {
+            // super.onPostExecute(o);
+
+            UserDetails_Firebase.chatWith = chatwth;
+            startActivity(new Intent(tekilarailangoster.this, Chat_Firebase.class));
+        }
+
+        @Override
+        protected Object doInBackground(Object[] params) {
+            sharedPref = getApplicationContext().getSharedPreferences("MyPref",0);
+            editor = sharedPref.edit();
+
+            String user_id_str= sharedPref.getString("user_id","");
+            int user_id=Integer.valueOf(user_id_str);
+
+
+            try{
+                URL url=new URL("http://vodkamorello.atspace.co.uk/getemailpass_tekil_Ara.php?ilan_id="+id);
+                HttpURLConnection con= (HttpURLConnection) url.openConnection();
+                con.setRequestMethod("GET");
+                con.connect();
+
+                BufferedReader bf=new BufferedReader(new InputStreamReader(con.getInputStream()));
+                String  sonuc=bf.readLine();
+                // System.out.println(sonuc);
+
+                StringTokenizer token = new StringTokenizer(sonuc, "<br>");
+                int i=0;
+                while (token.hasMoreTokens()) {
+
+                    String temp = token.nextToken();
+                    if(i==0){
+                        chatwth=temp.replace(".",",");
+                    }
+                    else{
+
+                    }
+                    i++;
+                }
+
+                con.disconnect();
+
+
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+
+
+
+            return null;
+        }
+    }
+
+
+
 
     public class Kaydet extends  AsyncTask{
 
@@ -109,7 +179,8 @@ new Kaydet().execute();
 
                 BufferedReader bf=new BufferedReader(new InputStreamReader(con.getInputStream()));
                 String  sonuc=bf.readLine();
-                // System.out.println(sonuc);
+                System.out.println("http://vodkamorello.atspace.co.uk/kisikaydet_arailan.php?ara_ilanid="+ilanid+"&user_id="+user_id);
+                 System.out.println(sonuc);
 
                 con.disconnect();
 
@@ -207,9 +278,9 @@ new Kaydet().execute();
                     String ara_yayin_neredelive=textView.getText().toString();
                     textView.setText(ara_yayin_neredelive+" "+odaarahangiil);*/
 
-                /*    textView= (TextView) findViewById(R.id.ara_yayin_butce);
+                   textView= (TextView) findViewById(R.id.Tara_yayin_butce);
                     String ara_yayin_butce=textView.getText().toString();
-                    textView.setText(ara_yayin_butce+" "+odaarahangiilce);*/
+                    textView.setText(ara_yayin_butce+" "+odaara10butce);
 
             textView= (TextView) findViewById(R.id.Tara_yayin_hazirtarih);
             String ara_yayin_hazirtarih=textView.getText().toString();
@@ -259,22 +330,22 @@ new Kaydet().execute();
 
                     //  ilanid.add(  temp.substring(temp.indexOf("Kirala id:"),temp.indexOf("-",temp.indexOf("Kirala id:")) )        );
 
-                    odaara1bay = temp.substring(temp.indexOf("arayanbir: ")+12, temp.indexOf("-", temp.indexOf("arayanbir: ")));
+                    odaara1bay = temp.substring(temp.indexOf("arayanbir: ")+11, temp.indexOf("-", temp.indexOf("arayanbir: ")));
                     System.out.println("odaara1bay =" + odaara1bay);
 
                     //   String odaara2resim=temp.substring(temp.indexOf("ilanbaslik:"),temp.indexOf("-",temp.indexOf("ilanbaslik:")) );
                     //System.out.println("odaara2resim = "+odaara2resim);
 
-                    odaara3yas = temp.substring(temp.indexOf("yas : ")+7, temp.indexOf("-", temp.indexOf("yas : ")));
+                    odaara3yas = temp.substring(temp.indexOf("yas : ")+6, temp.indexOf("-", temp.indexOf("yas : ")));
                     System.out.println("odaara3yas = " + odaara3yas);
 
-                    odaara4meslek = temp.substring(temp.indexOf("meslek: ")+9, temp.indexOf("-", temp.indexOf("meslek: ")));
+                    odaara4meslek = temp.substring(temp.indexOf("meslek: ")+8, temp.indexOf("-", temp.indexOf("meslek: ")));
                     System.out.println("odaara4meslek = " + odaara4meslek);
 
-                    odaara5evet = temp.substring(temp.indexOf("havepet: ")+10, temp.indexOf("-", temp.indexOf("havepet: ")));
+                    odaara5evet = temp.substring(temp.indexOf("havepet: ")+9, temp.indexOf("-", temp.indexOf("havepet: ")));
                     System.out.println("odaara5evet = " + odaara5evet);
 
-                    odaara6evet = temp.substring(temp.indexOf("havesmoke: ")+12, temp.indexOf("-", temp.indexOf("havesmoke: ")));
+                    odaara6evet = temp.substring(temp.indexOf("havesmoke: ")+11, temp.indexOf("-", temp.indexOf("havesmoke: ")));
                     System.out.println("odaara6evet = " + odaara6evet);
 
                     //  String odaara8tv =temp.substring(temp.indexOf("ilanbaslik:"),temp.indexOf("-",temp.indexOf("ilanbaslik:")) );
@@ -286,22 +357,22 @@ new Kaydet().execute();
                     //   String odaarahangiilce=temp.substring(temp.indexOf("ilanbaslik:"),temp.indexOf("-",temp.indexOf("ilanbaslik:")) );
                     //   System.out.println("odaarahangiilce = "+odaarahangiilce);
 
-                    odaara10butce = temp.substring(temp.indexOf("butce: ")+8, temp.indexOf("-", temp.indexOf("butce: ")));
+                    odaara10butce = temp.substring(temp.indexOf("butce: ")+7, temp.indexOf("-", temp.indexOf("butce: ")));
                     System.out.println("odaara10butce = " + odaara10butce);
 
-                    odaara11tarih = temp.substring(temp.indexOf("hazirbulunmatarih:")+19, temp.indexOf("-", temp.indexOf("hazirbulunmatarih:")));
+                    odaara11tarih = temp.substring(temp.indexOf("hazirbulunmatarih:")+18, temp.indexOf("-", temp.indexOf("hazirbulunmatarih:")));
                     System.out.println("odaara11tarih = " + odaara11tarih);
 
-                    odaara12sure = temp.substring(temp.indexOf("konaklamasure: ")+16, temp.indexOf("-", temp.indexOf("konaklamasure: ")));
+                    odaara12sure = temp.substring(temp.indexOf("konaklamasure: ")+15, temp.indexOf("-", temp.indexOf("konaklamasure: ")));
                     System.out.println("odaara12sure = " + odaara12sure);
 
-                    odaara13numara = temp.substring(temp.indexOf("telefonno: ")+12, temp.indexOf("-", temp.indexOf("telefonno: ")));
+                    odaara13numara = temp.substring(temp.indexOf("telefonno: ")+11, temp.indexOf("-", temp.indexOf("telefonno: ")));
                     System.out.println("odaara13numara = " + odaara13numara);
 
-                    odaara14baslik = temp.substring(temp.indexOf("ilanbaslik: ")+13, temp.indexOf("-", temp.indexOf("ilanbaslik: ")));
+                    odaara14baslik = temp.substring(temp.indexOf("ilanbaslik: ")+12, temp.indexOf("-", temp.indexOf("ilanbaslik: ")));
                     System.out.println("odaara14baslik="+odaara14baslik);
 
-                    odaara14aciklama = temp.substring(temp.indexOf("ilanaciklama: ")+15, temp.indexOf("-", temp.indexOf("ilanaciklama: ")));
+                    odaara14aciklama = temp.substring(temp.indexOf("ilanaciklama: ")+14);
                     System.out.println("odaara14aciklama"+odaara14aciklama);
 
                 }

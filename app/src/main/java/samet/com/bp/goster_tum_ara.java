@@ -44,7 +44,7 @@ public class goster_tum_ara extends AppCompatActivity implements  View.OnClickLi
     static StorageReference storageReference= FirebaseStorage.getInstance().getReference();
     static Drawable drawable;
     static int drawableResourceId;
-    static int sayac;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -111,8 +111,8 @@ public class goster_tum_ara extends AppCompatActivity implements  View.OnClickLi
             for(int i=0;i<ilanbaslik.size();i++){
 
                 final ImageView tempimg=new ImageView(goster_tum_ara.this);
-                 sayac=i;
 
+              final  int sayac=i;
                 storageReference.child("images/herara/"+(i+1)).getBytes(Long.MAX_VALUE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
                     @Override
                     public void onSuccess(byte[] bytes) {
@@ -122,6 +122,8 @@ public class goster_tum_ara extends AppCompatActivity implements  View.OnClickLi
                         drawable=tempimg.getDrawable();
                         drawable.setBounds(0,0,460,460);
                         drawableResourceId=tempimg.getId();
+
+
 
                         ara_pojos.add(new ara_pojo(ilanbaslik.get(sayac),ilanaciklama.get(sayac),drawable,ilanid.get(sayac)));
 
@@ -147,8 +149,8 @@ public class goster_tum_ara extends AppCompatActivity implements  View.OnClickLi
 
             }
 
-            araListAdapter=new AraListAdapter(ara_pojos,getApplicationContext());
-            recyclerView.setAdapter(araListAdapter);
+           // araListAdapter=new AraListAdapter(ara_pojos,getApplicationContext());
+           // recyclerView.setAdapter(araListAdapter);
 
 
 
@@ -177,7 +179,7 @@ public class goster_tum_ara extends AppCompatActivity implements  View.OnClickLi
 
                     ilanbaslik.add( temp.substring(temp.indexOf("ilanbaslik:"),temp.indexOf("-",temp.indexOf("ilanbaslik:")) ).replaceAll("ilanbaslik:","").trim() );
                     ilanaciklama.add( temp.substring(temp.indexOf("ilanaciklama:") ).replaceAll("ilanaciklama:","").trim() );
-                    ilanid.add(  temp.substring(temp.indexOf("Ara id:"),temp.indexOf("-",temp.indexOf("Ara id:")) ).replaceAll("Kirala id:","").trim()  );
+                    ilanid.add(  temp.substring(temp.indexOf("Ara id:"),temp.indexOf("-",temp.indexOf("Ara id:")) ).replaceAll("Ara id:","").trim()  );
                 }
 
 

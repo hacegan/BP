@@ -28,8 +28,8 @@ public class OdaAraIl extends Activity implements  View.OnClickListener{
     ArrayList<String> arrayplaka = new ArrayList<String>();
     static String server_url;
     LinearLayout ll;
-    SharedPreferences sharedPref ;
-    SharedPreferences.Editor editor;
+ static   SharedPreferences sharedPref ;
+   static SharedPreferences.Editor editor;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +54,12 @@ public class OdaAraIl extends Activity implements  View.OnClickListener{
         Intent intent = new Intent(OdaAraIl.this,OdaAraIlce.class);
        // intent.putExtra("plakalist",arrayil);
         intent.putExtra("odaarahangiil",((TextView) v).getText().toString());
+
+        sharedPref = getApplicationContext().getSharedPreferences("MyPref",0);
+        editor = sharedPref.edit();
+        editor.putString("odaarahangiil",((TextView) v).getText().toString());
+        editor.commit();
+
         startActivity(intent);
     }
 

@@ -106,7 +106,7 @@ String odaarahangiilce=sharedPref.getString("odaarahangiilce",null);
         System.out.println("odaara13numara = "+odaara13numara);
 
         ara_upload_url+="?odaara1bay="+odaara1bay+"&odaara3yas="+odaara3yas+"&odaara4meslek="+odaara4meslek+"&odaara5evet="+odaara5evet
-                +"&odaara6evet="+odaara6evet+"&odaara8tv="+odaara8tv+"&odaarahangiil="+odaarahangiil+"&odaarahangiilce="+odaarahangiilce
+                +"&odaara6evet="+odaara6evet+"&odaara8tv="+odaara8tv+"&odaarahangibolge="+odaarahangiil+"-"+odaarahangiilce
                 +"&odaara10butce="+odaara10butce+"&odaara11tarih="+odaara11tarih+"&odaara12sure="+odaara12sure+"&odaara13numara="+odaara13numara;
 
 
@@ -128,7 +128,7 @@ String odaarahangiilce=sharedPref.getString("odaarahangiilce",null);
                 editor.putString("odaara14aciklama", aciklama.getText().toString());
                 editor.commit();
 
-                ara_upload_url+="&odaara14baslik"+baslik.getText().toString()+"&odaara14aciklama="+aciklama.getText().toString()+"&user_id="+sharedPref.getString("user_id",null);
+                ara_upload_url+="&odaara14baslik="+baslik.getText().toString()+"&odaara14aciklama="+aciklama.getText().toString()+"&user_id="+sharedPref.getString("user_id",null);
                 new AraTask().execute();
                Intent intent = new Intent(OdaAra14.this,Ara_Yayin_Kontrol.class);
                 startActivity(intent);

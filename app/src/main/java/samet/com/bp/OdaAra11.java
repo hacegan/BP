@@ -58,7 +58,7 @@ public class OdaAra11  extends AppCompatActivity {
         btndvm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                editor.putString("odaara11tarih", tarih);
+                editor.putString("odaara11tarih",tarih);
                 editor.commit();
                 Intent intent = new Intent(OdaAra11.this,OdaAra12.class);
                 startActivity(intent);

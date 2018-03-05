@@ -46,6 +46,7 @@ public class Chat_Firebase extends AppCompatActivity{
         scrollView = (ScrollView)findViewById(R.id.scrollView);
 
         //FirebaseDatabase.setAndroidContext(this);
+        Firebase.setAndroidContext(this);
         reference1 = new Firebase("https://bitirme-proje-1511471101877.firebaseio.com/messages/" + UserDetails_Firebase.username + "_" + UserDetails_Firebase.chatWith);
         reference2 = new Firebase("https://bitirme-proje-1511471101877.firebaseio.com/messages/" + UserDetails_Firebase.chatWith + "_" + UserDetails_Firebase.username);
 

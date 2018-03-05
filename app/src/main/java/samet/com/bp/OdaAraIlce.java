@@ -2,6 +2,7 @@ package samet.com.bp;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -27,6 +28,8 @@ public class OdaAraIlce extends Activity implements  View.OnClickListener{
    static String sehir_isim;
     static String server_url;
     LinearLayout ll;
+    static SharedPreferences sharedPref ;
+    static SharedPreferences.Editor editor;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +54,14 @@ public class OdaAraIlce extends Activity implements  View.OnClickListener{
         TextView t=(TextView) v;
         Intent intent = new Intent(OdaAraIlce.this,OdaAra10.class);
         intent.putExtra("odaarahangiilce",((TextView) v).getText().toString());
+
+
+        sharedPref = getApplicationContext().getSharedPreferences("MyPref",0);
+        editor = sharedPref.edit();
+        editor.putString("odaarahangiilce",((TextView) v).getText().toString());
+        editor.commit();
+
+
         startActivity(intent);
     }
 

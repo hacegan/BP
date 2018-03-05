@@ -184,7 +184,8 @@ i++;
 
                 BufferedReader bf=new BufferedReader(new InputStreamReader(con.getInputStream()));
                 String  sonuc=bf.readLine();
-                // System.out.println(sonuc);
+                System.out.println("http://vodkamorello.atspace.co.uk/kisikaydet_kiralailan.php?kirala_ilanid="+Integer.valueOf(ilanid.trim())+"&user_id="+user_id);
+                 System.out.println(sonuc);
 
                 con.disconnect();
 

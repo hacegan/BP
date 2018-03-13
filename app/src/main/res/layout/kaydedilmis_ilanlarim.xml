@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:text=""
         android:textSize="25sp"
-        android:id="@+id/benimilanresultsid"
+        android:id="@+id/kayitilanresultsid"
         />
 
 
@@ -23,7 +23,7 @@
 
 
         <LinearLayout
-            android:id="@+id/benimilantv"
+            android:id="@+id/kayitilantv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">

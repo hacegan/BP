@@ -85,7 +85,7 @@ public class kaydedilmis_ilanlarim extends Activity implements  View.OnClickList
 
         if(text_tag.contains("Kirala")){
 
-            intent=new Intent(kaydedilmis_ilanlarim.this,Benim_Tekil_Kira_Goster.class);
+            intent=new Intent(kaydedilmis_ilanlarim.this,tekilkiralailangoster.class);
             StringTokenizer token = new StringTokenizer(text_tag,":");
 
             int i=0;
@@ -107,7 +107,7 @@ public class kaydedilmis_ilanlarim extends Activity implements  View.OnClickList
 
         else{
 
-            intent=new Intent(kaydedilmis_ilanlarim.this,Benim_Tekil_Ara_Goster.class);
+            intent=new Intent(kaydedilmis_ilanlarim.this,tekilarailangoster.class);
             StringTokenizer token = new StringTokenizer(text_tag,":");
 
             int i=0;

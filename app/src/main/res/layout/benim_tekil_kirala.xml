@@ -14,18 +14,16 @@
 
 
         <Button
+            android:id="@+id/benimtklkiralasilbtn"
             android:layout_width="180dp"
             android:layout_height="60dp"
-            android:text="İlanı Sil"
-            android:id="@+id/tekilkirailankaydetbtn"
-            />
+            android:text="İlanı Sil" />
 
         <Button
+            android:id="@+id/benimtklkiralaeditbtn"
             android:layout_width="match_parent"
             android:layout_height="66dp"
-            android:text="İlanı Düzenle"
-            android:id="@+id/tekilkiramesajbtn"
-            />
+            android:text="İlanı Düzenle" />
 
     </LinearLayout>
 

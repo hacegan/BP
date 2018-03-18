@@ -1,12 +1,26 @@
 package samet.com.bp;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -29,6 +43,14 @@ public class Benim_Tekil_Ara_Goster  extends AppCompatActivity{
 
     static String ilanid;
     static     int il_id;
+
+    Button silbtn,editbtn;
+
+    static StorageReference storageReference= FirebaseStorage.getInstance().getReference();
+
+    static  String kul_mail;
+
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +63,159 @@ public class Benim_Tekil_Ara_Goster  extends AppCompatActivity{
 
         ilan_url+="?ilan_id="+il_id;
 
+        silbtn= (Button) findViewById(R.id.benimtklarasilbtn);
+
+        editbtn= (Button) findViewById(R.id.benimtklaraeditbtn);
+
+
+        sharedPref = getApplicationContext().getSharedPreferences("MyPref",0);
+        editor = sharedPref.edit();
+
+        kul_mail =sharedPref.getString("email",null);
+
+
+
         new MyAd().execute();
+
+
+        silbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                AlertDialog.Builder builder=new AlertDialog.Builder(Benim_Tekil_Ara_Goster.this);
+                LayoutInflater inflater=getLayoutInflater();
+                View dialog_layout=inflater.inflate(R.layout.kayitsil,null);
+
+                builder.setView(dialog_layout).setPositiveButton("SİL", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+new SilAd().execute();
+                        //   il_id url de yerine yazılı silinecek ayrıca atspacede bunun icin php dosyası olusturuulucak
+
+
+                  /*      try{
+                            URL url=new URL("http://vodkamorello.atspace.co.uk/arasil.php"+"?ilan_id="+il_id);
+                            HttpURLConnection con= (HttpURLConnection) url.openConnection();
+                            con.setRequestMethod("GET");
+                            con.connect();
+
+                            BufferedReader bf=new BufferedReader(new InputStreamReader(con.getInputStream()));
+                            String  sonuc=bf.readLine();
+                             System.out.println(sonuc);
+                        }
+                        catch (Exception e){
+
+                        }
+
+
+                        Intent intent = new Intent(Benim_Tekil_Ara_Goster.this,UserMainActivity.class);
+                        startActivity(intent);*/
+
+
+
+
+                    }
+                })
+                        .setNegativeButton("İPTAL ET", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                            }
+                        });
+
+                builder.show();
+
+
+
+
+            }
+        });
+
+
+        editbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+
+
+    }
+
+
+    public class SilAd extends  AsyncTask{
+
+
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected void onPostExecute(Object o) {
+
+        }
+
+        @Override
+        protected Object doInBackground(Object[] params) {
+
+            try{
+                URL url=new URL("http://vodkamorello.atspace.co.uk/arasil.php"+"?ilan_id="+il_id);
+                HttpURLConnection con= (HttpURLConnection) url.openConnection();
+                con.setRequestMethod("GET");
+                con.connect();
+
+                BufferedReader bf=new BufferedReader(new InputStreamReader(con.getInputStream()));
+                String  sonuc=bf.readLine();
+                System.out.println(sonuc);
+
+
+                storageReference.child("images/herara/"+il_id).delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        System.out.println("Her aradan kayit basariyla silindi");
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        System.out.println("Her aradan kayit silinemedi");
+                    }
+                });
+
+
+                storageReference.child("images/ara/"+kul_mail+"/"+il_id).delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        System.out.println("Her aradan kayit basariyla silindi");
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        System.out.println("Her aradan kayit silinemedi");
+                    }
+                });
+
+
+
+                Intent intent = new Intent(Benim_Tekil_Ara_Goster.this,UserMainActivity.class);
+                startActivity(intent);
+            }
+            catch (Exception e){
+                System.out.println("Silmede Hata var ="+e.getCause());
+                e.printStackTrace();
+            }
+
+
+            return null;
+        }
+
+
+
+
     }
 
 

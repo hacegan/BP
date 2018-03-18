@@ -303,6 +303,19 @@ bf.close();
                  heraraid=Integer.valueOf(sonuc.trim());
 
 
+                //Ara fireid güncellemesi
+                url=new URL("http://vodkamorello.atspace.co.uk/arafireupdate.php");
+                con= (HttpURLConnection) url.openConnection();
+                con.setRequestMethod("GET");
+                con.connect();
+
+                bf=new BufferedReader(new InputStreamReader(con.getInputStream()));
+                sonuc=bf.readLine();
+                System.out.println("arafireupdate sonucu ="+sonuc);
+                bf.close();
+                con.disconnect();
+
+
                 byte[] b = Base64.decode(odaara2resim, Base64.DEFAULT);
                 Bitmap bitmap = BitmapFactory.decodeByteArray(b,0,b.length);
 

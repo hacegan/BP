@@ -392,6 +392,21 @@ con.disconnect();
 
                  herkiraid=Integer.valueOf(sonuc.trim());
 
+
+
+                //Kirala fireid güncellemesi
+                url=new URL("http://vodkamorello.atspace.co.uk/kiralafireupdate.php");
+                con= (HttpURLConnection) url.openConnection();
+                con.setRequestMethod("GET");
+                con.connect();
+
+                bf=new BufferedReader(new InputStreamReader(con.getInputStream()));
+                sonuc=bf.readLine();
+                bf.close();
+                con.disconnect();
+
+
+
                 byte[] b = Base64.decode(kirala6resim, Base64.DEFAULT);
                 Bitmap bitmap = BitmapFactory.decodeByteArray(b,0,b.length);
 

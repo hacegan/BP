@@ -71,6 +71,9 @@ public class Benim_ilanlarim extends Activity implements  View.OnClickListener{
     static int kiralamaximgid=0;
     static int aramaximgid=0;
 
+    static ArrayList<Integer> herkiralaarrayliste=new ArrayList<Integer>();
+    static ArrayList<Integer> heraraarrayliste=new ArrayList<Integer>();
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -184,30 +187,7 @@ i++;
                      final ImageView tempimg=new ImageView(Benim_ilanlarim.this);
 
 
-                 storageReference.child("images/kirala/"+kul_mail+"/"+(i+1)).getBytes(Long.MAX_VALUE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
-                        @Override
-                        public void onSuccess(byte[] bytes) {
-                            System.out.println("Basariilli");
-                            Bitmap bmp = BitmapFactory.decodeByteArray(bytes,0,bytes.length);
-                            tempimg.setImageBitmap(bmp);
-Drawable drawable=tempimg.getDrawable();
-                            drawable.setBounds(0,0,460,460);
-                            tv.setCompoundDrawables(drawable,null,null,null);
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception exception) {
-                            System.out.println("Basarisiz");
-                        }
-                    });
-
-
-                }
-                else{
-                    final ImageView tempimg=new ImageView(Benim_ilanlarim.this);
-
-
-                    storageReference.child("images/ara/"+kul_mail+"/"+   (i-kiralailanid.size()+1)     ).getBytes(Long.MAX_VALUE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+                    storageReference.child("images/kirala/"+kul_mail+"/"+herkiralaarrayliste.get(i)).getBytes(Long.MAX_VALUE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
                         @Override
                         public void onSuccess(byte[] bytes) {
                             System.out.println("Basariilli");
@@ -223,6 +203,72 @@ Drawable drawable=tempimg.getDrawable();
                             System.out.println("Basarisiz");
                         }
                     });
+
+
+
+           /*      storageReference.child("images/kirala/"+kul_mail+"/"+(i+1)).getBytes(Long.MAX_VALUE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+                        @Override
+                        public void onSuccess(byte[] bytes) {
+                            System.out.println("Basariilli");
+                            Bitmap bmp = BitmapFactory.decodeByteArray(bytes,0,bytes.length);
+                            tempimg.setImageBitmap(bmp);
+Drawable drawable=tempimg.getDrawable();
+                            drawable.setBounds(0,0,460,460);
+                            tv.setCompoundDrawables(drawable,null,null,null);
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception exception) {
+                            System.out.println("Basarisiz");
+                        }
+                    });
+                    */
+
+
+
+
+                }
+                else{
+                    final ImageView tempimg=new ImageView(Benim_ilanlarim.this);
+
+
+                    storageReference.child("images/ara/"+kul_mail+"/"+heraraarrayliste.get(i-kiralailanid.size())  ).getBytes(Long.MAX_VALUE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+                        @Override
+                        public void onSuccess(byte[] bytes) {
+                            System.out.println("Basariilli");
+                            Bitmap bmp = BitmapFactory.decodeByteArray(bytes,0,bytes.length);
+                            tempimg.setImageBitmap(bmp);
+                            Drawable drawable=tempimg.getDrawable();
+                            drawable.setBounds(0,0,460,460);
+                            tv.setCompoundDrawables(drawable,null,null,null);
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception exception) {
+                            System.out.println("Basarisiz");
+                        }
+                    });
+
+
+                   /* storageReference.child("images/ara/"+kul_mail+"/"+   (i-kiralailanid.size()+1)     ).getBytes(Long.MAX_VALUE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+                        @Override
+                        public void onSuccess(byte[] bytes) {
+                            System.out.println("Basariilli");
+                            Bitmap bmp = BitmapFactory.decodeByteArray(bytes,0,bytes.length);
+                            tempimg.setImageBitmap(bmp);
+                            Drawable drawable=tempimg.getDrawable();
+                            drawable.setBounds(0,0,460,460);
+                            tv.setCompoundDrawables(drawable,null,null,null);
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception exception) {
+                            System.out.println("Basarisiz");
+                        }
+                    });*/
+
+
+
                 }
 
 
@@ -354,6 +400,46 @@ aramaximgid=Integer.valueOf(sonuc.trim());
                 }
                 con.disconnect();
                 bf.close();
+
+
+
+
+                url=new URL("http://vodkamorello.atspace.co.uk/Benimadsresim.php"+"?ilanid="+sharedPref.getString("user_id",null));
+                con= (HttpURLConnection) url.openConnection();
+                con.setRequestMethod("GET");
+                con.connect();
+
+
+                bf=new BufferedReader(new InputStreamReader(con.getInputStream()));
+                sonuc=bf.readLine();
+
+
+                token = new StringTokenizer(sonuc, ";");
+                int kirami_arami=0;
+                while (token.hasMoreTokens()) {
+
+                    String temp = token.nextToken();
+
+                    StringTokenizer tokenic=new StringTokenizer(temp,"<br>");
+
+                    while(tokenic.hasMoreTokens()){
+
+                      String tempic=  tokenic.nextToken();
+
+                        if(kirami_arami==0){
+                            herkiralaarrayliste.add(Integer.valueOf(tempic.trim()));
+                        }
+                        else{
+                            heraraarrayliste.add(Integer.valueOf(tempic.trim()));
+                        }
+
+                    }
+kirami_arami=1;
+
+                    //herkiralaarrayliste.add(Integer.valueOf(temp.trim()));
+
+
+                }
 
 
 

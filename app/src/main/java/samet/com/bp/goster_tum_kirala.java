@@ -77,6 +77,8 @@ static int maxkiraid;
    static int drawableResourceId;
 static Drawable[] drawables;
 
+    static ArrayList<Integer> herkiralaarrayliste=new ArrayList<Integer>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -154,7 +156,34 @@ String[] data=new String[ilanbaslik.size()];
                 final ImageView tempimg=new ImageView(goster_tum_kirala.this);
 
                 final  int sayac=i;
-                storageReference.child("images/herkirala/"+(i+1)).getBytes(Long.MAX_VALUE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+                storageReference.child("images/herkirala/"+herkiralaarrayliste.get(i)).getBytes(Long.MAX_VALUE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+                    @Override
+                    public void onSuccess(byte[] bytes) {
+                        System.out.println("Basariilli");
+                        Bitmap bmp = BitmapFactory.decodeByteArray(bytes,0,bytes.length);
+                        tempimg.setImageBitmap(bmp);
+                        drawable=tempimg.getDrawable();
+                        drawable.setBounds(0,0,160,160);
+                        drawableResourceId=   tempimg.getId();
+
+                        kirala_pojos.add(new kirala_pojo(ilanbaslik.get(sayac),ilanaciklama.get(sayac),drawable,ilanid.get(sayac)));
+
+                        if(sayac==ilanbaslik.size()-1){
+                            kiralaListAdapter=new KiralaListAdapter(kirala_pojos,getApplicationContext());
+                            recyclerView.setAdapter(kiralaListAdapter);
+                        }
+
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception exception) {
+                        System.out.println("Basarisiz");
+                    }
+                });
+
+
+
+              /*  storageReference.child("images/herkirala/"+(i+1)).getBytes(Long.MAX_VALUE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
                     @Override
                     public void onSuccess(byte[] bytes) {
                         System.out.println("Basariilli");
@@ -177,7 +206,7 @@ String[] data=new String[ilanbaslik.size()];
                     public void onFailure(@NonNull Exception exception) {
                         System.out.println("Basarisiz");
                     }
-                });
+                });*/
 
 
                // int drawableResourceId = getApplicationContext().getResources().getIdentifier("drawable","id",getApplicationContext().getPackageName());
@@ -239,6 +268,31 @@ ilanid.add(  temp.substring(temp.indexOf("Kirala id:"),temp.indexOf("-",temp.ind
 
                 if(sonuc!=null){
                     maxkiraid=Integer.valueOf(sonuc.trim());
+                }
+
+
+
+                con.disconnect();
+                bf.close();
+
+
+                url=new URL("http://vodkamorello.atspace.co.uk/KiralaHerArrayGetir.php");
+                con= (HttpURLConnection) url.openConnection();
+                con.setRequestMethod("GET");
+                con.connect();
+
+
+                bf=new BufferedReader(new InputStreamReader(con.getInputStream()));
+                sonuc=bf.readLine();
+
+
+                token = new StringTokenizer(sonuc, "<br>");
+                while (token.hasMoreTokens()) {
+
+                    String temp = token.nextToken();
+                    herkiralaarrayliste.add(Integer.valueOf(temp.trim()));
+
+
                 }
 
 

@@ -164,14 +164,44 @@ new SilAd().execute();
         protected Object doInBackground(Object[] params) {
 
             try{
-                URL url=new URL("http://vodkamorello.atspace.co.uk/arasil.php"+"?ilan_id="+il_id);
-                HttpURLConnection con= (HttpURLConnection) url.openConnection();
+
+                URL   url=new URL("http://vodkamorello.atspace.co.uk/GetAraFireid.php"+"?ilan_id="+il_id);
+                HttpURLConnection  con= (HttpURLConnection) url.openConnection();
+                con.setRequestMethod("GET");
+                con.connect();
+                BufferedReader  bf=new BufferedReader(new InputStreamReader(con.getInputStream()));
+                String  sonuc=bf.readLine();
+                int fire_id=Integer.valueOf(sonuc);
+
+                bf.close();
+                con.disconnect();
+
+
+
+
+
+                 url=new URL("http://vodkamorello.atspace.co.uk/arasil.php"+"?ilan_id="+il_id);
+                 con= (HttpURLConnection) url.openConnection();
                 con.setRequestMethod("GET");
                 con.connect();
 
-                BufferedReader bf=new BufferedReader(new InputStreamReader(con.getInputStream()));
-                String  sonuc=bf.readLine();
+                 bf=new BufferedReader(new InputStreamReader(con.getInputStream()));
+                  sonuc=bf.readLine();
                 System.out.println(sonuc);
+
+              /*  StringTokenizer token = new StringTokenizer(sonuc, ".");
+                int i=0;
+                int fire_id=0;
+                while (token.hasMoreTokens()) {
+
+                    String temp = token.nextToken();
+
+                    if(i==1){
+                        fire_id=Integer.valueOf(temp.trim());
+                    }
+                    i++;
+                }*/
+
 
 
                 storageReference.child("images/herara/"+il_id).delete().addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -187,7 +217,7 @@ new SilAd().execute();
                 });
 
 
-                storageReference.child("images/ara/"+kul_mail+"/"+il_id).delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+                storageReference.child("images/ara/"+kul_mail+"/"+fire_id).delete().addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         System.out.println("Her aradan kayit basariyla silindi");

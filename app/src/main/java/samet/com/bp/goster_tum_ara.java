@@ -45,6 +45,8 @@ public class goster_tum_ara extends AppCompatActivity implements  View.OnClickLi
     static Drawable drawable;
     static int drawableResourceId;
 
+    static ArrayList<Integer> heraraarrayliste=new ArrayList<Integer>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -113,7 +115,9 @@ public class goster_tum_ara extends AppCompatActivity implements  View.OnClickLi
                 final ImageView tempimg=new ImageView(goster_tum_ara.this);
 
               final  int sayac=i;
-                storageReference.child("images/herara/"+(i+1)).getBytes(Long.MAX_VALUE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+
+
+                storageReference.child("images/herara/"+heraraarrayliste.get(i)).getBytes(Long.MAX_VALUE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
                     @Override
                     public void onSuccess(byte[] bytes) {
                         System.out.println("Basariilli");
@@ -140,6 +144,34 @@ public class goster_tum_ara extends AppCompatActivity implements  View.OnClickLi
                         System.out.println("Basarisiz");
                     }
                 });
+
+               /* storageReference.child("images/herara/"+(i+1)).getBytes(Long.MAX_VALUE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+                    @Override
+                    public void onSuccess(byte[] bytes) {
+                        System.out.println("Basariilli");
+                        Bitmap bmp = BitmapFactory.decodeByteArray(bytes,0,bytes.length);
+                        tempimg.setImageBitmap(bmp);
+                        drawable=tempimg.getDrawable();
+                        drawable.setBounds(0,0,460,460);
+                        drawableResourceId=tempimg.getId();
+
+
+
+                        ara_pojos.add(new ara_pojo(ilanbaslik.get(sayac),ilanaciklama.get(sayac),drawable,ilanid.get(sayac)));
+
+
+                        if(sayac==ilanbaslik.size()-1){
+                            araListAdapter=new AraListAdapter(ara_pojos,getApplicationContext());
+                            recyclerView.setAdapter(araListAdapter);
+                        }
+
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception exception) {
+                        System.out.println("Basarisiz");
+                    }
+                });*/
 
 
 
@@ -200,6 +232,32 @@ public class goster_tum_ara extends AppCompatActivity implements  View.OnClickLi
                 }
 
                 con.disconnect();
+                bf.close();
+
+
+                url=new URL("http://vodkamorello.atspace.co.uk/AraHerArrayGetir.php");
+                con= (HttpURLConnection) url.openConnection();
+                con.setRequestMethod("GET");
+                con.connect();
+
+
+                bf=new BufferedReader(new InputStreamReader(con.getInputStream()));
+                sonuc=bf.readLine();
+
+
+                token = new StringTokenizer(sonuc, "<br>");
+                while (token.hasMoreTokens()) {
+
+                    String temp = token.nextToken();
+                    heraraarrayliste.add(Integer.valueOf(temp.trim()));
+
+
+                }
+
+
+
+
+
 
 
             }

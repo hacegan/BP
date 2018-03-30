@@ -405,6 +405,18 @@ con.disconnect();
                 bf.close();
                 con.disconnect();
 
+                //
+                url=new URL("http://vodkamorello.atspace.co.uk/KiralaTekilArrayUpdate.php?userid="+sharedPref.getString("user_id",null));
+                con= (HttpURLConnection) url.openConnection();
+                con.setRequestMethod("GET");
+                con.connect();
+
+                bf=new BufferedReader(new InputStreamReader(con.getInputStream()));
+                sonuc=bf.readLine();
+                bf.close();
+                con.disconnect();
+
+
 
 
                 byte[] b = Base64.decode(kirala6resim, Base64.DEFAULT);

@@ -205,6 +205,11 @@ public class goster_tum_ara extends AppCompatActivity implements  View.OnClickLi
                 //System.out.println(sonuc);
 
                 StringTokenizer token = new StringTokenizer(sonuc, ";");
+
+                ilanaciklama.clear();
+                ilanbaslik.clear();
+                ilanid.clear();
+
                 while (token.hasMoreTokens()) {
 
                     String temp=token.nextToken();
@@ -218,8 +223,9 @@ public class goster_tum_ara extends AppCompatActivity implements  View.OnClickLi
 
 
                 con.disconnect();
+                bf.close();
 
-                url=new URL("http://vodkamorello.atspace.co.uk/getmaxallaraimg.php");
+                /*url=new URL("http://vodkamorello.atspace.co.uk/getmaxallaraimg.php");
                 con= (HttpURLConnection) url.openConnection();
                 con.setRequestMethod("GET");
                 con.connect();
@@ -252,7 +258,7 @@ public class goster_tum_ara extends AppCompatActivity implements  View.OnClickLi
                     heraraarrayliste.add(Integer.valueOf(temp.trim()));
 
 
-                }
+                }*/
 
 
 

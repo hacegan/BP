@@ -28,9 +28,11 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.StringTokenizer;
 import java.util.UUID;
 
 /**
@@ -130,6 +132,7 @@ public class OdaAra14 extends AppCompatActivity {
                 editor.commit();
 
                 ara_upload_url += "&odaara14baslik=" + baslik.getText().toString() + "&odaara14aciklama=" + aciklama.getText().toString() + "&user_id=" + sharedPref.getString("user_id", null);
+                System.out.println(ara_upload_url);
                 new AraTask().execute();
                 Intent intent = new Intent(OdaAra14.this, Ara_Yayin_Kontrol.class);
                 startActivity(intent);
@@ -256,7 +259,105 @@ public class OdaAra14 extends AppCompatActivity {
 
                 String kul_mail = sharedPref.getString("email", null);
 
-                url = new URL("http://vodkamorello.atspace.co.uk/aramaxdegerimage.php?email=" + kul_mail);
+                StringTokenizer tokenizer=new StringTokenizer(sonuc,"<br>");
+
+                String herkiralasonuc="",tekilkiralasonuc="";
+                int i=0;
+                while(tokenizer.hasMoreTokens()){
+
+                    String token=tokenizer.nextToken();
+
+                    if(i==0){
+                        herkiralasonuc=token;
+                    }
+                    else{
+                        tekilkiralasonuc=token;
+                    }
+
+                    i++;
+
+
+                }
+
+                System.out.println("Eklenen en son degerin idsi="+herkiralasonuc);
+
+                System.out.println("En son tekil id gelen="+tekilkiralasonuc);
+
+                byte[] b = Base64.decode(odaara2resim, Base64.DEFAULT);
+                Bitmap bitmap = BitmapFactory.decodeByteArray(b,0,b.length);
+
+                ByteArrayOutputStream stream = new ByteArrayOutputStream();
+
+                bitmap.compress(Bitmap.CompressFormat.JPEG,50,stream);
+
+                byte[] byteArray = stream.toByteArray();
+                Bitmap compressedBitmap = BitmapFactory.decodeByteArray(byteArray,0,byteArray.length);
+
+
+                if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                        == PackageManager.PERMISSION_GRANTED) {
+
+                    String path = MediaStore.Images.Media.insertImage(getApplicationContext().getContentResolver(), bitmap, "Title", null);
+                    Uri myUri = Uri.parse(path);
+
+
+//                final ProgressDialog progressDialog=new ProgressDialog(getApplicationContext());
+                    StorageReference ref = storageReference.child("images/ara/" + kul_mail + "/" + tekilkiralasonuc);
+
+                    ref.putFile(myUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
+                            System.out.println("Firebase dosya basirlya yüklendi");
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            System.out.println("Firebase dosya yüklenmedi = " + e.getCause());
+                        }
+                    }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                            double progress = (100.0 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
+                            //  progressDialog.setMessage("Yüklendi "+(int)progress+"%");
+                            System.out.println("Dosya yükleniyor...");
+                        }
+                    });
+
+
+                    ref = storageReference.child("images/herara/" + herkiralasonuc);
+
+                    ref.putFile(myUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
+                            System.out.println("HER Firebase dosya basirlya yüklendi");
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            System.out.println("HER Firebase dosya yüklenmedi = " + e.getCause());
+
+                        }
+                    }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                            double progress = (100.0 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
+                            //  progressDialog.setMessage("Yüklendi "+(int)progress+"%");
+                            System.out.println("HER Dosya yükleniyor...");
+                        }
+                    });
+
+
+                } else {
+                    ActivityCompat.requestPermissions(OdaAra14.this, new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE}, 2);
+                }
+
+
+
+
+
+             /*   url = new URL("http://vodkamorello.atspace.co.uk/aramaxdegerimage.php?email=" + kul_mail);
                 con = (HttpURLConnection) url.openConnection();
                 con.setRequestMethod("GET");
                 con.connect();
@@ -387,7 +488,7 @@ public class OdaAra14 extends AppCompatActivity {
 
                 } else {
                     ActivityCompat.requestPermissions(OdaAra14.this, new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE}, 2);
-                }
+                }*/
 
             } catch (Exception e) {
                 e.printStackTrace();

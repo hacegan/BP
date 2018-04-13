@@ -52,17 +52,17 @@ import io.realm.RealmViewHolder;
 
 public class goster_tum_kirala extends AppCompatActivity implements  View.OnClickListener,SearchView.OnQueryTextListener{
 
-RecyclerView recyclerView;
-    RecyclerView.LayoutManager layoutManager;
+   static RecyclerView recyclerView;
+  static  RecyclerView.LayoutManager layoutManager;
 
 
 
 
 ArrayList<kirala_pojo> kirala_pojos=new ArrayList<kirala_pojo>();
     static int resultcount=0;
-    ArrayList<String> ilanbaslik = new ArrayList<String>();
-    ArrayList<String> ilanaciklama = new ArrayList<String>();
-    ArrayList<String> ilanid = new ArrayList<String>();
+  static  ArrayList<String> ilanbaslik = new ArrayList<String>();
+  static  ArrayList<String> ilanaciklama = new ArrayList<String>();
+  static  ArrayList<String> ilanid = new ArrayList<String>();
     ListView listView;
     // Search EditText
     EditText inputSearch;
@@ -138,7 +138,7 @@ kiralaListAdapter.setFilter(newList);
         return true;
     }
 
-
+    int sayac;
     public class MyAd extends AsyncTask {
 
 
@@ -149,14 +149,15 @@ kiralaListAdapter.setFilter(newList);
 
         @Override
         protected void onPostExecute(Object o) {
-String[] data=new String[ilanbaslik.size()];
+
+              sayac=0;
 
             for( int i=0;i<ilanbaslik.size();i++){
 
                 final ImageView tempimg=new ImageView(goster_tum_kirala.this);
 
-                final  int sayac=i;
-                storageReference.child("images/herkirala/"+herkiralaarrayliste.get(i)).getBytes(Long.MAX_VALUE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+                 sayac=i;
+                storageReference.child("images/herkirala/"+ilanid.get(sayac)).getBytes(Long.MAX_VALUE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
                     @Override
                     public void onSuccess(byte[] bytes) {
                         System.out.println("Basariilli");
@@ -165,6 +166,8 @@ String[] data=new String[ilanbaslik.size()];
                         drawable=tempimg.getDrawable();
                         drawable.setBounds(0,0,160,160);
                         drawableResourceId=   tempimg.getId();
+
+                        System.out.println("Sayac = "+sayac+"İndirildi");
 
                         kirala_pojos.add(new kirala_pojo(ilanbaslik.get(sayac),ilanaciklama.get(sayac),drawable,ilanid.get(sayac)));
 
@@ -178,6 +181,7 @@ String[] data=new String[ilanbaslik.size()];
                     @Override
                     public void onFailure(@NonNull Exception exception) {
                         System.out.println("Basarisiz");
+                        System.out.println("Sayac = "+sayac+"İndirilmedi");
                     }
                 });
 
@@ -217,6 +221,7 @@ String[] data=new String[ilanbaslik.size()];
 
             }
 
+
 //kiralaListAdapter=new KiralaListAdapter(kirala_pojos,getApplicationContext());
            // recyclerView.setAdapter(kiralaListAdapter);
 
@@ -243,22 +248,26 @@ String[] data=new String[ilanbaslik.size()];
                 //System.out.println(sonuc);
 
                 StringTokenizer token = new StringTokenizer(sonuc, ";");
+                ilanaciklama.clear();
+                ilanid.clear();
+                ilanbaslik.clear();
                 while (token.hasMoreTokens()) {
 
                     String temp=token.nextToken();
 
-                        ilanbaslik.add( temp.substring(temp.indexOf("ilanbaslik:"),temp.indexOf("-",temp.indexOf("ilanbaslik:")) ).replaceAll("ilanbaslik:","").trim() );
-                        ilanaciklama.add( temp.substring(temp.indexOf("ilanaciklama:") ).replaceAll("ilanaciklama:","").trim() );
-ilanid.add(  temp.substring(temp.indexOf("Kirala id:"),temp.indexOf("-",temp.indexOf("Kirala id:")) ).replaceAll("Kirala id:","").trim()  );
+                        ilanbaslik.add( temp.substring(temp.indexOf("ilanbaslik:")+11,temp.indexOf("-",temp.indexOf("ilanbaslik:")) ).trim() );
+                        ilanaciklama.add( temp.substring(temp.indexOf("ilanaciklama:")+11 ).trim() );
+ilanid.add(  temp.substring(temp.indexOf("Kirala id:")+11,temp.indexOf("-",temp.indexOf("Kirala id:")) ).trim() );
                 }
 
-                System.out.println(ilanid);
+              //  System.out.println(ilanid);
 
 
                 con.disconnect();
+                bf.close();
 
 
-                url=new URL("http://vodkamorello.atspace.co.uk/getmaxallkiraimg.php");
+             /*   url=new URL("http://vodkamorello.atspace.co.uk/getmaxallkiraimg.php");
    con= (HttpURLConnection) url.openConnection();
                 con.setRequestMethod("GET");
                 con.connect();
@@ -293,7 +302,7 @@ ilanid.add(  temp.substring(temp.indexOf("Kirala id:"),temp.indexOf("-",temp.ind
                     herkiralaarrayliste.add(Integer.valueOf(temp.trim()));
 
 
-                }
+                }*/
 
 
             }

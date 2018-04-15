@@ -74,6 +74,8 @@ public class Benim_ilanlarim extends Activity implements  View.OnClickListener{
     static ArrayList<Integer> herkiralaarrayliste=new ArrayList<Integer>();
     static ArrayList<Integer> heraraarrayliste=new ArrayList<Integer>();
 
+
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,12 +86,16 @@ public class Benim_ilanlarim extends Activity implements  View.OnClickListener{
 
         benim_ilanlarim_url+="?user_id="+sharedPref.getString("user_id",null);
 
+        System.out.println(benim_ilanlarim_url);
+
         ll= (LinearLayout) findViewById(R.id.benimilantv);
         ll.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         kul_mail =sharedPref.getString("email",null);
 
 
         new MyAd().execute();
+
+
 
     }
 
@@ -301,7 +307,7 @@ tv.setTag("Kirala:"+kiralailanid.get(i));
             }
 
 
-
+            benim_ilanlarim_url="http://vodkamorello.atspace.co.uk/benim_ilanlarim.php";
         }
 
         @Override
@@ -360,7 +366,65 @@ con.disconnect();
                 bf.close();
 
 
-                //Önce kiralamaximg getiricez
+
+
+
+                 url=new URL("http://vodkamorello.atspace.co.uk/GetTekilKiralaGetir.php?user_id="+sharedPref.getString("user_id",null));
+                 con= (HttpURLConnection) url.openConnection();
+                con.setRequestMethod("GET");
+                con.connect();
+
+                 bf=new BufferedReader(new InputStreamReader(con.getInputStream()));
+                sonuc=bf.readLine();
+                System.out.println(sonuc);
+
+                 token = new StringTokenizer(sonuc, ";");
+
+                StringTokenizer ictokenizer;
+
+                int i=0;
+                while(token.hasMoreTokens()){
+
+                   String nxtToken=token.nextToken();
+
+                    ictokenizer=new StringTokenizer(nxtToken,"<br>");
+
+                    if(i==0){//Kirala
+
+while(ictokenizer.hasMoreTokens()){
+
+    String icnxt=ictokenizer.nextToken();
+
+    herkiralaarrayliste.add(Integer.valueOf(icnxt));
+
+
+}
+
+
+
+                        i++;
+
+                    }
+                    else{//Ara
+
+                        while(ictokenizer.hasMoreTokens()){
+                            String icnxt=ictokenizer.nextToken();
+
+                            heraraarrayliste.add(Integer.valueOf(icnxt));
+
+                        }
+
+
+                    }
+
+
+
+
+                }
+
+
+
+             /*   //Önce kiralamaximg getiricez
                 url=new URL("http://vodkamorello.atspace.co.uk/getkiralamaximggetir.php?email="+kul_mail);
                 con= (HttpURLConnection) url.openConnection();
                 con.setRequestMethod("GET");
@@ -439,7 +503,7 @@ kirami_arami=1;
                     //herkiralaarrayliste.add(Integer.valueOf(temp.trim()));
 
 
-                }
+                }*/
 
 
 

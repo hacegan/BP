@@ -2,6 +2,8 @@ package samet.com.bp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +11,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 
 /**
@@ -16,11 +22,19 @@ import java.util.ArrayList;
  */
 
 public class AraListAdapter extends RecyclerView.Adapter<AraListAdapter.MyViewHolder>{
-    Context ctx;
+   static Context ctx;
     ArrayList<ara_pojo> arrayList=new ArrayList<ara_pojo>();
+
+    static int position;
+    static ara_pojo pojo;
+
+    static SharedPreferences sharedPref;
+    static SharedPreferences.Editor editor;
+
+
     AraListAdapter(ArrayList<ara_pojo> arrayList,Context ctx){
         this.arrayList=arrayList;
-        this.ctx=ctx;
+        AraListAdapter.ctx =ctx;
     }
 
 
@@ -68,11 +82,15 @@ public class AraListAdapter extends RecyclerView.Adapter<AraListAdapter.MyViewHo
 
         @Override
         public void onClick(View v) {
-            int position=getAdapterPosition();
-            ara_pojo pojo=this.arapojo.get(position);
-            Intent intent=new Intent(this.ctx,tekilarailangoster.class);
-            intent.putExtra("tekilaraitemid",pojo.getIlanid());
-            this.ctx.startActivity(intent);
+             position=getAdapterPosition();
+             pojo=this.arapojo.get(position);
+
+            sharedPref = ctx.getSharedPreferences("MyPref",0);
+            editor = sharedPref.edit();
+
+            new MyAd().execute();
+
+
         }
     }
 
@@ -83,6 +101,65 @@ public class AraListAdapter extends RecyclerView.Adapter<AraListAdapter.MyViewHo
         notifyDataSetChanged();
     }
 
+
+
+    public static class MyAd extends AsyncTask {
+
+
+        @Override
+        protected Object doInBackground(Object[] params) {
+
+            try{
+
+                URL url=new URL("http://vodkamorello.atspace.co.uk/Arailankimeait.php?ilan_id="+pojo.getIlanid());
+                HttpURLConnection con= (HttpURLConnection) url.openConnection();
+                con.setRequestMethod("GET");
+                con.connect();
+
+                BufferedReader bf=new BufferedReader(new InputStreamReader(con.getInputStream()));
+                String  sonuc=bf.readLine();
+
+
+                if(sonuc.equals(sharedPref.getString("user_id",null))){
+                    Intent intent=new Intent(ctx,Benim_Tekil_Ara_Goster.class);
+                    intent.putExtra("ilan_id",pojo.getIlanid());
+                    ctx.startActivity(intent);
+                }
+
+                else{
+                    Intent intent=new Intent(ctx,tekilarailangoster.class);
+                    intent.putExtra("tekilaraitemid",pojo.getIlanid());
+                    ctx.startActivity(intent);
+                }
+
+
+
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+
+
+
+
+
+
+            return null;
+        }
+
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected void onPostExecute(Object o) {
+
+        }
+
+
+    }
 
 
 }

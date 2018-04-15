@@ -97,7 +97,8 @@ public class goster_tum_ara extends AppCompatActivity implements  View.OnClickLi
         return true;
     }
 
-
+    int sayac;
+    int wtf=0;
     public class MyAd extends AsyncTask {
 
 
@@ -108,16 +109,16 @@ public class goster_tum_ara extends AppCompatActivity implements  View.OnClickLi
 
         @Override
         protected void onPostExecute(Object o) {
-            String[] data=new String[ilanbaslik.size()];
+            sayac=0;
 
             for(int i=0;i<ilanbaslik.size();i++){
 
                 final ImageView tempimg=new ImageView(goster_tum_ara.this);
 
-              final  int sayac=i;
+                sayac=i;
 
 
-                storageReference.child("images/herara/"+heraraarrayliste.get(i)).getBytes(Long.MAX_VALUE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+                storageReference.child("images/herara/"+ilanid.get(sayac)).getBytes(Long.MAX_VALUE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
                     @Override
                     public void onSuccess(byte[] bytes) {
                         System.out.println("Basariilli");
@@ -129,10 +130,10 @@ public class goster_tum_ara extends AppCompatActivity implements  View.OnClickLi
 
 
 
-                        ara_pojos.add(new ara_pojo(ilanbaslik.get(sayac),ilanaciklama.get(sayac),drawable,ilanid.get(sayac)));
+                        ara_pojos.add(new ara_pojo(ilanbaslik.get(wtf),ilanaciklama.get(wtf),drawable,ilanid.get(wtf)));
+                        wtf++;
 
-
-                        if(sayac==ilanbaslik.size()-1){
+                        if(wtf==sayac){
                             araListAdapter=new AraListAdapter(ara_pojos,getApplicationContext());
                             recyclerView.setAdapter(araListAdapter);
                         }
@@ -204,20 +205,29 @@ public class goster_tum_ara extends AppCompatActivity implements  View.OnClickLi
                 String  sonuc=bf.readLine();
                 //System.out.println(sonuc);
 
-                StringTokenizer token = new StringTokenizer(sonuc, ";");
+                if(sonuc.equals("0 results;")){
 
-                ilanaciklama.clear();
-                ilanbaslik.clear();
-                ilanid.clear();
-
-                while (token.hasMoreTokens()) {
-
-                    String temp=token.nextToken();
-
-                    ilanbaslik.add( temp.substring(temp.indexOf("ilanbaslik:"),temp.indexOf("-",temp.indexOf("ilanbaslik:")) ).replaceAll("ilanbaslik:","").trim() );
-                    ilanaciklama.add( temp.substring(temp.indexOf("ilanaciklama:") ).replaceAll("ilanaciklama:","").trim() );
-                    ilanid.add(  temp.substring(temp.indexOf("Ara id:"),temp.indexOf("-",temp.indexOf("Ara id:")) ).replaceAll("Ara id:","").trim()  );
                 }
+                else{
+
+                    StringTokenizer token = new StringTokenizer(sonuc, ";");
+
+                    ilanaciklama.clear();
+                    ilanbaslik.clear();
+                    ilanid.clear();
+
+                    while (token.hasMoreTokens()) {
+
+                        String temp=token.nextToken();
+
+                        ilanbaslik.add( temp.substring(temp.indexOf("ilanbaslik:")+11,temp.indexOf("-",temp.indexOf("ilanbaslik:")) ) );
+                        ilanaciklama.add( temp.substring(temp.indexOf("ilanaciklama:")).trim() );
+                        ilanid.add(  temp.substring(temp.indexOf("Ara id:")+8,temp.indexOf("-",temp.indexOf("Ara id:")) ).trim()  );
+                    }
+
+
+                }
+
 
 
 

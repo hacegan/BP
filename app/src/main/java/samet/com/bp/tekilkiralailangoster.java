@@ -1,6 +1,8 @@
 package samet.com.bp;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -41,17 +43,31 @@ public class tekilkiralailangoster extends Activity {
     static int id;
 
     static String chatown,chatwth;
+
+    static AlertDialog.Builder builder;
+
+   static AlertDialog alert;
+
+ static   Toast toast;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tekilkiralailangoster);
 
 
+if(getIntent().getStringExtra("tekilkiralaitemid")==null ){
+
+    ilanid= getIntent().getStringExtra("ilan_id");
+    id=Integer.valueOf(ilanid.trim());
+}
+else{
+    ilanid= getIntent().getStringExtra("tekilkiralaitemid");
+    id=Integer.valueOf(ilanid.trim());
+}
 
 
 
-        ilanid= getIntent().getStringExtra("tekilkiralaitemid");
-         id=Integer.valueOf(ilanid.trim());
+
 
         ilan_url+="?ilan_id="+id;
         System.out.println("İlan URL:"+ilan_url);
@@ -159,7 +175,11 @@ i++;
 
         @Override
         protected void onPreExecute() {
-            super.onPreExecute();
+            toast=    Toast.makeText(getApplicationContext(),"İlan Basariyla Kaydedildi",Toast.LENGTH_SHORT);
+super.onPreExecute();
+
+
+
         }
 
         @Override
@@ -188,6 +208,11 @@ i++;
                  System.out.println(sonuc);
 
                 con.disconnect();
+toast.show();
+
+
+
+                //alert.show();
 
 
             }

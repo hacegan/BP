@@ -1,6 +1,8 @@
 package samet.com.bp;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -38,6 +40,9 @@ public class tekilarailangoster extends Activity{
     Button mesajbtn,kaydetbtn;
     static String chatown,chatwth;
     static int id;
+
+
+    static   Toast toast;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,13 +53,24 @@ public class tekilarailangoster extends Activity{
 
 
 
-         ilanid= getIntent().getStringExtra("tekilaraitemid");
-        StringTokenizer stringTokenizer=new StringTokenizer("ilanid",":");
 
-      //  int id=0;
+        if( getIntent().getStringExtra("tekilaraitemid")==null            ){
 
-                //id=Integer.valueOf(stringTokenizer.nextToken().trim());
-           id=Integer.valueOf(ilanid.replaceAll("Ara id: ","").trim());
+            ilanid= getIntent().getStringExtra("ilan_id");
+            id=Integer.valueOf(ilanid.trim());
+
+        }
+        else{
+
+
+            ilanid= getIntent().getStringExtra("tekilaraitemid");
+            StringTokenizer stringTokenizer=new StringTokenizer("ilanid",":");
+
+            //  int id=0;
+
+            //id=Integer.valueOf(stringTokenizer.nextToken().trim());
+            id=Integer.valueOf(ilanid.replaceAll("Ara id: ","").trim());
+        }
 
 
 
@@ -154,6 +170,7 @@ new Kaydet().execute();
 
         @Override
         protected void onPreExecute() {
+            toast=    Toast.makeText(getApplicationContext(),"İlan Basariyla Kaydedildi",Toast.LENGTH_SHORT);
             super.onPreExecute();
         }
 
@@ -183,6 +200,8 @@ new Kaydet().execute();
                  System.out.println(sonuc);
 
                 con.disconnect();
+
+   toast.show();
 
 
             }

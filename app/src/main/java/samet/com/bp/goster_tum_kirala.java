@@ -33,8 +33,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
@@ -139,6 +141,7 @@ kiralaListAdapter.setFilter(newList);
     }
 
     int sayac;
+     int wtf=0;
     public class MyAd extends AsyncTask {
 
 
@@ -157,7 +160,14 @@ kiralaListAdapter.setFilter(newList);
                 final ImageView tempimg=new ImageView(goster_tum_kirala.this);
 
                  sayac=i;
-                storageReference.child("images/herkirala/"+ilanid.get(sayac)).getBytes(Long.MAX_VALUE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+
+
+
+
+
+
+
+               storageReference.child("images/herkirala/"+ilanid.get(sayac)).getBytes(Long.MAX_VALUE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
                     @Override
                     public void onSuccess(byte[] bytes) {
                         System.out.println("Basariilli");
@@ -165,16 +175,24 @@ kiralaListAdapter.setFilter(newList);
                         tempimg.setImageBitmap(bmp);
                         drawable=tempimg.getDrawable();
                         drawable.setBounds(0,0,160,160);
-                        drawableResourceId=   tempimg.getId();
-
+                        drawableResourceId=tempimg.getId();
                         System.out.println("Sayac = "+sayac+"İndirildi");
 
-                        kirala_pojos.add(new kirala_pojo(ilanbaslik.get(sayac),ilanaciklama.get(sayac),drawable,ilanid.get(sayac)));
+                        kirala_pojos.add(new kirala_pojo(ilanbaslik.get(wtf),ilanaciklama.get(wtf),drawable,ilanid.get(wtf)));
+                        wtf++;
 
-                        if(sayac==ilanbaslik.size()-1){
+if(wtf==sayac){
+    kiralaListAdapter=new KiralaListAdapter(kirala_pojos,getApplicationContext());
+    recyclerView.setAdapter(kiralaListAdapter);
+}
+
+
+                    /*    if(sayac==ilanbaslik.size()-1){
                             kiralaListAdapter=new KiralaListAdapter(kirala_pojos,getApplicationContext());
                             recyclerView.setAdapter(kiralaListAdapter);
-                        }
+                        }*/
+
+
 
                     }
                 }).addOnFailureListener(new OnFailureListener() {
@@ -184,6 +202,10 @@ kiralaListAdapter.setFilter(newList);
                         System.out.println("Sayac = "+sayac+"İndirilmedi");
                     }
                 });
+
+
+
+
 
 
 
@@ -247,18 +269,25 @@ kiralaListAdapter.setFilter(newList);
               String  sonuc=bf.readLine();
                 //System.out.println(sonuc);
 
-                StringTokenizer token = new StringTokenizer(sonuc, ";");
-                ilanaciklama.clear();
-                ilanid.clear();
-                ilanbaslik.clear();
-                while (token.hasMoreTokens()) {
+                if(sonuc.equals("0 results;")){
 
-                    String temp=token.nextToken();
-
-                        ilanbaslik.add( temp.substring(temp.indexOf("ilanbaslik:")+11,temp.indexOf("-",temp.indexOf("ilanbaslik:")) ).trim() );
-                        ilanaciklama.add( temp.substring(temp.indexOf("ilanaciklama:")+11 ).trim() );
-ilanid.add(  temp.substring(temp.indexOf("Kirala id:")+11,temp.indexOf("-",temp.indexOf("Kirala id:")) ).trim() );
                 }
+                else{
+                    StringTokenizer token = new StringTokenizer(sonuc, ";");
+                    ilanaciklama.clear();
+                    ilanid.clear();
+                    ilanbaslik.clear();
+                    while (token.hasMoreTokens()) {
+
+                        String temp=token.nextToken();
+
+                        ilanbaslik.add( temp.substring(temp.indexOf("ilanbaslik:")+11,temp.indexOf("-",temp.indexOf("ilanbaslik:")) ) );
+                        ilanaciklama.add( temp.substring(temp.indexOf("ilanaciklama:") ).trim() );
+                        ilanid.add(  temp.substring(temp.indexOf("Kirala id:")+11,temp.indexOf("-",temp.indexOf("Kirala id:")) ).trim() );
+                    }
+                }
+
+
 
               //  System.out.println(ilanid);
 

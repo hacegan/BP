@@ -39,7 +39,7 @@ public class Benim_Tekil_Ara_Goster  extends AppCompatActivity{
     SharedPreferences.Editor editor;
     TextView textView;
     ImageView imageView;
-    String odaara1bay,odaara3yas,odaara4meslek,odaara5evet,odaara6evet,odaara10butce,odaara11tarih,odaara12sure,odaara13numara,odaara14baslik,odaara14aciklama;
+  public static  String odaara1bay,odaara3yas,odaara4meslek,odaara5evet,odaara6evet,odaara10butce,odaara11tarih,odaara12sure,odaara13numara,odaara14baslik,odaara14aciklama;
 
     static String ilanid;
     static     int il_id;

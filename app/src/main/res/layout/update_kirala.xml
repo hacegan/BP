@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:orientation="horizontal"
+
+        >
+
+
+        <Button
+            android:id="@+id/degkaydet"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Değişiklikleri Kaydet"
+            android:enabled="false"
+            />
+
+
+
+    </LinearLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="492dp"
+        android:layout_weight="1.09"
+        android:layout_marginTop="35dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <EditText
+                android:id="@+id/Tkirala_yayin_mulktur"
+                style="?android:attr/listSeparatorTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mülk Türü"
+                android:textSize="12sp"
+
+                />
+
+            <EditText
+                android:id="@+id/Tkirala_yayin_ilanverentur"
+                style="?android:attr/listSeparatorTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="İlan Veren Türü"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/Tkirala_yayin_adres"
+                style="?android:attr/listSeparatorTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Adres"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/Tkirala_yayin_resim"
+                android:layout_width="match_parent"
+                android:layout_height="400px"
+                app:srcCompat="@color/common_google_signin_btn_text_light_disabled" />
+
+            <EditText
+                android:id="@+id/Tkirala_yayin_m2"
+                style="?android:attr/listSeparatorTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Kaç M^2"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/Tkirala_yayin_odasayi"
+                style="?android:attr/listSeparatorTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Oda Sayisi"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/Tkirala_yayin_bkat"
+                style="?android:attr/listSeparatorTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bulunduğu Kat"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/Tkirala_yayin_katsayi"
+                style="?android:attr/listSeparatorTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Kat Sayısı"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/Tkirala_yayin_esyalimi"
+                style="?android:attr/listSeparatorTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Eşyalı mı"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/Tkirala_yayin_aidat"
+                style="?android:attr/listSeparatorTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Aidat"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/Tkirala_yayin_kira"
+                style="?android:attr/listSeparatorTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Kira Ücreti"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/Tkirala_yayin_odauyguntarih"
+                style="?android:attr/listSeparatorTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Oda Uygun Olma Tarihi"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/Tkirala_yayin_erkeksayi"
+                style="?android:attr/listSeparatorTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Erkek Sayısı"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/Tkirala_yayin_kizsayi"
+                style="?android:attr/listSeparatorTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Kız Sayısı"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/Tkirala_yayin_evcilvarmi"
+                style="?android:attr/listSeparatorTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Evcil Hayvan var mı ?"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/Tkirala_yayin_sigaravarmi"
+                style="?android:attr/listSeparatorTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sigara içen var mı ?"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/Tkirala_yayin_kimlelive"
+                style="?android:attr/listSeparatorTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Kimlerle Beraber Yaşamaktan mutlu olursunuz ?"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/Tkirala_yayin_hangiyas"
+                style="?android:attr/listSeparatorTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hangi Yaş Aralığındaki Kişilerle Yaşamak İstersiniz ?"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/Tkirala_yayin_no"
+                style="?android:attr/listSeparatorTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Telefon Numaranız"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/Tkirala_yayin_baslik"
+                style="?android:attr/listSeparatorTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="İlan Başlığı"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/Tkirala_yayin_aciklama"
+                style="?android:attr/listSeparatorTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="İlan Açıklaması"
+                android:textSize="12sp" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

@@ -40,7 +40,7 @@ public class Benim_Tekil_Kira_Goster extends AppCompatActivity {
 
     TextView textView;
     ImageView imageView;
-    static String kirala1mulktur,kirala2ilanveren,kirala3adres,kirala7m2,kirala7oda,kirala7kat,kirala7bkat,kirala7aidat,kirala7kira,kirala7esya,kirala8tarih,kirala9kizsayi
+   public static String kirala1mulktur,kirala2ilanveren,kirala3adres,kirala7m2,kirala7oda,kirala7kat,kirala7bkat,kirala7aidat,kirala7kira,kirala7esya,kirala8tarih,kirala9kizsayi
             ,kirala9erkeksayi,kirala10var,kirala11evet,kirala13yas,kirala14numara,kirala15baslik,kirala15aciklama;
 
     Button silbtn,editbtn;
@@ -152,6 +152,26 @@ new SilAd().execute();
     }
 
 
+    public class UpdateAd extends  AsyncTask{
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected void onPostExecute(Object o) {
+            super.onPostExecute(o);
+        }
+
+        @Override
+        protected Object doInBackground(Object[] params) {
+            return null;
+        }
+    }
+
+
+
     public class SilAd extends  AsyncTask{
 
 
@@ -260,6 +280,10 @@ i++;
 
 
     }
+
+
+
+
 
 
     public class MyAd extends AsyncTask {
